@@ -21,10 +21,15 @@ public class CreatePropertyPage extends BasicWrap {
 	String password = "Ciencuadras21*";
 	
 	public void login() throws InterruptedException {
-		Thread.sleep(6000);
-		click(locator_into);
-		type(username, locator_into);
-		type(password, locator_password);
-		click(locator_login);
+		try {
+			Thread.sleep(6000);
+			click(locator_into);
+			click(locator_username);
+			type(username, locator_into);
+			type(password, locator_password);
+			click(locator_login);
+		} catch (Exception e) {
+			System.out.println("error: " + e);
+		}
 	}
 }
