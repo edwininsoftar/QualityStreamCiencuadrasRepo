@@ -13,7 +13,7 @@ public class CreatePropertyPage extends BasicWrap {
 	}
 	
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_username = By.cssSelector("input[formcontrolname=\"username\"]");
+	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
 	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
 	
@@ -24,7 +24,6 @@ public class CreatePropertyPage extends BasicWrap {
 		try {
 			Thread.sleep(6000);
 			click(locator_into);
-			click(locator_username);
 			type(username, locator_into);
 			type(password, locator_password);
 			click(locator_login);
