@@ -27,13 +27,13 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
 	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[4]/form/button/span");
+	By locator_ButtonRegister = By.cssSelector("span[class=ng-star-inserted]");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div.rc-anchor-content");
 
 	
 	String roll = "Constructora"; // Persona, Agente, Inmobiliaria, Constructora
-	String typeDocument = "CC";// NIT, CC
+	String typeDocument = "NIT";// NIT, CC
 	String name = "Juan Fernando Perez";// Nombre o razon social
 	String email = "pruebaciencuadras1@yopmail.com";
 	String password = "@Password13";// contraseña y confirmación de contraseña
@@ -61,11 +61,11 @@ public class RegisterPage extends BasicWrap {
 						click(locator_typeDocument);
 						click(locator_typeDocumentNit);
 					}
+					type(identification,locator_identification);
 				}
 				if (typeDocument.equals("NIT")) {
 					type(DV, locator_Dv);
 				}
-				type(identification,locator_identification);
 				type(name, locator_name);
 				type(email, locator_email);
 				type(password, locator_password);
@@ -95,7 +95,7 @@ public class RegisterPage extends BasicWrap {
 		} catch (Exception e) {
 			System.out.println("Error" + e);
 		} finally {
-			System.out.println("Fin validaciones Roll Persona");
+			System.out.println("Fin validaciones Roles");
 		}
 	}
 
