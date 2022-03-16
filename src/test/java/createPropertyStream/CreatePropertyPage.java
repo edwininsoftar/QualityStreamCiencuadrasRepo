@@ -1,5 +1,6 @@
 package createPropertyStream;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -60,8 +61,9 @@ public class CreatePropertyPage extends BasicWrap {
     By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
     By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
     By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
-    By locator_continuetow = By.xpath("//*[@id=\"secondStepButtons\"]/div/button[2]");
- 
+    By locator_img = By.id("ngx-input-file-0");
+    By locator_continueTow = By.cssSelector("div[class=\"pass-buttons mobile second-step-buttons\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
+    
 	String username = "juanlag4545@yopmail.com";
 	String password = "Ciencuadras21*";
 	String popstType = "Tu";//Tu, Inmobiliaria
@@ -184,18 +186,31 @@ public class CreatePropertyPage extends BasicWrap {
 			if(contactMe.equals("Llamada")){
 				click(locator_contactMeCall);
 			}
-			
-			/*WebElement sourceClic = driver.findElement(locator_continue);
-			Actions actionClic = new Actions(driver);
-			actionClic.moveToElement(sourceClic).build().perform();*/
-			//actionClic.moveToElement(sourceClic).moveToElement(sourceClic).pause(2000).click().build().perform();
-			
-			
-			/*click(locator_continuetow);*/
 			Thread.sleep(5000);
 			click(locator_continue);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void load() {
+		try {
+			File file1 = new File("./src/test/resources/img/portada.png");
+			File file2 = new File("./src/test/resources/img/arriendo.png");
+			File file3 = new File("./src/test/resources/img/Screenshot.png");
+			String phat1 = file1.getAbsolutePath();
+			String phat2 = file2.getAbsolutePath();
+			String phat3 = file3.getAbsolutePath();
+			
+			driver.findElement(locator_img).sendKeys(phat1);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat2);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat3);
+			Thread.sleep(5000);
+			click(locator_continueTow);
+		} catch (Exception e) {
+			System.out.println("error: "+e);
 		}
 	}
 }

@@ -26,6 +26,7 @@ public class CreateProperty_Test {
 	public void test() throws InterruptedException {
 		createPropertyPage.buys();
 		createPropertyPage.purchaseForm();
+		createPropertyPage.load();
 	}
 
 }
