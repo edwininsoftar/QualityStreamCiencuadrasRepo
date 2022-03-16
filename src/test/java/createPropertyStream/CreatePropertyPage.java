@@ -1,7 +1,15 @@
 package createPropertyStream;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import Base.BasicWrap;
 
 public class CreatePropertyPage extends BasicWrap {
@@ -23,13 +31,12 @@ public class CreatePropertyPage extends BasicWrap {
 	By locator_free = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");	
 	By locator_standard = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
     By locator_premium = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[3]/div/button");
-	By locator_propertyType = By.xpath("//*[@id=\"propertyTypeId\"]/div/div[1]");
-	By locator_house = By.xpath("//*[@id=\"mat-option-4\"]/span");
-	By locator_local = By.xpath("//*[@id=\"mat-option-13\"]/span");
+	By locator_propertyType = By.xpath("//*[@id=\"propertyTypeId\"]/div/div[1]");	
 	By locator_rent = By.xpath("//*[@id=\"mat-button-toggle-22-button\"]/div/span");
 	By locator_sale = By.xpath("//*[@id=\"mat-button-toggle-51-button\"]/div/span");
 	By locator_value = By.xpath("//*[@id=\"leasingFee\"]");
-	By locator_management = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[1]");
+	By locator_managementNo = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[1]");
+	By locator_managementSi = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[2]");
 	By locator_managementValue = By.xpath("//*[@id=\"administrationValue\"]");
 	By locator_saleValue = By.xpath("//*[@id=\"sellingPrice\"]");
 	By locator_yearsOfAntiguaty = By.xpath("//*[@id=\"antiquity\"]");
@@ -41,10 +48,10 @@ public class CreatePropertyPage extends BasicWrap {
 	By locator_stratumFive = By.xpath("//*[@id=\"mat-button-toggle-8-button\"]/div");
 	By locator_stratumSix = By.xpath("//*[@id=\"mat-button-toggle-9-button\"]/div");
 	By locator_squareMeter = By.xpath("//*[@id=\"builtArea\"]");
-	By locator_room = By.xpath("//*[@id=\"form_elem\"]");
-	By locator_NToilets = By.xpath("//*[@id=\"form_elem\"]");
-	By locator_NParking = By.xpath("//*[@id=\"form_elem\"]");
-    By locator_city = By.xpath("//*[@id=\"ciudad\"]");
+	By locator_room = By.name("numBedRooms");
+	By locator_NToilets = By.name("numBathrooms");
+	By locator_NParking = By.name("numParking");
+    By locator_city = By.name("ciudad");
     By locator_neighborhood = By.xpath("//*[@id=\"barrio\"]");
     By locator_direction = By.xpath("//*[@id=\"address\"]");
     By locator_addaddress = By.xpath("//*[@id=\"addressComplement\"]");
@@ -52,13 +59,15 @@ public class CreatePropertyPage extends BasicWrap {
     By locator_NWhatsapp = By.xpath("//*[@id=\"cellphone\"]");
     By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
     By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
-	
+    By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
+    By locator_continuetow = By.xpath("//*[@id=\"secondStepButtons\"]/div/button[2]");
+ 
 	String username = "juanlag4545@yopmail.com";
 	String password = "Ciencuadras21*";
 	String popstType = "Tu";//Tu, Inmobiliaria
-	String planType = "Gratis"; //Gratis,Estandar,Premium
-	String propertyType = "Apartamento"; // Apartamento, Casa, Local
-	String transactionType = "Arriendo";// Arriendo, Venta
+	String planType = "Gratis"; //Gratis,Estandar
+	String propertyType = "Apartamento"; // Apartamento
+	String transactionType = "Arriendo";// Arriendo
 	String value = "800000";//ingrese el valor renta del inmueble
 	String management = "No"; //ingrese si incluye administración - No,Si
 	String managementValue = "100000"; //Valor obligatorio si management = No
@@ -67,9 +76,9 @@ public class CreatePropertyPage extends BasicWrap {
 	String propertyDescription = "Closed cosina integral zona de labado";//ingrese descripción del inmueble
 	String stratum = "3";//ingrese el estarto de 1 a 6
 	String squareMeter = "52"; // Ingrese los metros cuadrados del inmueble
-	String room = "3";//ingrese el numero de abitaciones
+	String room = "3 ";//ingrese el numero de abitaciones
 	String Ntoilets = "2"; // Ingrese el numero de baños del inmueble
-	String NParking = "1"; // Ingrese numero de parqueaderos
+	String NParking = "2"; // Ingrese numero de parqueaderos
 	String city = "Bogotá (Cundinamarca)"; // Ingrese la ciudad del inmueble
 	String neighborhood = "Prado Veraniego Norte - Suba - Bogotá  (Cundinamarca)"; // Ingrese el barrio del inmueble
 	String direction = "Calle 128C Bis # 52-53"; // Ingrese la dirección del inmueble
@@ -77,7 +86,7 @@ public class CreatePropertyPage extends BasicWrap {
 	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
 	String contactMe = "Whatsapp"; // Whatsapp, Llamada
 	
-	public void login() throws InterruptedException {
+	public void buys() throws InterruptedException {
 		try {
 			Thread.sleep(6000);
 			click(locator_into);
@@ -102,26 +111,28 @@ public class CreatePropertyPage extends BasicWrap {
 			}else {
 				click(locator_postRealEstate);
 			}
-			if(propertyType.equals("Casa")) {
-				click(locator_propertyType);
-				click(locator_house);
-			}
-			if(propertyType.equals("Local")) {
-				click(locator_propertyType);
-				click(locator_local);
-			}
+			
+		} catch (Exception e) {
+			System.out.println("error: " + e);
+		}
+	}
+	
+	public void purchaseForm() throws InterruptedException {
+		try {
 			if(transactionType.equals("Arriendo")) {
 				type(value, locator_value);
 				if(management.equals("Si")) {
-					click(locator_management);
+					Actions action = new Actions(driver);
+					WebElement source = driver.findElement(locator_managementNo);
+					WebElement target = driver.findElement(locator_managementSi);
+					action.dragAndDrop(source, target);
+					action.dragAndDropBy(source, 0, 0);
+					action.moveToElement(source).moveToElement(target).perform();
+					action.release();
 				}
 				if(management.equals("No")){
 					type(managementValue, locator_managementValue);
 				}
-			}
-			if(transactionType.equals("Venta")){
-				type(saleValue, locator_saleValue);
-				type(managementValue, locator_managementValue);
 			}
 			type(yearsOfAntiguaty, locator_yearsOfAntiguaty);
 
@@ -146,12 +157,22 @@ public class CreatePropertyPage extends BasicWrap {
 				click(locator_stratumSix);
 			}
 			type(squareMeter, locator_squareMeter);
+			WebElement roomClear = driver.findElement(locator_room);
+			roomClear.clear();
 			type(room, locator_room);
+			WebElement toiletsClear = driver.findElement(locator_NToilets);
+			toiletsClear.clear();
 			type(Ntoilets, locator_NToilets);
+			WebElement parkingClear = driver.findElement(locator_NParking);
+			parkingClear.clear();
 			type(NParking, locator_NParking);
+			WebElement citytab = driver.findElement(locator_city);
+			citytab.sendKeys(Keys.TAB);
 			type(city, locator_city);
 			Thread.sleep(3000);
 			type(neighborhood, locator_neighborhood);
+			WebElement neighborhoodTab = driver.findElement(locator_neighborhood);
+			neighborhoodTab.sendKeys(Keys.TAB);
 			Thread.sleep(3000);
 			type(direction, locator_direction);
 			type(addaddress, locator_addaddress);
@@ -163,8 +184,18 @@ public class CreatePropertyPage extends BasicWrap {
 			if(contactMe.equals("Llamada")){
 				click(locator_contactMeCall);
 			}
+			
+			/*WebElement sourceClic = driver.findElement(locator_continue);
+			Actions actionClic = new Actions(driver);
+			actionClic.moveToElement(sourceClic).build().perform();*/
+			//actionClic.moveToElement(sourceClic).moveToElement(sourceClic).pause(2000).click().build().perform();
+			
+			
+			/*click(locator_continuetow);*/
+			Thread.sleep(5000);
+			click(locator_continue);
 		} catch (Exception e) {
-			System.out.println("error: " + e);
+			System.out.println("Error: "+e);
 		}
 	}
 }
