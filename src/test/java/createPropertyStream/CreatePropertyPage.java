@@ -2,13 +2,16 @@ package createPropertyStream;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Base.BasicWrap;
@@ -62,7 +65,9 @@ public class CreatePropertyPage extends BasicWrap {
     By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
     By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
     By locator_img = By.id("ngx-input-file-0");
-    By locator_continueTow = By.cssSelector("div[class=\"pass-buttons mobile second-step-buttons\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
+    By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
+    By locator_topay = By.xpath("//*[@id=\"details-button\"]");
+    By locator_topay2 = By.cssSelector("app-payment-data[_ngcontent-pgu-c0][_nghost-pgu-c6][ng-reflect-data-pay=\"[object Object]\"][ng-reflect-car-detail=\"[object Object]\"][ng-reflect-user-id=\"45673839\"][ng-reflect-gateway-code=\"[object Object]\"][ng-reflect-token-external=\"40HobcfBzO73DqfaXuB2\"][ng-reflect-is-unregistered-user=\"false\"][ng-reflect-products=\"[object Object]\"][ng-reflect-pay-methods][ng-reflect-portal-name=\"Ciencuadras\"][ng-reflect-iva-summatory=\"0\"][ng-reflect-customization=\"[object Object]\"][class=\"ng-star-inserted\"]>div[id=\"payment-data\"]>div[class=\"action\"]>div[class=\"btn_enlace\"]>button[class=\"btn-secondary block ng-star-inserted\"]");
     
 	String username = "juanlag4545@yopmail.com";
 	String password = "Ciencuadras21*";
@@ -193,7 +198,7 @@ public class CreatePropertyPage extends BasicWrap {
 		}
 	}
 	
-	public void load() {
+	public void load() throws InterruptedException {
 		try {
 			File file1 = new File("./src/test/resources/img/portada.png");
 			File file2 = new File("./src/test/resources/img/arriendo.png");
@@ -212,5 +217,16 @@ public class CreatePropertyPage extends BasicWrap {
 		} catch (Exception e) {
 			System.out.println("error: "+e);
 		}
+	}
+	public void topay() throws InterruptedException {
+		try {
+			Thread.sleep(5000);
+			WebElement btn = driver.findElement(locator_topay2);
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click();", btn);
+		} catch (Exception e) {
+			System.out.println("error: "+ e);
+		}
+
 	}
 }

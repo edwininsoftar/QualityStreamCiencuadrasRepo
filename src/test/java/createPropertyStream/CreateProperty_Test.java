@@ -27,6 +27,7 @@ public class CreateProperty_Test {
 		createPropertyPage.buys();
 		createPropertyPage.purchaseForm();
 		createPropertyPage.load();
+		createPropertyPage.topay();
 	}
 
 }
