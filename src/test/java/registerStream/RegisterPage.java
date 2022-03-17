@@ -27,13 +27,13 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
 	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.cssSelector("span[class=ng-star-inserted]");
+	By locator_ButtonRegister = By.cssSelector("button[class=\"register__register-btn\"]>span[class=\"ng-star-inserted\"]");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div.rc-anchor-content");
 
 	
-	String roll = "Constructora"; // Persona, Agente, Inmobiliaria, Constructora
-	String typeDocument = "NIT";// NIT, CC
+	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora
+	String typeDocument = "CC";// NIT, CC
 	String name = "Juan Fernando Perez";// Nombre o razon social
 	String email = "pruebaciencuadras1@yopmail.com";
 	String password = "@Password13";// contraseña y confirmación de contraseña
@@ -84,9 +84,7 @@ public class RegisterPage extends BasicWrap {
 				type(password, locator_password);
 				type(password, locator_confirmPass);
 			}
-			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
-			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
-			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
+			Thread.sleep(5000);
 			click(locator_ButtonRegister);
 		} catch (NoSuchElementException e) {
 			System.out.println("No se encuentra el elemento: " + e);
