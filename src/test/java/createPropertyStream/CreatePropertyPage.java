@@ -1,19 +1,11 @@
 package createPropertyStream;
 
 import java.io.File;
-import java.time.Duration;
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import Base.BasicWrap;
 
 public class CreatePropertyPage extends BasicWrap {
@@ -63,7 +55,7 @@ public class CreatePropertyPage extends BasicWrap {
     By locator_NWhatsapp = By.xpath("//*[@id=\"cellphone\"]");
     By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
     By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
-    By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
+    By locator_continue = By.cssSelector("div[class=\"pass-bu ttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
     By locator_img = By.id("ngx-input-file-0");
     By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
     By locator_topay = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
