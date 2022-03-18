@@ -1,8 +1,15 @@
 package registerStream;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
@@ -22,12 +29,12 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
 	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.cssSelector("button[class=\"register__register-btn\"]>span[class=\"ng-star-inserted\"]");
+	By locator_ButtonRegister = By.cssSelector("span[class=\"ng-star-inserted\"]");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div.rc-anchor-content");
 
 	
-	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora
+	String roll = "Agente"; // Persona, Agente, Inmobiliaria, Constructora
 	String typeDocument = "CC";// NIT, CC
 	String name = "Juan Fernando Perez";// Nombre o razon social
 	String email = "pruebaciencuadras1@yopmail.com";
@@ -61,9 +68,13 @@ public class RegisterPage extends BasicWrap {
 				if (typeDocument.equals("NIT")) {
 					type(DV, locator_Dv);
 				}
-				type(name, locator_name);
+				type(name, locator_name);	
 				type(email, locator_email);
+				WebElement emailTab = driver.findElement(locator_email);
+				emailTab.sendKeys(Keys.TAB);
 				type(password, locator_password);
+				WebElement passwordTab = driver.findElement(locator_password);
+				passwordTab.sendKeys(Keys.TAB);
 				type(password, locator_confirmPass);
 			}
 			if (roll.equals("Inmobiliaria") || roll.equals("Constructora")) {
@@ -76,9 +87,16 @@ public class RegisterPage extends BasicWrap {
 				type(identification, locator_identification);
 				type(DV, locator_Dv);
 				type(email, locator_email);
+				WebElement emailTab = driver.findElement(locator_email);
+				emailTab.sendKeys(Keys.TAB);	
 				type(password, locator_password);
-				type(password, locator_confirmPass);
+				WebElement passwordTab = driver.findElement(locator_password);
+				passwordTab.sendKeys(Keys.TAB);
+				type(password,locator_confirmPass);
 			}
+			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
+			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
 			Thread.sleep(5000);
 			click(locator_ButtonRegister);
 		} catch (NoSuchElementException e) {
@@ -88,7 +106,7 @@ public class RegisterPage extends BasicWrap {
 		} catch (Exception e) {
 			System.out.println("Error" + e);
 		} finally {
-			System.out.println("Fin validaciones Roles");
+			System.out.println("Fin validaciones Roll Persona");
 		}
 	}
 
