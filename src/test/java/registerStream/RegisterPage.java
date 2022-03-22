@@ -28,8 +28,9 @@ public class RegisterPage extends BasicWrap {
 	By locator_identification = By.cssSelector("input[formcontrolname=\"identification\"]");
 	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
 	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
+	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.cssSelector("span[class=\"ng-star-inserted\"]");
+	By locator_ButtonRegister = By.cssSelector("button[class=\"register__register-btn\"]>span[class=\"ng-star-inserted\"]");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div.rc-anchor-content");
 
@@ -59,6 +60,10 @@ public class RegisterPage extends BasicWrap {
 					click(locator_persona);
 				} else {
 					click(locator_agente);
+					if(typeDocument.equals("CC")) {
+						click(locator_typeDocument);
+						click(locator_typeDocumentCC);
+					}
 					if(typeDocument.equals("NIT")) {
 						click(locator_typeDocument);
 						click(locator_typeDocumentNit);
@@ -97,7 +102,7 @@ public class RegisterPage extends BasicWrap {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			click(locator_ButtonRegister);
 		} catch (NoSuchElementException e) {
 			System.out.println("No se encuentra el elemento: " + e);
