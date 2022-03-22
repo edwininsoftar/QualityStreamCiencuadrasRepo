@@ -108,7 +108,7 @@ public class RegisterPage extends BasicWrap {
 		} catch (Exception e) {
 			System.out.println("Error" + e);
 		} finally {
-			System.out.println("Fin validaciones Roll Persona");
+			System.out.println("Fin validaciones Roll Persona"); 
 		}
 	}
 
