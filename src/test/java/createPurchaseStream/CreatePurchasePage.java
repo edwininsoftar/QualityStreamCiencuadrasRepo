@@ -1,4 +1,4 @@
-package createPropertyStream;
+package createPurchaseStream;
 
 import java.io.File;
 import org.openqa.selenium.By;
@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import Base.BasicWrap;
 
-public class CreatePropertyPage extends BasicWrap {
+public class CreatePurchasePage extends BasicWrap {
 
-	public CreatePropertyPage(WebDriver driver) {
+	public CreatePurchasePage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
