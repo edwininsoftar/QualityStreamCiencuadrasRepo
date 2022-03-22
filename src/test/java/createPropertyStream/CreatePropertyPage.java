@@ -104,8 +104,6 @@ public class CreatePropertyPage extends BasicWrap {
 				}
 				if(planType.equals("Estandar")) {
 					click(locator_standard);
-				}else {
-					//click(locator_premium);
 				}
 			}else {
 				click(locator_postRealEstate);
@@ -183,7 +181,7 @@ public class CreatePropertyPage extends BasicWrap {
 			if(contactMe.equals("Llamada")){
 				click(locator_contactMeCall);
 			}
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			click(locator_continue);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
