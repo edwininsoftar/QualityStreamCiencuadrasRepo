@@ -5,15 +5,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class createPurchase_Test {
+public class createPurchasePersona_Test {
 	
 
 	private WebDriver driver;
-	CreatePurchasePage createPropertyPage;
+	CreatePurchasePagePersona createPropertyPage;
 
 	@Before
 	public void setUp() throws Exception {
-		createPropertyPage = new CreatePurchasePage(driver);
+		createPropertyPage = new CreatePurchasePagePersona(driver);
 		driver = createPropertyPage.chromeDriverConnection();
 		createPropertyPage.visit("https://dev.ciencuadras.com/");
 	}

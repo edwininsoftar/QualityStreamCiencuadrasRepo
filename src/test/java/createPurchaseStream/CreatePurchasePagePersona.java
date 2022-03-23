@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import Base.BasicWrap;
 
-public class CreatePurchasePage extends BasicWrap {
+public class CreatePurchasePagePersona extends BasicWrap {
 
-	public CreatePurchasePage(WebDriver driver) {
+	public CreatePurchasePagePersona(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
