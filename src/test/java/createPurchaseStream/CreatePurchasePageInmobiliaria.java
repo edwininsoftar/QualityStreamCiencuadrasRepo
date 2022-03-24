@@ -2,9 +2,6 @@ package createPurchaseStream;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import Base.BasicWrap;
 
 public class CreatePurchasePageInmobiliaria extends BasicWrap{
@@ -46,7 +43,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 					click(locator_monthsS);			
 				}
 			}
-			if(plan.equals("QuieroArmarlo")) {
+			if(planType.equals("QuieroArmarlo")) {
 					click(locator_toAssemble);
 					click(locator_months3);
 				}
