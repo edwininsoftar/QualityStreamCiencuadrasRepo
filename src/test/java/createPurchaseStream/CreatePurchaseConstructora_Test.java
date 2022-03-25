@@ -27,6 +27,7 @@ public class CreatePurchaseConstructora_Test {
 		createPurchasePageConstructora.buys();
 		createPurchasePageConstructora.paymentSelection();
 		createPurchasePageConstructora.finalPaymentForm();
+		createPurchasePageConstructora.payFinish();
 	}
 
 }
