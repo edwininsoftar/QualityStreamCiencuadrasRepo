@@ -1,15 +1,10 @@
 package createPurchaseStream;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.ClickAction;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.support.ui.Select;
 import Base.BasicWrap;
 
 public class CreatePurchasePageConstructora extends BasicWrap {
@@ -69,16 +64,26 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_clic = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/mat-form-field[12]/div/div[1]/div[3]");
 	By locator_ICAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
 	By locator_IVAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
-	By locator_butonPay = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]/span");
+	By locator_buttonPayTow = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]/span");
 	//Pago y descuento ciencuadras 
-	By locator_bond = By.name("coupon");
+	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
+	//Datos de pago cliente
+	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
+	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
+	By locator_typedocument = By.name("documentType");
+	By locator_TypePerson = By.name("personType");
+	By locator_bank = By.name("bank");
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[1]");
+	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
+	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
+	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
 	
-	String username = "pruebaconstructora5@yopmail.com";
+	String username = "pruebaconstructora12@yopmail.com";
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemanales";// PlanesSemanales//PlanesAnuales
-	String proyectNumber = "1Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
+	String proyectNumber = "2Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
 	// producctos adicionales
 	int route = 0; 
 	int photoTaking = 0;
@@ -91,18 +96,23 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String dv = "7";//ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
-	String email = "pruebaconstructora5@yopmail.com";
-	String confirmEmail = "pruebaconstructora5@yopmail.com";
+	String email = "pruebaconstructora12@yopmail.com";
+	String confirmEmail = "pruebaconstructora12@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "pruebaconstructora5@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "pruebaconstructora12@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";//Comun, Simplificado, Especial
 	String retentionAgent = "No";//No, 4, 11
 	String fiscalResponsibility = "RegimenSimple";//RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
-	String discountCode = "789456123";// codigo de descuento
-		
+	String discountCode = "";// codigo de descuento
+	//Dastos cliente pago
+	String paymentType = "Debito";// Debito, Credito, PSE
+	String typeDocument = "Número de identificación tributario";// Cédula de Ciudadania, Cédula de Extranjeria, Cédula de Pasaporte, Número de identificación tributario, Tarjeta de identidad
+	String typePerson = "Persona natural";//Persona natural, Persona Juridica
+	String typeBank = "BANCO DAVIVIENDA";//BANCO DAVIVIENDA, BANCO CACJA SOCIAL, BANCON COLPATRIA, BANCOLOMBIA
+	
 	public CreatePurchasePageConstructora(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -251,7 +261,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_regimenSimple);
 				WebElement rs = driver.findElement(locator_cell);
 				rs.sendKeys(Keys.ESCAPE);
-				rs.sendKeys(Keys.ESCAPE);
 			}
 			if(fiscalResponsibility.equals("AgenteRetenedor")) {
 				click(locator_agenteRetenedor);
@@ -270,8 +279,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				
 			}
 			Thread.sleep(3000);
-				click(locator_buttonPay);
-
+				click(locator_buttonPayTow);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
@@ -279,12 +287,40 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	
 	public void payFinish() {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(20000);
 			if(discountCode != "") {
 				type(discountCode, locator_bond);
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void purchaseDetail() {
+		try {
+			if(paymentType.equals("Debito")) {
+				click(locator_debitCard);
+				click(locator_paymentD);
+			}
+			if(paymentType.equals("Credito")) {
+				click(locator_creditCard);
+				click(locator_paymentC);
+			}
+			if(paymentType.equals("PSE")) {
+				click(locator_pse);
+				WebElement tc = driver.findElement(locator_typedocument);
+				Select sel = new Select(tc);
+				sel.selectByVisibleText(typeDocument);
+				WebElement tp = driver.findElement(locator_TypePerson);
+				Select selp = new Select(tp);
+				selp.selectByVisibleText(typePerson);
+				WebElement tb = driver.findElement(locator_bank);
+				Select selb = new Select(tb);
+				selb.selectByVisibleText(typeBank);
+				click(locator_paymentP);
+			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
