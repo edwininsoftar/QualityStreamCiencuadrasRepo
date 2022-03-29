@@ -70,6 +70,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	//Datos de pago cliente
+	By locator_cookies = By.xpath("/html/body/app-root/app-payment/div[2]/div/button");
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
 	By locator_typedocument = By.name("documentType");
@@ -80,27 +81,27 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
 	
-	String username = "pruebaconstructora12@yopmail.com";
+	String username = "ciencuadras3@yopmail.com";
 	String password = "100Cuadras%";
-	String typePlan = "PlanesSemanales";// PlanesSemanales//PlanesAnuales
-	String proyectNumber = "2Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
+	String typePlan = "PlanesAnuales";// PlanesSemanales, PlanesAnuales
+	String proyectNumber = "3Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
 	// producctos adicionales
-	int route = 0; 
-	int photoTaking = 0;
-	int photoUpload = 0;
-	int featured = 0;
-	int promoted = 0;
-	int online = 0;
+	int route = 2; 
+	int photoTaking = 1;
+	int photoUpload = 3;
+	int featured = 5;
+	int promoted = 1;
+	int online = 4;
 	// Formulario de pago
 	String Nit = "900457893";// ingrese el nit 
 	String dv = "7";//ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
-	String email = "pruebaconstructora12@yopmail.com";
-	String confirmEmail = "pruebaconstructora12@yopmail.com";
+	String email = "ciencuadras3@yopmail.com";
+	String confirmEmail = "ciencuadras3@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "pruebaconstructora12@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "ciencuadras3@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";//Comun, Simplificado, Especial
 	String retentionAgent = "No";//No, 4, 11
 	String fiscalResponsibility = "RegimenSimple";//RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
@@ -208,8 +209,12 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			NitClear.clear();
 			type(Nit, locator_Nit);
 			Thread.sleep(3000);
+			WebElement dvClear = driver.findElement(locator_DV);
+			dvClear.clear();
 			type(dv, locator_DV);
 			Thread.sleep(3000);
+			WebElement cityClear = driver.findElement(locator_city);
+			cityClear.clear();
 			type(city, locator_city);
 			Thread.sleep(3000);
 			WebElement City = driver.findElement(locator_city);
@@ -217,13 +222,19 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			City.sendKeys(Keys.ENTER);
 			City.sendKeys(Keys.TAB);
 			Thread.sleep(3000);
+			WebElement addressClear = driver.findElement(locator_address);
+			addressClear.clear();
 			type(address, locator_address);
 			Thread.sleep(3000);
+			WebElement emailClear = driver.findElement(locator_email);
+			emailClear.clear();
 			type(email, locator_email);
 			Thread.sleep(3000);
 			type(confirmEmail, locator_confirmEmail);
 			Thread.sleep(3000);
-			type(cell, locator_cell);
+			WebElement cellClear = driver.findElement(locator_cell);
+			cellClear.clear();
+			type(cell, locator_cell); 
 			if(emailDIAN.equals("No")) {
 				click(locator_emailDIAN);
 				type(billingMail, locator_billingMail);
@@ -264,19 +275,23 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			}
 			if(fiscalResponsibility.equals("AgenteRetenedor")) {
 				click(locator_agenteRetenedor);
-				
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
 			}
 			if(fiscalResponsibility.equals("GranContribuyente")) {
 				click(locator_granContribuyente);
-				
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
 			}
 			if(fiscalResponsibility.equals("Autorretenedor")) {
 				click(locator_autoretenedor);
-				
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
 			}
 			if(fiscalResponsibility.equals("NoResponsable")) {
 				click(locator_noResponsable);
-				
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
 			}
 			Thread.sleep(3000);
 				click(locator_buttonPayTow);
@@ -300,6 +315,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	
 	public void purchaseDetail() {
 		try {
+			click(locator_cookies);
 			if(paymentType.equals("Debito")) {
 				click(locator_debitCard);
 				click(locator_paymentD);

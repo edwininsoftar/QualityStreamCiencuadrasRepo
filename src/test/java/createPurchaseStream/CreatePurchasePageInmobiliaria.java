@@ -14,10 +14,11 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	By locator_seePlans = By.cssSelector("a[routerlink=\"/seleccion-ideal\"]");
 	By locator_monthsS = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div[2]/select");
 	By locator_toAssemble = By.cssSelector("a[routerlink=\"/arma-tu-plan\"]");
-	By locator_months3 = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[1]/div/div[2]/div[3]/app-base-card/div/div[1]/label");
+	//Formulario de pago arma tu plan 
+	By locator_oneMonths = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[1]/div/div[2]/div[2]/app-base-card/div/div[1]/label");
 	
-	String username = "leocien21@yopmail.com";
-	String password = "100Cien*";
+	String username = "inmobiliariaciencuadras1@yopmail.com";
+	String password = "100Cuadras%";
 	String planType = "QuieroArmarlo";//VerPlanes, QuieroArmarlo
 	String plan = "PlanS";//PlanS, PlanM, PlanL
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses
@@ -27,7 +28,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void  buys() throws InterruptedException {
+	public void buys() throws InterruptedException {
 		try {
 			Thread.sleep(6000);
 			click(locator_into);
@@ -45,9 +46,17 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			}
 			if(planType.equals("QuieroArmarlo")) {
 					click(locator_toAssemble);
-					click(locator_months3);
+					click(locator_oneMonths);
 				}
 				
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void formMonths() {
+		try {
+			
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}

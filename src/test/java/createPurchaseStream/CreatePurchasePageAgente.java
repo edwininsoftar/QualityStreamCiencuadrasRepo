@@ -58,10 +58,10 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	By locator_paymentDa = By.xpath("//*[@id=\"pay-davipuntos\"]/form/div[3]/button");
 	
 										
-	String username = "alejandrolopez12@yopmail.com";
+	String username = "agenteciencuadras1@yopmail.com";
 	String password = "@Contraseña112";
 	String planType = "VerPlanes";//VerPlanes, QuieroArmarlo
-	String plan = "PlanS";//PlanXS, PlanS, PlanM
+	String plan = "PlanXS";//PlanXS, PlanS, PlanM
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses
 	//producctos adicionales
 	String additionalProducts = "No";//No, route, photoTaking, photoUpload, featured, promoted, online

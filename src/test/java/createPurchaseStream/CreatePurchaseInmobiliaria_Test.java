@@ -14,7 +14,7 @@ public class CreatePurchaseInmobiliaria_Test {
 	public void setUp() throws Exception {
 		createPurchasePageInmobiliaria = new CreatePurchasePageInmobiliaria(driver);
 		driver = createPurchasePageInmobiliaria.chromeDriverConnection();
-		createPurchasePageInmobiliaria.visit("https://dev.ciencuadras.com/");
+		createPurchasePageInmobiliaria.visit("https://qa.ciencuadras.com/");
 	}
 
 	@After

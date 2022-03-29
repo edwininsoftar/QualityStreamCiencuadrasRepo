@@ -13,7 +13,7 @@ public class CreatePurchaseAgente_Test {
 	public void setUp() throws Exception {
 		CreatePurchasePageAgente = new CreatePurchasePageAgente(driver);
 		driver = CreatePurchasePageAgente.chromeDriverConnection();
-		CreatePurchasePageAgente.visit("https://dev.ciencuadras.com/");
+		CreatePurchasePageAgente.visit("https://qa.ciencuadras.com/");
 	}
 
 	@After
