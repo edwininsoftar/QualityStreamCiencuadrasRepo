@@ -26,6 +26,7 @@ public class RequestAppraisal_Test {
 	public void test() throws InterruptedException {
 		recuestAppraisalPage.appraise();
 		recuestAppraisalPage.requestForm();
+		recuestAppraisalPage.billingForm();
 	}
 
 }
