@@ -81,9 +81,9 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
 	
-	String username = "ciencuadras3@yopmail.com";
+	String username = "ciencuadras4@yopmail.com";
 	String password = "100Cuadras%";
-	String typePlan = "PlanesAnuales";// PlanesSemanales, PlanesAnuales
+	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "3Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
 	// producctos adicionales
 	int route = 2; 
@@ -97,11 +97,11 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String dv = "7";//ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
-	String email = "ciencuadras3@yopmail.com";
-	String confirmEmail = "ciencuadras3@yopmail.com";
+	String email = "ciencuadras4@yopmail.com";
+	String confirmEmail = "ciencuadras4@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "ciencuadras3@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";//Comun, Simplificado, Especial
 	String retentionAgent = "No";//No, 4, 11
 	String fiscalResponsibility = "RegimenSimple";//RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
@@ -130,7 +130,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			click(locator_public);
 			click(locator_Constructora);
 			click(locator_seePlans);
-			if (typePlan.equals("PlanesSemanales")) {
+			if (typePlan.equals("PlanesSemestrales")) {
 				click(locator_buttonWeeklyPlans);
 				Thread.sleep(5000);
 				if (proyectNumber.equals("1Proyecto")) {
