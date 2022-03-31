@@ -1,5 +1,6 @@
 package createPurchaseStream;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	By locator_agente = By.name("agente");
 	By locator_seePlans = By.cssSelector("a[_ngcontent-serverapp-c275][routerlink=\"/seleccion-ideal\"]");
 	By locator_toAssemble = By.cssSelector("a[_ngcontent-serverapp-c275][routerlink=\"/arma-tu-plan\"]");
-	By locator_monthsXS = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div[2]/select");							
+	By locator_monthsXS = By.tagName("select");							
     By locator_monthsM = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[6]/div/div[2]/div[2]/select");
 	By locator_monthsS = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[5]/div/div[2]/div[2]/select");
     By locator_buttonSelectXS = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[7]/div/div[2]/div[3]/button");
@@ -80,6 +81,14 @@ public class CreatePurchasePageAgente extends BasicWrap{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public void waitForAngularRequestsToFinish() {
+		try {
+			getNgWebDriver().waitForAngularRequestsToFinish();
+		} catch (Exception e) {
+			Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+		}
+	}
+	
 	public void  buys() throws InterruptedException {
 		try {
 			Thread.sleep(6000);
@@ -92,89 +101,88 @@ public class CreatePurchasePageAgente extends BasicWrap{
 			click(locator_agente);
 			if(planType.equals("VerPlanes")) {
 				click(locator_seePlans);
-				if(plan.equals("PlanXS")) {
-					WebElement ml = driver.findElement(locator_monthsXS);
-					Select sel = new Select(ml);
-					sel.selectByVisibleText(monthsPlan);
-					click(locator_buttonSelectXS);
-				}
-				if(plan.equals("PlanS")) {
-					WebElement ml = driver.findElement(locator_monthsS);
-					Select sel = new Select(ml);
-					sel.selectByVisibleText(monthsPlan);
-					click(locator_buttonSelectS);
-				}
-				if(plan.equals("PlanM")) {
-					WebElement ml = driver.findElement(locator_monthsM);
-					Select sel = new Select(ml);
-					sel.selectByVisibleText(monthsPlan);
-					click(locator_buttonSelectM);
-				}
-				if(additionalProducts.equals("route")) {
-					for(int i=0; i<route; i++) {
-						click(locator_buttonRoute);
-					}
-				}
-				if(additionalProducts.equals("photoTaking")) {
-					for(int i=0; i<photoTaking; i++) {
-						click(locator_buttonPhotoTaking);
-					}
-				}
-				if(additionalProducts.equals("photoUpload")) {
-					for(int i=0; i<photoUpload; i++) {
-						click(locator_buttonPhotoUpload);
-					}
-				}
-				if(additionalProducts.equals("featured")) {
-					for(int i=0; i<featured; i++) {
-						click(locator_buttonFeatured);
-					}
-				}
-				if(additionalProducts.equals("promoted")) {
-					for(int i=0; i<promoted; i++) {
-						click(locator_buttonPromoted);
-					}
-				}
-				if(additionalProducts.equals("online")) {
-					for(int i=0; i<online; i++) {
-						click(locator_buttonOnline);
-					}
-				}				
-				click(locator_buttonPay);
-				click(locator_buttonPayTow);	
-				click(locator_buttonPayFinish);
-				if(paymentType.equals("Debito")) {
-					click(locator_debitCard);
-					WebElement td = driver.findElement(locator_typeDocument);
-					Select sel = new Select(td);
-					sel.selectByVisibleText(typeDocument);
-					click(locator_paymentD);
-				}
-				if(paymentType.equals("Credito")) {
-					click(locator_creditCard);
-					WebElement tc = driver.findElement(locator_typeDocument);
-					Select sel = new Select(tc);
-					sel.selectByVisibleText(typeDocument);
-					click(locator_paymentC);
-				}
-				if(paymentType.equals("PSE")) {
-					click(locator_psePayment);
-					WebElement tc = driver.findElement(locator_typedocumentP);
-					Select sel = new Select(tc);
-					sel.selectByVisibleText(typeDocument);
-					click(locator_paymentP);
-				}
-				if(paymentType.equals("Daviplata")) {
-					click(locator_davipuntos);
-					click(locator_paymentDa);
-				}
-			}else {
-				click(locator_toAssemble);
+
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
 	
+	
+	public void continuación() {
+		if(plan.equals("PlanS")) {
+			WebElement ml = driver.findElement(locator_monthsS);
+			Select sel = new Select(ml);
+			sel.selectByVisibleText(monthsPlan);
+			click(locator_buttonSelectS);
+		}
+		if(plan.equals("PlanM")) {
+			WebElement ml = driver.findElement(locator_monthsM);
+			Select sel = new Select(ml);
+			sel.selectByVisibleText(monthsPlan);
+			click(locator_buttonSelectM);
+		}
+		if(additionalProducts.equals("route")) {
+			for(int i=0; i<route; i++) {
+				click(locator_buttonRoute);
+			}
+		}
+		if(additionalProducts.equals("photoTaking")) {
+			for(int i=0; i<photoTaking; i++) {
+				click(locator_buttonPhotoTaking);
+			}
+		}
+		if(additionalProducts.equals("photoUpload")) {
+			for(int i=0; i<photoUpload; i++) {
+				click(locator_buttonPhotoUpload);
+			}
+		}
+		if(additionalProducts.equals("featured")) {
+			for(int i=0; i<featured; i++) {
+				click(locator_buttonFeatured);
+			}
+		}
+		if(additionalProducts.equals("promoted")) {
+			for(int i=0; i<promoted; i++) {
+				click(locator_buttonPromoted);
+			}
+		}
+		if(additionalProducts.equals("online")) {
+			for(int i=0; i<online; i++) {
+				click(locator_buttonOnline);
+			}
+		}				
+		click(locator_buttonPay);
+		click(locator_buttonPayTow);	
+		click(locator_buttonPayFinish);
+		if(paymentType.equals("Debito")) {
+			click(locator_debitCard);
+			WebElement td = driver.findElement(locator_typeDocument);
+			Select sel = new Select(td);
+			sel.selectByVisibleText(typeDocument);
+			click(locator_paymentD);
+		}
+		if(paymentType.equals("Credito")) {
+			click(locator_creditCard);
+			WebElement tc = driver.findElement(locator_typeDocument);
+			Select sel = new Select(tc);
+			sel.selectByVisibleText(typeDocument);
+			click(locator_paymentC);
+		}
+		if(paymentType.equals("PSE")) {
+			click(locator_psePayment);
+			WebElement tc = driver.findElement(locator_typedocumentP);
+			Select sel = new Select(tc);
+			sel.selectByVisibleText(typeDocument);
+			click(locator_paymentP);
+		}
+		if(paymentType.equals("Daviplata")) {
+			click(locator_davipuntos);
+			click(locator_paymentDa);
+		}
+	else {
+		click(locator_toAssemble);
+	}
+	}
 
 }

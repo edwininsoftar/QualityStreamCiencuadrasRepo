@@ -1,5 +1,6 @@
 package createPurchaseStream;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -117,6 +118,14 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	public CreatePurchasePageConstructora(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void waitForAngularRequestsToFinish() {
+		try {
+			getNgWebDriver().waitForAngularRequestsToFinish();
+		} catch (Exception e) {
+			Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+		}
 	}
 
 	public void buys() throws InterruptedException {

@@ -1,12 +1,17 @@
 package Base;
 
+import java.time.Duration;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.paulhammant.ngwebdriver.NgWebDriver;
 
 public class BasicWrap {
 	 	
@@ -24,6 +29,21 @@ public class BasicWrap {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			return driver;
+		}
+		
+		// Metodo ngWebdriver para manejo de angular 
+		public NgWebDriver getNgWebDriver() {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			return (new NgWebDriver(js));
+		} 
+		
+		//either of the lines can be used for clicking
+		public void waitForAngularRequestsToFinish() {
+			try {
+				getNgWebDriver().waitForAngularRequestsToFinish();
+			} catch (Exception e) {
+				Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+			}
 		}
 		
 		//WRAPPER DE LOS COMANDOS DE SELENIUM

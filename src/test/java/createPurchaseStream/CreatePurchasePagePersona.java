@@ -1,6 +1,8 @@
 package createPurchaseStream;
 
 import java.io.File;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -84,6 +86,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	String addaddress = "Piso 2"; // Complemento de dirección 
 	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
 	String contactMe = "Whatsapp"; // Whatsapp, Llamada
+	
+	public void waitForAngularRequestsToFinish() {
+		try {
+			getNgWebDriver().waitForAngularRequestsToFinish();
+		} catch (Exception e) {
+			Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+		}
+	}
 	
 	public void buys() throws InterruptedException {
 		try {
