@@ -47,10 +47,17 @@ public class RegisterPage extends BasicWrap {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public void waitForAngularRequestsFinish() {
+		try {
+			getNgWebDriver().waitForAngularRequestsToFinish();
+		} catch (Exception e) {
+			org.junit.Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+		}
+	}
+	
 	public void registerRoll() throws InterruptedException {
 		try {
-			Thread.sleep(6000);
 			click(locator_into);
 			click(locator_register);
 			if (roll.equals("Persona") || roll.equals("Agente")) {
