@@ -67,7 +67,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	//Datos de pago cliente
-	By locator_cookies = By.cssSelector("div[class=\"cookies\"]>div[class=\"cookies-container\"]>button[class=\"btn-primary aceptar\"]");
+	By locator_cookies = By.xpath("/html/body/app-root/app-payment/div[2]/div/button");
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
 	By locator_typedocument = By.name("documentType");
