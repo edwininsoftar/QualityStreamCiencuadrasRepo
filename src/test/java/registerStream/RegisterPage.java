@@ -31,16 +31,16 @@ public class RegisterPage extends BasicWrap {
 	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
 	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
 	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[3]/form/button/span");
+	By locator_ButtonRegisterPerson = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[4]/form/button");
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 
-	
-	String roll = "Agente"; // Persona, Agente, Inmobiliaria, Constructora
-	String typeDocument = "NIT";// NIT, CC
-	String name = "Juan Fernando Perez";// Nombre o razon social
-	String email = "pruebaciencuadras1@yopmail.com";
+	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora
+	String typeDocument = "CC";// NIT, CC
+	String name = "Leidy Yurani Villamizar";// Nombre o razon social
+	String email = "ciencuadraspersona1@yopmail.com";
 	String password = "@Password13";// contraseña y confirmación de contraseña
-	String identification = "1057593777";// Numero de identificación o Nit
+	String identification = "1057598694";// Numero de identificación o Nit
 	String DV = "8";// digito de verificación obligatorio si el tipo de documento es NIT
 
 	public RegisterPage(WebDriver driver) {
@@ -100,7 +100,13 @@ public class RegisterPage extends BasicWrap {
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
 			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
-			click(locator_ButtonRegister);
+			driver.switchTo().defaultContent();
+			Thread.sleep(3000);
+			if(roll.equals("Persona")) {
+				click(locator_ButtonRegisterPerson);
+			}else {
+				click(locator_ButtonRegister);
+			}
 		} catch (NoSuchElementException e) {
 			System.out.println("No se encuentra el elemento: " + e);
 		} catch (TimeoutException e) {
