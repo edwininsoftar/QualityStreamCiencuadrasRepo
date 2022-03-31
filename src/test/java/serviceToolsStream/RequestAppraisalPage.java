@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import Base.BasicWrap;
@@ -24,7 +25,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_apartment = By.xpath("//*[@id=\"mat-option-6\"]/span");
 	By locator_house = By.xpath("//*[@id=\"mat-option-7\"]/span");
 	By locator_address = By.id("mat-input-2");
-	By locator_addresAdd = By.id("mat-input-3");
+	By locator_addresAdd = By.id("mat-input-3"); 
 	By locator_sale = By.id("mat-input-4"); 
 	By locator_zone = By.id("mat-input-5");
 	By locator_enrollment = By.id("mat-input-6");
@@ -66,13 +67,13 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	//Datos de pago cliente
-	By locator_cookies = By.xpath("/html/body/app-root/app-payment/div[2]/div/button");
+	By locator_cookies = By.cssSelector("div[class=\"cookies\"]>div[class=\"container cookies-container\"]>button[class=\"btn-primary aceptar\"]");
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
 	By locator_typedocument = By.name("documentType");
 	By locator_TypePerson = By.name("personType");
 	By locator_bank = By.name("bank");
-	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[1]");
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
 	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
 	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
@@ -107,7 +108,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	String ownerEmail = "pruebacorreopropietario@yopmail.com";// Ingrese el correo del propietario 
 	String processingPersonalData = "No";//Ingrese SI o No si acepta el tratamiento de datos personales
 	//Pago y descuento ciencuadras
-	String discountCode = "12354786";
+	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
 	String paymentType = "Debito";// Debito, Credito, PSE
 	String typeDocument = "Número de identificación tributario";// Cédula de Ciudadania, Cédula de Extranjeria, Cédula de Pasaporte, Número de identificación tributario, Tarjeta de identidad
@@ -154,7 +155,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void requestForm()  throws InterruptedException {
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			click(locator_typeProperty);
 			if(typeProperty.equals("Apartamento")) {
 				click(locator_apartment);
@@ -258,12 +259,13 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void payFinish() {
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(15000);
 			if(discountCode != "") {
 				type(discountCode, locator_bond);
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
+			Thread.sleep(5000);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
@@ -271,10 +273,13 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void purchaseDetail() {
 		try {
+			//Actions action = new Actions(driver);
+			//action.moveToElement(driver.findElement(locator_cookies)).click();
 			click(locator_cookies);
+			Thread.sleep(5000);
 			if(paymentType.equals("Debito")) {
 				click(locator_debitCard);
-				click(locator_paymentD);
+				//click(locator_paymentD);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);

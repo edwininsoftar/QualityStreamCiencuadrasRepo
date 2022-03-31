@@ -14,7 +14,7 @@ public class RequestAppraisal_Test {
 	public void setUp() throws Exception {
 		recuestAppraisalPage = new RequestAppraisalPage(driver);
 		driver = recuestAppraisalPage.chromeDriverConnection();
-		recuestAppraisalPage.visit("https://qa.ciencuadras.com/");
+		recuestAppraisalPage.visit("https://qa.ciencuadras.com/"); 
 	}
 
 	@After
@@ -27,6 +27,8 @@ public class RequestAppraisal_Test {
 		recuestAppraisalPage.appraise();
 		recuestAppraisalPage.requestForm();
 		recuestAppraisalPage.billingForm();
+		recuestAppraisalPage.payFinish();
+		recuestAppraisalPage.purchaseDetail();
 	}
 
 }
