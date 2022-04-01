@@ -7,13 +7,18 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.ClickAction;
 import org.openqa.selenium.support.ui.Select;
+import org.w3c.dom.html.HTMLSelectElement;
 
 import com.paulhammant.ngwebdriver.ByAngular;
+import com.paulhammant.ngwebdriver.ByAngularBinding;
+import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
 
 public class RequestAppraisalPage extends BasicWrap {
+
 	
 	By locato_buttonAppraise = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[1]/div/div[2]/a");
 	By locator_buttonColombia = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[1]/a");
@@ -44,7 +49,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_depositCommunal = By.xpath("//*[@id=\"mat-radio-9\"]/label/span[1]/span[2]");
 	By locator_depositPrivate = By.xpath("//*[@id=\"mat-radio-10\"]/label/span[1]/span[2]");
 	By locator_depositExclusive = By.xpath("//*[@id=\"mat-radio-11\"]");
-	By locator_buttonContinue = By.cssSelector("html body app-root app-appraisal-coverage.ng-star-inserted section.stepper-container app-stepper mat-horizontal-stepper.mat-stepper-horizontal.ng-tns-c178-0.mat-stepper-label-position-end.ng-star-inserted div.mat-horizontal-content-container.ng-tns-c178-0 div#cdk-step-content-0-1.mat-horizontal-stepper-content.ng-trigger.ng-trigger-stepTransition.ng-tns-c178-0.ng-star-inserted app-appraisal-register.ng-star-inserted div.content div.appraisal-register__content form.form-content.ng-invalid.ng-touched.ng-dirty div.appraisal-register__buttons button.button.secondary.rounded.m-base.text-small");
+	By locator_buttonContinue = ByAngular.buttonText("Continuar");
 	//Formulario de facturación
 	By locator_email = By.id("mat-input-9");
 	By locator_typeDocument = By.cssSelector("div[class=\"mat-select-arrow ng-tns-c165-20\"]");
@@ -69,16 +74,59 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	//Datos de pago cliente
-	By locator_cookies = ByAngular.buttonText("ACEPTAR");
-	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
-	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	By locator_typedocument = By.name("documentType");
-	By locator_TypePerson = By.name("personType");
-	By locator_bank = By.name("bank");
+	By locator_cookies = ByAngular.buttonText("Aceptar");
+	//datos tarjeta debito
 	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
+	By locator_holderNameD = By.id("mat-input-11");
+	By locator_cardNumberD = By.id("mat-input-13");
+	By locator_monthCardD = By.id("mat-input-14");
+	By locator_yearCardD = By.id("mat-input-15");
+	By locator_cvvD = By.id("mat-input-16");
 	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
-	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
+	//datos tarjeta credito
+	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
+	By locator_holderNameC = By.id("mat-input-5");
+	By locator_cardNumberC= By.id("mat-input-7");
+	By locator_monthCardC = By.id("mat-input-8");
+	By locator_yearCardC = By.id("mat-input-9");
+	By locator_cvvC = By.id("mat-input-10");
+	By locator_dues = ByAngularBinding.id("mat-select-3");
+	By locator_five = ByAngularOptions.id("mat-option-6");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
+	//datos PSE
+	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
+	By locator_typedocumentP = By.name("documentType");
+	By locator_CC = ByAngularOptions.id("mat-option-38");
+	By locator_CE = ByAngularOptions.id("mat-option-39");
+	By locator_CP = ByAngularOptions.id("mat-option-40");
+	By locator_NIT = ByAngularOptions.id("mat-option-41");
+	By locator_TI = ByAngularOptions.id("mat-option-42");
+	By locator_TypePerson = By.name("personType");
+	By locator_PN = ByAngularOptions.id("mat-option-0");
+	By locator_PJ = ByAngularOptions.id("mat-option-1");
+	By locator_bank = By.name("bank");
+	By locator_itau = ByAngularOptions.id("mat-option-53");
+	By locator_cajaSocial = ByAngularOptions.id("mat-option-46");
+	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
+	//datos de pago PSE
+	By locator_PSECheckPolicy = By.id("chkPolicy");
+	By locator_PSECheckTerms = By.id("chkTerminos");
+	By locator_follow = By.id("btnIngresar");
+	//Davi puntos
+	By locator_davipuntos = By.xpath("//*[@id=\"mat-radio-5\"]");
+	By locator_paymentDavi = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-checkout-epayco/div/button");
+	//Daviplata
+	By locator_daviplata = By.xpath("//*[@id=\"mat-radio-6\"]");
+	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-4");
+	By locator_CCDaviplata = ByAngularOptions.id("mat-option-67");
+	By locator_CEDaviplata = ByAngularOptions.id("mat-option-68");
+	By locator_NITDaviplata = ByAngularOptions.id("mat-option-69");	
+	By locator_TIDaviplata = ByAngularOptions.id("mat-option-70");
+	By locator_CPDaviplata = ByAngularOptions.id("mat-option-71");
+	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-72");
+	By locator_documentNumber = By.id("mat-input-17");
+	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
+	
 	
 	String appraisalFrom = "Colombia";//Colombia, Exterior
 	String city = "Bogotá"; 
@@ -112,10 +160,17 @@ public class RequestAppraisalPage extends BasicWrap {
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE
-	String typeDocument = "Número de identificación tributario";// Cédula de Ciudadania, Cédula de Extranjeria, Cédula de Pasaporte, Número de identificación tributario, Tarjeta de identidad
-	String typePerson = "Persona natural";//Persona natural, Persona Juridica
-	String typeBank = "BANCO DAVIVIENDA";//BANCO DAVIVIENDA, BANCO CACJA SOCIAL, BANCON COLPATRIA, BANCOLOMBIA
+	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
+	String typePerson = "PN";//PN, PJ
+	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
+	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
+	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
+	String monthCard = "12";// Ingrese el mes de la tarjeta 
+	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
+	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
+	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
 
 	public RequestAppraisalPage(WebDriver driver) {
 		super(driver);
@@ -277,34 +332,105 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void purchaseDetail() {
 		try {
-			//Actions action = new Actions(driver);
-			//action.moveToElement(driver.findElement(locator_cookies)).click();
-		/*	Thread.sleep(15000);
-			WebElement frame = driver.findElement(locator_frame);
-			driver.switchTo().frame(frame.getAttribute("1"));*/
 			Thread.sleep(5000);
 			click(locator_cookies);
 			Thread.sleep(5000);
 			if(paymentType.equals("Debito")) {
 				click(locator_debitCard);
-				//click(locator_paymentD);
+				type(holderName, locator_holderNameD);
+				type(cardNumber, locator_cardNumberD);
+				type(monthCard, locator_monthCardD);
+				type(yearCard, locator_yearCardD);
+				type(cvv, locator_cvvD);
+				Thread.sleep(5000);
+				click(locator_paymentD);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
+				type(holderName, locator_holderNameC);
+				type(cardNumber, locator_cardNumberC);
+				type(monthCard, locator_monthCardC);
+				type(yearCard, locator_yearCardC);
+				type(cvv, locator_cvvC);
+				Thread.sleep(5000);
+				click(locator_dues);
+				Thread.sleep(5000);
+				click(locator_five);
+				Thread.sleep(5000);
 				click(locator_paymentC);
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);
-				WebElement tc = driver.findElement(locator_typedocument);
-				Select sel = new Select(tc);
-				sel.selectByVisibleText(typeDocument);
-				WebElement tp = driver.findElement(locator_TypePerson);
-				Select selp = new Select(tp);
-				selp.selectByVisibleText(typePerson);
-				WebElement tb = driver.findElement(locator_bank);
-				Select selb = new Select(tb);
-				selb.selectByVisibleText(typeBank);
+				click(locator_typedocumentP);
+				Thread.sleep(5000);
+				if(typeDocument.equals("CC")) {
+					click(locator_CC);
+				}
+				if(typeDocument.equals("CE")) {
+					click(locator_CE);
+				}
+				if(typeDocument.equals("CP")) {
+					click(locator_CP);
+				}
+				if(typeDocument.equals("NIT")) {
+					click(locator_NIT);
+				}
+				if(typeDocument.equals("TI")) {
+					click(locator_TI);
+				}
+				click(locator_TypePerson);
+				Thread.sleep(5000);
+				if(typePerson.equals("PN")) {
+					click(locator_PN);
+				}
+				if(typePerson.equals("PJ")) {
+					click(locator_PJ);
+				}
+				click(locator_bank);
+				Thread.sleep(5000);
+				if(typeBank.equals("BANCO CAJA SOCIAL")) {
+					click(locator_cajaSocial);
+				}
+				if(typeBank.equals("ITAU")) {
+					click(locator_itau);
+				}
+				Thread.sleep(5000);
 				click(locator_paymentP);
+				Thread.sleep(10000);
+				click(locator_PSECheckPolicy);
+				click(locator_PSECheckTerms);
+				click(locator_follow);
+			}
+			if(paymentType.equals("Davipuntos")) {
+				click(locator_davipuntos);
+				Thread.sleep(5000);
+				click(locator_paymentDavi);
+			}
+			if(paymentType.equals("Daviplata")) {
+				click(locator_daviplata);
+				click(locator_typeDocumentDaviplata);
+				Thread.sleep(5000);
+				if(typeDocument.equals("CC")) {
+					click(locator_CCDaviplata);
+				}
+				if(typeDocument.equals("CE")) {
+					click(locator_CEDaviplata);
+				}
+				if(typeDocument.equals("CP")) {
+					click(locator_CPDaviplata);
+				}
+				if(typeDocument.equals("NIT")) {
+					click(locator_NITDaviplata);
+				}
+				if(typeDocument.equals("TI")) {
+					click(locator_TIDaviplata);
+				}
+				if(typeDocument.equals("SSE")) {
+					click(locator_SSEDaviplata);
+				}
+				type(documentNumber,locator_documentNumber);
+				Thread.sleep(5000);
+				click(locator_paymentDaviplata);
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
