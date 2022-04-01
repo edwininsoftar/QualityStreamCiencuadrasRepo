@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.paulhammant.ngwebdriver.ByAngular;
+
 import Base.BasicWrap;
 
 public class RequestAppraisalPage extends BasicWrap {
@@ -42,7 +44,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_depositCommunal = By.xpath("//*[@id=\"mat-radio-9\"]/label/span[1]/span[2]");
 	By locator_depositPrivate = By.xpath("//*[@id=\"mat-radio-10\"]/label/span[1]/span[2]");
 	By locator_depositExclusive = By.xpath("//*[@id=\"mat-radio-11\"]");
-	By locator_buttonContinue = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-appraisal-register/div/div[1]/form/div[4]/button[2]");
+	By locator_buttonContinue = By.cssSelector("html body app-root app-appraisal-coverage.ng-star-inserted section.stepper-container app-stepper mat-horizontal-stepper.mat-stepper-horizontal.ng-tns-c178-0.mat-stepper-label-position-end.ng-star-inserted div.mat-horizontal-content-container.ng-tns-c178-0 div#cdk-step-content-0-1.mat-horizontal-stepper-content.ng-trigger.ng-trigger-stepTransition.ng-tns-c178-0.ng-star-inserted app-appraisal-register.ng-star-inserted div.content div.appraisal-register__content form.form-content.ng-invalid.ng-touched.ng-dirty div.appraisal-register__buttons button.button.secondary.rounded.m-base.text-small");
 	//Formulario de facturación
 	By locator_email = By.id("mat-input-9");
 	By locator_typeDocument = By.cssSelector("div[class=\"mat-select-arrow ng-tns-c165-20\"]");
@@ -67,7 +69,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	//Datos de pago cliente
-	By locator_cookies = By.xpath("/html/body/app-root/app-payment/div[2]/div/button");
+	By locator_cookies = ByAngular.buttonText("ACEPTAR");
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
 	By locator_typedocument = By.name("documentType");
@@ -211,6 +213,7 @@ public class RequestAppraisalPage extends BasicWrap {
 					click(locator_depositExclusive);
 				}
 			}
+			Thread.sleep(5000);
 			click(locator_buttonContinue);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
@@ -219,6 +222,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void billingForm() {
 		try {
+			Thread.sleep(5000);
 			type(email,locator_email);
 			click(locator_typeDocument);
 			if(typedocument.equals("CC")) {
@@ -275,6 +279,10 @@ public class RequestAppraisalPage extends BasicWrap {
 		try {
 			//Actions action = new Actions(driver);
 			//action.moveToElement(driver.findElement(locator_cookies)).click();
+		/*	Thread.sleep(15000);
+			WebElement frame = driver.findElement(locator_frame);
+			driver.switchTo().frame(frame.getAttribute("1"));*/
+			Thread.sleep(5000);
 			click(locator_cookies);
 			Thread.sleep(5000);
 			if(paymentType.equals("Debito")) {
