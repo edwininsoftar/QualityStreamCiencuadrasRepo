@@ -22,7 +22,7 @@ import Base.BasicWrap;
 
 public class RequestAppraisalPage extends BasicWrap {
 
-	
+	// Solicitud avaluo
 	By locato_buttonAppraise = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[1]/div/div[2]/a");
 	By locator_buttonColombia = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[1]/a");
 	By locator_buttonExterior = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[2]/a");
@@ -133,9 +133,9 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
 	
-	
-	String appraisalFrom = "Colombia";//Colombia, Exterior
-	String city = "Bogotá"; 
+	//Avalúo
+	String appraisalFrom = "Colombia";//Colombia
+	String city = "Bogotá"; // Ingrese la ciudad que desea hacer el avaluo 
 	//formato de solicitud 
 	String typeProperty = "Casa";//Apartamento, Casa
 	String address = "Calle 128 # 52-46";//Ingrese la dirección
