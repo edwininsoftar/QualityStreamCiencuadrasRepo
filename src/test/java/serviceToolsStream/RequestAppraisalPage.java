@@ -1,5 +1,6 @@
 package serviceToolsStream;
 
+import java.time.Duration;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -8,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.ClickAction;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.w3c.dom.html.HTMLSelectElement;
 
 import com.paulhammant.ngwebdriver.ByAngular;
@@ -115,6 +118,8 @@ public class RequestAppraisalPage extends BasicWrap {
 	//Davi puntos
 	By locator_davipuntos = By.xpath("//*[@id=\"mat-radio-5\"]");
 	By locator_paymentDavi = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-checkout-epayco/div/button");
+	By locator_epayco = By.id("email-user");
+	By locator_continueEpayco = By.xpath("/html/body/div/div[6]/div/div/div[1]/div[2]/div[2]/form/button");
 	//Daviplata
 	By locator_daviplata = By.xpath("//*[@id=\"mat-radio-6\"]");
 	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-4");
@@ -126,6 +131,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-72");
 	By locator_documentNumber = By.id("mat-input-17");
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
+
 	
 	
 	String appraisalFrom = "Colombia";//Colombia, Exterior
@@ -160,7 +166,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Debito";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
@@ -171,6 +177,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
+	String epayco = "edwinpulidonino@gmail.com";
 
 	public RequestAppraisalPage(WebDriver driver) {
 		super(driver);
@@ -179,7 +186,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void appraise() throws InterruptedException {
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(8000);
 			click(locato_buttonAppraise);
 			//new tab
 			String mainTab = driver.getWindowHandle();
@@ -190,16 +197,16 @@ public class RequestAppraisalPage extends BasicWrap {
 				}
 			}
 			if(appraisalFrom.equals("Colombia")) {
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_buttonColombia);
 				type(city, locator_city);
-				Thread.sleep(3000);		
+				Thread.sleep(8000);	
 				WebElement ciu = driver.findElement(locator_city);
 				ciu.sendKeys(Keys.DOWN);
 				ciu.sendKeys(Keys.ENTER);
-				Thread.sleep(3000);	
+				Thread.sleep(8000);	
 				click(locator_confirm);
-				Thread.sleep(3000);	
+				Thread.sleep(8000);	
 				click(locator_continue);
 			}
 			if(appraisalFrom.equals("Exterior")) {
@@ -212,7 +219,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void requestForm()  throws InterruptedException {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_typeProperty);
 			if(typeProperty.equals("Apartamento")) {
 				click(locator_apartment);
@@ -257,7 +264,7 @@ public class RequestAppraisalPage extends BasicWrap {
 				for(int i=0;i<deposit;i++) {
 					click(locator_deposit);
 				}
-				Thread.sleep(3000);
+				Thread.sleep(8000);
 				if(typeDeposit.equals("Comunal")) {
 					click(locator_depositCommunal);
 				}
@@ -268,7 +275,7 @@ public class RequestAppraisalPage extends BasicWrap {
 					click(locator_depositExclusive);
 				}
 			}
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_buttonContinue);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
@@ -277,7 +284,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void billingForm() {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			type(email,locator_email);
 			click(locator_typeDocument);
 			if(typedocument.equals("CC")) {
@@ -324,7 +331,7 @@ public class RequestAppraisalPage extends BasicWrap {
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
@@ -332,9 +339,9 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void purchaseDetail() {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_cookies);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			if(paymentType.equals("Debito")) {
 				click(locator_debitCard);
 				type(holderName, locator_holderNameD);
@@ -342,7 +349,7 @@ public class RequestAppraisalPage extends BasicWrap {
 				type(monthCard, locator_monthCardD);
 				type(yearCard, locator_yearCardD);
 				type(cvv, locator_cvvD);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_paymentD);
 			}
 			if(paymentType.equals("Credito")) {
@@ -352,17 +359,17 @@ public class RequestAppraisalPage extends BasicWrap {
 				type(monthCard, locator_monthCardC);
 				type(yearCard, locator_yearCardC);
 				type(cvv, locator_cvvC);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_dues);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_five);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_paymentC);
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);
 				click(locator_typedocumentP);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				if(typeDocument.equals("CC")) {
 					click(locator_CC);
 				}
@@ -379,7 +386,7 @@ public class RequestAppraisalPage extends BasicWrap {
 					click(locator_TI);
 				}
 				click(locator_TypePerson);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				if(typePerson.equals("PN")) {
 					click(locator_PN);
 				}
@@ -387,14 +394,14 @@ public class RequestAppraisalPage extends BasicWrap {
 					click(locator_PJ);
 				}
 				click(locator_bank);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				if(typeBank.equals("BANCO CAJA SOCIAL")) {
 					click(locator_cajaSocial);
 				}
 				if(typeBank.equals("ITAU")) {
 					click(locator_itau);
 				}
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_paymentP);
 				Thread.sleep(10000);
 				click(locator_PSECheckPolicy);
@@ -403,13 +410,17 @@ public class RequestAppraisalPage extends BasicWrap {
 			}
 			if(paymentType.equals("Davipuntos")) {
 				click(locator_davipuntos);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_paymentDavi);
+				Thread.sleep(8000);
+				driver.switchTo().defaultContent();
+				type(epayco,locator_epayco);
+				click(locator_continueEpayco);
 			}
 			if(paymentType.equals("Daviplata")) {
 				click(locator_daviplata);
 				click(locator_typeDocumentDaviplata);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				if(typeDocument.equals("CC")) {
 					click(locator_CCDaviplata);
 				}
@@ -429,12 +440,12 @@ public class RequestAppraisalPage extends BasicWrap {
 					click(locator_SSEDaviplata);
 				}
 				type(documentNumber,locator_documentNumber);
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				click(locator_paymentDaviplata);
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
-		}
+		} 
 	}
 
 }
