@@ -166,7 +166,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
