@@ -45,15 +45,54 @@ public class CalculaPricePage extends BasicWrap{
 	By locator_terraceMore = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-property-information/div/form/div[5]/div/button[2]");
 	By locator_depositMore = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-property-information/div/form/div[6]/div/button[2]");
 	By locator_elevatorsMore = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-property-information/div/form/div[7]/div/button[2]");
-	By locator_buttonContinue = ByAngular.buttonText("CONTINUAR");
+	By locator_buttonContinue = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/div/button[2]");
+	// Formulario paga el precio en linea
+	By locator_names = By.id("mat-input-12");
+	By locator_surnames = By.id("mat-input-13");
+	By locator_identityDocument = By.id("mat-select-2");
+	By locator_cc = By.id("mat-option-2");
+	By locator_nit = By.id("mat-option-3");
+	By locator_ce = By.id("mat-option-4");
+	By locator_idNumber  = By.id("mat-input-14");
+	By locator_email = By.id("mat-input-15");
+	By locator_confirmEmail = By.id("mat-input-16");
+	By locator_phone = By.id("mat-input-17");
+	By locator_acceptTerms = By.id("mat-checkbox-2");
+	By locator_dataTreatment = By.id("mat-checkbox-3");
+	By locator_buttonContinueTwo = By.xpath("//*[@id=\"cdk-step-content-0-2\"]/div/button[2]");
 	
 	//Formulario ubicación del inmueble
 	String city = "Bogotá"; // Ingrese la ciudad
 	String address = "Calle 128 # 52-53";// Ingrese la dirección 
 	String addressAdd = "Segundo piso";//Ingrese el complemento de la dirección
 	//Información del inmueble
+	String typeProperty = "Apartamento";//Casa, Apartamento
+	String transactionType = "Venta";//Arriendo, Venta
+	String stratum = "3";// estrato: 1,2,3,4,5,6
+	String area = "85.5";//Ingrese el area en metros cuadrados 
+	String antiquity = "10";//Ingrese la antiguedad del inmueble en años
+	int parkingLess = 2;//Ingrese el numero de clicks si desea disminuir la cantidad de parqueaderos
+	int parkingMore = 2;//Ingrese el numero de clicks si desea aumentar la cantidad de parqueaderos 
+	int toiletsLess = 1;//Ingrese el numero de clicks si desea disminuir la cantidad de baños
+	int toiletsMore = 3; //Ingrese el numero de clicks si desea aumentar la cantidad de baños 
+	int roomsLess = 1;//Ingrese el numero de clicks si desea disminuir la cantidad de habitaciones
+	int roomsMore = 3;//Ingrese el numero de clicks si desea aunmentar la cantidad de habitaciones 
+	int balconiesMore = 1;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
+	int terraceMore = 1;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
+	int depositMore = 1;//Ingrese el numero de clicks si desea aumentar la cantidad de depositos
+	int elevatorsMore = 1;//Ingrese el numero de clicks si desea aumentar la cantidad de elevadores
+	// Formulario paga el precio en linea
+	String names = "Sebastian Andres";//Ingrese los nombres
+	String surnames = "Rodiguez Cepeda";//ingrese los apellidos
+	String identityDocument = "CC";//CC,NIT,CE
+	String idNumber = "1057585412";//Ingrese el numero de identificación
+	String email = "emaildepagoprueba@yopmail.com";// Ingrese el email 
+	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmación del email
+	String phone = "205814789";// Ingrese el numero de celular sin el numero 3
+	String acceptTerms = "Si";//Si, No //Ingrese si o no si hacepta los terminos 
+	String dataTreatment = "Si";// Si, No // Ingrese si o no si acepta el tratamiento de datos
 	
-	
+		
 	public CalculaPricePage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -72,7 +111,7 @@ public class CalculaPricePage extends BasicWrap{
 				}
 			}
 			type(city, locator_city);
-			Thread.sleep(8000);	
+			Thread.sleep(5000);	
 			WebElement ct = driver.findElement(locator_city);
 			ct.sendKeys(Keys.DOWN);
 			ct.sendKeys(Keys.ENTER);
@@ -85,5 +124,116 @@ public class CalculaPricePage extends BasicWrap{
 		}
 		
 	}
-
+	
+	public void propertyInformation() {
+		try {
+			Thread.sleep(8000);	
+			click(locator_typeProperty);
+			Thread.sleep(8000);	
+			if(typeProperty.equals("Casa")) {
+				click(locator_house);
+			}
+			if(typeProperty.equals("Apartamento")) {
+				click(locator_apartment);
+			}
+			if(transactionType.equals("Arriendo")) {
+				click(locator_rent);
+			}
+			if(transactionType.equals("Venta")) {
+				click(locator_sale);
+			}
+			if(stratum.equals("1")) {
+				click(locator_stratum1);
+			}
+			if(stratum.equals("2")) {
+				click(locator_stratum2);
+			}
+			if(stratum.equals("3")) {
+				click(locator_stratum3);
+			}
+			if(stratum.equals("4")) {
+				click(locator_stratum4);
+			}
+			if(stratum.equals("5")) {
+				click(locator_stratum5);
+			}
+			if(stratum.equals("6")) {
+				click(locator_stratum6);
+			}
+			Thread.sleep(5000);	
+			WebElement ar = driver.findElement(locator_area);
+			ar.clear(); 
+			type(area, locator_area);
+			Thread.sleep(5000);	
+			WebElement an = driver.findElement(locator_antiquity);
+			an.clear();
+			type(antiquity, locator_antiquity);
+			Thread.sleep(5000);			
+			for(int i=0;i<parkingLess;i++) {
+				click(locator_parkingLess);
+			}
+			for(int i=0;i<parkingMore;i++) {
+				click(locator_parkingMore);
+			}
+			for(int i=0;i<toiletsLess;i++) {
+				click(locator_toiletsLess);
+			}
+			for(int i=0;i<toiletsMore;i++) {
+				click(locator_toiletsMore);
+			}
+			for(int i=0;i<roomsLess;i++) {
+				click(locator_roomsLess);
+			}
+			for(int i=0;i<roomsMore;i++) {
+				click(locator_roomsMore);
+			}
+			for(int i=0;i<balconiesMore;i++) {
+				click(locator_balconiesMore);
+			}
+			for(int i=0;i<terraceMore;i++) {
+				click(locator_terraceMore);
+			}
+			for(int i=0;i<depositMore;i++) {
+				click(locator_depositMore);
+			}
+			for(int i=0;i<elevatorsMore;i++) {
+				click(locator_elevatorsMore);
+			}
+			click(locator_buttonContinue);
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void payThePriceonline() {
+		try {
+			Thread.sleep(5000);	
+			type(names, locator_names);
+			type(surnames, locator_surnames);
+			click(locator_identityDocument);
+			if(identityDocument.equals("CC")) {
+				click(locator_cc);
+			}
+			if(identityDocument.equals("NIT")) {
+				click(locator_nit);
+			}
+			if(identityDocument.equals("CE")) {
+				click(locator_ce);
+			}
+			type(idNumber, locator_idNumber);
+			type(email, locator_email);
+			type(confirmEmail, locator_confirmEmail);
+			type(phone, locator_phone);
+			if(acceptTerms.equals("No")) {
+				click(locator_acceptTerms);
+			}
+			if(dataTreatment.equals("No")){
+				click(locator_dataTreatment);
+			}
+			Thread.sleep(5000);	
+			click(locator_buttonContinueTwo);
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
 }

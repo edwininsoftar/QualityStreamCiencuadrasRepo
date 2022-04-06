@@ -27,6 +27,8 @@ public class CalculaPrice_Test {
 	@Test
 	public void test() throws InterruptedException {
 		calculaPricePage.propertyLocation();
+		calculaPricePage.propertyInformation();
+		calculaPricePage.payThePriceonline();
 	}
 
 }
