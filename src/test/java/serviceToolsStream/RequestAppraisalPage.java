@@ -132,7 +132,6 @@ public class RequestAppraisalPage extends BasicWrap {
 	By locator_documentNumber = By.id("mat-input-17");
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
-	
 	//Avalúo
 	String appraisalFrom = "Colombia";//Colombia
 	String city = "Bogotá"; // Ingrese la ciudad que desea hacer el avaluo 

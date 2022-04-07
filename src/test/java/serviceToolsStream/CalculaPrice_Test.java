@@ -29,6 +29,8 @@ public class CalculaPrice_Test {
 		calculaPricePage.propertyLocation();
 		calculaPricePage.propertyInformation();
 		calculaPricePage.payThePriceonline();
+		calculaPricePage.payFinish();
+		calculaPricePage.purchaseDetail();
 	}
 
 }
