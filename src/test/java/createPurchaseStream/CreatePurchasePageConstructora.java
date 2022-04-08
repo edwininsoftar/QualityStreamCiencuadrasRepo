@@ -6,6 +6,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import com.paulhammant.ngwebdriver.ByAngular;
+
 import Base.BasicWrap;
 
 public class CreatePurchasePageConstructora extends BasicWrap {
@@ -17,11 +20,10 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_public = By.cssSelector("span[_ngcontent-serverapp-c114][class=\"link\"]");
 	By locator_Constructora = By.name("constructora");
 	By locator_seePlans = By.cssSelector("a[routerlink=\"/seleccion-ideal\"]");
-	// localizadores planes semanales
+	// localizadores planes semestrales
 	By locator_buttonWeeklyPlans = By.id("mat-button-toggle-1-button");
-	By locator_buttonProjects1S = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div/button");
-	By locator_buttonProjects2S = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[5]/div/div[2]/div/button");
-	By locator_buttonProjects3S = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[6]/div/div[2]/div/button");
+	By locator_buttonProjects6p = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[3]/div/div[2]/div/button");
+	By locator_buttonProjects7p = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div/button");
 	// localizadores planes anuales
 	By locator_buttonAnnualPlans = By.id("mat-button-toggle-2-button");
 	By locator_buttonProjects3 = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[7]/div/div[2]/div/button");
@@ -82,17 +84,17 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
 	
-	String username = "ciencuadras4@yopmail.com";
+	String username = "ciencuadras8@yopmail.com";
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
-	String proyectNumber = "3Proyecto";// 1Proyecto, 2Proyecto, 3Proyecto
+	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
 	// producctos adicionales
-	int route = 2; 
+	int route = 1; 
 	int photoTaking = 1;
-	int photoUpload = 3;
-	int featured = 5;
+	int photoUpload = 1;
+	int featured = 1;
 	int promoted = 1;
-	int online = 4;
+	int online = 1;
 	// Formulario de pago
 	String Nit = "900457893";// ingrese el nit 
 	String dv = "7";//ingrese el digito de verificación
@@ -104,7 +106,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String emailDIAN = "Si";// Si, No
 	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";//Comun, Simplificado, Especial
-	String retentionAgent = "No";//No, 4, 11
+	String retentionAgent = "4";//No, 4, 11
 	String fiscalResponsibility = "RegimenSimple";//RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
@@ -141,15 +143,12 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			click(locator_seePlans);
 			if (typePlan.equals("PlanesSemestrales")) {
 				click(locator_buttonWeeklyPlans);
-				Thread.sleep(5000);
-				if (proyectNumber.equals("1Proyecto")) {
-					click(locator_buttonProjects1S);
+				Thread.sleep(8000);
+				if (proyectNumber.equals("6Proyecto")) {
+					click(locator_buttonProjects6p);
 				}
-				if (proyectNumber.equals("2Proyecto")) {
-					click(locator_buttonProjects2S);
-				}
-				if (proyectNumber.equals("3Proyecto")) {
-					click(locator_buttonProjects3S);
+				if (proyectNumber.equals("7Proyecto")) {
+					click(locator_buttonProjects7p);
 				}
 			}
 			if (typePlan.equals("PlanesAnuales")) {
@@ -214,7 +213,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	public void finalPaymentForm() {
 		try {
 			Thread.sleep(5000);
-			WebElement NitClear = driver.findElement(locator_Nit);
+			/*WebElement NitClear = driver.findElement(locator_Nit);
 			NitClear.clear();
 			type(Nit, locator_Nit);
 			Thread.sleep(3000);
@@ -238,7 +237,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			WebElement emailClear = driver.findElement(locator_email);
 			emailClear.clear();
 			type(email, locator_email);
-			Thread.sleep(3000);
+			Thread.sleep(3000);*/
 			type(confirmEmail, locator_confirmEmail);
 			Thread.sleep(3000);
 			WebElement cellClear = driver.findElement(locator_cell);
@@ -268,7 +267,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			}
 			if(retentionAgent.equals("11")) {
 				click(locator_11);
-			}
+			}/*
 			Thread.sleep(3000);
 			if(ICAwithholding.equals("Si")) {
 				click(locator_ICAwithholding);
@@ -301,7 +300,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_noResponsable);
 				WebElement rs = driver.findElement(locator_cell);
 				rs.sendKeys(Keys.ESCAPE);
-			}
+			}*/
 			Thread.sleep(3000);
 				click(locator_buttonPayTow);
 		} catch (Exception e) {
