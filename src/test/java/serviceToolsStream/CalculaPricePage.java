@@ -86,7 +86,7 @@ public class CalculaPricePage extends BasicWrap{
 	By locator_five = ByAngularOptions.id("mat-option-6");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
 	//datos PSE
-	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
+	By locator_pse = By.id("mat-radio-4"); 
 	By locator_typedocumentP = By.name("documentType");
 	By locator_CC = ByAngularOptions.id("mat-option-38");
 	By locator_CE = ByAngularOptions.id("mat-option-39");
@@ -156,7 +156,7 @@ public class CalculaPricePage extends BasicWrap{
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Credito";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Davipuntos";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
@@ -345,7 +345,6 @@ public class CalculaPricePage extends BasicWrap{
 				click(locator_paymentD);
 			}
 			if(paymentType.equals("Credito")) {
-				Thread.sleep(3000);
 				click(locator_creditCard);
 				Thread.sleep(3000);
 				type(holderName, locator_holderNameC);
