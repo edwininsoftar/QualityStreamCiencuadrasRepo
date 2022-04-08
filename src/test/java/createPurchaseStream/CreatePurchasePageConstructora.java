@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.paulhammant.ngwebdriver.ByAngular;
+import com.paulhammant.ngwebdriver.ByAngularBinding;
+import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
 
@@ -38,8 +40,8 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_buttonPromoted = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/app-product-card[2]/div/div[2]/div/div/button[2]/span");
 	By locator_buttonOnline = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[3]/div/app-product-card/div/div[2]/div/div/button[2]/span");
 	By locator_buttonShoppingCart = By.xpath("//*[@id=\"products-base\"]/app-header/div/nav/button");
-	By locator_buttonPay = By.cssSelector("button[class=\"button secondary rounded block\"]");			
-	//Formulario de pago 
+	By locator_buttonPay = By.cssSelector("button[class=\"button secondary rounded block\"]");
+	// Formulario de pago
 	By locator_Nit = By.cssSelector("input[formcontrolname=\"document\"]");
 	By locator_DV = By.cssSelector("input[formcontrolname=\"nitVerification\"]");
 	By locator_city = By.cssSelector("input[formcontrolname=\"city\"]");
@@ -48,7 +50,8 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_email = By.cssSelector("input[formcontrolname=\"email\"]");
 	By locator_confirmEmail = By.cssSelector("input[formcontrolname=\"emailConfirmation\"]");
 	By locator_cell = By.cssSelector("input[formcontrolname=\"mobile\"]");
-	By locator_emailDIAN = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
+	By locator_emailDIAN = By.xpath(
+			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
 	By locator_billingMail = By.cssSelector("input[formcontrolname=\"billingEmail\"]");
 	By locator_regimeType = By.xpath("//*[@id=\"mat-select-4\"]/div/div[2]/div");
 	By locator_comun = By.xpath("//*[@id=\"mat-option-2\"]/span");
@@ -68,36 +71,80 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_ICAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
 	By locator_IVAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
 	By locator_buttonPayTow = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]/span");
-	//Pago y descuento ciencuadras 
+	// Pago y descuento ciencuadras
 	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
-	//Datos de pago cliente
-	By locator_cookies = By.xpath("/html/body/app-root/app-payment/div[2]/div/button");
-	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]"); 
-	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	By locator_typedocument = By.name("documentType");
-	By locator_TypePerson = By.name("personType");
-	By locator_bank = By.name("bank");
-	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[1]");
+	// Datos de pago cliente
+	By locator_cookies = ByAngular.buttonText("Aceptar");
+	// datos tarjeta debito
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
+	By locator_holderNameD = By.id("mat-input-11");
+	By locator_cardNumberD = By.id("mat-input-13");
+	By locator_monthCardD = By.id("mat-input-14");
+	By locator_yearCardD = By.id("mat-input-15");
+	By locator_cvvD = By.id("mat-input-16");
 	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
-	By locator_creditCard = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[1]/div[2]");
+	// datos tarjeta credito
+	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
+	By locator_holderNameC = By.id("mat-input-5");
+	By locator_cardNumberC = By.id("mat-input-7");
+	By locator_monthCardC = By.id("mat-input-8");
+	By locator_yearCardC = By.id("mat-input-9");
+	By locator_cvvC = By.id("mat-input-10");
+	By locator_dues = ByAngularBinding.id("mat-select-3");
+	By locator_five = ByAngularOptions.id("mat-option-6");
 	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
-	
+	// datos PSE
+	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
+	By locator_typedocumentP = By.name("documentType");
+	By locator_CC = ByAngularOptions.id("mat-option-38");
+	By locator_CE = ByAngularOptions.id("mat-option-39");
+	By locator_CP = ByAngularOptions.id("mat-option-40");
+	By locator_NIT = ByAngularOptions.id("mat-option-41");
+	By locator_TI = ByAngularOptions.id("mat-option-42");
+	By locator_TypePerson = By.name("personType");
+	By locator_PN = ByAngularOptions.id("mat-option-0");
+	By locator_PJ = ByAngularOptions.id("mat-option-1");
+	By locator_bank = By.name("bank");
+	By locator_itau = ByAngularOptions.id("mat-option-53");
+	By locator_cajaSocial = ByAngularOptions.id("mat-option-46");
+	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
+	// datos de pago PSE
+	By locator_PSECheckPolicy = By.id("chkPolicy");
+	By locator_PSECheckTerms = By.id("chkTerminos");
+	By locator_follow = By.id("btnIngresar");
+	// Davi puntos
+	By locator_davipuntos = By.xpath("//*[@id=\"mat-radio-5\"]");
+	By locator_paymentDavi = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-checkout-epayco/div/button");
+	By locator_epayco = By.id("email-user");
+	By locator_continueEpayco = By.xpath("/html/body/div/div[6]/div/div/div[1]/div[2]/div[2]/form/button");
+	// Daviplata
+	By locator_daviplata = By.xpath("//*[@id=\"mat-radio-6\"]");
+	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-4");
+	By locator_CCDaviplata = ByAngularOptions.id("mat-option-67");
+	By locator_CEDaviplata = ByAngularOptions.id("mat-option-68");
+	By locator_NITDaviplata = ByAngularOptions.id("mat-option-69");
+	By locator_TIDaviplata = ByAngularOptions.id("mat-option-70");
+	By locator_CPDaviplata = ByAngularOptions.id("mat-option-71");
+	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-72");
+	By locator_documentNumber = By.id("mat-input-17");
+	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
+
 	String username = "ciencuadras8@yopmail.com";
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
 	// producctos adicionales
-	int route = 1; 
+	int route = 1;
 	int photoTaking = 1;
 	int photoUpload = 1;
 	int featured = 1;
 	int promoted = 1;
 	int online = 1;
 	// Formulario de pago
-	String Nit = "900457893";// ingrese el nit 
-	String dv = "7";//ingrese el digito de verificación
+	String Nit = "900457893";// ingrese el nit
+	String dv = "7";// ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
 	String email = "ciencuadras4@yopmail.com";
@@ -105,28 +152,37 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
 	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
-	String regimeType = "Comun";//Comun, Simplificado, Especial
-	String retentionAgent = "4";//No, 4, 11
-	String fiscalResponsibility = "RegimenSimple";//RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
+	String regimeType = "Comun";// Comun, Simplificado, Especial
+	String retentionAgent = "4";// No, 4, 11
+	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor,
+													// NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE
-	String typeDocument = "Número de identificación tributario";// Cédula de Ciudadania, Cédula de Extranjeria, Cédula de Pasaporte, Número de identificación tributario, Tarjeta de identidad
-	String typePerson = "Persona natural";//Persona natural, Persona Juridica
-	String typeBank = "BANCO DAVIVIENDA";//BANCO DAVIVIENDA, BANCO CACJA SOCIAL, BANCON COLPATRIA, BANCOLOMBIA
-	
+	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
+	String typePerson = "PN";//PN, PJ
+	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
+	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
+	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
+	String monthCard = "12";// Ingrese el mes de la tarjeta 
+	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
+	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
+	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
+	String epayco = "edwinpulidonino@gmail.com";
+
 	public CreatePurchasePageConstructora(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public void waitForAngularRequestsToFinish() {
 		try {
 			getNgWebDriver().waitForAngularRequestsToFinish();
 		} catch (Exception e) {
-			Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
+			Assert.fail("Error while waiting for Angular request to finish: " + e.getMessage());
 		}
 	}
 
@@ -170,7 +226,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 		}
 	}
 
-	public void paymentSelection()  throws InterruptedException {
+	public void paymentSelection() throws InterruptedException {
 		try {
 			if (route != 0) {
 				for (int i = 0; i < route; i++) {
@@ -209,145 +265,201 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			System.out.println("Error: " + e);
 		}
 	}
-	
+
 	public void finalPaymentForm() {
 		try {
 			Thread.sleep(5000);
-			/*WebElement NitClear = driver.findElement(locator_Nit);
-			NitClear.clear();
-			type(Nit, locator_Nit);
-			Thread.sleep(3000);
-			WebElement dvClear = driver.findElement(locator_DV);
-			dvClear.clear();
-			type(dv, locator_DV);
-			Thread.sleep(3000);
-			WebElement cityClear = driver.findElement(locator_city);
-			cityClear.clear();
-			type(city, locator_city);
-			Thread.sleep(3000);
-			WebElement City = driver.findElement(locator_city);
-			City.sendKeys(Keys.DOWN);
-			City.sendKeys(Keys.ENTER);
-			City.sendKeys(Keys.TAB);
-			Thread.sleep(3000);
-			WebElement addressClear = driver.findElement(locator_address);
-			addressClear.clear();
-			type(address, locator_address);
-			Thread.sleep(3000);
-			WebElement emailClear = driver.findElement(locator_email);
-			emailClear.clear();
-			type(email, locator_email);
-			Thread.sleep(3000);*/
+			/*
+			 * WebElement NitClear = driver.findElement(locator_Nit); NitClear.clear();
+			 * type(Nit, locator_Nit); Thread.sleep(3000); WebElement dvClear =
+			 * driver.findElement(locator_DV); dvClear.clear(); type(dv, locator_DV);
+			 * Thread.sleep(3000); WebElement cityClear = driver.findElement(locator_city);
+			 * cityClear.clear(); type(city, locator_city); Thread.sleep(3000); WebElement
+			 * City = driver.findElement(locator_city); City.sendKeys(Keys.DOWN);
+			 * City.sendKeys(Keys.ENTER); City.sendKeys(Keys.TAB); Thread.sleep(3000);
+			 * WebElement addressClear = driver.findElement(locator_address);
+			 * addressClear.clear(); type(address, locator_address); Thread.sleep(3000);
+			 * WebElement emailClear = driver.findElement(locator_email);
+			 * emailClear.clear(); type(email, locator_email); Thread.sleep(3000);
+			 */
 			type(confirmEmail, locator_confirmEmail);
 			Thread.sleep(3000);
 			WebElement cellClear = driver.findElement(locator_cell);
 			cellClear.clear();
-			type(cell, locator_cell); 
-			if(emailDIAN.equals("No")) {
+			type(cell, locator_cell);
+			if (emailDIAN.equals("No")) {
 				click(locator_emailDIAN);
 				type(billingMail, locator_billingMail);
 			}
 			click(locator_regimeType);
-			if(regimeType.equals("Comun")) {
+			if (regimeType.equals("Comun")) {
 				click(locator_comun);
 			}
-			if(regimeType.equals("Simplificado")) {
+			if (regimeType.equals("Simplificado")) {
 				click(locator_simplificado);
 			}
-			if(regimeType.equals("Especial")) {
+			if (regimeType.equals("Especial")) {
 				click(locator_especial);
 			}
 			Thread.sleep(3000);
 			click(locator_retentionAgent);
-			if(retentionAgent.equals("No")) {
+			if (retentionAgent.equals("No")) {
 				click(locator_no);
 			}
-			if(retentionAgent.equals("4")) {
+			if (retentionAgent.equals("4")) {
 				click(locator_4);
 			}
-			if(retentionAgent.equals("11")) {
+			if (retentionAgent.equals("11")) {
 				click(locator_11);
-			}/*
+			} /*
+				 * Thread.sleep(3000); if(ICAwithholding.equals("Si")) {
+				 * click(locator_ICAwithholding); } if(IVAwithholding.equals("Si")) {
+				 * click(locator_IVAwithholding); } click(locator_fiscalResponsibility);
+				 * if(fiscalResponsibility.equals("RegimenSimple")) {
+				 * click(locator_regimenSimple); WebElement rs =
+				 * driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+				 * if(fiscalResponsibility.equals("AgenteRetenedor")) {
+				 * click(locator_agenteRetenedor); WebElement rs =
+				 * driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+				 * if(fiscalResponsibility.equals("GranContribuyente")) {
+				 * click(locator_granContribuyente); WebElement rs =
+				 * driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+				 * if(fiscalResponsibility.equals("Autorretenedor")) {
+				 * click(locator_autoretenedor); WebElement rs =
+				 * driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+				 * if(fiscalResponsibility.equals("NoResponsable")) {
+				 * click(locator_noResponsable); WebElement rs =
+				 * driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+				 */
 			Thread.sleep(3000);
-			if(ICAwithholding.equals("Si")) {
-				click(locator_ICAwithholding);
-			}
-			if(IVAwithholding.equals("Si")) {
-				click(locator_IVAwithholding);
-			}
-			click(locator_fiscalResponsibility);
-			if(fiscalResponsibility.equals("RegimenSimple")) {
-				click(locator_regimenSimple);
-				WebElement rs = driver.findElement(locator_cell);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if(fiscalResponsibility.equals("AgenteRetenedor")) {
-				click(locator_agenteRetenedor);
-				WebElement rs = driver.findElement(locator_cell);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if(fiscalResponsibility.equals("GranContribuyente")) {
-				click(locator_granContribuyente);
-				WebElement rs = driver.findElement(locator_cell);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if(fiscalResponsibility.equals("Autorretenedor")) {
-				click(locator_autoretenedor);
-				WebElement rs = driver.findElement(locator_cell);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if(fiscalResponsibility.equals("NoResponsable")) {
-				click(locator_noResponsable);
-				WebElement rs = driver.findElement(locator_cell);
-				rs.sendKeys(Keys.ESCAPE);
-			}*/
-			Thread.sleep(3000);
-				click(locator_buttonPayTow);
+			click(locator_buttonPayTow);
 		} catch (Exception e) {
-			System.out.println("Error: "+e);
+			System.out.println("Error: " + e);
 		}
 	}
-	
+
 	public void payFinish() {
 		try {
 			Thread.sleep(20000);
-			if(discountCode != "") {
+			if (discountCode != "") {
 				type(discountCode, locator_bond);
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
 		} catch (Exception e) {
-			System.out.println("Error: "+e);
+			System.out.println("Error: " + e);
 		}
 	}
-	
+
 	public void purchaseDetail() {
 		try {
+			Thread.sleep(8000);
 			click(locator_cookies);
+			Thread.sleep(8000);
 			if(paymentType.equals("Debito")) {
 				click(locator_debitCard);
+				type(holderName, locator_holderNameD);
+				type(cardNumber, locator_cardNumberD);
+				type(monthCard, locator_monthCardD);
+				type(yearCard, locator_yearCardD);
+				type(cvv, locator_cvvD);
+				Thread.sleep(8000);
 				click(locator_paymentD);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
+				type(holderName, locator_holderNameC);
+				type(cardNumber, locator_cardNumberC);
+				type(monthCard, locator_monthCardC);
+				type(yearCard, locator_yearCardC);
+				type(cvv, locator_cvvC);
+				Thread.sleep(8000);
+				click(locator_dues);
+				Thread.sleep(8000);
+				click(locator_five);
+				Thread.sleep(8000);
 				click(locator_paymentC);
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);
-				WebElement tc = driver.findElement(locator_typedocument);
-				Select sel = new Select(tc);
-				sel.selectByVisibleText(typeDocument);
-				WebElement tp = driver.findElement(locator_TypePerson);
-				Select selp = new Select(tp);
-				selp.selectByVisibleText(typePerson);
-				WebElement tb = driver.findElement(locator_bank);
-				Select selb = new Select(tb);
-				selb.selectByVisibleText(typeBank);
+				click(locator_typedocumentP);
+				Thread.sleep(8000);
+				if(typeDocument.equals("CC")) {
+					click(locator_CC);
+				}
+				if(typeDocument.equals("CE")) {
+					click(locator_CE);
+				}
+				if(typeDocument.equals("CP")) {
+					click(locator_CP);
+				}
+				if(typeDocument.equals("NIT")) {
+					click(locator_NIT);
+				}
+				if(typeDocument.equals("TI")) {
+					click(locator_TI);
+				}
+				click(locator_TypePerson);
+				Thread.sleep(8000);
+				if(typePerson.equals("PN")) {
+					click(locator_PN);
+				}
+				if(typePerson.equals("PJ")) {
+					click(locator_PJ);
+				}
+				click(locator_bank);
+				Thread.sleep(8000);
+				if(typeBank.equals("BANCO CAJA SOCIAL")) {
+					click(locator_cajaSocial);
+				}
+				if(typeBank.equals("ITAU")) {
+					click(locator_itau);
+				}
+				Thread.sleep(8000);
 				click(locator_paymentP);
+				Thread.sleep(10000);
+				click(locator_PSECheckPolicy);
+				click(locator_PSECheckTerms);
+				click(locator_follow);
+			}
+			if(paymentType.equals("Davipuntos")) {
+				click(locator_davipuntos);
+				Thread.sleep(8000);
+				click(locator_paymentDavi);
+				Thread.sleep(8000);
+				driver.switchTo().defaultContent();
+				type(epayco,locator_epayco);
+				click(locator_continueEpayco);
+			}
+			if(paymentType.equals("Daviplata")) {
+				click(locator_daviplata);
+				click(locator_typeDocumentDaviplata);
+				Thread.sleep(8000);
+				if(typeDocument.equals("CC")) {
+					click(locator_CCDaviplata);
+				}
+				if(typeDocument.equals("CE")) {
+					click(locator_CEDaviplata);
+				}
+				if(typeDocument.equals("CP")) {
+					click(locator_CPDaviplata);
+				}
+				if(typeDocument.equals("NIT")) {
+					click(locator_NITDaviplata);
+				}
+				if(typeDocument.equals("TI")) {
+					click(locator_TIDaviplata);
+				}
+				if(typeDocument.equals("SSE")) {
+					click(locator_SSEDaviplata);
+				}
+				type(documentNumber,locator_documentNumber);
+				Thread.sleep(8000);
+				click(locator_paymentDaviplata);
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
-		}
+		} 
 	}
 
 }
