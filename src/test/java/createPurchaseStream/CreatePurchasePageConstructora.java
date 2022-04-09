@@ -84,7 +84,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_monthCardD = By.id("mat-input-14");
 	By locator_yearCardD = By.id("mat-input-15");
 	By locator_cvvD = By.id("mat-input-16");
-	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
+	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
 	// datos tarjeta credito
 	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
 	By locator_holderNameC = By.id("mat-input-5");
@@ -94,7 +94,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_cvvC = By.id("mat-input-10");
 	By locator_dues = ByAngularBinding.id("mat-select-3");
 	By locator_five = ByAngularOptions.id("mat-option-6");
-	By locator_paymentC = By.xpath("//*[@id=\"formulario_card-credit\"]/div[2]/button");
+	By locator_paymentC = By.id("pagar-gateway-btn");
 	// datos PSE
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
 	By locator_typedocumentP = By.name("documentType");
@@ -160,7 +160,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String IVAwithholding = "Si";// Si, No
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Debito";// Debito, Credito, PSE, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
@@ -188,7 +188,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 
 	public void buys() throws InterruptedException {
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 			click(locator_into);
 			type(username, locator_username);
 			type(password, locator_password);
@@ -282,6 +282,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			 * WebElement emailClear = driver.findElement(locator_email);
 			 * emailClear.clear(); type(email, locator_email); Thread.sleep(3000);
 			 */
+			Thread.sleep(3000);
 			type(confirmEmail, locator_confirmEmail);
 			Thread.sleep(3000);
 			WebElement cellClear = driver.findElement(locator_cell);
@@ -355,20 +356,23 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 		try {
 			Thread.sleep(8000);
 			click(locator_cookies);
-			Thread.sleep(8000);
+			Thread.sleep(3000);
 			if(paymentType.equals("Debito")) {
-				click(locator_debitCard);
-				type(holderName, locator_holderNameD);
+			    click(locator_debitCard);
+			    Thread.sleep(5000);
+				click(locator_paymentD);
+				/*type(holderName, locator_holderNameD);
 				type(cardNumber, locator_cardNumberD);
 				type(monthCard, locator_monthCardD);
 				type(yearCard, locator_yearCardD);
 				type(cvv, locator_cvvD);
-				Thread.sleep(8000);
-				click(locator_paymentD);
+				Thread.sleep(8000);*/
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
-				type(holderName, locator_holderNameC);
+				Thread.sleep(5000);
+				click(locator_paymentC);
+				/*type(holderName, locator_holderNameC);
 				type(cardNumber, locator_cardNumberC);
 				type(monthCard, locator_monthCardC);
 				type(yearCard, locator_yearCardC);
@@ -377,8 +381,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_dues);
 				Thread.sleep(8000);
 				click(locator_five);
-				Thread.sleep(8000);
-				click(locator_paymentC);
+				Thread.sleep(8000);*/
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);
@@ -421,15 +424,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_PSECheckPolicy);
 				click(locator_PSECheckTerms);
 				click(locator_follow);
-			}
-			if(paymentType.equals("Davipuntos")) {
-				click(locator_davipuntos);
-				Thread.sleep(8000);
-				click(locator_paymentDavi);
-				Thread.sleep(8000);
-				driver.switchTo().defaultContent();
-				type(epayco,locator_epayco);
-				click(locator_continueEpayco);
 			}
 			if(paymentType.equals("Daviplata")) {
 				click(locator_daviplata);
