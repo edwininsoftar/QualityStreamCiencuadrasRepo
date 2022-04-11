@@ -87,49 +87,43 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
 	// datos tarjeta credito
 	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
-	By locator_holderNameC = By.id("mat-input-5");
-	By locator_cardNumberC = By.id("mat-input-7");
-	By locator_monthCardC = By.id("mat-input-8");
-	By locator_yearCardC = By.id("mat-input-9");
-	By locator_cvvC = By.id("mat-input-10");
+	By locator_paymentC = By.id("pagar-gateway-btn");
+	By locator_holderNameC = By.name("card-holder");
+	By locator_cardNumberC = By.name("card-number");
+	By locator_monthCardC = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
+	By locator_cvvC = By.xpath("/html/body/form/div[2]/div[6]/div/input");
 	By locator_dues = ByAngularBinding.id("mat-select-3");
 	By locator_five = ByAngularOptions.id("mat-option-6");
-	By locator_paymentC = By.id("pagar-gateway-btn");
 	// datos PSE
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
 	By locator_typedocumentP = By.name("documentType");
-	By locator_CC = ByAngularOptions.id("mat-option-38");
-	By locator_CE = ByAngularOptions.id("mat-option-39");
-	By locator_CP = ByAngularOptions.id("mat-option-40");
-	By locator_NIT = ByAngularOptions.id("mat-option-41");
-	By locator_TI = ByAngularOptions.id("mat-option-42");
+	By locator_CC = ByAngularOptions.id("mat-option-2");
+	By locator_CE = ByAngularOptions.id("mat-option-3");
+	By locator_CP = ByAngularOptions.id("mat-option-4");
+	By locator_NIT = ByAngularOptions.id("mat-option-5");
+	By locator_TI = ByAngularOptions.id("mat-option-6");
 	By locator_TypePerson = By.name("personType");
 	By locator_PN = ByAngularOptions.id("mat-option-0");
 	By locator_PJ = ByAngularOptions.id("mat-option-1");
 	By locator_bank = By.name("bank");
-	By locator_itau = ByAngularOptions.id("mat-option-53");
-	By locator_cajaSocial = ByAngularOptions.id("mat-option-46");
+	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
+	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
 	// datos de pago PSE
 	By locator_PSECheckPolicy = By.id("chkPolicy");
 	By locator_PSECheckTerms = By.id("chkTerminos");
 	By locator_follow = By.id("btnIngresar");
-	// Davi puntos
-	By locator_davipuntos = By.xpath("//*[@id=\"mat-radio-5\"]");
-	By locator_paymentDavi = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-checkout-epayco/div/button");
-	By locator_epayco = By.id("email-user");
-	By locator_continueEpayco = By.xpath("/html/body/div/div[6]/div/div/div[1]/div[2]/div[2]/form/button");
 	// Daviplata
-	By locator_daviplata = By.xpath("//*[@id=\"mat-radio-6\"]");
-	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-4");
-	By locator_CCDaviplata = ByAngularOptions.id("mat-option-67");
-	By locator_CEDaviplata = ByAngularOptions.id("mat-option-68");
-	By locator_NITDaviplata = ByAngularOptions.id("mat-option-69");
-	By locator_TIDaviplata = ByAngularOptions.id("mat-option-70");
-	By locator_CPDaviplata = ByAngularOptions.id("mat-option-71");
-	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-72");
-	By locator_documentNumber = By.id("mat-input-17");
-	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[5]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
+	By locator_daviplata = ByAngularBinding.id("mat-radio-5");
+	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-3");
+	By locator_CCDaviplata = ByAngularOptions.id("mat-option-26");
+	By locator_CEDaviplata = ByAngularOptions.id("mat-option-27");
+	By locator_NITDaviplata = ByAngularOptions.id("mat-option-28");
+	By locator_TIDaviplata = ByAngularOptions.id("mat-option-29");
+	By locator_CPDaviplata = ByAngularOptions.id("mat-option-30");
+	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-31");
+	By locator_documentNumber = By.id("mat-input-5");
+	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
 	String username = "ciencuadras8@yopmail.com";
 	String password = "100Cuadras%";
@@ -160,13 +154,13 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String IVAwithholding = "Si";// Si, No
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE, Daviplata
+	String paymentType = "Credito";// Debito, Credito, PSE, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
-	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
+	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
 	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
 	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
-	String monthCard = "12";// Ingrese el mes de la tarjeta 
+	String monthCard = "1225";// Ingrese el mes de la tarjeta 
 	String yearCard = "25";// Ingrese el año de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
@@ -372,9 +366,11 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				click(locator_creditCard);
 				Thread.sleep(5000);
 				click(locator_paymentC);
-				/*type(holderName, locator_holderNameC);
+				driver.switchTo().alert();
+				type(holderName, locator_holderNameC);
 				type(cardNumber, locator_cardNumberC);
 				type(monthCard, locator_monthCardC);
+				/*type(monthCard, locator_monthCardC);
 				type(yearCard, locator_yearCardC);
 				type(cvv, locator_cvvC);
 				Thread.sleep(8000);
@@ -415,8 +411,8 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				if(typeBank.equals("BANCO CAJA SOCIAL")) {
 					click(locator_cajaSocial);
 				}
-				if(typeBank.equals("ITAU")) {
-					click(locator_itau);
+				if(typeBank.equals("BANCOLOMBIA")) {
+					click(locator_bancolombia);
 				}
 				Thread.sleep(8000);
 				click(locator_paymentP);
