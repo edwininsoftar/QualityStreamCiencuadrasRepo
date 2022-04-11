@@ -1,6 +1,10 @@
 package createPurchaseStream;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -79,21 +83,23 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_cookies = ByAngular.buttonText("Aceptar");
 	// datos tarjeta debito
 	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
-	By locator_holderNameD = By.id("mat-input-11");
+	By locator_holderNameD = By.xpath("/html/body/form/div[2]/div[3]/input");
 	By locator_cardNumberD = By.id("mat-input-13");
 	By locator_monthCardD = By.id("mat-input-14");
 	By locator_yearCardD = By.id("mat-input-15");
 	By locator_cvvD = By.id("mat-input-16");
 	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
+	By locator_payD = By.xpath("/html/body/form/div[4]/div[2]/button");
 	// datos tarjeta credito
 	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
 	By locator_paymentC = By.id("pagar-gateway-btn");
-	By locator_holderNameC = By.name("card-holder");
+	By locator_holderNameC = ByAngularBinding.name("card-holder");
 	By locator_cardNumberC = By.name("card-number");
 	By locator_monthCardC = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
 	By locator_cvvC = By.xpath("/html/body/form/div[2]/div[6]/div/input");
 	By locator_dues = ByAngularBinding.id("mat-select-3");
 	By locator_five = ByAngularOptions.id("mat-option-6");
+	By locator_formCheckout = By.id("checkout-form");
 	// datos PSE
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
 	By locator_typedocumentP = By.name("documentType");
@@ -125,7 +131,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_documentNumber = By.id("mat-input-5");
 	By locator_paymentDaviplata = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
 
-	String username = "ciencuadras8@yopmail.com";
+	String username = "ciencuadras8@yopmail.com";//ciencuadrasconstructora1@yopmail.com, ciencuadras8@yopmail.com
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
@@ -136,7 +142,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	int featured = 1;
 	int promoted = 1;
 	int online = 1;
-	// Formulario de pago
+	// Datos de facturación
 	String Nit = "900457893";// ingrese el nit
 	String dv = "7";// ingrese el digito de verificación
 	String city = "Bogotá";
@@ -148,13 +154,13 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
-	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor,
-													// NoResponsable
+	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
+	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Credito";// Debito, Credito, PSE, Daviplata
+	String paymentType = "PSE";// Debito, Credito, PSE, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
@@ -355,29 +361,30 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			    click(locator_debitCard);
 			    Thread.sleep(5000);
 				click(locator_paymentD);
-				/*type(holderName, locator_holderNameD);
-				type(cardNumber, locator_cardNumberD);
-				type(monthCard, locator_monthCardD);
-				type(yearCard, locator_yearCardD);
-				type(cvv, locator_cvvD);
-				Thread.sleep(8000);*/
+				String mainTab = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				for (String actual: handles) {
+					if(!actual.equalsIgnoreCase(mainTab)) {
+						driver.switchTo().window(actual);
+					}
+				}
+				type(holderName, locator_holderNameD);
+				click(locator_payD);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
 				Thread.sleep(5000);
 				click(locator_paymentC);
-				driver.switchTo().alert();
+				String mainTab = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				for (String actual: handles) {
+					if(!actual.equalsIgnoreCase(mainTab)) {
+						driver.switchTo().window(actual);
+					}
+				}
 				type(holderName, locator_holderNameC);
 				type(cardNumber, locator_cardNumberC);
 				type(monthCard, locator_monthCardC);
-				/*type(monthCard, locator_monthCardC);
-				type(yearCard, locator_yearCardC);
-				type(cvv, locator_cvvC);
-				Thread.sleep(8000);
-				click(locator_dues);
-				Thread.sleep(8000);
-				click(locator_five);
-				Thread.sleep(8000);*/
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);

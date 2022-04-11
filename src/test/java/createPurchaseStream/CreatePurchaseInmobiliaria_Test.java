@@ -26,6 +26,8 @@ public class CreatePurchaseInmobiliaria_Test {
 	public void test() throws InterruptedException {
 		createPurchasePageInmobiliaria.buys();
 		createPurchasePageInmobiliaria.formMonths();
+		createPurchasePageInmobiliaria.paymentSelection();
+		createPurchasePageInmobiliaria.billingData();
 	}
 
 }
