@@ -54,8 +54,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_email = By.cssSelector("input[formcontrolname=\"email\"]");
 	By locator_confirmEmail = By.cssSelector("input[formcontrolname=\"emailConfirmation\"]");
 	By locator_cell = By.cssSelector("input[formcontrolname=\"mobile\"]");
-	By locator_emailDIAN = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
+	By locator_emailDIAN = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
 	By locator_billingMail = By.cssSelector("input[formcontrolname=\"billingEmail\"]");
 	By locator_regimeType = By.xpath("//*[@id=\"mat-select-4\"]/div/div[2]/div");
 	By locator_comun = By.xpath("//*[@id=\"mat-option-2\"]/span");
@@ -115,10 +114,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
 	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	// datos de pago PSE
-	By locator_PSECheckPolicy = By.id("chkPolicy");
-	By locator_PSECheckTerms = By.id("chkTerminos");
-	By locator_follow = By.id("btnIngresar");
 	// Daviplata
 	By locator_daviplata = ByAngularBinding.id("mat-radio-5");
 	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-3");
@@ -423,10 +418,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				}
 				Thread.sleep(8000);
 				click(locator_paymentP);
-				Thread.sleep(10000);
-				click(locator_PSECheckPolicy);
-				click(locator_PSECheckTerms);
-				click(locator_follow);
 			}
 			if(paymentType.equals("Daviplata")) {
 				click(locator_daviplata);

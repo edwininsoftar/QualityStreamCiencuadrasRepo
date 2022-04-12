@@ -1,6 +1,7 @@
 package createPurchaseStream;
 
 import java.time.Duration;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
+import com.paulhammant.ngwebdriver.ByAngularOptions;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
 import Base.BasicWrap;
@@ -76,10 +78,50 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	By locator_greatContributor = By.id("mat-option-10");
 	By locator_selfRetaining = By.id("mat-option-11");
 	By locator_notResponsible = By.id("mat-option-12");
-	By locator_ica = By.id("/html/body/app-root/app-products-payment/section/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
-	By locator_iva = By.id("/html/body/app-root/app-products-payment/section/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
+	By locator_ica = By.xpath("/html/body/app-root/app-products-payment/section/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
+	By locator_iva = By.xpath("/html/body/app-root/app-products-payment/section/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
 	By locator_buttonPayTwo = By.xpath("/html/body/app-root/app-products-payment/section/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]");
-	
+	//Pago y descuento ciencuadras
+	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
+	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
+	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
+	//Datos de pago cliente
+	By locator_cookies = ByAngular.buttonText("Aceptar");
+	// datos tarjeta debito
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
+	By locator_holderNameD = By.xpath("/html/body/form/div[2]/div[3]/input");
+	By locator_cardNumberD = By.id("mat-input-13");
+	By locator_monthCardD = By.id("mat-input-14");
+	By locator_yearCardD = By.id("mat-input-15");
+	By locator_cvvD = By.id("mat-input-16");
+	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
+	By locator_payD = By.xpath("/html/body/form/div[4]/div[2]/button");
+	// datos tarjeta credito
+	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
+	By locator_paymentC = By.id("pagar-gateway-btn");
+	By locator_holderNameC = ByAngularBinding.name("card-holder");
+	By locator_cardNumberC = By.name("card-number");
+	By locator_monthCardC = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
+	By locator_cvvC = By.xpath("/html/body/form/div[2]/div[6]/div/input");
+	By locator_dues = ByAngularBinding.id("mat-select-3");
+	By locator_five = ByAngularOptions.id("mat-option-6");
+	By locator_formCheckout = By.id("checkout-form");
+	// datos PSE
+	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
+	By locator_typedocumentP = By.name("documentType");
+	By locator_CC = ByAngularOptions.id("mat-option-2");
+	By locator_CE = ByAngularOptions.id("mat-option-3");
+	By locator_CP = ByAngularOptions.id("mat-option-4");
+	By locator_NIT = ByAngularOptions.id("mat-option-5");
+	By locator_TI = ByAngularOptions.id("mat-option-6");
+	By locator_TypePerson = By.name("personType");
+	By locator_PN = ByAngularOptions.id("mat-option-0");
+	By locator_PJ = ByAngularOptions.id("mat-option-1");
+	By locator_bank = By.name("bank");
+	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
+	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
+	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
+
 	// Flujo inmobiliaria
 	String username = "inmobiliariaciencuadras1@yopmail.com";
 	String password = "100Cuadras%";
@@ -104,9 +146,24 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
-	String fiscalResponsibility = "RegimenSimple";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
+	String fiscalResponsibility = "AgenteRetenedor";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
 	String ICAwithholding = "Si"; // Si, No
 	String IVAwithholding = "Si";// Si, No
+	//Descuento y pago ciencuadras
+	String discountCode = "";// codigo de descuento
+	//Dastos cliente pago
+	String paymentType = "Credito";// Debito, Credito, PSE, Daviplata
+	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
+	String typePerson = "PN";//PN, PJ
+	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
+	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
+	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
+	String monthCard = "1225";// Ingrese el mes de la tarjeta 
+	String yearCard = "25";// Ingrese el año de la tarjeta 
+	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
+	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
+	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
+	String epayco = "edwinpulidonino@gmail.com";
 	
 	public CreatePurchasePageInmobiliaria(WebDriver driver) {
 		super(driver);
@@ -214,7 +271,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	public void billingData() {
 		try {
 			Thread.sleep(8000);
-			WebElement NitClear = driver.findElement(locator_nitNumber); 
+			/*WebElement NitClear = driver.findElement(locator_nitNumber); 
 			NitClear.clear();
 			type(Nit, locator_nitNumber);
 			Thread.sleep(3000); 
@@ -233,10 +290,10 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			Thread.sleep(3000);
 			WebElement addressClear = driver.findElement(locator_address);
 			addressClear.clear(); 
-			type(address, locator_address); 
+			type(address, locator_address); */
 			Thread.sleep(3000);
 			type(confirmEmail, locator_confirmEmail);
-			Thread.sleep(3000);
+			/*Thread.sleep(3000);
 			WebElement cellClear = driver.findElement(locator_phone);
 			cellClear.clear();
 			type(cell, locator_phone);
@@ -257,7 +314,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 				click(locator_especial);
 			}
 			Thread.sleep(3000);
-			click(locator_incomeRetainer);
+			click(locator_incomeRetainer );
 			if (retentionAgent.equals("No")) {
 				click(locator_no);
 			}
@@ -267,7 +324,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			if (retentionAgent.equals("11")) {
 				click(locator_11);
 			} 
-			Thread.sleep(3000); 
+		    Thread.sleep(3000); 
 			if(ICAwithholding.equals("Si")) {
 				click(locator_ica); 
 			}
@@ -287,8 +344,9 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 				 rs.sendKeys(Keys.ESCAPE);
 			}
 			if(fiscalResponsibility.equals("GranContribuyente")) {
-				 click(locator_greatContributor); WebElement rs =
-				 driver.findElement(locator_phone); rs.sendKeys(Keys.ESCAPE); 
+				 click(locator_greatContributor); 
+				 WebElement rs = driver.findElement(locator_phone); 
+				 rs.sendKeys(Keys.ESCAPE); 
 			}
 			if(fiscalResponsibility.equals("Autorretenedor")) {
 				click(locator_selfRetaining);
@@ -299,11 +357,101 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 		    	click(locator_notResponsible); 
 		    	WebElement rs = driver.findElement(locator_phone); 
 		    	rs.sendKeys(Keys.ESCAPE); 
-            } 
+            }*/
 			Thread.sleep(3000);
 			click(locator_buttonPayTwo);
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
+	}
+	
+	public void payFinish() {
+		try {
+			Thread.sleep(20000);
+			if (discountCode != "") {
+				type(discountCode, locator_bond);
+				click(locator_aplic);
+			}
+			click(locator_buttonPayfinish);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+	}
+	
+	public void purchaseDetail() {
+		try {
+			Thread.sleep(8000);
+			click(locator_cookies);
+			Thread.sleep(3000);
+			if(paymentType.equals("Debito")) {
+			    click(locator_debitCard);
+			    Thread.sleep(5000);
+				click(locator_paymentD);
+				String mainTab = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				for (String actual: handles) {
+					if(!actual.equalsIgnoreCase(mainTab)) {
+						driver.switchTo().window(actual);
+					}
+				}
+				type(holderName, locator_holderNameD);
+				click(locator_payD);
+			}
+			if(paymentType.equals("Credito")) {
+				click(locator_creditCard);
+				Thread.sleep(5000);
+				click(locator_paymentC);
+				String mainTab = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				for (String actual: handles) {
+					if(!actual.equalsIgnoreCase(mainTab)) {
+						driver.switchTo().window(actual);
+					}
+				}
+				type(holderName, locator_holderNameC);
+				type(cardNumber, locator_cardNumberC);
+				type(monthCard, locator_monthCardC);
+			}
+			if(paymentType.equals("PSE")) {
+				click(locator_pse);
+				click(locator_typedocumentP);
+				Thread.sleep(8000);
+				if(typeDocument.equals("CC")) {
+					click(locator_CC);
+				}
+				if(typeDocument.equals("CE")) {
+					click(locator_CE);
+				}
+				if(typeDocument.equals("CP")) {
+					click(locator_CP);
+				}
+				if(typeDocument.equals("NIT")) {
+					click(locator_NIT);
+				}
+				if(typeDocument.equals("TI")) {
+					click(locator_TI);
+				}
+				click(locator_TypePerson);
+				Thread.sleep(8000);
+				if(typePerson.equals("PN")) {
+					click(locator_PN);
+				}
+				if(typePerson.equals("PJ")) {
+					click(locator_PJ);
+				}
+				click(locator_bank);
+				Thread.sleep(8000);
+				if(typeBank.equals("BANCO CAJA SOCIAL")) {
+					click(locator_cajaSocial);
+				}
+				if(typeBank.equals("BANCOLOMBIA")) {
+					click(locator_bancolombia);
+				}
+				Thread.sleep(8000);
+				click(locator_paymentP);
+			}
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		} 
 	}
 }

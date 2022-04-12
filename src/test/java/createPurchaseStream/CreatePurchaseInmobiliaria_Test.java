@@ -28,6 +28,8 @@ public class CreatePurchaseInmobiliaria_Test {
 		createPurchasePageInmobiliaria.formMonths();
 		createPurchasePageInmobiliaria.paymentSelection();
 		createPurchasePageInmobiliaria.billingData();
+		createPurchasePageInmobiliaria.payFinish();
+		createPurchasePageInmobiliaria.purchaseDetail();
 	}
 
 }
