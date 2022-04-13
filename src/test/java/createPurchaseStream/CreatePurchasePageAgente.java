@@ -15,7 +15,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
 	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
 	By locator_public = By.cssSelector("span[_ngcontent-serverapp-c114][class=\"link\"]");
-	By locator_agente = By.name("agente");
+	By locator_agente = By.name("agente"); 
 	By locator_seePlans = By.cssSelector("a[_ngcontent-serverapp-c275][routerlink=\"/seleccion-ideal\"]");
 	By locator_toAssemble = By.cssSelector("a[_ngcontent-serverapp-c275][routerlink=\"/arma-tu-plan\"]");
 	By locator_monthsXS = By.tagName("select");							

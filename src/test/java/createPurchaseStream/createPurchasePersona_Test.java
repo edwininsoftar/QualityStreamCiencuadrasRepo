@@ -25,9 +25,10 @@ public class createPurchasePersona_Test {
 	@Test
 	public void test() throws InterruptedException {
 		createPropertyPage.buys();
-		createPropertyPage.purchaseForm();
+		createPropertyPage.purchaseForm(); 
 		createPropertyPage.load();
-		createPropertyPage.topay();
+		createPropertyPage.payFinish();
+		createPropertyPage.purchaseDetail();
 	}
 
 }
