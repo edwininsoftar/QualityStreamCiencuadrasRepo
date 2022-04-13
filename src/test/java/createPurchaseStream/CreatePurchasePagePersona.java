@@ -8,67 +8,86 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.ClickAction;
+
+import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
+
 import Base.BasicWrap;
 
 public class CreatePurchasePagePersona extends BasicWrap {
-
-	public CreatePurchasePagePersona(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
 	
+	// Flujo Persona
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
 	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
 	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
-	By locator_public = By.cssSelector("span[_ngcontent-serverapp-c114][class=\"link\"]");
+	By locator_public = ByAngularCssContainingText.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/a[2]/span[2]");
 	By locator_person = By.name("persona");
-	By locator_publicTu = By.cssSelector("a[class=\"card-item__link\"]");
-	By locator_postYour = By.xpath("//*[@id=\"cdk-step-content-0-0\"]/app-options-content/div/div[2]/section/article[1]/div[4]/button");
-	By locator_postRealEstate= By.xpath("//*[@id=\"cdk-step-content-0-0\"]/app-options-content/div/div[2]/section/article[2]/div[4]/button");
+	By locator_publicTu = By.xpath("/html/body/app-root/app-products-profile/section/div/div[3]/div/div/div[2]/a");
+	//Acompañamiento
+	By locator_postYour = By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[1]/div[4]");
+	By locator_realEstate= By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[2]"); 
+	//Elige tu plan
 	By locator_free = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");	
 	By locator_standard = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
-    By locator_premium = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[3]/div/button");
-	By locator_propertyType = By.xpath("//*[@id=\"propertyTypeId\"]/div/div[1]");	
-	By locator_rent = By.xpath("//*[@id=\"mat-button-toggle-22-button\"]/div/span");
-	By locator_sale = By.xpath("//*[@id=\"mat-button-toggle-51-button\"]/div/span");
+	By locator_premium = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[3]/div/button");
+	//publica
+	By locator_propertyType = By.id("propertyTypeId");	
+	By locator_house = By.id("mat-option-4");
+	By locator_office = By.id("mat-option-10");
+	By locator_apartament = By.id("mat-option-3");
+	By locator_rent = By.id("mat-button-toggle-2");
+	By locator_sale = By.id("mat-button-toggle-1-button");
 	By locator_value = By.xpath("//*[@id=\"leasingFee\"]");
 	By locator_managementNo = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[1]");
 	By locator_managementSi = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[2]");
 	By locator_managementValue = By.xpath("//*[@id=\"administrationValue\"]");
-	By locator_saleValue = By.xpath("//*[@id=\"sellingPrice\"]");
+	By locator_saleValue = By.id("sellingPrice");
 	By locator_yearsOfAntiguaty = By.xpath("//*[@id=\"antiquity\"]");
 	By locator_propertydescriptión = By.cssSelector("textarea[_ngcontent-c7]");
-	By locator_stratumOne = By.xpath("//*[@id=\"mat-button-toggle-4-button\"]/div");
-	By locator_stratumTow = By.xpath("//*[@id=\"mat-button-toggle-5-button\"]/div");
-	By locator_stratumThree = By.xpath("//*[@id=\"mat-button-toggle-6-button\"]/div");
-	By locator_stratumFour = By.xpath("//*[@id=\"mat-button-toggle-7-button\"]/div");
-	By locator_stratumFive = By.xpath("//*[@id=\"mat-button-toggle-8-button\"]/div");
-	By locator_stratumSix = By.xpath("//*[@id=\"mat-button-toggle-9-button\"]/div");
+	// Arriendo
+	By locator_stratumOne = By.id("mat-button-toggle-4-button");
+	By locator_stratumTow = By.id("mat-button-toggle-5-button");
+	By locator_stratumThree = By.id("mat-button-toggle-6-button");
+	By locator_stratumFour = By.id("mat-button-toggle-7-button"); 
+	By locator_stratumFive = By.id("mat-button-toggle-8-button");
+	By locator_stratumSix = By.id("mat-button-toggle-9-button");
+	// Venta
+	By locator_stratumOneV = By.id("mat-button-toggle-14-button");
+	By locator_stratumTwoV = By.id("mat-button-toggle-15-button");
+	By locator_stratumThreeV = By.id("mat-button-toggle-16-button");
+	By locator_stratumFourV = By.id("mat-button-toggle-17-button");
+	By locator_stratumFiveV = By.id("mat-button-toggle-18-button");
+	By locator_stratumSixV = By.id("mat-button-toggle-19-button");
 	By locator_squareMeter = By.xpath("//*[@id=\"builtArea\"]");
 	By locator_room = By.name("numBedRooms");
 	By locator_NToilets = By.name("numBathrooms");
 	By locator_NParking = By.name("numParking");
-    By locator_city = By.name("ciudad");
-    By locator_neighborhood = By.xpath("//*[@id=\"barrio\"]");
-    By locator_direction = By.xpath("//*[@id=\"address\"]");
-    By locator_addaddress = By.xpath("//*[@id=\"addressComplement\"]");
-    By locator_propertyLocation = By.xpath("//*[@id=\"dirCheckAddress\"]/label/div");
-    By locator_NWhatsapp = By.xpath("//*[@id=\"cellphone\"]");
-    By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
-    By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
-    By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
-    By locator_img = By.id("ngx-input-file-0");
-    By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
-    By locator_topay = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
-    By locator_topay2 = By.cssSelector("app-payment-data[_ngcontent-pgu-c0][_nghost-pgu-c6][ng-reflect-data-pay=\"[object Object]\"][ng-reflect-car-detail=\"[object Object]\"][ng-reflect-user-id=\"45673839\"][ng-reflect-gateway-code=\"[object Object]\"][ng-reflect-token-external=\"40HobcfBzO73DqfaXuB2\"][ng-reflect-is-unregistered-user=\"false\"][ng-reflect-products=\"[object Object]\"][ng-reflect-pay-methods][ng-reflect-portal-name=\"Ciencuadras\"][ng-reflect-iva-summatory=\"0\"][ng-reflect-customization=\"[object Object]\"][class=\"ng-star-inserted\"]>div[id=\"payment-data\"]>div[class=\"action\"]>div[class=\"btn_enlace\"]>button[class=\"btn-secondary block ng-star-inserted\"]");
-    
-	String username = "juanlag4545@yopmail.com";
+	By locator_city = By.name("ciudad");
+	By locator_neighborhood = By.xpath("//*[@id=\"barrio\"]");
+	By locator_direction = By.xpath("//*[@id=\"address\"]");
+	By locator_addaddress = By.xpath("//*[@id=\"addressComplement\"]");
+	By locator_propertyLocation = By.xpath("//*[@id=\"dirCheckAddress\"]/label/div");
+	By locator_NWhatsapp = By.xpath("//*[@id=\"cellphone\"]");
+	By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
+	By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
+	By locator_identification = By.id("identification");
+	By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
+	//Imagenes del inmueble
+	By locator_img = By.id("ngx-input-file-0");
+	By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
+	By locator_topay = By.xpath("/html/body/app-root/app-checkout/car-summary/div[1]/section/div/div[2]/app-payment-data/div/div/div/button");
+	By locator_topay2 = By.cssSelector("app-payment-data[_ngcontent-pgu-c0][_nghost-pgu-c6][ng-reflect-data-pay=\"[object Object]\"][ng-reflect-car-detail=\"[object Object]\"][ng-reflect-user-id=\"45673839\"][ng-reflect-gateway-code=\"[object Object]\"][ng-reflect-token-external=\"40HobcfBzO73DqfaXuB2\"][ng-reflect-is-unregistered-user=\"false\"][ng-reflect-products=\"[object Object]\"][ng-reflect-pay-methods][ng-reflect-portal-name=\"Ciencuadras\"][ng-reflect-iva-summatory=\"0\"][ng-reflect-customization=\"[object Object]\"][class=\"ng-star-inserted\"]>div[id=\"payment-data\"]>div[class=\"action\"]>div[class=\"btn_enlace\"]>button[class=\"btn-secondary block ng-star-inserted\"]");
+	    
+	String username = "personaciencuadras45@yopmail.com";
 	String password = "Ciencuadras21*";
+	//Acompañamiento
 	String popstType = "Tu";//Tu, Inmobiliaria
-	String planType = "Gratis"; //Gratis,Estandar
+	//Elige tu plan
+	String planType = "Gratis"; //Gratis, Estandar, Premium
+	//formulario publica
 	String propertyType = "Apartamento"; // Apartamento
-	String transactionType = "Arriendo";// Arriendo
+	String transactionType = "Arriendo";// Arriendo, Venta
 	String value = "800000";//ingrese el valor renta del inmueble
 	String management = "No"; //ingrese si incluye administración - No,Si
 	String managementValue = "100000"; //Valor obligatorio si management = No
@@ -86,28 +105,27 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	String addaddress = "Piso 2"; // Complemento de dirección 
 	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
 	String contactMe = "Whatsapp"; // Whatsapp, Llamada
-	
-	public void waitForAngularRequestsToFinish() {
-		try {
-			getNgWebDriver().waitForAngularRequestsToFinish();
-		} catch (Exception e) {
-			Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
-		}
+	String identification = "1057596841";// Ingrese numero de identificación
+		
+	public CreatePurchasePagePersona(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
 	}
 	
 	public void buys() throws InterruptedException {
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 			click(locator_into);
 			type(username, locator_username);
 			type(password, locator_password);
 			click(locator_login);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_public);
 			click(locator_person);
+			Thread.sleep(5000);
 			click(locator_publicTu);
 			if(popstType.equals("Tu")) {
-				Thread.sleep(5000);
+				Thread.sleep(10000);
 				click(locator_postYour);
 				if(planType.equals("Gratis")) {
 					click(locator_free);
@@ -115,10 +133,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				if(planType.equals("Estandar")) {
 					click(locator_standard);
 				}
-			}else {
-				click(locator_postRealEstate);
+				if(planType.equals("Premium")) {
+					click(locator_premium);
+				}
 			}
-			
+			if(popstType.equals("Inmobiliaria")) {
+				Thread.sleep(8000);
+				click(locator_realEstate);
+			}
 		} catch (Exception e) {
 			System.out.println("error: " + e);
 		}
@@ -126,7 +148,20 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	
 	public void purchaseForm() throws InterruptedException {
 		try {
+			Thread.sleep(8000);
+			click(locator_propertyType);
+			Thread.sleep(3000);
+			if(propertyType.equals("Apartamento")) {
+				click(locator_apartament);
+			}
+			if(propertyType.equals("Casa")) {
+				click(locator_house);
+			}
+			if(propertyType.equals("Oficina")) {
+				click(locator_office);
+			}
 			if(transactionType.equals("Arriendo")) {
+				click(locator_rent);
 				type(value, locator_value);
 				if(management.equals("Si")) {
 					Actions action = new Actions(driver);
@@ -141,27 +176,52 @@ public class CreatePurchasePagePersona extends BasicWrap {
 					type(managementValue, locator_managementValue);
 				}
 			}
+			if(transactionType.equals("Venta")) {
+				click(locator_sale);
+				type(saleValue, locator_saleValue);
+				type(managementValue, locator_managementValue);
+			}
 			type(yearsOfAntiguaty, locator_yearsOfAntiguaty);
-
 			type(propertyDescription, locator_propertydescriptión);
-			
-			if(stratum.equals("1")) {
-				click(locator_stratumOne);
+			if(transactionType.equals("Arriendo")) {
+				if(stratum.equals("1")) {
+					click(locator_stratumOne);
+				}
+				if(stratum.equals("2")) {
+					click(locator_stratumTow);
+				}
+				if(stratum.equals("3")) {
+					click(locator_stratumThree);
+				}
+				if(stratum.equals("4")) {
+					click(locator_stratumFour);
+				}
+				if(stratum.equals("5")) {
+					click(locator_stratumFive);
+				}
+				if(stratum.equals("6")) {
+					click(locator_stratumSix);
+				}
 			}
-			if(stratum.equals("2")) {
-				click(locator_stratumTow);
-			}
-			if(stratum.equals("3")) {
-				click(locator_stratumThree);
-			}
-			if(stratum.equals("4")) {
-				click(locator_stratumFour);
-			}
-			if(stratum.equals("5")) {
-				click(locator_stratumFive);
-			}
-			if(stratum.equals("6")) {
-				click(locator_stratumSix);
+			if(transactionType.equals("Venta")) {
+				if(stratum.equals("1")) {
+					click(locator_stratumOneV);
+				}
+				if(stratum.equals("2")) {
+					click(locator_stratumTwoV);
+				}
+				if(stratum.equals("3")) {
+					click(locator_stratumThreeV);
+				}
+				if(stratum.equals("4")) {
+					click(locator_stratumFourV);
+				}
+				if(stratum.equals("5")) {
+					click(locator_stratumFiveV);
+				}
+				if(stratum.equals("6")) {
+					click(locator_stratumSixV);
+				}
 			}
 			type(squareMeter, locator_squareMeter);
 			WebElement roomClear = driver.findElement(locator_room);
@@ -179,11 +239,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			Thread.sleep(3000);
 			type(neighborhood, locator_neighborhood);
 			WebElement neighborhoodTab = driver.findElement(locator_neighborhood);
+			Thread.sleep(3000);
 			neighborhoodTab.sendKeys(Keys.TAB);
 			Thread.sleep(3000);
 			type(direction, locator_direction);
 			type(addaddress, locator_addaddress);
 			click(locator_propertyLocation);
+			/*type(identification, locator_identification);
+			Thread.sleep(3000);*/
 			type(Nwhatsapp, locator_NWhatsapp);
 			if(contactMe.equals("Whatsapp")) {
 				click(locator_contactMeWhatsapp);

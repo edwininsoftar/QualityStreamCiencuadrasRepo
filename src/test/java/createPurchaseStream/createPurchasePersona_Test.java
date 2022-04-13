@@ -15,7 +15,7 @@ public class createPurchasePersona_Test {
 	public void setUp() throws Exception {
 		createPropertyPage = new CreatePurchasePagePersona(driver);
 		driver = createPropertyPage.chromeDriverConnection();
-		createPropertyPage.visit("https://dev.ciencuadras.com/");
+		createPropertyPage.visit("https://qa.ciencuadras.com/");
 	}
 
 	@After
