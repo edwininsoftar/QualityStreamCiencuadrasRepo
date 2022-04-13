@@ -24,6 +24,10 @@ public class CreatePurchaseAgente_Test {
 	@Test
 	public void test()throws InterruptedException {
 		CreatePurchasePageAgente.buys();
+		CreatePurchasePageAgente.formMonths();
+		CreatePurchasePageAgente.paymentSelection();
+		CreatePurchasePageAgente.payFinish();
+		CreatePurchasePageAgente.purchaseDetail();
 	}
 
 }
