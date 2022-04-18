@@ -1,13 +1,12 @@
 package CreatePage;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularButtonText;
 
 import Base.BasicWrap;
 
@@ -70,7 +69,11 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
 	By locator_identification = By.id("identification");
 	By locator_continue = By.cssSelector("div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
+	//Imagenes del inmueble
+	By locator_img = By.id("ngx-input-file-0");
+	By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
 		
+	
 	//Flucjo crear persona
 	String username = "personaciencuadras45@yopmail.com";
 	String password = "Ciencuadras21*";
@@ -261,4 +264,25 @@ public class CreatePropertyPersonPage extends BasicWrap{
 		}
 	}
 
+	public void load() {
+		try {
+			File file1 = new File("./src/test/resources/img/portada.png");
+			File file2 = new File("./src/test/resources/img/arriendo.png");
+			File file3 = new File("./src/test/resources/img/Screenshot.png");
+			String phat1 = file1.getAbsolutePath();
+			String phat2 = file2.getAbsolutePath();
+			String phat3 = file3.getAbsolutePath();
+			
+			driver.findElement(locator_img).sendKeys(phat1);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat2);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat3);
+			Thread.sleep(5000);
+			click(locator_continueTow);
+		} catch (Exception e) {
+			System.out.println("error: "+e);
+		}
+	}
+	
 }

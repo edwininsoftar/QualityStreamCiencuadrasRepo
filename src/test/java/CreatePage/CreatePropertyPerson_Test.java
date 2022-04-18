@@ -27,6 +27,7 @@ public class CreatePropertyPerson_Test {
 		createPropertyPersonPage.login();
 		createPropertyPersonPage.published();   
 		createPropertyPersonPage.purchaseForm();
+		createPropertyPersonPage.load();
 	}
 
 }
