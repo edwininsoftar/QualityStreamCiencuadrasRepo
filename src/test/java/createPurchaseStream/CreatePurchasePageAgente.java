@@ -94,7 +94,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Credito";// Debito, Credito, PSE, Daviplata
+	String paymentType = "PSE";// Debito, Credito, PSE, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
