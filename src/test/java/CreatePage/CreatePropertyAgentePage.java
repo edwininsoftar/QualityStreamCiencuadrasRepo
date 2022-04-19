@@ -9,7 +9,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	
 	public CreatePropertyAgentePage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub 
 	}
 
 }
