@@ -28,6 +28,8 @@ public class CreatePropertyPerson_Test {
 		createPropertyPersonPage.published();   
 		createPropertyPersonPage.purchaseForm();
 		createPropertyPersonPage.load();
+		createPropertyPersonPage.payFinish();
+		createPropertyPersonPage.purchaseDetail();
 	}
 
 }

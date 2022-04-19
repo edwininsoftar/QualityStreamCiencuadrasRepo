@@ -1,0 +1,31 @@
+package CreatePage;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+public class CreatePropertyAgente_Test {
+	
+	private WebDriver driver;
+	CreatePropertyAgentePage CreatePropertyAgentePage;
+	
+	@Before
+	public void setUp() throws Exception {
+		CreatePropertyAgentePage = new CreatePropertyAgentePage(driver);
+		driver = CreatePropertyAgentePage.chromeDriverConnection();
+		CreatePropertyAgentePage.visit("https://qa.ciencuadras.com/");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
