@@ -13,7 +13,16 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
 	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
 	By locator_user = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]");
-	By locator_publishedProperty = By.linkText("Mis Inmuebles Favoritos");
+	By locator_publishedProperty = By.linkText("Inmuebles publicados");
+	By locator_createProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[2]/a[1]");
+	//Publicación de un inmueble
+	By locator_tuition = By.id("inmueble-matricula_inmobiliaria");
+	By locator_department = By.id("inmueble-id_depto");
+	By locator_city = By.id("inmueble-id_ciudad");
+	By locator_location = By.id("inmueble-id_localidad");
+	By locator_neighborhood = By.id("inmueble-id_barrio");
+	By locator_avcll = By.id("dir1");
+	By locator_avcll2 = By.id("dir2");
 	
 	//Flujo crear rol Agente
 	String username = "agenteciencuadras1@yopmail.com";
@@ -34,6 +43,8 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			Thread.sleep(8000);
 			click(locator_user);
 			click(locator_publishedProperty);
+			Thread.sleep(5000);
+			click(locator_createProperty);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
