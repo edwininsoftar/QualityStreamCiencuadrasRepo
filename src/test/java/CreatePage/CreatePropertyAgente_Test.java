@@ -21,11 +21,12 @@ public class CreatePropertyAgente_Test {
 
 	@After
 	public void tearDown() throws Exception {
+		//driver.quit();
 	}
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		CreatePropertyAgentePage.login();
 	}
 
 }
