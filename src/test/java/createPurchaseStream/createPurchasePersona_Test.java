@@ -20,6 +20,7 @@ public class createPurchasePersona_Test {
 
 	@After
 	public void tearDown() throws Exception {
+		//driver.quit();
 	}
 
 	@Test

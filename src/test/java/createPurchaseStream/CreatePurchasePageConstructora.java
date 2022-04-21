@@ -1,10 +1,6 @@
 package createPurchaseStream;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
@@ -28,33 +23,21 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_seePlans = By.cssSelector("a[routerlink=\"/seleccion-ideal\"]");
 	// localizadores planes semestrales
 	By locator_buttonWeeklyPlans = By.id("mat-button-toggle-1-button");
-	By locator_buttonProjects6p = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[3]/div/div[2]/div/button");
-	By locator_buttonProjects7p = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div/button");
+	By locator_buttonProjects6p = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[3]/div/div[2]/div/button");
+	By locator_buttonProjects7p = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[4]/div/div[2]/div/button");
 	// localizadores planes anuales
 	By locator_buttonAnnualPlans = By.id("mat-button-toggle-2-button");
-	By locator_buttonProjects3 = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[7]/div/div[2]/div/button");
-	By locator_buttonProjects2 = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[6]/div/div[2]/div/button");
-	By locator_buttonProjects1 = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[5]/div/div[2]/div/button");
-	By locator_buttonProjects4 = By.xpath(
-			"//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[8]/div/div[2]/div/button");
+	By locator_buttonProjects3 = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[7]/div/div[2]/div/button");
+	By locator_buttonProjects2 = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[6]/div/div[2]/div/button");
+	By locator_buttonProjects1 = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[5]/div/div[2]/div/button");
+	By locator_buttonProjects4 = By.xpath("//*[@id=\"products-ideal\"]/div/div[2]/div/app-carousel-card/owl-carousel-o/div/div[1]/owl-stage/div/div/div[8]/div/div[2]/div/button");
 	// botones Agregar productos adicionales
-	By locator_buttonRoute = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[1]/div/div[2]/div/div/button[2]/span");
-	By locator_buttonPhotoTaking = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[2]/div/div[2]/div/div/button[2]/span");
-	By locator_buttonPhotoUpload = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[3]/div/div[2]/div/div/button[2]/span");
-	By locator_buttonFeatured = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/app-product-card[1]/div/div[2]/div/div/button[2]/span");
-	By locator_buttonPromoted = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/app-product-card[2]/div/div[2]/div/div/button[2]/span");
-	By locator_buttonOnline = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[3]/div/app-product-card/div/div[2]/div/div/button[2]/span");
+	By locator_buttonRoute = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[1]/div/div[2]/div/div/button[2]/span");
+	By locator_buttonPhotoTaking = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[2]/div/div[2]/div/div/button[2]/span");
+	By locator_buttonPhotoUpload = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[1]/div/app-product-card[3]/div/div[2]/div/div/button[2]/span");
+	By locator_buttonFeatured = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/app-product-card[1]/div/div[2]/div/div/button[2]/span");
+	By locator_buttonPromoted = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/app-product-card[2]/div/div[2]/div/div/button[2]/span");
+	By locator_buttonOnline = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div[1]/div[2]/div/div[3]/div/app-product-card/div/div[2]/div/div/button[2]/span");
 	By locator_buttonShoppingCart = By.xpath("//*[@id=\"products-base\"]/app-header/div/nav/button");
 	By locator_buttonPay = By.cssSelector("button[class=\"button secondary rounded block\"]");
 	// Formulario de pago
@@ -66,8 +49,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_email = By.cssSelector("input[formcontrolname=\"email\"]");
 	By locator_confirmEmail = By.cssSelector("input[formcontrolname=\"emailConfirmation\"]");
 	By locator_cell = By.cssSelector("input[formcontrolname=\"mobile\"]");
-	By locator_emailDIAN = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
+	By locator_emailDIAN = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[2]/div/label/span[2]");
 	By locator_billingMail = By.cssSelector("input[formcontrolname=\"billingEmail\"]");
 	By locator_regimeType = By.xpath("//*[@id=\"mat-select-4\"]/div/div[2]/div");
 	By locator_comun = By.xpath("//*[@id=\"mat-option-2\"]/span");
@@ -83,42 +65,30 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_granContribuyente = By.xpath("//*[@id=\"mat-option-10\"]/span");
 	By locator_autoretenedor = By.xpath("//*[@id=\"mat-option-11\"]/span");
 	By locator_noResponsable = By.xpath("//*[@id=\"mat-option-12\"]/span");
-	By locator_clic = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/mat-form-field[12]/div/div[1]/div[3]");
-	By locator_ICAwithholding = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
-	By locator_IVAwithholding = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
-	By locator_buttonPayTow = By.xpath(
-			"//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]/span");
+	By locator_clic = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/mat-form-field[12]/div/div[1]/div[3]");
+	By locator_ICAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[5]/div/label/span[3]");
+	By locator_IVAwithholding = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[2]/div/div[7]/div/label/span[3]");
+	By locator_buttonPayTow = By.xpath("//*[@id=\"products-base\"]/div/div[2]/div/lib-cc-invoice-information/invoice-information/div/invoice-information-add/div/div/form/div[3]/div/div[2]/button[2]/span");
 	// Pago y descuento ciencuadras
 	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
-	By locator_aplic = By.xpath(
-			"/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
+	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
 	// Datos de pago cliente
 	By locator_cookies = ByAngular.buttonText("Aceptar");
 	// datos tarjeta debito
-	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
-	By locator_holderNameD = By.xpath("/html/body/form/div[2]/div[3]/input");
-	By locator_cardNumberD = By.id("mat-input-13");
-	By locator_monthCardD = By.id("mat-input-14");
-	By locator_yearCardD = By.id("mat-input-15");
-	By locator_cvvD = By.id("mat-input-16");
-	By locator_paymentD = By.cssSelector(
-			"div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
-	By locator_payD = By.xpath("/html/body/form/div[4]/div[2]/button");
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]");
+	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
 	// datos tarjeta credito
-	By locator_creditCard = By.xpath(
-			"/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
+	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
 	By locator_paymentC = By.id("pagar-gateway-btn");
-	By locator_holderNameC = ByAngularBinding.name("card-holder");
-	By locator_cardNumberC = By.name("card-number");
-	By locator_monthCardC = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
-	By locator_cvvC = By.xpath("/html/body/form/div[2]/div[6]/div/input");
-	By locator_dues = ByAngularBinding.id("mat-select-3");
-	By locator_five = ByAngularOptions.id("mat-option-6");
-	By locator_formCheckout = By.id("checkout-form");
+	//formulario de pago paimentez
+	By locator_iframe = By.xpath("//*[@id=\"modalBoxContentPaymentezCheckout\"]");
+	By locator_holderName = By.xpath("/html/body/form/div[2]/div[3]/input");
+	By locator_cardNumber = By.name("card-number");
+	By locator_monthCard = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
+	By locator_cvv = By.xpath("/html/body/form/div[2]/div[6]/div/input");
+	By locator_dues = By.xpath("//*[@id=\"my-card\"]/div[7]/select");
+	By locator_buttonFormCheckout = By.xpath("//*[@id=\"checkout-form\"]/div[4]/div[2]/button");
 	// datos PSE
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
 	By locator_typedocumentP = By.name("documentType");
@@ -134,20 +104,10 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
 	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	// Daviplata
-	By locator_daviplata = ByAngularBinding.id("mat-radio-5");
-	By locator_typeDocumentDaviplata = ByAngularBinding.id("mat-select-3");
-	By locator_CCDaviplata = ByAngularOptions.id("mat-option-26");
-	By locator_CEDaviplata = ByAngularOptions.id("mat-option-27");
-	By locator_NITDaviplata = ByAngularOptions.id("mat-option-28");
-	By locator_TIDaviplata = ByAngularOptions.id("mat-option-29");
-	By locator_CPDaviplata = ByAngularOptions.id("mat-option-30");
-	By locator_SSEDaviplata = ByAngularOptions.id("mat-option-31");
-	By locator_documentNumber = By.id("mat-input-5");
-	By locator_paymentDaviplata = By.xpath(
-			"/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[4]/div/div/div/app-pay-daviplata/div/div[2]/form/div[3]/button");
+	//mis publicaciones
+	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
 
-	String username = "ciencuadras8@yopmail.com";// ciencuadrasconstructora1@yopmail.com, ciencuadras8@yopmail.com
+	String username = "constructoraciencuadras11@yopmail.com";//constructoraciencuadras12@yopmail.com
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
@@ -287,7 +247,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	public void finalPaymentForm() {
 		try {
 			Thread.sleep(5000);
-
 			WebElement NitClear = driver.findElement(locator_Nit);
 			NitClear.clear();
 			type(Nit, locator_Nit);
@@ -312,8 +271,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			WebElement emailClear = driver.findElement(locator_email);
 			emailClear.clear();
 			type(email, locator_email);
-			Thread.sleep(3000);
-
 			Thread.sleep(3000);
 			type(confirmEmail, locator_confirmEmail);
 			Thread.sleep(3000);
@@ -344,25 +301,40 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			}
 			if (retentionAgent.equals("11")) {
 				click(locator_11);
-			} 
-				 Thread.sleep(3000); if(ICAwithholding.equals("Si")) {
-				 click(locator_ICAwithholding); } if(IVAwithholding.equals("Si")) {
-				 click(locator_IVAwithholding); } click(locator_fiscalResponsibility);
-				 if(fiscalResponsibility.equals("RegimenSimple")) {
-				 click(locator_regimenSimple); WebElement rs =
-				 driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
-				 if(fiscalResponsibility.equals("AgenteRetenedor")) {
-				 click(locator_agenteRetenedor); WebElement rs =
-				 driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
-				 if(fiscalResponsibility.equals("GranContribuyente")) {
-				 click(locator_granContribuyente); WebElement rs =
-				 driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
-				 if(fiscalResponsibility.equals("Autorretenedor")) {
-				 click(locator_autoretenedor); WebElement rs =
-				 driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
-				 if(fiscalResponsibility.equals("NoResponsable")) {
-				 click(locator_noResponsable); WebElement rs =
-				 driver.findElement(locator_cell); rs.sendKeys(Keys.ESCAPE); }
+			}
+			Thread.sleep(3000);
+			if (ICAwithholding.equals("Si")) {
+				click(locator_ICAwithholding);
+			}
+			if (IVAwithholding.equals("Si")) {
+				click(locator_IVAwithholding);
+			}
+			click(locator_fiscalResponsibility);
+			if (fiscalResponsibility.equals("RegimenSimple")) {
+				click(locator_regimenSimple);
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
+			}
+			if (fiscalResponsibility.equals("AgenteRetenedor")) {
+				click(locator_agenteRetenedor);
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
+			}
+			if (fiscalResponsibility.equals("GranContribuyente")) {
+				click(locator_granContribuyente);
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
+			}
+			if (fiscalResponsibility.equals("Autorretenedor")) {
+				click(locator_autoretenedor);
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
+			}
+			if (fiscalResponsibility.equals("NoResponsable")) {
+				click(locator_noResponsable);
+				WebElement rs = driver.findElement(locator_cell);
+				rs.sendKeys(Keys.ESCAPE);
+			}
 			Thread.sleep(3000);
 			click(locator_buttonPayTow);
 		} catch (Exception e) {
@@ -388,34 +360,36 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 			Thread.sleep(8000);
 			click(locator_cookies);
 			Thread.sleep(3000);
-			if (paymentType.equals("Debito")) {
-				click(locator_debitCard);
-				Thread.sleep(5000);
+			if(paymentType.equals("Debito")) {
+			    click(locator_debitCard);
+			    Thread.sleep(5000);
 				click(locator_paymentD);
-				String mainTab = driver.getWindowHandle();
-				Set<String> handles = driver.getWindowHandles();
-				for (String actual : handles) {
-					if (!actual.equalsIgnoreCase(mainTab)) {
-						driver.switchTo().window(actual);
-					}
-				}
-				type(holderName, locator_holderNameD);
-				click(locator_payD);
+				Thread.sleep(5000);
+				driver.switchTo().frame(driver.findElement(locator_iframe));
+				type(holderName, locator_holderName);
+				type(cardNumber, locator_cardNumber);
+				type(monthCard, locator_monthCard);
+				type(cvv, locator_cvv);
+				click(locator_buttonFormCheckout);
+				Thread.sleep(20000);
+				click(locator_buttonMyPosts);
 			}
-			if (paymentType.equals("Credito")) {
+			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
 				Thread.sleep(5000);
 				click(locator_paymentC);
-				String mainTab = driver.getWindowHandle();
-				Set<String> handles = driver.getWindowHandles();
-				for (String actual : handles) {
-					if (!actual.equalsIgnoreCase(mainTab)) {
-						driver.switchTo().window(actual);
-					}
-				}
-				type(holderName, locator_holderNameC);
-				type(cardNumber, locator_cardNumberC);
-				type(monthCard, locator_monthCardC);
+				Thread.sleep(5000);
+				driver.switchTo().frame(driver.findElement(locator_iframe));
+				type(holderName, locator_holderName);
+				type(cardNumber, locator_cardNumber);
+				type(monthCard, locator_monthCard);
+				type(cvv, locator_cvv);
+				WebElement ddl = driver.findElement(locator_dues);
+				Select sel = new Select(ddl);
+				sel.selectByVisibleText(dues);
+				click(locator_buttonFormCheckout);
+				Thread.sleep(20000);
+				click(locator_buttonMyPosts);
 			}
 			if (paymentType.equals("PSE")) {
 				click(locator_pse);
@@ -454,32 +428,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				}
 				Thread.sleep(8000);
 				click(locator_paymentP);
-			}
-			if (paymentType.equals("Daviplata")) {
-				click(locator_daviplata);
-				click(locator_typeDocumentDaviplata);
-				Thread.sleep(8000);
-				if (typeDocument.equals("CC")) {
-					click(locator_CCDaviplata);
-				}
-				if (typeDocument.equals("CE")) {
-					click(locator_CEDaviplata);
-				}
-				if (typeDocument.equals("CP")) {
-					click(locator_CPDaviplata);
-				}
-				if (typeDocument.equals("NIT")) {
-					click(locator_NITDaviplata);
-				}
-				if (typeDocument.equals("TI")) {
-					click(locator_TIDaviplata);
-				}
-				if (typeDocument.equals("SSE")) {
-					click(locator_SSEDaviplata);
-				}
-				type(documentNumber, locator_documentNumber);
-				Thread.sleep(8000);
-				click(locator_paymentDaviplata);
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
