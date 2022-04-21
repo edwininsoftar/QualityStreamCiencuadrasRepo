@@ -134,7 +134,7 @@ public class RequestAppraisalPage extends BasicWrap {
 
 	//Avalúo
 	String appraisalFrom = "Colombia";//Colombia
-	String city = "Bogotá"; // Ingrese la ciudad que desea hacer el avaluo 
+	String city = "Bogotá"; //Ingrese la ciudad que desea hacer el avaluo 
 	//formato de solicitud 
 	String typeProperty = "Casa";//Apartamento, Casa
 	String address = "Calle 128 # 52-46";//Ingrese la dirección
@@ -165,7 +165,7 @@ public class RequestAppraisalPage extends BasicWrap {
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "PSE";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Debito";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
