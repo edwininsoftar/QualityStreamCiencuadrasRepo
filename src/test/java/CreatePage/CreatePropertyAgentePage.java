@@ -1,5 +1,7 @@
 package CreatePage;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -91,6 +93,13 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	By locator_antiquity = By.id("inmueble-antiguedad");
 	By locator_floor = By.id("inmueble-num_piso");
 	By locator_additionalInformation = By.id("inmueble-info_adicional");
+	By locator_buttonSave = By.id("btn-publicar");
+	By locator_buttonAccept = By.id("botonMisPublicaciones");
+	//Venta 
+	By locator_valueSale = By.id("inmueble-precio_venta");
+	//Imagenes del inmueble
+	By locator_img = By.id("fotos");
+	By locator_coverPhoto = By.name("fotoPortada");
 		
 	
 	//Flujo crear rol Agente
@@ -120,22 +129,23 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	String nickname = "San calletano";
 	//Caracteristicas información basica
 	String property = "Casa";//Ingrese Casa y Apartamento
-	String transactionType = "Arriendo y Venta";//ingrese Arriendo, Venta o Arriendo y Venta
+	String transactionType = "Arriendo";//ingrese Arriendo, Venta o Arriendo y Venta
 	String stratum = "2";//Ingrese el estrato 2 o 3
 	String area = "50";//Ingrese el valor del area en metros cuadrados
 	String lotArea = "60";//Ingrese el valor del area en metros cuadrados
 	String room = "3";//Ingrese el numero de habitaciones
 	String bath = "2";//Ingrese e numero de baños
 	String parking = "1";//Ingrese el numero de parqueaderos
-	String typeParking1 = "Si";//Ingrese Si, si es Independiente 
+	String typeParking1 = "No";//Ingrese Si, si es Independiente 
 	String typeParking2 = "Si";//Ingrese Si, si es Servidumbre
-	String typeParking3 = "Si";//Ingrese Si, si es Cubierto
+	String typeParking3 = "No";//Ingrese Si, si es Cubierto
 	String typeParking4 = "Si";//Ingrese Si, si es Descubierto
-	String typeParking5 = "Si";//Ingrese Si, si es Comunal
+	String typeParking5 = "No";//Ingrese Si, si es Comunal
 	String valueRent = "800000";//Ingrese el valor del canos de arrendamiento 
-	String buttonAdministration = "No";//Ingrese Si o No
+	String valueSale = "130000000";//Ingrese el valor del inmueble
+	String buttonAdministration = "Si";//Ingrese Si o No
 	String managementValue = "100000";//Ingrese el valor de la administración 
-	String code = "5";//Ingrese el codigo
+	String code = "8";//Ingrese el codigo
 	String buttonBrandNew = "No";//Ingrese Si o No
 	String antiquity = "3";//Ingrese los años de antiguedad
 	String floor = "1";//Ingrese el piso 
@@ -319,10 +329,14 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			if(transactionType.equals("Venta")) {
 				click(locator_openButton15);
 				click(locator_sale);
+				Thread.sleep(2000);
+				type(valueSale, locator_valueSale);
 			}
 			if(transactionType.equals("Arriendo y Venta")) {
 				click(locator_openButton15);
 				click(locator_saleOrent);
+				Thread.sleep(2000);
+				type(valueSale, locator_valueSale);
 			}
 			Thread.sleep(2000);
 			if(stratum.equals("2")) {
@@ -344,38 +358,39 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			Thread.sleep(2000);
 			type(parking, locator_parking);
 			Thread.sleep(2000);
+			click(locator_openButton17);
 			if(typeParking1.equals("Si")) {
-				click(locator_openButton17);
 				click(locator_independent);
 			}
 			if(typeParking2.equals("Si")) {
-				click(locator_openButton17);
 				click(locator_servitude);
 			}
 			if(typeParking3.equals("Si")) {
-				click(locator_openButton17);
 				click(locator_covered);
 			}
 			if(typeParking4.equals("Si")) {
-				click(locator_openButton17);
 				click(locator_discovered);
 			}
 			if(typeParking5.equals("Si")) {
-				click(locator_openButton17);
 				click(locator_communal);
 			}
-			Thread.sleep(2000);
 			click(locator_openButton17);
 			Thread.sleep(2000);
-			type(valueRent, locator_valueRent);
-			Thread.sleep(2000);
-			if(buttonAdministration.equals("Si")) {
-				click(locator_buttonAdministration);
-			}
-			if(buttonAdministration.equals("No")) {
+			if(transactionType.equals("Arriendo") || transactionType.equals("Arriendo y Venta")) {
+				Thread.sleep(3000);
+				type(valueRent, locator_valueRent);
+				Thread.sleep(2000);
+				if(buttonAdministration.equals("Si")) {
+					click(locator_buttonAdministration);
+				}
+				if(buttonAdministration.equals("No")) {
+					Thread.sleep(2000);
+					type(managementValue, locator_managementValue);
+				}
+			}else {
 				Thread.sleep(2000);
 				type(managementValue, locator_managementValue);
-			}
+			}	
 			Thread.sleep(2000);
 			type(code, locator_code);
 			Thread.sleep(2000);
@@ -388,8 +403,39 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			}
 			Thread.sleep(2000);
 			type(floor, locator_floor);
+			Thread.sleep(2000);
+			type(additionalInformation, locator_additionalInformation);
+			Thread.sleep(3000);
+			click(locator_buttonSave);
+			Thread.sleep(2000);
+			click(locator_buttonSave);
+			Thread.sleep(5000); 
+			click(locator_buttonAccept);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void load()  {
+		try {
+			File file1 = new File("./src/test/resources/img/portada.png");
+			File file2 = new File("./src/test/resources/img/arriendo.png");
+			File file3 = new File("./src/test/resources/img/Screenshot.png");
+			String phat1 = file1.getAbsolutePath();
+			String phat2 = file2.getAbsolutePath();
+			String phat3 = file3.getAbsolutePath();
+			
+			driver.findElement(locator_img).sendKeys(phat1);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat2);
+			Thread.sleep(5000);
+			driver.findElement(locator_img).sendKeys(phat3);
+			Thread.sleep(5000);
+			click(locator_coverPhoto);
+			//Thread.sleep(3000);
+			//click(locator_buttonSave);
+		} catch (Exception e) {
+			System.out.println("error: "+e);
 		}
 	}
 }

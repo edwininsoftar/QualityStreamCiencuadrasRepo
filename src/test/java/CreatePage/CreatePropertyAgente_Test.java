@@ -27,6 +27,7 @@ public class CreatePropertyAgente_Test {
 		CreatePropertyAgentePage.login();
 		CreatePropertyAgentePage.propertyPublication();
 		CreatePropertyAgentePage.basicInformation();
+		CreatePropertyAgentePage.load();
 	}
 
 }
