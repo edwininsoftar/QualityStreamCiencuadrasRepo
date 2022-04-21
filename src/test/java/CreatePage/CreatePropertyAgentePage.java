@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import Base.BasicWrap;
 
 public class CreatePropertyAgentePage extends BasicWrap{
@@ -22,25 +20,78 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	By locator_registration = By.id("inmueble-matricula_inmobiliaria");
 	By locator_openButton = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/button");
 	By locator_department = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/div/div/input");
-	By locator_city = By.id("inmueble-id_ciudad");
-	By locator_location = By.id("inmueble-id_localidad");
-	By locator_neighborhood = By.id("inmueble-id_barrio");
-	By locator_avcll = By.id("dir1");
+	By locator_openButton2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[2]/div/div[1]/button");
+	By locator_city = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[2]/div/div[1]/div/div/input");
+	By locator_openButton3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[3]/div/div[1]/button");
+	By locator_location = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[3]/div/div[1]/div/div/input");
+	By locator_openButton4 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[4]/div/div[1]/button");
+	By locator_neighborhood = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[4]/div/div[1]/div/div/input");
+	By locator_openButton5 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/button");
+	By locator_carrera = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/div/ul/li[10]/a/span[1]");
+	By locator_calle = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/div/ul/li[5]/a/span[1]");
 	By locator_avcll2 = By.id("dir2");
-	By locator_letter = By.id("dir3");
-	By locator_bis = By.id("dir4");
-	By locator_letter2 = By.id("dir5");
-	By locator_cardinalPoint = By.id("dir6");
+	By locator_a = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/div/ul/li[2]/a/span[1]");
+	By locator_b = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/div/ul/li[3]/a/span[1]");
+	By locator_openButton6 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/button");
+	By locator_bis = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/div/ul/li[2]/a/span[1]");  
+	By locator_este = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/div/ul/li[3]/a/span[1]");
+	By locator_openButton7 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/button");
+	By locator_a2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/div/ul/li[2]/a/span[1]");
+	By locator_b2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/div/ul/li[3]/a/span[1]");
+	By locator_openButton8 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/button");
+	By locator_sur = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/div/ul/li[2]/a/span[1]");
+	By locator_norte = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/div/ul/li[4]/a/span[1]");
+	By locator_openButton9 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/button");
 	By locator_number = By.id("dir7");
-	By locator_letter3 = By.id("dir8");
+	By locator_a3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/div/ul/li[2]/a/span[1]");
+	By locator_b3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/div/ul/li[3]/a/span[1]");
+	By locator_openButton10 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/button");
 	By locator_number2 = By.id("dir9");
-	By locator_cardinalPoint2 = By.id("dir10");
-	By locator_complement = By.id("dir11");
+	By locator_sur2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/div/ul/li[2]/a/span[1]");
+	By locator_norte2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/div/ul/li[4]/a/span[1]");
+	By locator_openButton11 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/button");
+	By locator_apartment = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/div/ul/li[2]/a/span[1]");
+	By locator_house = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/div/ul/li[5]/a/span[1]");
+	By locator_openButton12 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/button");
 	By locator_textComplement = By.id("dir12");
-	By locator_complement2 = By.id("dir13");
+	By locator_apartment2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/div/ul/li[2]/a/span[1]");
+	By locator_house2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/div/ul/li[5]/a/span[1]");
+	By locator_openButton13 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/button");
 	By locator_textComplement2 = By.id("dir14");
 	By loator_buttonAddress = By.id("ocultar_direccion");
 	By locator_nickname = By.id("inmueble-apodo");
+	//Caracteristicas información basica
+	By locator_apartment3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[4]/a/span[1]");
+	By locator_house3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[5]/a/span[1]");
+	By locator_openButton14 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/button");
+	By locator_sale = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[2]/a/span[1]");
+	By locator_rent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[3]/a/span[1]");
+	By locator_saleOrent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[4]/a/span[1]");
+	By locator_openButton15 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/button");
+	//Arriendo
+	By locator_stratum2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/div/ul/li[2]/a/span[1]");
+	By locator_stratum3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/div/ul/li[3]/a/span[1]");
+	By locator_openButton16 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/button");
+	By locator_area = By.id("inmueble-area_construida");
+	By locator_lotArea = By.id("inmueble-area_lote");
+	By locator_room = By.id("inmueble-num_habitaciones");
+	By locator_bath = By.id("inmueble-num_banos");
+	By locator_parking = By.id("inmueble-num_parqueaderos");
+	By locator_independent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[1]/a/span[1]");
+	By locator_servitude = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[2]/a/span[1]");
+	By locator_covered = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[3]/a/span[1]");
+	By locator_discovered = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[4]/a/span[1]");
+	By locator_communal = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[5]/a/span[1]");
+	By locator_openButton17 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/button");
+	By locator_valueRent = By.id("inmueble-canon_arrendamiento");
+	By locator_buttonAdministration = By.id("incluye_administracion");
+	By locator_managementValue = By.id("inmueble-valor_administracion");
+	By locator_code = By.id("inmueble-codigo");
+	By locator_buttonBrandNew = By.id("para_estrenar");
+	By locator_antiquity = By.id("inmueble-antiguedad");
+	By locator_floor = By.id("inmueble-num_piso");
+	By locator_additionalInformation = By.id("inmueble-info_adicional");
+		
 	
 	//Flujo crear rol Agente
 	String username = "agenteciencuadras1@yopmail.com";
@@ -50,23 +101,46 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	String department = "Boyacá";// ingrese el departamento
 	String city = "Sogamoso";//Ingrese la ciudad
 	String location = "Sogamoso";//Ingrese la localidad
-	String neighborhood = "UPTC";// Ingrese el barrio 
-	String avcll = "Carrera";// ingrese el AV/CLL
+	String neighborhood = "UPTC";//Ingrese el barrio 
+	String avcll = "Calle";//ingrese Carrera o Calle
 	String avcll2 = "14";
-	String letter = "A";// Ingrese la letra de la direccón
-	String bis = "Bis";
-	String letter2 = "A";
-	String cardinalPoint = "Sur";//Ingrese el punto cardinal
+	String letter = "B";//Ingrese la letra A o B
+	String bisEste = "Bis"; //Ingrese Bis o Este
+	String letter2 = "A";//Ingrese la letra
+	String cardinalPoint = "Sur";//Ingrese el punto cardinal Sur o Norte
 	String number = "18";
-	String letter3 = "A"; // Ingrese la letra
+	String letter3 = "A"; //Ingrese la letra A o B
 	String number2 = "20";
-	String cardinalPoint2 = "Sur";//Ingrese el punto cardinal
-	String complement = "Casa";
+	String cardinalPoint2 = "Norte";//Ingrese el punto cardinal Sur o Norte
+	String complement = "Casa"; //Ingrese Casa o Apartamento
 	String textComplement = "segundo piso";
-	String complement2 = "Casa";
+	String complement2 = "Casa";//Ingrese Casa o Apartamento
 	String textComplement2 = "piso2";
 	String buttonAddress = "Si";// Ingresi Si o No si decea que la direccion sea visible 
 	String nickname = "San calletano";
+	//Caracteristicas información basica
+	String property = "Casa";//Ingrese Casa y Apartamento
+	String transactionType = "Arriendo y Venta";//ingrese Arriendo, Venta o Arriendo y Venta
+	String stratum = "2";//Ingrese el estrato 2 o 3
+	String area = "50";//Ingrese el valor del area en metros cuadrados
+	String lotArea = "60";//Ingrese el valor del area en metros cuadrados
+	String room = "3";//Ingrese el numero de habitaciones
+	String bath = "2";//Ingrese e numero de baños
+	String parking = "1";//Ingrese el numero de parqueaderos
+	String typeParking1 = "Si";//Ingrese Si, si es Independiente 
+	String typeParking2 = "Si";//Ingrese Si, si es Servidumbre
+	String typeParking3 = "Si";//Ingrese Si, si es Cubierto
+	String typeParking4 = "Si";//Ingrese Si, si es Descubierto
+	String typeParking5 = "Si";//Ingrese Si, si es Comunal
+	String valueRent = "800000";//Ingrese el valor del canos de arrendamiento 
+	String buttonAdministration = "No";//Ingrese Si o No
+	String managementValue = "100000";//Ingrese el valor de la administración 
+	String code = "5";//Ingrese el codigo
+	String buttonBrandNew = "No";//Ingrese Si o No
+	String antiquity = "3";//Ingrese los años de antiguedad
+	String floor = "1";//Ingrese el piso 
+	String additionalInformation = "amoblado colores frescos";//Ingrese formación adicional
+	
 	
 	public CreatePropertyAgentePage(WebDriver driver) {
 		super(driver);
@@ -93,76 +167,227 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	public void propertyPublication() {
 		try {
 			type(registration, locator_registration);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			click(locator_openButton);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			type(department, locator_department);
 			WebElement dp = driver.findElement(locator_department);
 			dp.sendKeys(Keys.DOWN);	
 			dp.sendKeys(Keys.ENTER);	
-			/*Thread.sleep(3000);
+			Thread.sleep(2000);
+			click(locator_openButton2);
+			Thread.sleep(2000);
+			type(city, locator_city);
 			WebElement ci = driver.findElement(locator_city);
-			Select sel1 = new Select(ci);
-			sel1.selectByVisibleText(city);
-			Thread.sleep(3000);
+			ci.sendKeys(Keys.DOWN);
+			ci.sendKeys(Keys.ENTER);
+			Thread.sleep(2000);
+			click(locator_openButton3);
+			Thread.sleep(2000);
+			type(location, locator_location);
 			WebElement lc = driver.findElement(locator_location);
-			Select sel2 = new Select(lc);
-			sel2.selectByVisibleText(location);
-			Thread.sleep(3000);
+			lc.sendKeys(Keys.DOWN);
+			lc.sendKeys(Keys.ENTER);
+			Thread.sleep(2000);
+			click(locator_openButton4);
+			Thread.sleep(2000);
+			type(neighborhood, locator_neighborhood);
 			WebElement br = driver.findElement(locator_neighborhood);
-			Select sel3 = new Select(br);
-			sel3.selectByVisibleText(neighborhood);
-			Thread.sleep(3000);
-			WebElement av = driver.findElement(locator_avcll);
-			Select sel4 = new Select(av);
-			sel4.selectByVisibleText(avcll);
-			Thread.sleep(3000);
+			br.sendKeys(Keys.DOWN);
+			br.sendKeys(Keys.ENTER);
+			Thread.sleep(2000);
+			click(locator_openButton5);
+			Thread.sleep(2000);
+			if(avcll.equals("Carrera")) {
+				click(locator_carrera);
+			}
+			if(avcll.equals("Calle")) {
+				click(locator_calle);
+			}
+			Thread.sleep(2000);
 			type(avcll2, locator_avcll2);
-			Thread.sleep(3000);
-			WebElement le = driver.findElement(locator_letter);
-			Select sel5 = new Select(le);
-			sel5.selectByVisibleText(letter);
-			Thread.sleep(3000);
-			WebElement bi = driver.findElement(locator_bis);
-			Select sel6 = new Select(bi);
-			sel6.selectByVisibleText(bis);
-			Thread.sleep(3000);
-			WebElement let = driver.findElement(locator_letter2);
-			Select sel7 = new Select(let);
-			sel7.selectByVisibleText(letter2);
-			Thread.sleep(3000);
-			WebElement pc = driver.findElement(locator_cardinalPoint);
-			Select sel8 = new Select(pc);
-			sel8.selectByVisibleText(cardinalPoint);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
+			if(letter.equals("A")) {
+				click(locator_openButton6);
+				Thread.sleep(2000);
+				click(locator_openButton6);
+				click(locator_a);
+			}
+			if(letter.equals("B")) {
+				click(locator_openButton6);
+				Thread.sleep(2000);
+				click(locator_openButton6);
+				click(locator_b);
+			}
+			Thread.sleep(2000);
+			if(bisEste.equals("Bis")) {
+				click(locator_openButton7);
+				click(locator_bis);
+			}
+			if(bisEste.equals("Este")) {
+				click(locator_openButton7);
+				click(locator_este);
+			}
+			Thread.sleep(2000);
+			if(letter2.equals("A")) {
+				click(locator_openButton8);
+				click(locator_a2);
+			}
+			if(letter2.equals("B")) {
+				click(locator_openButton8);
+				click(locator_b2);
+			}
+			Thread.sleep(2000);
+			if(cardinalPoint.equals("Sur")) {
+				click(locator_openButton9);
+				click(locator_sur);
+			}
+			if(cardinalPoint.equals("Norte")) {
+				click(locator_openButton9);
+				click(locator_norte);
+			}
+			Thread.sleep(2000);
 			type(number, locator_number);
-			Thread.sleep(3000);
-			WebElement letr = driver.findElement(locator_letter3);
-			Select sel9 = new Select(letr);
-			sel9.selectByVisibleText(letter3);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
+			if(letter3.equals("A")) {
+				click(locator_openButton10);
+				click(locator_a3);
+			}
+			if(letter3.equals("B")) {
+				click(locator_openButton10);
+				click(locator_b3);
+			}
+			Thread.sleep(2000);
 			type(number2, locator_number2);
-			Thread.sleep(3000);
-			WebElement puc = driver.findElement(locator_cardinalPoint2);
-			Select sel10 = new Select(puc);
-			sel10.selectByVisibleText(cardinalPoint2);
-			Thread.sleep(3000);
-			WebElement comp = driver.findElement(locator_complement);
-			Select sel11 = new Select(comp);
-			sel11.selectByVisibleText(complement);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
+			if(cardinalPoint2.equals("Sur")) {
+				click(locator_openButton11);
+				click(locator_sur2);
+			}
+			if(cardinalPoint2.equals("Norte")) {
+				click(locator_openButton11);
+				click(locator_norte2);
+			}	
+			Thread.sleep(2000);
+			if(complement.equals("Apartamento")) {
+				click(locator_openButton12);
+				click(locator_apartment);
+			}
+			if(complement.equals("Casa")) {
+				click(locator_openButton12);
+				click(locator_house);
+			}
+			Thread.sleep(2000);
 			type(textComplement, locator_textComplement);
-			Thread.sleep(3000);
-			WebElement compl = driver.findElement(locator_complement2);
-			Select sel12 = new Select(compl);
-			sel12.selectByVisibleText(complement2);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
+			if(complement2.equals("Apartamento")) {
+				click(locator_openButton13);
+				click(locator_apartment2);
+			}
+			if(complement2.equals("Casa")) {
+				click(locator_openButton13);
+				click(locator_house2);
+			}
+			Thread.sleep(2000);
 			type(textComplement2, locator_textComplement2);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			if(buttonAddress.equals("Si")) {
 				click(loator_buttonAddress);
 			}
-			type(nickname, locator_nickname);*/
+			type(nickname, locator_nickname);
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void basicInformation() {
+		try {
+			Thread.sleep(2000);
+			if(property.equals("Apartamento")) {
+				click(locator_openButton14);
+				click(locator_apartment3);
+			}
+			if(property.equals("Casa")) {
+				click(locator_openButton14);
+				click(locator_house3);
+			}
+			Thread.sleep(2000);
+			if(transactionType.equals("Arriendo")) {
+				click(locator_openButton15);
+				click(locator_rent); 
+			}
+			if(transactionType.equals("Venta")) {
+				click(locator_openButton15);
+				click(locator_sale);
+			}
+			if(transactionType.equals("Arriendo y Venta")) {
+				click(locator_openButton15);
+				click(locator_saleOrent);
+			}
+			Thread.sleep(2000);
+			if(stratum.equals("2")) {
+				click(locator_openButton16);
+				click(locator_stratum2);
+			}
+			if(stratum.equals("3")) {
+				click(locator_openButton16);
+				click(locator_stratum3);
+			}
+			Thread.sleep(2000);
+			type(area, locator_area);
+			Thread.sleep(2000);
+			type(lotArea, locator_lotArea);
+			Thread.sleep(2000);
+			type(room, locator_room);
+			Thread.sleep(2000);
+			type(bath, locator_bath);
+			Thread.sleep(2000);
+			type(parking, locator_parking);
+			Thread.sleep(2000);
+			if(typeParking1.equals("Si")) {
+				click(locator_openButton17);
+				click(locator_independent);
+			}
+			if(typeParking2.equals("Si")) {
+				click(locator_openButton17);
+				click(locator_servitude);
+			}
+			if(typeParking3.equals("Si")) {
+				click(locator_openButton17);
+				click(locator_covered);
+			}
+			if(typeParking4.equals("Si")) {
+				click(locator_openButton17);
+				click(locator_discovered);
+			}
+			if(typeParking5.equals("Si")) {
+				click(locator_openButton17);
+				click(locator_communal);
+			}
+			Thread.sleep(2000);
+			click(locator_openButton17);
+			Thread.sleep(2000);
+			type(valueRent, locator_valueRent);
+			Thread.sleep(2000);
+			if(buttonAdministration.equals("Si")) {
+				click(locator_buttonAdministration);
+			}
+			if(buttonAdministration.equals("No")) {
+				Thread.sleep(2000);
+				type(managementValue, locator_managementValue);
+			}
+			Thread.sleep(2000);
+			type(code, locator_code);
+			Thread.sleep(2000);
+			if(buttonBrandNew.equals("Si")) {
+				click(locator_buttonBrandNew);
+			}
+			if(buttonBrandNew.equals("No")) {
+				Thread.sleep(2000);
+				type(antiquity, locator_antiquity);
+			}
+			Thread.sleep(2000);
+			type(floor, locator_floor);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}

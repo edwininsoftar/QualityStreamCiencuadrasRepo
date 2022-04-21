@@ -26,6 +26,7 @@ public class CreatePropertyAgente_Test {
 	public void test() {
 		CreatePropertyAgentePage.login();
 		CreatePropertyAgentePage.propertyPublication();
+		CreatePropertyAgentePage.basicInformation();
 	}
 
 }
