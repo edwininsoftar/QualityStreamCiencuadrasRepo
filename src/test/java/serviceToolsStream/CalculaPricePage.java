@@ -125,7 +125,7 @@ public class CalculaPricePage extends BasicWrap{
 	
 	//Formulario ubicación del inmueble
 	String city = "Bogotá"; // Ingrese la ciudad
-	String address = "calle 170 # 45-04";// Ingrese la dirección 
+	String address = "Calle 184 # 20-51";// Ingrese la dirección 
 	String addressAdd = "Segundo piso";//Ingrese el complemento de la dirección
 	//Información del inmueble
 	String typeProperty = "Apartamento";//Casa, Apartamento
@@ -138,7 +138,7 @@ public class CalculaPricePage extends BasicWrap{
 	int toiletsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de baños
 	int toiletsMore = 0; //Ingrese el numero de clicks si desea aumentar la cantidad de baños 
 	int roomsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de habitaciones
-	int roomsMore = 0;//Ingrese el numero de clicks si desea aunmentar la cantidad de habitaciones 
+	int roomsMore = 3;//Ingrese el numero de clicks si desea aunmentar la cantidad de habitaciones 
 	int balconiesMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
 	int terraceMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
 	int depositMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de depositos
@@ -156,7 +156,7 @@ public class CalculaPricePage extends BasicWrap{
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Davipuntos";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Debito";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
@@ -193,6 +193,7 @@ public class CalculaPricePage extends BasicWrap{
 			ct.sendKeys(Keys.DOWN);
 			ct.sendKeys(Keys.ENTER);
 			type(address, locator_address);
+			Thread.sleep(5000);	
 			type(addressAdd, locator_addressAdd);
 			click(locator_checkMap);
 			click(locator_button_continue);
