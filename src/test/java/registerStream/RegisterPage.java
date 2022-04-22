@@ -35,12 +35,12 @@ public class RegisterPage extends BasicWrap {
 	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 
-	String roll = "Persona"; // Persona, Agente, Inmobiliaria, Constructora
+	String roll = "Constructora"; // Persona, Agente, Inmobiliaria, Constructora
 	String typeDocument = "CC";// NIT, CC
 	String name = "Leidy Yurani Villamizar";// Nombre o razon social
-	String email = "ciencuadraspersona1@yopmail.com";
+	String email = "logininconstructora1@yopmail.com";//persona:loginpersona3@yopmail.com, Agente:loginagente3@yopmail.com, Inmobiliaria:logininmobiliaria2@yopmail.com, Constructora:logininconstructora2@yopmail.com  
 	String password = "@Password13";// contraseña y confirmación de contraseña
-	String identification = "1057598694";// Numero de identificación o Nit
+	String identification = "900584789";// Numero de identificación o Nit 900584789
 	String DV = "8";// digito de verificación obligatorio si el tipo de documento es NIT
 
 	public RegisterPage(WebDriver driver) {
