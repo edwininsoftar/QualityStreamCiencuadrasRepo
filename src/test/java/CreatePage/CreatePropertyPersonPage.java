@@ -1,16 +1,14 @@
 package CreatePage;
 
 import java.io.File;
-import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
@@ -84,24 +82,19 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	//Datos de pago cliente
 	By locator_cookies = ByAngular.buttonText("Aceptar");
 	// datos tarjeta debito
-	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
-	By locator_holderNameD = By.xpath("/html/body/form/div[2]/div[3]/input");
-	By locator_cardNumberD = By.id("mat-input-13");
-	By locator_monthCardD = By.id("mat-input-14");
-	By locator_yearCardD = By.id("mat-input-15");
-	By locator_cvvD = By.id("mat-input-16");
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]");
 	By locator_paymentD = By.cssSelector("div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
-	By locator_payD = By.xpath("/html/body/form/div[4]/div[2]/button");
 	// datos tarjeta credito
 	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
 	By locator_paymentC = By.id("pagar-gateway-btn");
-	By locator_holderNameC = ByAngularBinding.name("card-holder");
-	By locator_cardNumberC = By.name("card-number");
-	By locator_monthCardC = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
-	By locator_cvvC = By.xpath("/html/body/form/div[2]/div[6]/div/input");
-	By locator_dues = ByAngularBinding.id("mat-select-3");
-	By locator_five = ByAngularOptions.id("mat-option-6");
-	By locator_formCheckout = By.id("checkout-form");
+	//formulario de pago paimentez
+	By locator_iframe = By.xpath("//*[@id=\"modalBoxContentPaymentezCheckout\"]");
+	By locator_holderName = By.xpath("/html/body/form/div[2]/div[3]/input");
+	By locator_cardNumber = By.name("card-number");
+	By locator_monthCard = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
+	By locator_cvv = By.xpath("/html/body/form/div[2]/div[6]/div/input");
+	By locator_dues = By.xpath("//*[@id=\"my-card\"]/div[7]/select");
+	By locator_buttonFormCheckout = By.xpath("//*[@id=\"checkout-form\"]/div[4]/div[2]/button");
 	// datos PSE
 	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
 	By locator_typedocumentP = By.name("documentType");
@@ -117,6 +110,9 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
 	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
+	//mis publicaciones
+	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
+
 	
 	//Flucjo crear persona
 	String username = "personaciencuadras45@yopmail.com";
@@ -150,7 +146,7 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Credito";// Debito, Credito, PSE, Daviplata
+	String paymentType = "Credito";// Debito, Credito, PSE
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
@@ -367,30 +363,32 @@ public class CreatePropertyPersonPage extends BasicWrap{
 			    click(locator_debitCard);
 			    Thread.sleep(5000);
 				click(locator_paymentD);
-				String mainTab = driver.getWindowHandle();
-				Set<String> handles = driver.getWindowHandles();
-				for (String actual: handles) {
-					if(!actual.equalsIgnoreCase(mainTab)) {
-						driver.switchTo().window(actual);
-					}
-				}
-				type(holderName, locator_holderNameD);
-				click(locator_payD);
+				Thread.sleep(5000);
+				driver.switchTo().frame(driver.findElement(locator_iframe));
+				type(holderName, locator_holderName);
+				type(cardNumber, locator_cardNumber);
+				type(monthCard, locator_monthCard);
+				type(cvv, locator_cvv);
+				click(locator_buttonFormCheckout);
+				Thread.sleep(20000);
+				click(locator_buttonMyPosts);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
 				Thread.sleep(5000);
 				click(locator_paymentC);
-				String mainTab = driver.getWindowHandle();
-				Set<String> handles = driver.getWindowHandles();
-				for (String actual: handles) {
-					if(!actual.equalsIgnoreCase(mainTab)) {
-						driver.switchTo().window(actual);
-					}
-				}
-				type(holderName, locator_holderNameC);
-				type(cardNumber, locator_cardNumberC);
-				type(monthCard, locator_monthCardC);
+				Thread.sleep(5000);
+				driver.switchTo().frame(driver.findElement(locator_iframe));
+				type(holderName, locator_holderName);
+				type(cardNumber, locator_cardNumber);
+				type(monthCard, locator_monthCard);
+				type(cvv, locator_cvv);
+				WebElement ddl = driver.findElement(locator_dues);
+				Select sel = new Select(ddl);
+				sel.selectByVisibleText(dues);
+				click(locator_buttonFormCheckout);
+				Thread.sleep(20000);
+				click(locator_buttonMyPosts);
 			}
 			if(paymentType.equals("PSE")) {
 				click(locator_pse);
