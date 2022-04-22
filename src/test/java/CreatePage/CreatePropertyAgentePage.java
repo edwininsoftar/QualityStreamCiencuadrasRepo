@@ -100,7 +100,16 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	//Imagenes del inmueble
 	By locator_img = By.id("fotos");
 	By locator_coverPhoto = By.name("fotoPortada");
-		
+	By locator_accept = By.xpath("/html/body/div[17]/div[2]/div/div/div/div/div/div/div/div[4]/button");
+	By locator_uploadFile = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[11]/div[4]/div[5]/div[4]/div[2]/a");
+	//Comprobación 
+	By locator_codeProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[1]/div[2]/p[1]/span/strong");
+	By locator_textCode = By.id("inmueblesearch-codigo");
+	By locator_searh = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[6]/div[2]/a");
+	By locator_endlink = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article[1]/div/div[4]/div/header/div[1]/h4/a");
+	By locator_endRoom = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[1]/p");
+	By locator_endBath = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[2]/p");
+	By locator_endM2 = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[4]/p");
 	
 	//Flujo crear rol Agente
 	String username = "agenteciencuadras1@yopmail.com";
@@ -145,7 +154,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	String valueSale = "130000000";//Ingrese el valor del inmueble
 	String buttonAdministration = "Si";//Ingrese Si o No
 	String managementValue = "100000";//Ingrese el valor de la administración 
-	String code = "8";//Ingrese el codigo
+	String code = "28";//Ingrese el codigo
 	String buttonBrandNew = "No";//Ingrese Si o No
 	String antiquity = "3";//Ingrese los años de antiguedad
 	String floor = "1";//Ingrese el piso 
@@ -431,11 +440,51 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			Thread.sleep(5000);
 			driver.findElement(locator_img).sendKeys(phat3);
 			Thread.sleep(5000);
+			click(locator_uploadFile);
+			Thread.sleep(5000);
+			driver.navigate().refresh();
+			Thread.sleep(3000);
 			click(locator_coverPhoto);
-			//Thread.sleep(3000);
-			//click(locator_buttonSave);
+			Thread.sleep(2000);
+			click(locator_buttonSave);
+			Thread.sleep(8000);
+			click(locator_buttonAccept);
 		} catch (Exception e) {
 			System.out.println("error: "+e);
+		}
+	}
+	
+	public void validation() {
+		try {
+			Thread.sleep(8000);
+			String textCode = driver.findElement(locator_codeProperty).getText();
+			type(textCode, locator_textCode);
+			Thread.sleep(3000);
+			click(locator_searh);
+			Thread.sleep(5000);
+			String endroom = driver.findElement(locator_endRoom).getText();
+			String sEndroom = endroom.substring(0,1);
+			if(room.equals(sEndroom)) {
+				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndroom);
+			}else {
+				System.out.println("El número de habitaciones consultados no concuerda con los ingresados");
+			}
+			String endBath = driver.findElement(locator_endBath).getText();
+			String sEndBath = endBath.substring(0,1);
+			if(bath.equals(sEndBath)) {
+				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
+			}else {
+				System.out.println("El número de baños consultados no concuerda con los ingresados");
+			}
+			String endM2 = driver.findElement(locator_endM2).getText();
+			String sEndM2 = endM2.substring(0,2);
+			if(area.equals(sEndM2)) {
+				System.out.println("El area concuerda con el area ingresados: "+sEndM2);
+			}else {
+				System.out.println("El area consultada no concuerda con la ingresada");
+			}
+		} catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 }

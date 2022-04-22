@@ -28,6 +28,7 @@ public class CreatePropertyAgente_Test {
 		CreatePropertyAgentePage.propertyPublication();
 		CreatePropertyAgentePage.basicInformation();
 		CreatePropertyAgentePage.load();
+		CreatePropertyAgentePage.validation();
 	}
 
 }
