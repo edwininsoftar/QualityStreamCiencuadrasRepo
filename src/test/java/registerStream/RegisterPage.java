@@ -3,6 +3,7 @@ package registerStream;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -47,15 +48,7 @@ public class RegisterPage extends BasicWrap {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void waitForAngularRequestsFinish() {
-		try {
-			getNgWebDriver().waitForAngularRequestsToFinish();
-		} catch (Exception e) {
-			org.junit.Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
-		}
-	}
-	
+		
 	public void registerRoll() throws InterruptedException {
 		try {
 			click(locator_into);
@@ -114,14 +107,14 @@ public class RegisterPage extends BasicWrap {
 			}else {
 				click(locator_ButtonRegister);
 			}
-		} catch (NoSuchElementException e) {
-			System.out.println("No se encuentra el elemento: " + e);
-		} catch (TimeoutException e) {
-			System.out.println("Error de tiempo de espera para ejecutar el comando: " + e);
-		} catch (Exception e) {
-			System.out.println("Error" + e);
-		} finally {
-			System.out.println("Fin validaciones Roll Persona"); 
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 

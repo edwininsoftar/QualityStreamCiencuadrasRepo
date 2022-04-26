@@ -15,7 +15,6 @@ public class Register_Test {
 		registerPage = new RegisterPage(driver);
 		driver = registerPage.chromeDriverConnection();
 		registerPage.visit("https://dev.ciencuadras.com/");
-		registerPage.waitForAngularRequestsFinish();
 	}
 	
 	@After
