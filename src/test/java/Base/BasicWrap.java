@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;
@@ -17,7 +18,7 @@ public class BasicWrap {
 	    //OBJETO DRIVER
 		public WebDriver driver;
 		
-		//CONSTRUCTOR DE LA CLASE
+		//CONSTRUCTOR DE LA CLASE 
 		public BasicWrap(WebDriver driver) {
 			this.driver = driver;
 		}
@@ -25,11 +26,11 @@ public class BasicWrap {
 		// CREACIÓN DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
 			//Chrome
-			//System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver.exe");
-			//driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver.exe");
+			driver = new ChromeDriver();
 			//Mozilla
-			System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver.exe");
-			driver = new FirefoxDriver();
+			//System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver.exe");
+			//driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
 		}
