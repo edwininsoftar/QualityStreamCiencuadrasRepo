@@ -1,12 +1,11 @@
 package createPurchaseStream;
 
 import java.time.Duration;
-import java.util.Set;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,12 +13,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	// Flujo inmobiliaria
@@ -182,7 +181,13 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			click(locator_public);
 			click(locator_inmobiliaria);
 			click(locator_seePlans);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -220,7 +225,13 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 				sel.selectByVisibleText(monthsPlan);
 				click(locator_selectL);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -261,8 +272,14 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 			click(locator_buttonShoppingCart);
 			Thread.sleep(3000);
 			click(locator_buttonPay);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -358,8 +375,14 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
             }
 			Thread.sleep(3000);
 			click(locator_buttonPayTwo);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -371,8 +394,14 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -446,8 +475,14 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }

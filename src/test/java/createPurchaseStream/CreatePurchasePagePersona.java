@@ -1,23 +1,21 @@
 package createPurchaseStream;
 
 import java.io.File;
-import java.util.Set;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.ClickAction;
 import org.openqa.selenium.support.ui.Select;
 
 import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePagePersona extends BasicWrap {
 	
@@ -196,8 +194,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_realEstate);
 			}
-		} catch (Exception e) {
-			System.out.println("error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -311,7 +315,13 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			}
 			Thread.sleep(2000);
 			click(locator_continue);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -332,8 +342,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			driver.findElement(locator_img).sendKeys(phat3);
 			Thread.sleep(5000);
 			click(locator_continueTow);
-		} catch (Exception e) {
-			System.out.println("error: "+e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	public void payFinish() {
@@ -344,8 +360,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -423,8 +445,14 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }
