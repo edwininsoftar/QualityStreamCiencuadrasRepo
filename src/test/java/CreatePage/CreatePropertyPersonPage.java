@@ -2,7 +2,9 @@ package CreatePage;
 
 import java.io.File;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +14,7 @@ import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyPersonPage extends BasicWrap{
 	
@@ -29,7 +32,9 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	//Elige tu plan	
 	By locator_standard = By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[2]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");
 	By locator_premium = By.xpath("/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[2]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
-	By locator_cityPremium = By.name("ciudad");
+	By locator_cityPremium = By.cssSelector("div[class=\"mat-form-field-infix\"]>input[id=\"ciudad\"][ng-reflect-placeholder=\"Escribe y selecciona Ej: Bogot\"]");
+	By locator_buttonConfirmPremium = By.xpath("//*[@id=\"mat-dialog-0\"]/app-check-coverage/div/div[2]/div/button");
+	By locator_buttonContinuePremium = By.xpath("//*[@id=\"mat-dialog-1\"]/app-confirmed-coverage/div/div[2]/div/button");
 	//publica
 	By locator_propertyType = By.id("propertyTypeId");	
 	By locator_house = By.id("mat-option-4");
@@ -75,7 +80,11 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	//Imagenes del inmueble
 	By locator_img = By.id("ngx-input-file-0");
 	By locator_continueTow = By.cssSelector("div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
-	//Pago y descuento ciencuadras
+	By locator_datePremium = By.xpath("//*[@id=\"dateVisit\"]");
+	By locator_28 = By.xpath("//*[@id=\"mat-datepicker-0\"]/div/mat-month-view/table/tbody/tr[5]/td[5]/div");
+	By locator_timePremium = By.xpath("//*[@id=\"timeVisit\"]/div/div[1]");
+	By locator_9am = By.xpath("//*[@id=\"mat-option-28\"]/span");
+	//Pago y descuento ciencuadras 
 	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
 	By locator_aplic = By.xpath("/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
 	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
@@ -143,6 +152,8 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
 	String contactMe = "Whatsapp"; // Whatsapp, Llamada
 	String identification = "1057596841";// Ingrese numero de identificación	
+	//Cargue de imagenes
+	String date = "28/07/2022";//Ingrese la fecha si el plan elegido es premium
 	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
@@ -175,7 +186,13 @@ public class CreatePropertyPersonPage extends BasicWrap{
 			Thread.sleep(8000);
 			click(locator_user);
 			click(locator_publishedProperty);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -199,11 +216,21 @@ public class CreatePropertyPersonPage extends BasicWrap{
 				Thread.sleep(5000);
 				type(cityPremium,locator_cityPremium);
 				Thread.sleep(5000);
-				/*WebElement cp = driver.findElement(locator_cityPremium);
+				WebElement cp = driver.findElement(locator_cityPremium);
 				cp.sendKeys(Keys.DOWN);
-				cp.sendKeys(Keys.ENTER);*/
+				cp.sendKeys(Keys.ENTER);
+				Thread.sleep(5000);
+				click(locator_buttonConfirmPremium);
+				Thread.sleep(3000);
+				click(locator_buttonContinuePremium);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -304,8 +331,6 @@ public class CreatePropertyPersonPage extends BasicWrap{
 			type(direction, locator_direction);
 			type(addaddress, locator_addaddress);
 			click(locator_propertyLocation);
-			/*type(identification, locator_identification);
-			Thread.sleep(3000);*/
 			type(Nwhatsapp, locator_NWhatsapp);
 			if(contactMe.equals("Whatsapp")) {
 				click(locator_contactMeWhatsapp);
@@ -315,7 +340,13 @@ public class CreatePropertyPersonPage extends BasicWrap{
 			}
 			Thread.sleep(2000);
 			click(locator_continue);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -335,9 +366,23 @@ public class CreatePropertyPersonPage extends BasicWrap{
 			Thread.sleep(5000);
 			driver.findElement(locator_img).sendKeys(phat3);
 			Thread.sleep(5000);
+			if(planType.equals("Premium")) {
+				click(locator_datePremium);
+				Thread.sleep(3000);
+				click(locator_28);
+				click(locator_timePremium);
+				Thread.sleep(3000);
+				click(locator_9am);
+			}
 			click(locator_continueTow);
-		} catch (Exception e) {
-			System.out.println("error: "+e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -349,8 +394,14 @@ public class CreatePropertyPersonPage extends BasicWrap{
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -428,7 +479,13 @@ public class CreatePropertyPersonPage extends BasicWrap{
 				Thread.sleep(8000);
 				click(locator_paymentP);
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		} 
 	}

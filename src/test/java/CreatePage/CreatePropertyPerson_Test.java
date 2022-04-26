@@ -23,7 +23,7 @@ public class CreatePropertyPerson_Test {
 	}
 
 	@Test
-	public void test() {
+	public void test() { 
 		createPropertyPersonPage.login();
 		createPropertyPersonPage.published();   
 		createPropertyPersonPage.purchaseForm();

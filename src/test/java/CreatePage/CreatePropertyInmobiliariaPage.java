@@ -3,11 +3,14 @@ package CreatePage;
 import java.io.File;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import Base.BasicWrap;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyInmobiliariaPage extends BasicWrap{
 	
@@ -179,7 +182,13 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			click(locator_publishedProperty);
 			Thread.sleep(5000);
 			click(locator_createProperty);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -315,7 +324,13 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 				click(loator_buttonAddress);
 			}
 			type(nickname, locator_nickname);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -421,7 +436,13 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			click(locator_buttonSave);
 			Thread.sleep(5000); 
 			click(locator_buttonAccept);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -450,8 +471,14 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			click(locator_buttonSave);
 			Thread.sleep(8000);
 			click(locator_buttonAccept);
-		} catch (Exception e) {
-			System.out.println("error: "+e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 	}
 	
@@ -484,7 +511,13 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			}else {
 				System.out.println("El area consultada no concuerda con la ingresada");
 			}
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
