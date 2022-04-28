@@ -66,7 +66,7 @@ public class CalculaPricePage extends BasicWrap{
 	//Datos de pago cliente
 	By locator_cookies = ByAngular.buttonText("Aceptar");
 	//datos tarjeta debito
-	By locator_debitCard = By.id("mat-radio-3");
+	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[1]/div[1]");
 	By locator_holderNameD = By.id("mat-input-11");
 	By locator_cardNumberD = By.id("mat-input-13");
 	By locator_monthCardD = By.id("mat-input-14");
@@ -74,7 +74,7 @@ public class CalculaPricePage extends BasicWrap{
 	By locator_cvvD = By.id("mat-input-16");
 	By locator_paymentD = By.xpath("//*[@id=\"formulario_card-debit\"]/div[2]/button");
 	//datos tarjeta credito
-	By locator_creditCard = By.id("mat-radio-2");
+	By locator_creditCard = By.xpath("/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
 	By locator_holderNameC = By.id("mat-input-5");
 	By locator_cardNumberC= By.id("mat-input-7");
 	By locator_monthCardC = By.id("mat-input-8");
@@ -154,7 +154,7 @@ public class CalculaPricePage extends BasicWrap{
 	//Pago y descuento ciencuadras
 	String discountCode = "";// ingrese codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE, Davipuntos, Daviplata
+	String paymentType = "Credito";// Debito, Credito, PSE, Davipuntos, Daviplata
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
