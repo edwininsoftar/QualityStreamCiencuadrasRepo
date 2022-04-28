@@ -157,7 +157,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	String valueSale = "130000000";//Ingrese el valor del inmueble
 	String buttonAdministration = "Si";//Ingrese Si o No
 	String managementValue = "100000";//Ingrese el valor de la administración 
-	String code = "28";//Ingrese el codigo
+	String code = "29";//Ingrese el codigo
 	String buttonBrandNew = "No";//Ingrese Si o No
 	String antiquity = "3";//Ingrese los años de antiguedad
 	String floor = "1";//Ingrese el piso 

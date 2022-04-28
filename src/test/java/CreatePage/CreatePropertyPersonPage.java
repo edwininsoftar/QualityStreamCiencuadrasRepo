@@ -130,7 +130,7 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	String choosePost = "Publica Tu";// Publica Tu, Con Imbobiliaria
 	//Elige tu plan
 	String planType = "Estandar"; // Estandar, Premium
-	String cityPremium = "Bogotï¿½";// Ingrese la ciudad si el tipo de plan que seleciono es premium
+	String cityPremium = "Bogotá";// Ingrese la ciudad si el tipo de plan que seleciono es premium
 	//formulario publica
 	String propertyType = "Apartamento"; // Apartamento
 	String transactionType = "Arriendo";// Arriendo, Venta
@@ -145,8 +145,8 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	String room = "3 ";//ingrese el numero de abitaciones
 	String Ntoilets = "2"; // Ingrese el numero de baï¿½os del inmueble
 	String NParking = "2"; // Ingrese numero de parqueaderos
-	String city = "Bogotï¿½ (Cundinamarca)"; // Ingrese la ciudad del inmueble
-	String neighborhood = "Prado Veraniego Norte - Suba - Bogotï¿½  (Cundinamarca)"; // Ingrese el barrio del inmueble
+	String city = "Bogotá (Cundinamarca)"; // Ingrese la ciudad del inmueble
+	String neighborhood = "Prado Veraniego Norte - Suba - Bogotá  (Cundinamarca)"; // Ingrese el barrio del inmueble
 	String direction = "Calle 128C Bis # 52-53"; // Ingrese la direcciï¿½n del inmueble
 	String addaddress = "Piso 2"; // Complemento de direcciï¿½n 
 	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
