@@ -99,7 +99,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String date = "06062022";// Ingrese la fecha 
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
-	String directionComplit = "Calle 60 sur#66-63";
+	String directionComplit = "Calle 69 sur #66-63";
 	//Caracteristicas de los tipos de inmuebles
 	String typeProperty = "Apartamento";//Ingrese el tipo de inmueble
 	String nameTypeProperty = "Duplex";//ingrese el nombre del tipo de apartamento
