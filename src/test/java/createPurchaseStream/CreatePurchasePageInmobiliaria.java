@@ -120,7 +120,7 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 
 
 	// Flujo inmobiliaria
-	String username = "inmobiliariaciencuadras11@yopmail.com";//inmobiliariaciencuadras12@yopmail.com
+	String username = "inmobiliariaciencuadras12@yopmail.com";//inmobiliariaciencuadras13@yopmail.com
 	String password = "100Cuadras%";
 	//Formulario escoge tu plan ideal ver planes
 	String plan = "PlanBasico";//PlanBasico, PlanBasePlus ,PlanS, PlanM, PlanL
@@ -137,10 +137,10 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	String dv = "7";// ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
-	String confirmEmail = "inmobiliariaciencuadras10@yopmail.com";
+	String confirmEmail = "inmobiliariaciencuadras12@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "ciencuadras4@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "inmobiliariaciencuadras12@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
 	String fiscalResponsibility = "AgenteRetenedor";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable

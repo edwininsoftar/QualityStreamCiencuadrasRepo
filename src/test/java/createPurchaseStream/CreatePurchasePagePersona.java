@@ -128,7 +128,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	//Acompañamiento
 	String popstType = "Tu";//Tu, Inmobiliaria
 	//Elige tu plan
-	String planType = "Premium"; //Estandar, Premium
+	String planType = "Estandar"; //Estandar, Premium
 	String cityPremium = "Bogotá";// Ingrese la ciudad si el tipo de plan que seleciono es premium
 	//formulario publica
 	String propertyType = "Apartamento"; // Apartamento
