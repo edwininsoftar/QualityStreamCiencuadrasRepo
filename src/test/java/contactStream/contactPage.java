@@ -66,8 +66,8 @@ public class contactPage extends BasicWrap {
 	String cellPhone = "3123454345";// celular
 	String customerSupport = "lunes a viernes am"; // elige un horario para contactarme lunes a viernes am,lunes a
 													// viernes pm,Fin de semana am,Fin de semana pm
-	String livinPlace = "Para invertir"; // para que buscas vivienda Para invertir, Para vivir
-	String planToBuy = "3 meses"; // cuando planeas comprar 3 meses, 6 meses, 9 meses,
+	String livinPlace = "Para vivir"; // para que buscas vivienda Para invertir, Para vivir
+	String planToBuy = "6 meses"; // cuando planeas comprar 3 meses, 6 meses, 9 meses,
 	String user = "qa.constructorahogar21@yopmail.com";// usuario de constructora
 	String password = "LeonO1O1*";// contraseña
 	String startDate = "2022-04-01"; // fecha inicio de reporte
