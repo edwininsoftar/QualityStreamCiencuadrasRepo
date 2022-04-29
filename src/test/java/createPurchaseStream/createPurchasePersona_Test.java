@@ -5,17 +5,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class createPurchase_Test {
+public class createPurchasePersona_Test {
 	
 
 	private WebDriver driver;
-	CreatePurchasePage createPropertyPage;
+	CreatePurchasePagePersona CreatePurchasePagePersona;
 
 	@Before
 	public void setUp() throws Exception {
-		createPropertyPage = new CreatePurchasePage(driver);
-		driver = createPropertyPage.chromeDriverConnection();
-		createPropertyPage.visit("https://dev.ciencuadras.com/");
+		CreatePurchasePagePersona = new CreatePurchasePagePersona(driver);
+		driver = CreatePurchasePagePersona.chromeDriverConnection();
+		CreatePurchasePagePersona.visit("https://dev.ciencuadras.com/");
 	}
 
 	@After
@@ -24,10 +24,10 @@ public class createPurchase_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		createPropertyPage.buys();
-		createPropertyPage.purchaseForm();
-		createPropertyPage.load();
-		createPropertyPage.topay();
+		CreatePurchasePagePersona.buys();
+		CreatePurchasePagePersona.purchaseForm();
+		CreatePurchasePagePersona.load();
+		CreatePurchasePagePersona.purchaseDetail();
 	}
 
 }
