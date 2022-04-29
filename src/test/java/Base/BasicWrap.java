@@ -24,7 +24,7 @@ public class BasicWrap {
 			this.driver = driver;
 		}
 		
-		// CREACIï¿½N DE INSTACIA DEL NAVEGADOR CHROME
+		// CREACIÓN DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver.exe");
 			driver = new ChromeDriver();
@@ -32,27 +32,8 @@ public class BasicWrap {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 			return driver;
 		}
-		// Metodo ngWebdriver para manejo de angular 
-		public NgWebDriver getNgWebDriver() {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return (new NgWebDriver(js));
-		} 
 		
-		// Metodo ngWebdriver para manejo de angular 
-		public NgWebDriver getNgWebDriver() {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return (new NgWebDriver(js));
-		} 
-		
-		//either of the lines can be used for clicking
-		public void waitForAngularRequestsToFinish() {
-			try {
-				getNgWebDriver().waitForAngularRequestsToFinish();
-			} catch (Exception e) {
-				Assert.fail("Error while waiting for Angular request to finish: "+e.getMessage());
-			}
-		}
-		
+	
 		//WRAPPER DE LOS COMANDOS DE SELENIUM
 		public WebElement findElement(By locator) {
 			return driver.findElement(locator);
