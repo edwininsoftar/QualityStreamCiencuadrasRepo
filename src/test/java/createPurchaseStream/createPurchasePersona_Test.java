@@ -9,25 +9,27 @@ public class createPurchasePersona_Test {
 	
 
 	private WebDriver driver;
-	CreatePurchasePagePersona CreatePurchasePagePersona;
+	CreatePurchasePagePersona createPropertyPage;
 
 	@Before
 	public void setUp() throws Exception {
-		CreatePurchasePagePersona = new CreatePurchasePagePersona(driver);
-		driver = CreatePurchasePagePersona.chromeDriverConnection();
-		CreatePurchasePagePersona.visit("https://dev.ciencuadras.com/");
+		createPropertyPage = new CreatePurchasePagePersona(driver);
+		driver = createPropertyPage.chromeDriverConnection();
+		createPropertyPage.visit("https://qa.ciencuadras.com/");
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		//driver.quit();
 	}
 
 	@Test
 	public void test() throws InterruptedException {
-		CreatePurchasePagePersona.buys();
-		CreatePurchasePagePersona.purchaseForm();
-		CreatePurchasePagePersona.load();
-		CreatePurchasePagePersona.purchaseDetail();
+		createPropertyPage.buys();
+		createPropertyPage.purchaseForm(); 
+		createPropertyPage.load();
+		createPropertyPage.payFinish();
+		createPropertyPage.purchaseDetail();
 	}
 
 }
