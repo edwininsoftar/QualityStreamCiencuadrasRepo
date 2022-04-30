@@ -1,7 +1,9 @@
 package CreatePage;
 
+import java.io.File;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
@@ -81,7 +83,16 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	//localizadores informacion adicional
 	By locator_additionalInformation = By.id("proyecto-info_adicional");
 	By locator_buttonSave = By.id("btn_guardar_publicador");
-	
+	//Imagenes del inmueble
+	By locator_imgProyect = By.id("file_cabecera");
+	By locator_uploadFileProject = By.xpath("//*[@id=\"container_images_cabecera\"]/div[4]/div[4]/div[2]/a");
+	By locator_imgProperty = By.id("file_inmueblestipo_1");
+	By locator_uploadFileProperty = By.xpath("//*[@id=\"container_images_tipoinmueble_1\"]/div/div[4]/div[2]/a");
+	By locator_imgLogoProperty = By.id("file_logo_proyecto1");
+	By locator_uploadFileLogoProperty = By.xpath("//*[@id=\"container_logo_proyecto1\"]/div/div[4]/div[2]/a");
+	By locator_coverPhoto = By.id("fotoPortada_project_12021");
+	By locator_save = By.id("btn_editar_publicador");
+
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
@@ -92,14 +103,14 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String projectPhase = "Venta";//Ingrese Venta, PreVenta, Oferta Terminada, Lanzamiento
 	String straum = "3";//Ingrese 1,2,3,4,5 o 6 
 	String department = "Cundinamarca";// Ingrese el departamento
-	String city = "Bogotá";//ingrese la ciudad
-	String location = "Ciudad Bolívar";// Ingrese el volor de la localidad que decea segun las opciones html
-	String neighborhood = "Madelena";//Ingrese el barrio 
+	String city = "Tabio";//ingrese la ciudad
+	String location = "Tabio";// Ingrese el volor de la localidad que decea segun las opciones html
+	String neighborhood = "El Alcaparro";//Ingrese el barrio 
 	String direction = "Si";//Ingrese Si y No
-	String date = "06062022";// Ingrese la fecha 
+	String date = "30042022";// Ingrese la fecha 
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
-	String directionComplit = "Calle 69 sur #66-63";
+	String directionComplit = "Calle 12 # 10-5";
 	//Caracteristicas de los tipos de inmuebles
 	String typeProperty = "Apartamento";//Ingrese el tipo de inmueble
 	String nameTypeProperty = "Duplex";//ingrese el nombre del tipo de apartamento
@@ -141,7 +152,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String seller = "luis carlos"; //Vendedor
 	//datos de etapa
 	String stage1 = "En construccion";//Nombre etapa
-	String openingDate = "12012022";//Fecha apertura
+	String openingDate = "12062022";//Fecha apertura
 	String closingDate = "07122022";//Fecha cierre
 	//datos informacion adicional
 	String additionalInformation = "Buena ubicación";//Informacion adicional
@@ -161,6 +172,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			click(locator_login);
 			Thread.sleep(8000);
 			click(locator_menu);
+			Thread.sleep(5000);
 			click(locator_publishedProperty);
 			click(locator_createProject);
 		}catch (NoSuchElementException e) {
@@ -389,6 +401,9 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			type(additionalInformation, locator_additionalInformation);
 			Thread.sleep(3000);
 			click(locator_buttonSave);
+			Thread.sleep(3000);
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		}catch (TimeoutException e) {
@@ -398,5 +413,43 @@ public class CreateProjectPageConstructora extends BasicWrap{
 		}catch (Exception e) {
 			System.out.println("Error:" +e);
 		} 
+	}
+	
+	public void load()  {
+		try {
+			File file1 = new File("./src/test/resources/img/portada.png");
+			File file2 = new File("./src/test/resources/img/arriendo.png");
+			File file3 = new File("./src/test/resources/img/Screenshot.png");
+			String phat1 = file1.getAbsolutePath();
+			String phat2 = file2.getAbsolutePath();
+			String phat3 = file3.getAbsolutePath();
+			
+			driver.findElement(locator_imgProyect).sendKeys(phat1);
+			Thread.sleep(5000);
+			click(locator_uploadFileProject);
+			Thread.sleep(8000);
+			driver.findElement(locator_imgProperty).sendKeys(phat2);
+			Thread.sleep(5000);
+			click(locator_uploadFileProperty);
+			Thread.sleep(8000);
+			driver.findElement(locator_imgLogoProperty).sendKeys(phat3);
+			Thread.sleep(5000);
+			click(locator_uploadFileLogoProperty);
+			Thread.sleep(8000);
+			click(locator_coverPhoto);
+			Thread.sleep(3000);
+			click(locator_save);
+			Thread.sleep(3000);
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }
