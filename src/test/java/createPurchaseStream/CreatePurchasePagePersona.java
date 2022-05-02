@@ -105,23 +105,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	By locator_cvv = By.xpath("/html/body/form/div[2]/div[6]/div/input");
 	By locator_dues = By.xpath("//*[@id=\"my-card\"]/div[7]/select");
 	By locator_buttonFormCheckout = By.xpath("//*[@id=\"checkout-form\"]/div[4]/div[2]/button");
-	// datos PSE
-	By locator_pse = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[1]/div[1]");
-	By locator_typedocumentP = By.name("documentType");
-	By locator_CC = ByAngularOptions.id("mat-option-2");
-	By locator_CE = ByAngularOptions.id("mat-option-3");
-	By locator_CP = ByAngularOptions.id("mat-option-4");
-	By locator_NIT = ByAngularOptions.id("mat-option-5");
-	By locator_TI = ByAngularOptions.id("mat-option-6");
-	By locator_TypePerson = By.name("personType");
-	By locator_PN = ByAngularOptions.id("mat-option-0");
-	By locator_PJ = ByAngularOptions.id("mat-option-1");
-	By locator_bank = By.name("bank");
-	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
-	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
-	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	//mis publicaciones
-	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
+
 
 	String username = "personaciencuadras45@yopmail.com";
 	String password = "Ciencuadras21*";
@@ -154,7 +138,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE
+	String paymentType = "Debito";// Debito, Credito
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
@@ -165,7 +149,6 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
-	String epayco = "edwinpulidonino@gmail.com";
 	
 	public CreatePurchasePagePersona(WebDriver driver) {
 		super(driver);
@@ -409,8 +392,6 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				type(monthCard, locator_monthCard);
 				type(cvv, locator_cvv);
 				click(locator_buttonFormCheckout);
-				Thread.sleep(20000);
-				click(locator_buttonMyPosts);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
@@ -426,46 +407,6 @@ public class CreatePurchasePagePersona extends BasicWrap {
 				Select sel = new Select(ddl);
 				sel.selectByVisibleText(dues);
 				click(locator_buttonFormCheckout);
-				Thread.sleep(20000);
-				click(locator_buttonMyPosts);
-			}
-			if(paymentType.equals("PSE")) {
-				click(locator_pse);
-				click(locator_typedocumentP);
-				Thread.sleep(8000);
-				if(typeDocument.equals("CC")) {
-					click(locator_CC);
-				}
-				if(typeDocument.equals("CE")) {
-					click(locator_CE);
-				}
-				if(typeDocument.equals("CP")) {
-					click(locator_CP);
-				}
-				if(typeDocument.equals("NIT")) {
-					click(locator_NIT);
-				}
-				if(typeDocument.equals("TI")) {
-					click(locator_TI);
-				}
-				click(locator_TypePerson);
-				Thread.sleep(8000);
-				if(typePerson.equals("PN")) {
-					click(locator_PN);
-				}
-				if(typePerson.equals("PJ")) {
-					click(locator_PJ);
-				}
-				click(locator_bank);
-				Thread.sleep(8000);
-				if(typeBank.equals("BANCO CAJA SOCIAL")) {
-					click(locator_cajaSocial);
-				}
-				if(typeBank.equals("BANCOLOMBIA")) {
-					click(locator_bancolombia);
-				}
-				Thread.sleep(8000);
-				click(locator_paymentP);
 			}
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
