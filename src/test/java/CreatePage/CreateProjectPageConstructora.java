@@ -90,9 +90,13 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	By locator_uploadFileProperty = By.xpath("//*[@id=\"container_images_tipoinmueble_1\"]/div/div[4]/div[2]/a");
 	By locator_imgLogoProperty = By.id("file_logo_proyecto1");
 	By locator_uploadFileLogoProperty = By.xpath("//*[@id=\"container_logo_proyecto1\"]/div/div[4]/div[2]/a");
-	By locator_coverPhoto = By.id("fotoPortada_project_12021");
+	By locator_coverPhoto = By.name("fotoPortada_project");
 	By locator_save = By.id("btn_editar_publicador");
-
+	// Verificación
+	By locator_nameProjet = By.linkText("OASIS - TABIO");
+	By locator_area = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[2]");
+	By locator_room = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[4]");
+	By locator_bath = By.xpath("/html/body/app-root/app-estate-detail/div/div[1]/div[2]/div[2]/div[1]/app-detail-type-of/div/div/mat-accordion/div/mat-expansion-panel/div/div/ul/li[5]");
 	
 	//Login
 	String username = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
@@ -107,7 +111,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	String location = "Tabio";// Ingrese el volor de la localidad que decea segun las opciones html
 	String neighborhood = "El Alcaparro";//Ingrese el barrio 
 	String direction = "Si";//Ingrese Si y No
-	String date = "30042022";// Ingrese la fecha 
+	String date = "02052022";// Ingrese la fecha 
 	String condition = "Activo";//Ingresar Activo, Inactivo, Duplicado 
 	String pay = "Gratis";//Ingrese Pago, Gratis
 	String directionComplit = "Calle 12 # 10-5";
@@ -401,7 +405,7 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			type(additionalInformation, locator_additionalInformation);
 			Thread.sleep(3000);
 			click(locator_buttonSave);
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
 		}catch (NoSuchElementException e) {
@@ -425,23 +429,60 @@ public class CreateProjectPageConstructora extends BasicWrap{
 			String phat3 = file3.getAbsolutePath();
 			
 			driver.findElement(locator_imgProyect).sendKeys(phat1);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_uploadFileProject);
 			Thread.sleep(8000);
+			click(locator_coverPhoto);
+			Thread.sleep(8000);
 			driver.findElement(locator_imgProperty).sendKeys(phat2);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_uploadFileProperty);
 			Thread.sleep(8000);
 			driver.findElement(locator_imgLogoProperty).sendKeys(phat3);
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 			click(locator_uploadFileLogoProperty);
 			Thread.sleep(8000);
-			click(locator_coverPhoto);
-			Thread.sleep(3000);
 			click(locator_save);
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void validation() {
+		try {
+			Thread.sleep(8000);
+			click(locator_nameProjet);
+			Thread.sleep(8000);
+			String endArea = driver.findElement(locator_area).getText();
+			String sEndArea = endArea.substring(0,2);
+			if(builtArea.equals(sEndArea)) {
+				System.out.println("El area concuerda con el area ingresados: "+sEndArea);
+			}else {
+				System.out.println("El area consultada no concuerda con la ingresada");
+			}
+			String endRoom = driver.findElement(locator_room).getText();
+			String sEndRoom = endRoom.substring(0,1);
+			if(numberRoom.equals(sEndRoom)) {
+				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndRoom);
+			}else {
+				System.out.println("El número de habitaciones consultadas no concuerda con los ingresadas");
+			}
+			String endBath = driver.findElement(locator_bath).getText();
+			String sEndBath = endBath.substring(0,1);
+			if(numberBath.equals(sEndBath)) {
+				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
+			}else {
+				System.out.println("El número de baños consultados no concuerda con los ingresados");
+			}
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {

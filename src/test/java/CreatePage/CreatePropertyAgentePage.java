@@ -494,7 +494,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			if(room.equals(sEndroom)) {
 				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndroom);
 			}else {
-				System.out.println("El número de habitaciones consultados no concuerda con los ingresados");
+				System.out.println("El número de habitaciones consultadas no concuerda con los ingresadas");
 			}
 			String endBath = driver.findElement(locator_endBath).getText();
 			String sEndBath = endBath.substring(0,1);
@@ -506,7 +506,7 @@ public class CreatePropertyAgentePage extends BasicWrap{
 			String endM2 = driver.findElement(locator_endM2).getText();
 			String sEndM2 = endM2.substring(0,2);
 			if(area.equals(sEndM2)) {
-				System.out.println("El area concuerda con el area ingresados: "+sEndM2);
+				System.out.println("El area concuerda con el area ingresada: "+sEndM2);
 			}else {
 				System.out.println("El area consultada no concuerda con la ingresada");
 			}

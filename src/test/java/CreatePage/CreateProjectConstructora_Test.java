@@ -30,6 +30,7 @@ public class CreateProjectConstructora_Test {
 		CreateProjectBuilder.salesRoom();
 		CreateProjectBuilder.stages();
 		CreateProjectBuilder.load();
+		CreateProjectBuilder.validation();
 	}
 
 }
