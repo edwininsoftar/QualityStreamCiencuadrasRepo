@@ -19,17 +19,17 @@ public class BasicWrap {
 			this.driver = driver;
 		}
 		
-		// CREACIÓN DE INSTACIA DEL NAVEGADOR CHROME
+		// CREACIï¿½N DE INSTACIA DEL NAVEGADOR CHROME
 		public WebDriver chromeDriverConnection() {
 			//Chrome
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver.exe");
 			driver = new ChromeDriver();
 			//Mozilla
-			//System.setProperty("webdriver.gecko.driver", "./src/test/resources/DriverMozillaFirefox/geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver","./src/test/resources/DriverMozillaFirefox/geckodriver.exe");
 			//driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
-		}
+		} 
 		
 	
 		//WRAPPER DE LOS COMANDOS DE SELENIUM
