@@ -148,13 +148,13 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	String yearCard = "25";// Ingrese el año de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
-	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
 	
 	public CreatePurchasePagePersona(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
 	
+	//Esta funcion es la encargada del login hasta el proceso de selección del tipo de plan 
 	public void buys() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
@@ -202,6 +202,8 @@ public class CreatePurchasePagePersona extends BasicWrap {
 		}
 	}
 	
+	
+	//Esta funcion es la encargada de diligenciar el formulario información del inmueble
 	public void purchaseForm() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
@@ -209,12 +211,6 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			Thread.sleep(3000);
 			if(propertyType.equals("Apartamento")) {
 				click(locator_apartament);
-			}
-			if(propertyType.equals("Casa")) {
-				click(locator_house);
-			}
-			if(propertyType.equals("Oficina")) {
-				click(locator_office);
 			}
 			if(transactionType.equals("Arriendo")) {
 				click(locator_rent);
@@ -321,6 +317,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 		}
 	}
 	
+	//Esta funcion es la encargada de cargar la imagenes del inmueble
 	public void load() throws InterruptedException {
 		try {
 			File file1 = new File("./src/test/resources/img/portada.png");
@@ -357,6 +354,8 @@ public class CreatePurchasePagePersona extends BasicWrap {
 			System.out.println("Error: "+e);
 		}
 	}
+	
+	//Esta funcion es la encargada de proceso de pago y codigo de descuento
 	public void payFinish() {
 		try {
 			Thread.sleep(20000);
@@ -376,6 +375,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 		}
 	}
 	
+	//Esta funcion es la encargada de diligenciar los datos bancarios del cliente y finalizar la compra
 	public void purchaseDetail() {
 		try {
 			Thread.sleep(8000);
