@@ -17,7 +17,6 @@ public class RequestAppraisalPage extends BasicWrap {
 	// Solicitud avaluo
 	By locato_buttonAppraise = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[1]/div/div[2]/a");
 	By locator_buttonColombia = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[1]/a");
-	By locator_buttonExterior = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[2]/a");
 	By locator_buttonCalculatePrice = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
 	By locator_city = By.name("ciudad");  
 	By locator_confirm = By.xpath("//*[@id=\"cdk-step-content-0-0\"]/app-check-coverage/div/div[2]/div[2]/button");
@@ -199,9 +198,6 @@ public class RequestAppraisalPage extends BasicWrap {
 				click(locator_confirm);
 				Thread.sleep(8000);	
 				click(locator_continue);
-			}
-			if(appraisalFrom.equals("Exterior")) {
-				click(locator_buttonExterior);
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
