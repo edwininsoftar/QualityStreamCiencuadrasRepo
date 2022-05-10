@@ -167,9 +167,6 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	String yearCard = "25";// Ingrese el a�o de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
-	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
-	String epayco = "edwinpulidonino@gmail.com";
-	
 
 	public CreatePropertyPersonPage(WebDriver driver) {
 		super(driver);
