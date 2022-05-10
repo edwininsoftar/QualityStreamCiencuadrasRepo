@@ -76,7 +76,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 
 	
 	//FLujo Agente										
-	String username = "agenteciencuadras12@yopmail.com";//agenteciencuadras13@yopmail.com
+	String username = "agenteciencuadras13@yopmail.com";//agenteciencuadras13@yopmail.com
 	String password = "@Contraseña112";
 	//Escoge tu plan ideal
 	String plan = "PlanXS";//PlanXS, PlanS

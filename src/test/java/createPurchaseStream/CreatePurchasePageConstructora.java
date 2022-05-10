@@ -109,7 +109,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	//mis publicaciones
 	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
 
-	String username = "constructoraciencuadras11@yopmail.com";//constructoraciencuadras12@yopmail.com
+	String username = "constructoraciencuadras12@yopmail.com";//constructoraciencuadras12@yopmail.com
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto
@@ -149,7 +149,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
-	String epayco = "edwinpulidonino@gmail.com";
 
 	public CreatePurchasePageConstructora(WebDriver driver) {
 		super(driver);
@@ -387,8 +386,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				type(monthCard, locator_monthCard);
 				type(cvv, locator_cvv);
 				click(locator_buttonFormCheckout);
-				Thread.sleep(20000);
-				click(locator_buttonMyPosts);
 			}
 			if(paymentType.equals("Credito")) {
 				click(locator_creditCard);
@@ -404,8 +401,6 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 				Select sel = new Select(ddl);
 				sel.selectByVisibleText(dues);
 				click(locator_buttonFormCheckout);
-				Thread.sleep(20000);
-				click(locator_buttonMyPosts);
 			}
 			if (paymentType.equals("PSE")) {
 				click(locator_pse);
