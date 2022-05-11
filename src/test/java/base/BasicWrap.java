@@ -15,8 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import service.tools.requestAppraisal.RequestAppraisalPage;
 
-public class BasicWrap {
-	 	
+public class BasicWrap extends BasicData{
+	
+ 	
 	    //OBJETO DRIVER
 		public WebDriver driver;
 		
@@ -95,4 +96,5 @@ public class BasicWrap {
 		public void visit(String url) {
 			driver.get(url);
 		}
+		
 }

@@ -11,8 +11,15 @@ import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import base.BasicWrap;
+import base.BasicData;
 
 public class CalculaPricePage extends BasicWrap{
+	
+	public CalculaPricePage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
 	//Formulario ubicación del inmueble
 	By locator_ButtonCalculaPrice = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
 	By locator_city = By.id("mat-input-0");
@@ -121,10 +128,7 @@ public class CalculaPricePage extends BasicWrap{
 	//Listo descarga reporte
 	By locator_report = By.xpath("//*[@id=\"cdk-step-content-0-3\"]/app-generate-report/div/div[2]/div[1]/button");
 	
-	//Formulario ubicación del inmueble
-	String city = "Bogotá"; // Ingrese la ciudad
-	String address = "Calle 184 # 20-51";// Ingrese la dirección 
-	String addressAdd = "Segundo piso";//Ingrese el complemento de la dirección
+
 	//Información del inmueble
 	String typeProperty = "Apartamento";//Casa, Apartamento
 	String transactionType = "Arriendo";//Arriendo, Venta
@@ -168,10 +172,7 @@ public class CalculaPricePage extends BasicWrap{
 	String epayco = "edwinpulidonino@gmail.com";
 	
 		
-	public CalculaPricePage(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
+
 	
 	public void propertyLocation() throws InterruptedException {
 		try {
@@ -185,14 +186,14 @@ public class CalculaPricePage extends BasicWrap{
 					driver.switchTo().window(actual);
 				}
 			}
-			type(city, locator_city);
+			type(getCity(), locator_city);
 			Thread.sleep(5000);	
 			WebElement ct = driver.findElement(locator_city);
 			ct.sendKeys(Keys.DOWN);
 			ct.sendKeys(Keys.ENTER);
-			type(address, locator_address);
+			type(getAddress(), locator_address);
 			Thread.sleep(5000);	
-			type(addressAdd, locator_addressAdd);
+			type(getAddressAdd(), locator_addressAdd);
 			click(locator_checkMap);
 			click(locator_button_continue);
 		} catch (Exception e) {
