@@ -1,4 +1,4 @@
-package contactStream;
+package contact;
 
 import org.junit.After;
 import org.junit.Before;

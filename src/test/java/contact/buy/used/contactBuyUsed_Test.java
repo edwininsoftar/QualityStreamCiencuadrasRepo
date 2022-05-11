@@ -1,4 +1,4 @@
-package contactStream;
+package contact.buy.used;
 
 import org.junit.After;
 import org.junit.Before;

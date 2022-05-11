@@ -1,4 +1,4 @@
-package contactStream;
+package contact.buy.used;
 
 import java.time.Duration;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class contactBuyUsedPage extends BasicWrap {
