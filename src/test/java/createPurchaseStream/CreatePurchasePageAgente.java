@@ -71,12 +71,9 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
 	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	//mis publicaciones
-	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
-
-	
+		
 	//FLujo Agente										
-	String username = "agenteciencuadras13@yopmail.com";//agenteciencuadras13@yopmail.com
+	String username = "agenteciencuadras18@yopmail.com";//agenteciencuadras19@yopmail.com, agenteciencuadras19@yopmail.com
 	String password = "@Contraseña112";
 	//Escoge tu plan ideal
 	String plan = "PlanXS";//PlanXS, PlanS
@@ -91,7 +88,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	//Descuento y pago ciencuadras
 	String discountCode = "";// codigo de descuento
 	//Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito, PSE, Daviplata
+	String paymentType = "Debito";// Debito, Credito, PSE
 	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
 	String typePerson = "PN";//PN, PJ
 	String typeBank = "BANCOLOMBIA";//BANCOLOMBIA, BANCO CAJA SOCIAL
@@ -101,8 +98,6 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	String yearCard = "25";// Ingrese el año de la tarjeta 
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
-	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
-	String epayco = "edwinpulidonino@gmail.com";
 	
 	public CreatePurchasePageAgente(WebDriver driver) {
 		super(driver);

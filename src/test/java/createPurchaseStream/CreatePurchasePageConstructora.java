@@ -109,7 +109,7 @@ public class CreatePurchasePageConstructora extends BasicWrap {
 	//mis publicaciones
 	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
 
-	String username = "constructoraciencuadras12@yopmail.com";//constructoraciencuadras12@yopmail.com
+	String username = "constructoraciencuadras18@yopmail.com";//constructoraciencuadras19@yopmail.com, constructoraciencuadras20@yopmail.com
 	String password = "100Cuadras%";
 	String typePlan = "PlanesSemestrales";// PlanesSemestrales, PlanesAnuales
 	String proyectNumber = "7Proyecto";// 6Proyecto, 7Proyecto

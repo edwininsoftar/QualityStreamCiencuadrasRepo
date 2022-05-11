@@ -115,12 +115,10 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	By locator_bancolombia = ByAngularOptions.id("mat-option-19");
 	By locator_cajaSocial = ByAngularOptions.id("mat-option-8");
 	By locator_paymentP = By.xpath("//*[@id=\"pay-pse\"]/form/div[2]/button");
-	//mis publicaciones
-	By locator_buttonMyPosts = By.xpath("//*[@id=\"body\"]/app-root/app-publication-feedback/div/div/div/div[2]/div[1]/div/button[2]");
-
+	
 
 	// Flujo inmobiliaria
-	String username = "inmobiliariaciencuadras12@yopmail.com";//inmobiliariaciencuadras13@yopmail.com
+	String username = "inmobiliariaciencuadras18@yopmail.com";//inmobiliariaciencuadras19@yopmail.com, inmobiliariaciencuadras20@yopmail.com
 	String password = "100Cuadras%";
 	//Formulario escoge tu plan ideal ver planes
 	String plan = "PlanBasico";//PlanBasico, PlanBasePlus ,PlanS, PlanM, PlanL
@@ -137,10 +135,10 @@ public class CreatePurchasePageInmobiliaria extends BasicWrap{
 	String dv = "7";// ingrese el digito de verificación
 	String city = "Bogotá";
 	String address = "Calle 128 # 52-53";// ingrese la direción
-	String confirmEmail = "inmobiliariaciencuadras12@yopmail.com";
+	String confirmEmail = "inmobiliariaciencuadras18@yopmail.com";
 	String cell = "3202159841";
 	String emailDIAN = "Si";// Si, No
-	String billingMail = "inmobiliariaciencuadras12@yopmail.com";// ingrese email de facturación electronica
+	String billingMail = "inmobiliariaciencuadras18@yopmail.com";// ingrese email de facturación electronica
 	String regimeType = "Comun";// Comun, Simplificado, Especial
 	String retentionAgent = "4";// No, 4, 11
 	String fiscalResponsibility = "AgenteRetenedor";// RegimenSimple, AgenteRetenedor, GranContribuyente, Autorretenedor, NoResponsable
