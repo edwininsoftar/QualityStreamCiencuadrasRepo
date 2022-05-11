@@ -5,6 +5,8 @@ import java.io.File;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
 
+import base.BasicWrap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
@@ -14,7 +16,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import Base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePagePersona extends BasicWrap {

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePageConstructora extends BasicWrap {

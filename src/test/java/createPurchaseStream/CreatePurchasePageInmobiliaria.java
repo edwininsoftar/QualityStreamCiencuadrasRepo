@@ -17,7 +17,7 @@ import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePurchasePageInmobiliaria extends BasicWrap{
