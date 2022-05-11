@@ -1,4 +1,4 @@
-package createPurchaseStream;
+package create.Rol.Agente;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -74,7 +74,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 		
 	//FLujo Agente										
 	String username = "agenteciencuadras18@yopmail.com";//agenteciencuadras19@yopmail.com, agenteciencuadras19@yopmail.com
-	String password = "@Contraseï¿½a112";
+	String password = "@Contraseña112";
 	//Escoge tu plan ideal
 	String plan = "PlanXS";//PlanXS, PlanS
 	String monthsPlan = "3 meses";//1 meses, 3 meses, 6 meses, 9 meses, 12 meses

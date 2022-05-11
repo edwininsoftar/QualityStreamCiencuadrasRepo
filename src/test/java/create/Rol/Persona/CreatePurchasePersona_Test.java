@@ -1,4 +1,4 @@
-package createPurchaseStream;
+package create.Rol.Persona;
 
 import org.junit.After;
 import org.junit.Before;
@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 public class CreatePurchasePersona_Test {
-	
 
 	private WebDriver driver;
 	CreatePurchasePagePersona createPropertyPage;

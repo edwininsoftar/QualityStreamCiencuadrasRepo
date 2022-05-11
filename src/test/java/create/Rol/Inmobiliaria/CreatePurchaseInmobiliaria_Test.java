@@ -1,4 +1,4 @@
-package createPurchaseStream;
+package create.Rol.Inmobiliaria;
 
 import org.junit.After;
 import org.junit.Before;
