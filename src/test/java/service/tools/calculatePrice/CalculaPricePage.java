@@ -1,4 +1,4 @@
-package serviceToolsStream;
+package service.tools.calculatePrice;
 
 import java.util.Set;
 

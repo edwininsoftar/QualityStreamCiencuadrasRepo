@@ -1,4 +1,4 @@
-package serviceToolsStream;
+package service.tools.calculatePrice;
 
 import org.junit.After;
 import org.junit.Before;

@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import serviceToolsStream.RequestAppraisalPage;
+import service.tools.requestAppraisal.RequestAppraisalPage;
 
 public class BasicWrap {
 	 	
