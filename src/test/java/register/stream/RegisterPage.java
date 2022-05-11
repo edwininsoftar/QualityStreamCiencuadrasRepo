@@ -1,4 +1,4 @@
-package registerStream;
+package register.stream;
 
 import java.time.Duration;
 

@@ -1,4 +1,4 @@
-package registerStream;
+package register.stream;
 
 import org.junit.After;
 import org.junit.Before;
