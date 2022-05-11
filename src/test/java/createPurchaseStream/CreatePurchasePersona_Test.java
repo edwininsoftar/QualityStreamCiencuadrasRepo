@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class createPurchasePersona_Test {
+public class CreatePurchasePersona_Test {
 	
 
 	private WebDriver driver;
