@@ -10,7 +10,7 @@ import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 
 public class CalculaPricePage extends BasicWrap{
 	//Formulario ubicación del inmueble
