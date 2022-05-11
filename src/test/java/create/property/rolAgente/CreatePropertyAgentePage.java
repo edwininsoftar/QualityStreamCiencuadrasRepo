@@ -1,4 +1,4 @@
-package CreatePage;
+package create.property.rolAgente;
 
 import java.io.File;
 
@@ -8,7 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import Base.BasicWrap;
+
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyAgentePage extends BasicWrap{

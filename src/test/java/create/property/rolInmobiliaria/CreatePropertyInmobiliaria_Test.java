@@ -1,4 +1,4 @@
-package CreatePage;
+package create.property.rolInmobiliaria;
 
 import org.junit.After;
 import org.junit.Before;

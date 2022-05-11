@@ -1,4 +1,4 @@
-package CreatePage;
+package create.property.rolInmobiliaria;
 
 import java.io.File;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyInmobiliariaPage extends BasicWrap{

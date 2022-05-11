@@ -1,4 +1,4 @@
-package CreatePage;
+package create.property.rolConstructora;
 
 import java.io.File;
 import java.util.NoSuchElementException;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreateProjectPageConstructora extends BasicWrap{

@@ -1,4 +1,4 @@
-package CreatePage;
+package create.property.rolPersona;
 
 import java.io.File;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
-import Base.BasicWrap;
+import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyPersonPage extends BasicWrap{
