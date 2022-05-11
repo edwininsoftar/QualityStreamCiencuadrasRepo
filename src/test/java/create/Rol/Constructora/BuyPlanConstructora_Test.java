@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class CreatePurchaseConstructora_Test {
+public class BuyPlanConstructora_Test {
 	
 	private WebDriver driver;
-	CreatePurchasePageConstructora createPurchasePageConstructora;
+	BuyPlanPageConstructora createPurchasePageConstructora;
 	
 	@Before
 	public void setUp() throws Exception {
-		createPurchasePageConstructora = new CreatePurchasePageConstructora(driver);
+		createPurchasePageConstructora = new BuyPlanPageConstructora(driver);
 		driver = createPurchasePageConstructora.chromeDriverConnection();
 		createPurchasePageConstructora.visit("https://qa.ciencuadras.com/"); 
 	}

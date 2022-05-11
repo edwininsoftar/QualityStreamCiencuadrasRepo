@@ -1,4 +1,4 @@
-package create.Rol.Agente;
+package buy.plan.rolAgente;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -13,7 +13,7 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
-public class CreatePurchasePageAgente extends BasicWrap{
+public class BuyPlanPageAgente extends BasicWrap{
 	// Flujo Agente 
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
 	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
@@ -99,7 +99,7 @@ public class CreatePurchasePageAgente extends BasicWrap{
 	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 	
-	public CreatePurchasePageAgente(WebDriver driver) {
+	public BuyPlanPageAgente(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

@@ -1,17 +1,17 @@
-package create.Rol.Agente;
+package buy.plan.rolAgente;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class CreatePurchaseAgente_Test {
+public class BuyPlanAgente_Test {
 	private WebDriver driver;
-	CreatePurchasePageAgente CreatePurchasePageAgente;
+	BuyPlanPageAgente CreatePurchasePageAgente;
 
 	@Before
 	public void setUp() throws Exception {
-		CreatePurchasePageAgente = new CreatePurchasePageAgente(driver);
+		CreatePurchasePageAgente = new BuyPlanPageAgente(driver);
 		driver = CreatePurchasePageAgente.chromeDriverConnection();
 		CreatePurchasePageAgente.visit("https://qa.ciencuadras.com/");
 	}

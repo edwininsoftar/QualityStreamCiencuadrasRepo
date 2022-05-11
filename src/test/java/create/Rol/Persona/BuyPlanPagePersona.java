@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import io.netty.handler.timeout.TimeoutException;
 
-public class CreatePurchasePagePersona extends BasicWrap {
+public class BuyPlanPagePersona extends BasicWrap {
 
 	// Flujo Persona
 	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
@@ -162,7 +162,7 @@ public class CreatePurchasePagePersona extends BasicWrap {
 	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de
 						// credito
 
-	public CreatePurchasePagePersona(WebDriver driver) {
+	public BuyPlanPagePersona(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
