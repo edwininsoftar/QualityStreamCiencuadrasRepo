@@ -3,7 +3,9 @@ package service.tools.calculatePrice;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.paulhammant.ngwebdriver.ByAngular;
@@ -11,7 +13,7 @@ import com.paulhammant.ngwebdriver.ByAngularBinding;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
 
 import base.BasicWrap;
-import base.BasicData;
+import io.netty.handler.timeout.TimeoutException;
 
 public class CalculaPricePage extends BasicWrap{
 	
@@ -19,14 +21,9 @@ public class CalculaPricePage extends BasicWrap{
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-
-	//Formulario ubicación del inmueble
-	By locator_ButtonCalculaPrice = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
-	By locator_city = By.id("mat-input-0");
-	By locator_address = By.id("mat-input-1");
-	By locator_addressAdd = By.id("mat-input-2");
-	By locator_checkMap = By.id("mat-checkbox-1");
-	By locator_button_continue = By.cssSelector("button[class=\"btn button rounded secondary\"]");
+	
+	LocatorProject locatorProject;
+	
 	//Información del inmueble
 	By locator_typeProperty = By.id("mat-select-0");
 	By locator_apartment = By.id("mat-option-0");
@@ -128,56 +125,11 @@ public class CalculaPricePage extends BasicWrap{
 	//Listo descarga reporte
 	By locator_report = By.xpath("//*[@id=\"cdk-step-content-0-3\"]/app-generate-report/div/div[2]/div[1]/button");
 	
-
-	//Información del inmueble
-	String typeProperty = "Apartamento";//Casa, Apartamento
-	String transactionType = "Arriendo";//Arriendo, Venta
-	String stratum = "3";// estrato: 1,2,3,4,5,6
-	String area = "85.5";//Ingrese el area en metros cuadrados 
-	String antiquity = "10";//Ingrese la antiguedad del inmueble en años
-	int parkingLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de parqueaderos
-	int parkingMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de parqueaderos 
-	int toiletsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de baños
-	int toiletsMore = 0; //Ingrese el numero de clicks si desea aumentar la cantidad de baños 
-	int roomsLess = 0;//Ingrese el numero de clicks si desea disminuir la cantidad de habitaciones
-	int roomsMore = 3;//Ingrese el numero de clicks si desea aunmentar la cantidad de habitaciones 
-	int balconiesMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
-	int terraceMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de balcones
-	int depositMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de depositos
-	int elevatorsMore = 0;//Ingrese el numero de clicks si desea aumentar la cantidad de elevadores
-	// Formulario paga el precio en linea
-	String names = "Sebastian Andres";//Ingrese los nombres
-	String surnames = "Rodiguez Cepeda";//ingrese los apellidos
-	String identityDocument = "CC";//CC,NIT,CE
-	String idNumber = "1057585412";//Ingrese el numero de identificación
-	String email = "emaildepagoprueba@yopmail.com";// Ingrese el email 
-	String confirmEmail = "emaildepagoprueba@yopmail.com";//Ingrese la confirmación del email
-	String phone = "205814789";// Ingrese el numero de celular sin el numero 3
-	String acceptTerms = "Si";//Si, No //Ingrese si o no si hacepta los terminos 
-	String dataTreatment = "Si";// Si, No // Ingrese si o no si acepta el tratamiento de datos
-	//Pago y descuento ciencuadras
-	String discountCode = "";// ingrese codigo de descuento
-	//Dastos cliente pago
-	String paymentType = "Credito";// Debito, Credito, PSE, Davipuntos, Daviplata
-	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
-	String typePerson = "PN";//PN, PJ
-	String typeBank = "ITAU";//ITAU, BANCO CAJA SOCIAL
-	String holderName = "Sebastian Andres Rodiguez Cepeda"; // ingrese el numero del titular de la tarjeta
-	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta 
-	String monthCard = "12";// Ingrese el mes de la tarjeta 
-	String yearCard = "25";// Ingrese el año de la tarjeta 
-	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
-	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de credito
-	String documentNumber = "1057595824";// Ingrese en numero de documento formulario daviplata
-	String epayco = "edwinpulidonino@gmail.com";
-	
-		
-
 	
 	public void propertyLocation() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
-			click(locator_ButtonCalculaPrice);
+			click(locatorProject.getLocator_ButtonCalculaPrice());
 			//new tab
 			String mainTab = driver.getWindowHandle();
 			Set<String> handles = driver.getWindowHandles();
@@ -186,16 +138,16 @@ public class CalculaPricePage extends BasicWrap{
 					driver.switchTo().window(actual);
 				}
 			}
-			type(getCity(), locator_city);
+			type(getCity(), locatorProject.getLocator_city());
 			Thread.sleep(5000);	
-			WebElement ct = driver.findElement(locator_city);
+			WebElement ct = driver.findElement(locatorProject.getLocator_city());
 			ct.sendKeys(Keys.DOWN);
 			ct.sendKeys(Keys.ENTER);
-			type(getAddress(), locator_address);
+			type(getAddress(), locatorProject.getLocator_address());
 			Thread.sleep(5000);	
-			type(getAddressAdd(), locator_addressAdd);
-			click(locator_checkMap);
-			click(locator_button_continue);
+			type(getAddressAdd(), locatorProject.getLocator_addressAdd());
+			click(locatorProject.getLocator_checkMap());
+			click(locatorProject.getLocator_button_continue());
 		} catch (Exception e) {
 			System.out.println("Error: "+ e);
 		}
@@ -207,73 +159,73 @@ public class CalculaPricePage extends BasicWrap{
 			Thread.sleep(8000);	
 			click(locator_typeProperty);
 			Thread.sleep(8000);	
-			if(typeProperty.equals("Casa")) {
+			if(getTypeProperty().equals("Casa")) {
 				click(locator_house);
 			}
-			if(typeProperty.equals("Apartamento")) {
+			if(getTypeProperty().equals("Apartamento")) {
 				click(locator_apartment);
 			}
-			if(transactionType.equals("Arriendo")) {
+			if(getTransactionType().equals("Arriendo")) {
 				click(locator_rent);
 			}
-			if(transactionType.equals("Venta")) {
+			if(getTransactionType().equals("Venta")) {
 				click(locator_sale);
 			}
-			if(stratum.equals("1")) {
+			if(getStratum().equals("1")) {
 				click(locator_stratum1);
 			}
-			if(stratum.equals("2")) {
+			if(getStratum().equals("2")) {
 				click(locator_stratum2);
 			}
-			if(stratum.equals("3")) {
+			if(getStratum().equals("3")) {
 				click(locator_stratum3);
 			}
-			if(stratum.equals("4")) {
+			if(getStratum().equals("4")) {
 				click(locator_stratum4);
 			}
-			if(stratum.equals("5")) {
+			if(getStratum().equals("5")) {
 				click(locator_stratum5);
 			}
-			if(stratum.equals("6")) {
+			if(getStratum().equals("6")) {
 				click(locator_stratum6);
 			}
 			Thread.sleep(5000);	
 			WebElement ar = driver.findElement(locator_area);
 			ar.clear(); 
-			type(area, locator_area);
+			type(getArea(), locator_area);
 			Thread.sleep(5000);	
 			WebElement an = driver.findElement(locator_antiquity);
 			an.clear();
-			type(antiquity, locator_antiquity);
+			type(getAntiquity(), locator_antiquity);
 			Thread.sleep(5000);			
-			for(int i=0;i<parkingLess;i++) {
+			for(int i=0;i<getParkingLess();i++) {
 				click(locator_parkingLess);
 			}
-			for(int i=0;i<parkingMore;i++) {
+			for(int i=0;i<getParkingMore();i++) {
 				click(locator_parkingMore);
 			}
-			for(int i=0;i<toiletsLess;i++) {
+			for(int i=0;i<getToiletsLess();i++) {
 				click(locator_toiletsLess);
 			}
-			for(int i=0;i<toiletsMore;i++) {
+			for(int i=0;i<getToiletsMore();i++) {
 				click(locator_toiletsMore);
 			}
-			for(int i=0;i<roomsLess;i++) {
+			for(int i=0;i<getRoomsLess();i++) {
 				click(locator_roomsLess);
 			}
-			for(int i=0;i<roomsMore;i++) {
+			for(int i=0;i<getRoomsMore();i++) {
 				click(locator_roomsMore);
 			}
-			for(int i=0;i<balconiesMore;i++) {
+			for(int i=0;i<getBalconiesMore();i++) {
 				click(locator_balconiesMore);
 			}
-			for(int i=0;i<terraceMore;i++) {
+			for(int i=0;i<getTerraceMore();i++) {
 				click(locator_terraceMore);
 			}
-			for(int i=0;i<depositMore;i++) {
+			for(int i=0;i<getDepositMore();i++) {
 				click(locator_depositMore);
 			}
-			for(int i=0;i<elevatorsMore;i++) {
+			for(int i=0;i<getElevatorsMore();i++) {
 				click(locator_elevatorsMore);
 			}
 			click(locator_buttonContinue);
@@ -285,26 +237,26 @@ public class CalculaPricePage extends BasicWrap{
 	public void payThePriceonline() {
 		try {
 			Thread.sleep(5000);	
-			type(names, locator_names);
-			type(surnames, locator_surnames);
+			type(getNames(), locator_names);
+			type(getSurnames(), locator_surnames);
 			click(locator_identityDocument);
-			if(identityDocument.equals("CC")) {
+			if(getIdentityDocument().equals("CC")) {
 				click(locator_cc);
 			}
-			if(identityDocument.equals("NIT")) {
+			if(getIdentityDocument().equals("NIT")) {
 				click(locator_nit);
 			}
-			if(identityDocument.equals("CE")) {
+			if(getIdentityDocument().equals("CE")) {
 				click(locator_ce);
 			}
-			type(idNumber, locator_idNumber);
-			type(email, locator_email);
-			type(confirmEmail, locator_confirmEmail);
-			type(phone, locator_phone);
-			if(acceptTerms.equals("No")) {
+			type(getIdNumber(), locator_idNumber);
+			type(getEmail(), locator_email);
+			type(getEmail(), locator_confirmEmail);
+			type(getPhone(), locator_phone);
+			if(getAcceptTerms().equals("No")) {
 				click(locator_acceptTerms);
 			}
-			if(dataTreatment.equals("No")){
+			if(getDataTreatment().equals("No")){
 				click(locator_dataTreatment);
 			}
 			Thread.sleep(5000);	
@@ -317,8 +269,8 @@ public class CalculaPricePage extends BasicWrap{
 	public void payFinish() {
 		try {
 			Thread.sleep(50000);
-			if(discountCode != "") {
-				type(discountCode, locator_bond);
+			if(getDiscountCode() != "") {
+				type(getDiscountCode(), locator_bond);
 				click(locator_aplic);
 			}
 			click(locator_buttonPayfinish);
@@ -333,25 +285,25 @@ public class CalculaPricePage extends BasicWrap{
 			Thread.sleep(8000);
 			click(locator_cookies);
 			Thread.sleep(8000);
-			if(paymentType.equals("Debito")) {
+			if(getPaymentType().equals("Debito")) {
 				click(locator_debitCard);
 				Thread.sleep(3000);
-				type(holderName, locator_holderNameD);
-				type(cardNumber, locator_cardNumberD);
-				type(monthCard, locator_monthCardD);
-				type(yearCard, locator_yearCardD);
-				type(cvv, locator_cvvD);
+				type(getHolderName(), locator_holderNameD);
+				type(getCardNumber(), locator_cardNumberD);
+				type(getMonthCard(), locator_monthCardD);
+				type(getYearCard(), locator_yearCardD);
+				type(getCvv(), locator_cvvD);
 				Thread.sleep(8000);
 				click(locator_paymentD);
 			}
-			if(paymentType.equals("Credito")) {
+			if(getPaymentType().equals("Credito")) {
 				click(locator_creditCard);
 				Thread.sleep(3000);
-				type(holderName, locator_holderNameC);
-				type(cardNumber, locator_cardNumberC);
-				type(monthCard, locator_monthCardC);
-				type(yearCard, locator_yearCardC);
-				type(cvv, locator_cvvC);
+				type(getHolderName(), locator_holderNameC);
+				type(getCardNumber(), locator_cardNumberC);
+				type(getMonthCard(), locator_monthCardC);
+				type(getYearCard(), locator_yearCardC);
+				type(getCvv(), locator_cvvC);
 				Thread.sleep(8000);
 				click(locator_dues);
 				Thread.sleep(8000);
@@ -359,40 +311,40 @@ public class CalculaPricePage extends BasicWrap{
 				Thread.sleep(8000);
 				click(locator_paymentC);
 			}
-			if(paymentType.equals("PSE")) {
+			if(getPaymentType().equals("PSE")) {
 				click(locator_pse);
 				Thread.sleep(3000);
 				click(locator_typedocumentP);
 				Thread.sleep(8000);
-				if(typeDocument.equals("CC")) {
+				if(getTypeDocument().equals("CC")) {
 					click(locator_CC);
 				}
-				if(typeDocument.equals("CE")) {
+				if(getTypeDocument().equals("CE")) {
 					click(locator_CE);
 				}
-				if(typeDocument.equals("CP")) {
+				if(getTypeDocument().equals("CP")) {
 					click(locator_CP);
 				}
-				if(typeDocument.equals("NIT")) {
+				if(getTypeDocument().equals("NIT")) {
 					click(locator_NIT);
 				}
-				if(typeDocument.equals("TI")) {
+				if(getTypeDocument().equals("TI")) {
 					click(locator_TI);
 				}
 				click(locator_TypePerson);
 				Thread.sleep(8000);
-				if(typePerson.equals("PN")) {
+				if(getTypePerson().equals("PN")) {
 					click(locator_PN);
 				}
-				if(typePerson.equals("PJ")) {
+				if(getTypePerson().equals("PJ")) {
 					click(locator_PJ);
 				}
 				click(locator_bank);
 				Thread.sleep(8000);
-				if(typeBank.equals("BANCO CAJA SOCIAL")) {
+				if(getTypeBank().equals("BANCO CAJA SOCIAL")) {
 					click(locator_cajaSocial);
 				}
-				if(typeBank.equals("ITAU")) {
+				if(getTypeBank().equals("ITAU")) {
 					click(locator_itau);
 				}
 				Thread.sleep(8000);
@@ -402,46 +354,51 @@ public class CalculaPricePage extends BasicWrap{
 				click(locator_PSECheckTerms);
 				click(locator_follow);
 			}
-			if(paymentType.equals("Davipuntos")) {
+			if(getPaymentType().equals("Davipuntos")) {
 				click(locator_davipuntos);
 				Thread.sleep(8000);
 				click(locator_paymentDavi);
 				Thread.sleep(8000);
 				driver.switchTo().defaultContent();
-				type(epayco,locator_epayco);
 				click(locator_continueEpayco);
 			}
-			if(paymentType.equals("Daviplata")) {
+			if(getPaymentType().equals("Daviplata")) {
 				click(locator_daviplata);
 				Thread.sleep(3000);
 				click(locator_typeDocumentDaviplata);
 				Thread.sleep(8000);
-				if(typeDocument.equals("CC")) {
+				if(getTypeDocument().equals("CC")) {
 					click(locator_CCDaviplata);
 				}
-				if(typeDocument.equals("CE")) {
+				if(getTypeDocument().equals("CE")) {
 					click(locator_CEDaviplata);
 				}
-				if(typeDocument.equals("CP")) {
+				if(getTypeDocument().equals("CP")) {
 					click(locator_CPDaviplata);
 				}
-				if(typeDocument.equals("NIT")) {
+				if(getTypeDocument().equals("NIT")) {
 					click(locator_NITDaviplata);
 				}
-				if(typeDocument.equals("TI")) {
+				if(getTypeDocument().equals("TI")) {
 					click(locator_TIDaviplata);
 				}
-				if(typeDocument.equals("SSE")) {
+				if(getTypeDocument().equals("SSE")) {
 					click(locator_SSEDaviplata);
 				}
-				type(documentNumber,locator_documentNumber);
+				type(getDocumentNumber(),locator_documentNumber);
 				Thread.sleep(8000);
 				click(locator_paymentDaviplata);
 			}
 			Thread.sleep(5000);
 			click(locator_report);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
-		} 
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
 	}
 }
