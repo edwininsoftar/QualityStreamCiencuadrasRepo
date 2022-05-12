@@ -1,4 +1,4 @@
-package create.Rol.Inmobiliaria;
+package buy.plan.rolInmobiliaria;
 
 import org.junit.After;
 import org.junit.Before;

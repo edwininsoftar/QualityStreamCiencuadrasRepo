@@ -1,4 +1,4 @@
-package create.Rol.Inmobiliaria;
+package buy.plan.rolInmobiliaria;
 
 import java.time.Duration;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package create.Rol.Persona;
+package buy.plan.rolPersona;
 
 import org.junit.After;
 import org.junit.Before;
