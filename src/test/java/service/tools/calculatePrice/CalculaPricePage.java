@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import base.BasicData;
 import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
@@ -20,7 +22,7 @@ public class CalculaPricePage extends BasicWrap{
 	public void propertyLocation() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
-			click(getLocator_ButtonCalculaPrice());
+			click(LocatorCalculatePrice.LOCATOR_BUTTON_CALCULA_PRICE);
 			//new tab
 			String mainTab = driver.getWindowHandle();
 			Set<String> handles = driver.getWindowHandles();
@@ -29,256 +31,214 @@ public class CalculaPricePage extends BasicWrap{
 					driver.switchTo().window(actual);
 				}
 			}
-			type(getCity(), getLocator_city());
+			type(BasicData.CITY, LocatorCalculatePrice.LOCATOR_CITY);
 			Thread.sleep(5000);	
-			WebElement ct = driver.findElement(getLocator_city());
+			WebElement ct = driver.findElement(LocatorCalculatePrice.LOCATOR_CITY);
 			ct.sendKeys(Keys.DOWN);
 			ct.sendKeys(Keys.ENTER);
-			type(getAddress(),getLocator_address());
+			type(BasicData.ADDRESS,LocatorCalculatePrice.LOCATOR_ADDRESS);
 			Thread.sleep(5000);	
-			type(getAddressAdd(),getLocator_addressAdd());
-			click(getLocator_checkMap());
-			click(getLocator_button_continue());
+			type(BasicData.ADDRESS_ADD,LocatorCalculatePrice.LOCATOR_ADDRESS_ADD);
+			click(LocatorCalculatePrice.LOCATOR_CHECK_MAP);
+			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE);
 		} catch (Exception e) {
 			System.out.println("Error: "+ e);
 		}
 		
 	}
 	
-	public void propertyInformation() {
+	public void propertyInformation(String TypeProperty, String TransactionType, String stratum) {
 		try {
 			Thread.sleep(8000);	
-			click(getLocator_typeProperty());
+			click(LocatorCalculatePrice.LOCATOR_TYPE_PROPERTY);
 			Thread.sleep(8000);	
-			if(getTypeProperty().equals("Casa")) {
-				click(getLocator_house());
+			if(BasicData.TYPE_PROPERTY_C.equals(TypeProperty)) {
+				click(LocatorCalculatePrice.LOCATOR_HOUSE);
 			}
-			if(getTypeProperty().equals("Apartamento")) {
-				click(getLocator_apartment());
+			if(BasicData.TYPE_PROPERTY_A.equals(TypeProperty)) {
+				click(LocatorCalculatePrice.LOCATOR_APARTMENT);
 			}
-			if(getTransactionType().equals("Arriendo")) {
-				click(getLocator_rent());
+			if(BasicData.TRANSACTION_TYPE_A.equals(TransactionType)) {
+				click(LocatorCalculatePrice.LOCATOR_RENT);
 			}
-			if(getTransactionType().equals("Venta")) {
-				click(getLocator_sale());
+			if(BasicData.TRANSACTION_TYPE_V.equals(TransactionType)) {
+				click(LocatorCalculatePrice.LOCATOR_SALE);
 			}
-			if(getStratum().equals("1")) {
-				click(getLocator_stratum1());
+			if(BasicData.STRATUM_1.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_1);
 			}
-			if(getStratum().equals("2")) {
-				click(getLocator_stratum2());
+			if(BasicData.STRATUM_2.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_2);
 			}
-			if(getStratum().equals("3")) {
-				click(getLocator_stratum3());
+			if(BasicData.STRATUM_3.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_3);
 			}
-			if(getStratum().equals("4")) {
-				click(getLocator_stratum4());
+			if(BasicData.STRATUM_4.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_4);
 			}
-			if(getStratum().equals("5")) {
-				click(getLocator_stratum5());
+			if(BasicData.STRATUM_5.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_5);
 			}
-			if(getStratum().equals("6")) {
-				click(getLocator_stratum6());
+			if(BasicData.STRATUM_6.equals(stratum)) {
+				click(LocatorCalculatePrice.LOCATOR_STRATUM_6);
 			}
 			Thread.sleep(5000);	
-			WebElement ar = driver.findElement(getLocator_area());
+			WebElement ar = driver.findElement(LocatorCalculatePrice.LOCATOR_AREA);
 			ar.clear(); 
-			type(getArea(), getLocator_area());
+			type(BasicData.AREA, LocatorCalculatePrice.LOCATOR_AREA);
 			Thread.sleep(5000);	
-			WebElement an = driver.findElement(getLocator_antiquity());
+			WebElement an = driver.findElement(LocatorCalculatePrice.LOCATOR_ANTIQUITY);
 			an.clear();
-			type(getAntiquity(), getLocator_antiquity());
+			type(BasicData.ANTIQUITY, LocatorCalculatePrice.LOCATOR_ANTIQUITY);
 			Thread.sleep(5000);			
-			for(int i=0;i<getParkingLess();i++) {
-				click(getLocator_parkingLess());
+			for(int i=0;i<BasicData.PARKING_LESS;i++) {
+				click(LocatorCalculatePrice.LOCATOR_PARKING_LESS);
 			}
-			for(int i=0;i<getParkingMore();i++) {
-				click(getLocator_parkingMore());
+			for(int i=0;i<BasicData.PARKING_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_PARKING_MORE);
 			}
-			for(int i=0;i<getToiletsLess();i++) {
-				click(getLocator_toiletsLess());
+			for(int i=0;i<BasicData.TOILETS_LEST;i++) {
+				click(LocatorCalculatePrice.LOCATOR_TOILETS_LESS);
 			}
-			for(int i=0;i<getToiletsMore();i++) {
-				click(getLocator_toiletsMore());
+			for(int i=0;i<BasicData.TOILETS_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_TOILETS_MORE);
 			}
-			for(int i=0;i<getRoomsLess();i++) {
-				click(getLocator_roomsLess());
+			for(int i=0;i<BasicData.ROOMS_LESS;i++) {
+				click(LocatorCalculatePrice.LOCATOR_ROOMS_LESS);
 			}
-			for(int i=0;i<getRoomsMore();i++) {
-				click(getLocator_roomsMore());
+			for(int i=0;i<BasicData.ROOMS_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_ROOMS_MORE);
 			}
-			for(int i=0;i<getBalconiesMore();i++) {
-				click(getLocator_balconiesMore());
+			for(int i=0;i<BasicData.BALCONIES_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_BALCONIES_MORE);
 			}
-			for(int i=0;i<getTerraceMore();i++) {
-				click(getLocator_terraceMore());
+			for(int i=0;i<BasicData.TERRACE_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_TERRACE_MORE);
 			}
-			for(int i=0;i<getDepositMore();i++) {
-				click(getLocator_depositMore());
+			for(int i=0;i<BasicData.DEPOSIT_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_DEPOSIT_MORE);
 			}
-			for(int i=0;i<getElevatorsMore();i++) {
-				click(getLocator_elevatorsMore());
+			for(int i=0;i<BasicData.ELEVATORS_MORE;i++) {
+				click(LocatorCalculatePrice.LOCATOR_ELEVATORS_MORE);
 			}
-			click(getLocator_buttonContinue());
+			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE_TWO);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
 	
-	public void payThePriceonline() {
+	public void payThePriceonline(String identityDocument) {
 		try {
 			Thread.sleep(5000);	
-			type(getNames(), getLocator_names());
-			type(getSurnames(), getLocator_surnames());
-			click(getLocator_identityDocument());
-			if(getIdentityDocument().equals("CC")) {
-				click(getLocator_cc());
+			type(BasicData.NAMES, LocatorCalculatePrice.LOCATOR_NAMES );
+			type(BasicData.SURNAMES, LocatorCalculatePrice.LOCATOR_SURNAMES);
+			click( LocatorCalculatePrice.LOCATOR_IDENTITY_DOCUMENT);
+			if(BasicData.TYPE_DOCUMENT_CC.equals(identityDocument)) {
+				click(LocatorCalculatePrice.LOCATOR_CC);
 			}
-			if(getIdentityDocument().equals("NIT")) {
-				click(getLocator_nit());
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(identityDocument)) {
+				click(LocatorCalculatePrice.LOCATOR_NIT);
 			}
-			if(getIdentityDocument().equals("CE")) {
-				click(getLocator_ce());
+			if(BasicData.TYPE_DOCUMENT_CE.equals(identityDocument)) {
+				click(LocatorCalculatePrice.LOCATOR_CE);
 			}
-			type(getIdNumber(), getLocator_idNumber());
-			type(getEmail(), getLocator_email());
-			type(getEmail(), getLocator_confirmEmail());
-			type(getPhone(), getLocator_phone());
-			if(getAcceptTerms().equals("No")) {
-				click(getLocator_acceptTerms());
-			}
-			if(getDataTreatment().equals("No")){
-				click(getLocator_dataTreatment());
-			}
+			type(BasicData.ID_NUMBER, LocatorCalculatePrice.LOCATOR_ID_NUMBER);
+			type(BasicData.EMAIL, LocatorCalculatePrice.LOCATOR_EMAIL);
+			type(BasicData.EMAIL,LocatorCalculatePrice.LOCATOR_CONFIRM_EMAIL);
+			type(BasicData.PHONE,LocatorCalculatePrice.LOCATOR_PHONE);
 			Thread.sleep(5000);	
-			click(getLocator_buttonContinueTwo());
+			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE_THREE);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
 	
-	public void payFinish() {
+	public void payFinish(String DiscountCode) {
 		try {
 			Thread.sleep(50000);
-			if(getDiscountCode() != "") {
-				type(getDiscountCode(), getLocator_bond());
-				click(getLocator_aplic());
+			if(BasicData.DISCOUNT_CODE.equals(DiscountCode)) {
+				type(BasicData.DISCOUNT_CODE,LocatorCalculatePrice.LOCATOR_BOND);
+				click(LocatorCalculatePrice.LOCATOR_APLIC);
+			}else {
+				type(BasicData.DISCOUNT_CODE_EMPTY,LocatorCalculatePrice.LOCATOR_BOND);
 			}
-			click(getLocator_buttonPayfinish());
+			click(LocatorCalculatePrice.LOCATOR_BUTTON_PAY_FINISH);
 			Thread.sleep(8000);
 		} catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
 	
-	public void purchaseDetail() {
+	public void purchaseDetail(String PayMentType, String TypeDocument, String TypePerson,String TypeBank) {
 		try {
 			Thread.sleep(8000);
-			click(getLocator_cookies());
+			click(LocatorCalculatePrice.LOCATOR_COOKIES);
 			Thread.sleep(8000);
-			if(getPaymentType().equals("Debito")) {
-				click(getLocator_debitCard());
+			if(BasicData.PAYMENT_TYPE_DEBIT.equals(PayMentType)) {
+				click(LocatorCalculatePrice.LOCATOR_DEBIT_CARD);
 				Thread.sleep(3000);
-				type(getHolderName(), getLocator_holderNameD());
-				type(getCardNumber(), getLocator_cardNumberD());
-				type(getMonthCard(), getLocator_monthCardD());
-				type(getYearCard(), getLocator_yearCardD());
-				type(getCvv(), getLocator_cvvD());
+				type(BasicData.HOLDER_NAME, LocatorCalculatePrice.LOCATOR_HOLDER_NAME_D);
+				type(BasicData.CARD_NUMBER, LocatorCalculatePrice.LOCATOR_CARD_NUMBER_D);
+				type(BasicData.MONTH_CARD,LocatorCalculatePrice.LOCATOR_MONTH_CARD_D);
+				type(BasicData.YEAR_CARD, LocatorCalculatePrice.LOCATOR_YEAR_CARD_D);
+				type(BasicData.CVV, LocatorCalculatePrice.LOCATOR_CVVD);
 				Thread.sleep(8000);
-				click(getLocator_paymentD());
+				click(LocatorCalculatePrice.LOCATOR_PAYMENT_D);
 			}
-			if(getPaymentType().equals("Credito")) {
-				click(getLocator_creditCard());
+			if(BasicData.PAYMENT_TYPE_CREDIT.equals(PayMentType)) {
+				click(LocatorCalculatePrice.LOCATOR_CREDIT_CARD);
 				Thread.sleep(3000);
-				type(getHolderName(), getLocator_holderNameC());
-				type(getCardNumber(), getLocator_cardNumberC());
-				type(getMonthCard(), getLocator_monthCardC());
-				type(getYearCard(), getLocator_yearCardC());
-				type(getCvv(), getLocator_cvvC());
+				type(BasicData.HOLDER_NAME, LocatorCalculatePrice.LOCATOR_HOLDER_NAME_C);
+				type(BasicData.CARD_NUMBER,LocatorCalculatePrice.LOCATOR_CARD_NUMBER_C);
+				type(BasicData.MONTH_CARD,LocatorCalculatePrice.LOCATOR_MONTH_CARDC);
+				type(BasicData.YEAR_CARD,LocatorCalculatePrice.LOCATOR_YEAR_CARD_C);
+				type(BasicData.CVV,LocatorCalculatePrice.LOCATOR_CVVC);
 				Thread.sleep(8000);
-				click(getLocator_dues());
+				click(LocatorCalculatePrice.LOCATOR_DUES);
 				Thread.sleep(8000);
-				click(getLocator_five());
+				click(LocatorCalculatePrice.LOCATOR_FIVE);
 				Thread.sleep(8000);
-				click(getLocator_paymentC());
+				click(LocatorCalculatePrice.LOCATOR_PAYMENTC);
 			}
-			if(getPaymentType().equals("PSE")) {
-				click(getLocator_pse());
+			if(BasicData.PAYMENT_TYPE_PSE.equals(PayMentType)) {
+				click(LocatorCalculatePrice.LOCATOR_PSE);
 				Thread.sleep(3000);
-				click(getLocator_typedocumentP());
+				click(LocatorCalculatePrice.LOCATOR_TYPE_DOCUMENT_P);
 				Thread.sleep(8000);
-				if(getTypeDocument().equals("CC")) {
-					click(getLocator_CC());
+				if(BasicData.TYPE_DOCUMENT_CC.equals(TypeDocument)) {
+					click(LocatorCalculatePrice.LOCATOR_CC_P);
 				}
-				if(getTypeDocument().equals("CE")) {
-					click(getLocator_CE());
+				if(BasicData.TYPE_DOCUMENT_CE.equals(TypeDocument)) {
+					click(LocatorCalculatePrice.LOCATOR_CE_P);
 				}
-				if(getTypeDocument().equals("CP")) {
-					click(getLocator_CP());
+				if(BasicData.TYPE_DOCUMENT_CP.equals(TypeDocument)) {
+					click(LocatorCalculatePrice.LOCATOR_CP_P);
 				}
-				if(getTypeDocument().equals("NIT")) {
-					click(getLocator_NIT());
+				if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+					click(LocatorCalculatePrice.LOCATOR_NIT_P);
 				}
-				if(getTypeDocument().equals("TI")) {
-					click(getLocator_TI());
+				if(BasicData.TYPE_DOCUMENT_TI.equals(TypeDocument)) {
+					click(LocatorCalculatePrice.LOCATOR_TI_P);
 				}
-				click(getLocator_TypePerson());
+				click(LocatorCalculatePrice.LOCATOR_TYPE_PERSON);
 				Thread.sleep(8000);
-				if(getTypePerson().equals("PN")) {
-					click(getLocator_PN());
+				if(BasicData.TYPE_PERSON_PN.equals(TypePerson)) {
+					click(LocatorCalculatePrice.LOCATOR_PN);
 				}
-				if(getTypePerson().equals("PJ")) {
-					click(getLocator_PJ());
+				if(BasicData.TYPE_PERSON_PJ.equals(TypePerson)) {
+					click(LocatorCalculatePrice.LOCATOR_PJ);
 				}
-				click(getLocator_bank());
+				click(LocatorCalculatePrice.LOCATOR_BANK);
 				Thread.sleep(8000);
-				if(getTypeBank().equals("BANCO CAJA SOCIAL")) {
-					click(getLocator_cajaSocial());
+				if(BasicData.TYPE_BANK_CAJA_SOCIAL.equals(TypeBank)) {
+					click(LocatorCalculatePrice.LOCATOR_CAJA_SOCIAL);
 				}
-				if(getTypeBank().equals("ITAU")) {
-					click(getLocator_itau());
+				if(BasicData.TYPE_BANK_ITAU.equals(TypeBank)) {
+					click(LocatorCalculatePrice.LOCATOR_ITAU);
 				}
 				Thread.sleep(8000);
-				click(getLocator_paymentP());
+				click(LocatorCalculatePrice.LOCATOR_PAYMENT_P);
 				Thread.sleep(10000);
-				click(getLocator_PSECheckPolicy());
-				click(getLocator_PSECheckTerms());
-				click(getLocator_follow());
-			}
-			if(getPaymentType().equals("Davipuntos")) {
-				click(getLocator_davipuntos());
-				Thread.sleep(8000);
-				click(getLocator_paymentDavi());
-				Thread.sleep(8000);
-				driver.switchTo().defaultContent();
-				click(getLocator_continueEpayco());
-			}
-			if(getPaymentType().equals("Daviplata")) {
-				click(getLocator_daviplata());
-				Thread.sleep(3000);
-				click(getLocator_typeDocumentDaviplata());
-				Thread.sleep(8000);
-				if(getTypeDocument().equals("CC")) {
-					click(getLocator_CCDaviplata());
-				}
-				if(getTypeDocument().equals("CE")) {
-					click(getLocator_CEDaviplata());
-				}
-				if(getTypeDocument().equals("CP")) {
-					click(getLocator_CPDaviplata());
-				}
-				if(getTypeDocument().equals("NIT")) {
-					click(getLocator_NITDaviplata());
-				}
-				if(getTypeDocument().equals("TI")) {
-					click(getLocator_TIDaviplata());
-				}
-				if(getTypeDocument().equals("SSE")) {
-					click(getLocator_SSEDaviplata());
-				}
-				type(getDocumentNumber(),getLocator_documentNumber());
-				Thread.sleep(8000);
-				click(getLocator_paymentDaviplata());
 			}
 			Thread.sleep(5000);
 		}catch (NoSuchElementException e) {
