@@ -16,9 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import service.tools.requestAppraisal.RequestAppraisalPage;
 
 public class BasicWrap extends BasicData{
-	
- 	
-	    //OBJETO DRIVER
+		    
+ 	    //OBJETO DRIVER
 		public WebDriver driver;
 		
 		//CONSTRUCTOR DE LA CLASE
