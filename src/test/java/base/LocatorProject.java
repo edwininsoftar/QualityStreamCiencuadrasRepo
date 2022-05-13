@@ -9,8 +9,7 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 public class LocatorProject {
 
 	// Formulario ubicación del inmueble
-	By locator_ButtonCalculaPrice = By.xpath(
-			"/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
+	By locator_ButtonCalculaPrice = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
 	By locator_city = By.id("mat-input-0");
 	By locator_address = By.id("mat-input-1");
 	By locator_addressAdd = By.id("mat-input-2");
