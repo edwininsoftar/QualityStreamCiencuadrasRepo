@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class RequestAppraisal_Test {
 	
 	private WebDriver driver;
@@ -24,11 +26,11 @@ public class RequestAppraisal_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		recuestAppraisalPage.appraise();
-		recuestAppraisalPage.requestForm();
-		recuestAppraisalPage.billingForm();
-		recuestAppraisalPage.payFinish();
-		recuestAppraisalPage.purchaseDetail();
+		recuestAppraisalPage.appraise(BasicData.APPRAISAL_FROM);
+		recuestAppraisalPage.requestForm(BasicData.TYPE_PROPERTY_A, BasicData.ESTATE_STATUS_U, BasicData.STATE_OF_THE_PROPERTY_T, BasicData.TYPE_PARKING_C, BasicData.TYPE_DEPOSIT_P);
+		recuestAppraisalPage.billingForm(BasicData.TYPE_DOCUMENT_CC, BasicData.HOME_VISIT_N);
+		recuestAppraisalPage.payFinish(BasicData.DISCOUNT_CODE_EMPTY);
+		recuestAppraisalPage.purchaseDetail(BasicData.PAYMENT_TYPE_DEBIT, BasicData.TYPE_DOCUMENT_CC, BasicData.TYPE_PERSON_PN, BasicData.TYPE_BANK_ITAU);
 	}
 
 }

@@ -41,8 +41,14 @@ public class CalculaPricePage extends BasicWrap{
 			type(BasicData.ADDRESS_ADD,LocatorCalculatePrice.LOCATOR_ADDRESS_ADD);
 			click(LocatorCalculatePrice.LOCATOR_CHECK_MAP);
 			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE);
-		} catch (Exception e) {
-			System.out.println("Error: "+ e);
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
 		}
 		
 	}
@@ -122,7 +128,13 @@ public class CalculaPricePage extends BasicWrap{
 				click(LocatorCalculatePrice.LOCATOR_ELEVATORS_MORE);
 			}
 			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE_TWO);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -148,7 +160,13 @@ public class CalculaPricePage extends BasicWrap{
 			type(BasicData.PHONE,LocatorCalculatePrice.LOCATOR_PHONE);
 			Thread.sleep(5000);	
 			click(LocatorCalculatePrice.LOCATOR_BUTTON_CONTINUE_THREE);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}
@@ -164,7 +182,13 @@ public class CalculaPricePage extends BasicWrap{
 			}
 			click(LocatorCalculatePrice.LOCATOR_BUTTON_PAY_FINISH);
 			Thread.sleep(8000);
-		} catch (Exception e) {
+		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
 			System.out.println("Error: "+e);
 		}
 	}

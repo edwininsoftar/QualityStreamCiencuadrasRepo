@@ -33,8 +33,8 @@ public class BasicData {
 	public static final String TYPE_DOCUMENT_CC = "CC";//tipo documento cedula
 	public static final String TYPE_DOCUMENT_NIT = "NIT";//tipo documento Nit
 	public static final String TYPE_DOCUMENT_CE = "CE";//tipo documento Cedula extranjeria
-	public static final String TYPE_DOCUMENT_CP = "CE";//tipo documento Pasaporte
-	public static final String TYPE_DOCUMENT_TI = "CE";//tipo documento Pasaporte
+	public static final String TYPE_DOCUMENT_CP = "CP";//tipo documento Pasaporte
+	public static final String TYPE_DOCUMENT_TI = "TI";//tipo documento Pasaporte
 	public static final String ID_NUMBER = "1057585412";//Ingrese el numero de identificación
 	public static final String EMAIL = "emaildepagoprueba@yopmail.com";// Ingrese el email 
 	public static final String PHONE = "205814789";// Ingrese el numero de celular sin el numero 3
@@ -56,5 +56,32 @@ public class BasicData {
 	//constant CertificateRequest
 	public static final String ZONE = "MEDELLIN SUR - 001";// Ingrese la zona
 	public static final String PROPERTY_REGISTRATION = "434944";//Ingrese el numero de matricula inmobiliaria 
-	
+	//Constant Avalúo
+	public static final String APPRAISAL_FROM = "Colombia";//Colombia
+    public static final	String SALE = "120000000";//Valor estimado de venta 
+	public static final	String ZONE_A = "2";// zona
+	public static final String ENROLLMENT = "12345678"; // matricula inmobiliaria
+	public static final	String ESTATE_STATUS_N = "Nueva"; //Nueva
+	public static final	String ESTATE_STATUS_U = "Usada"; //Usada
+	public static final	String STATE_OF_THE_PROPERTY_O = "InmuebleEnObra";//Inmueble en Obra
+	public static final	String STATE_OF_THE_PROPERTY_T = "InmuebleTerminado";//Inmueble Terminado
+	public static final	int DEPOSIT = 1;// numero de depositos
+	public static final	String TYPE_PARKING_E = "Exclusivo"; //Exclusivo
+	public static final	String TYPE_PARKING_C = "Comunal"; //Comunal
+	public static final	String TYPE_PARKING_P = "Privado"; //Privado
+	public static final	String TYPE_DEPOSIT_E = "Exclusivo"; //Exclusivo
+	public static final	String TYPE_DEPOSIT_P = "Privado"; //Privado
+	public static final	String TYPE_DEPOSIT_C = "Comunal"; //Comunal
+	public static final	String DOCUMENT = "80427865 "; //Ingrese el numero de documento
+	public static final	String NAME = "Juan Daniel Rodriguez Lopes";// Ingrese su nombre
+	public static final	String HOME_VISIT_S = "Si"; // Visita Si
+	public static final	String HOME_VISIT_N = "No"; // Visita No
+	public static final	String NAME_TWO = "Pedro alejandro Muños";// nombre de la persona que recibira la visita
+	public static final	String PHONE_TWO = "201256487";// numero de la persona que recivira la visita 
+	public static final	String EMAIL_TWO = "pruebacorreovisita@yopmail.com";// correo de la persona que recivira la visita
+	public static final	String OWNER_NAME = "Luis Alejandro Rodriguez Lopez"; // nombre de propietario
+	public static final	String OWNER_PHONE = "204436343"; // numero del propietario sin el 3
+	public static final	String OWNER_EMAIL = "pruebacorreopropietario@yopmail.com";// correo del propietario 
+	public static final String TYPE_DOCUMENT_SSE = "SSE";//tipo documento 
+
 }
