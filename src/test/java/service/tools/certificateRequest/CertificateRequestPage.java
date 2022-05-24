@@ -3,7 +3,6 @@ package service.tools.certificateRequest;
 import java.time.Duration;
 import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,7 +23,8 @@ public class CertificateRequestPage extends BasicWrap{
 	
 	public void inquiryForm() throws InterruptedException {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCertificateRequet.LOCATOR_X);
 			click(LocatorCertificateRequet.LOCATOR_BUTTON_CERTIFICATE_REQUEST);
 			Thread.sleep(5000);
 			//new tab

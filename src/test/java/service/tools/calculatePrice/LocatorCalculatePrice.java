@@ -11,6 +11,7 @@ import service.tools.certificateRequest.LocatorCertificateRequet;
 public class LocatorCalculatePrice extends LocatorCertificateRequet {
 
 	// Formulario ubicación del inmueble
+	public static final By LOCATOR_X = By.xpath("//*[@id=\"mat-dialog-0\"]/app-register-code/div/div/button");
 	public static final By LOCATOR_BUTTON_CALCULA_PRICE = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");
 	public static final By LOCATOR_CITY = By.id("mat-input-0");
 	public static final By LOCATOR_ADDRESS = By.id("mat-input-1");

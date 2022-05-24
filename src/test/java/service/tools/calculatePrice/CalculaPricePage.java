@@ -21,7 +21,8 @@ public class CalculaPricePage extends BasicWrap{
 		
 	public void propertyLocation() throws InterruptedException {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCalculatePrice.LOCATOR_X);
 			click(LocatorCalculatePrice.LOCATOR_BUTTON_CALCULA_PRICE);
 			//new tab
 			String mainTab = driver.getWindowHandle();

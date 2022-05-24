@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class LocatorCertificateRequet {
 	
 	//Solicita tu certificado 
+	public static final By LOCATOR_X = By.xpath("//*[@id=\"mat-dialog-0\"]/app-register-code/div/div/button");
 	public static final By LOCATOR_BUTTON_CERTIFICATE_REQUEST = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[3]/div/div[1]/div/div[2]/a");
 	public static final By LOCATOR_ZONE_SELECT = By.id("mat-input-0");
 	public static final By LOCATOR_PROPERTY_REGISTRATION = By.id("mat-input-2");

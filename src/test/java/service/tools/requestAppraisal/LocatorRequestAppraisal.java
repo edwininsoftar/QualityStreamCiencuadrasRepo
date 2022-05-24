@@ -9,6 +9,7 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 public class LocatorRequestAppraisal {
 
 	//Solicitud avaluo
+	public static final By LOCATOR_X = By.xpath("//*[@id=\"mat-dialog-0\"]/app-register-code/div/div/button");
 	public static final By LOCATO_BUTTON_APPRAISE = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[1]/div/div[2]/a");
 	public static final By LOCATOR_BUTTON_COLOMBIA = By.xpath("/html/body/app-root/app-appraisal/section[3]/app-card-option/div/div/div[1]/a");
 	public static final By LOCATOR_BUTTON_CALCULATE_PRICE = By.xpath("/html/body/app-root/app-home/app-cards-services/section/owl-carousel-o/div/div[1]/owl-stage/div/div/div[1]/div/div[2]/div/div[2]/a");

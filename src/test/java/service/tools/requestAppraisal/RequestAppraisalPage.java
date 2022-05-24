@@ -26,7 +26,8 @@ public class RequestAppraisalPage extends BasicWrap {
 	
 	public void appraise(String AppraisalFrom) throws InterruptedException {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorRequestAppraisal.LOCATOR_X);
 			click(LocatorRequestAppraisal.LOCATO_BUTTON_APPRAISE);
 			//new tab
 			String mainTab = driver.getWindowHandle();
