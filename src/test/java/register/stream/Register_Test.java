@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class Register_Test {
 	
 	private WebDriver driver;
@@ -24,7 +26,7 @@ public class Register_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		registerPage.registerRoll();
+		registerPage.registerRoll(BasicData.ROLL_P,BasicData.TYPE_DOCUMENT_CC);
 	}
 
 }

@@ -11,111 +11,104 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import base.BasicData;
 import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class RegisterPage extends BasicWrap {
 
-	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_register = By.linkText("Regístrate");
-	By locator_persona = By.xpath("//*[@id=\"mat-radio-2\"]/label/div[2]");
-	By locator_agente = By.xpath("//*[@id=\"mat-radio-3\"]/label/div[2]");
-	By locator_inmobiliaria = By.xpath("//*[@id=\"mat-radio-4\"]/label/div[2]");
-	By locator_constructora = By.xpath("//*[@id=\"mat-radio-5\"]/label/div[2]");
-	By locator_name = By.cssSelector("input[formcontrolname=\"name\"]");
-	By locator_email = By.cssSelector("input[formcontrolname=\"email\"] ");
-	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
-	By locator_confirmPass = By.cssSelector("input[formcontrolname=\"confirmPass\"]");
-	By locator_identification = By.cssSelector("input[formcontrolname=\"identification\"]");
-	By locator_typeDocument = By.cssSelector("mat-select[role=combobox][formcontrolname=\"identificationType\"]");
-	By locator_typeDocumentNit = By.cssSelector("mat-option[value=\"2\"]>span[class=\"mat-option-text\"]");
-	By locator_typeDocumentCC = By.cssSelector("mat-option[value=\"1\"]>span[class=\"mat-option-text\"]");
-	By locator_Dv = By.cssSelector("input[formcontrolname=\"checkDigit\"]");
-	By locator_ButtonRegister = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[3]/form/button/span");
-	By locator_ButtonRegisterPerson = By.xpath("//*[@id=\"mat-dialog-2\"]/lib-cc-register/div/div/div[4]/form/button");
-	By locator_reCapchat = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
-	By locator_captcha = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
-
-	String roll = "Constructora"; // Persona, Agente, Inmobiliaria, Constructora
-	String typeDocument = "CC";// NIT, CC
-	String name = "Leidy Yurani Villamizar";// Nombre o razon social
-	String email = "logininconstructora1@yopmail.com";//persona:loginpersona3@yopmail.com, Agente:loginagente3@yopmail.com, Inmobiliaria:logininmobiliaria2@yopmail.com, Constructora:logininconstructora2@yopmail.com  
-	String password = "@Password13";// contraseña y confirmación de contraseña
-	String identification = "900584789";// Numero de identificación o Nit 900584789
-	String DV = "8";// digito de verificación obligatorio si el tipo de documento es NIT
-
 	public RegisterPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-		
-	public void registerRoll() throws InterruptedException {
+
+	public void registerRoll(String Roll, String TypeDocument) throws InterruptedException {
 		try {
-			Thread.sleep(8000);
-			click(locator_into);
-			click(locator_register);
-			if (roll.equals("Persona") || roll.equals("Agente")) {
-				if (roll.equals("Persona")) {
-					click(locator_persona);
-				} else {
-					click(locator_agente);
-					if(typeDocument.equals("CC")) {
-						click(locator_typeDocument);
-						click(locator_typeDocumentCC);
-					}
-					if(typeDocument.equals("NIT")) {
-						click(locator_typeDocument);
-						click(locator_typeDocumentNit);
-					}
-					type(identification,locator_identification);
-				}
-				if (typeDocument.equals("NIT")) {
-					type(DV, locator_Dv);
-				}
-				type(name, locator_name);	
-				type(email, locator_email);
-				WebElement emailTab = driver.findElement(locator_email);
+			Thread.sleep(2000);
+			click(LocatorRegister.LOCATOR_X);
+			click(LocatorRegister.LOCATOR_INTO);
+			click(LocatorRegister.LOCATOR_REGISTER);
+			if (BasicData.ROLL_P .equals(Roll)) {
+				click(LocatorRegister.LOCATOR_PERSONA);
+				type(BasicData.NAME, LocatorRegister.LOCATOR_NAME);
+				type(BasicData.EMAIL_NAME_P, LocatorRegister.LOCATOR_EMAIL);
+				WebElement emailTab = driver.findElement(LocatorRegister.LOCATOR_EMAIL);
 				emailTab.sendKeys(Keys.TAB);
-				type(password, locator_password);
-				WebElement passwordTab = driver.findElement(locator_password);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_PASSWORD);
+				WebElement passwordTab = driver.findElement(LocatorRegister.LOCATOR_PASSWORD);
 				passwordTab.sendKeys(Keys.TAB);
-				type(password, locator_confirmPass);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_CONFIRMPASS);
 			}
-			if (roll.equals("Inmobiliaria") || roll.equals("Constructora")) {
-				if (roll.equals("Inmobiliaria")) {
-					click(locator_inmobiliaria);
-				} else {
-					click(locator_constructora);
+			if (BasicData.ROLL_A.equals(Roll)) {
+				click(LocatorRegister.LOCATOR_AGENTE);
+				if (BasicData.TYPE_DOCUMENT_CC.equals(TypeDocument)) {
+					click(LocatorRegister.LOCATOR_TYPE_DOCUMENT);
+					click(LocatorRegister.LOCATOR_TYPE_DOCUMENT_CC);
+					type(BasicData.IDENTIFICATION_CC, LocatorRegister.LOCATOR_IDENTIFICATION);
 				}
-				type(name, locator_name);
-				type(identification, locator_identification);
-				type(DV, locator_Dv);
-				type(email, locator_email);
-				WebElement emailTab = driver.findElement(locator_email);
-				emailTab.sendKeys(Keys.TAB);	
-				type(password, locator_password);
-				WebElement passwordTab = driver.findElement(locator_password);
+				if (BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+					click(LocatorRegister.LOCATOR_TYPE_DOCUMENT);
+					click(LocatorRegister.LOCATOR_TYPE_DOCUMENT_NIT);
+					type( BasicData.IDENTIFICATION_NIT, LocatorRegister.LOCATOR_IDENTIFICATION);
+				}
+				if (BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+					type(BasicData.DV, LocatorRegister.LOCATOR_DV);
+					type(BasicData.BUSINESS_NAME_A, LocatorRegister.LOCATOR_NAME);
+				}else {
+					type(BasicData.NAME, LocatorRegister.LOCATOR_NAME);
+				}
+				type(BasicData.EMAIL_NAME_A, LocatorRegister.LOCATOR_EMAIL);
+				WebElement emailTab = driver.findElement(LocatorRegister.LOCATOR_EMAIL);
+				emailTab.sendKeys(Keys.TAB);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_PASSWORD);
+				WebElement passwordTab = driver.findElement(LocatorRegister.LOCATOR_PASSWORD);
 				passwordTab.sendKeys(Keys.TAB);
-				type(password,locator_confirmPass);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_CONFIRMPASS);
+			}
+			if (BasicData.ROLL_I.equals(Roll)) {
+				click(LocatorRegister.LOCATOR_INMOBILIARIA);
+				type(BasicData.BUSINESS_NAME_I, LocatorRegister.LOCATOR_NAME);
+				type(BasicData.IDENTIFICATION_NIT, LocatorRegister.LOCATOR_IDENTIFICATION);
+				type(BasicData.DV, LocatorRegister.LOCATOR_DV);
+				type(BasicData.EMAIL_BUSINESS_I, LocatorRegister.LOCATOR_EMAIL);
+				WebElement emailTab = driver.findElement(LocatorRegister.LOCATOR_EMAIL);
+				emailTab.sendKeys(Keys.TAB);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_PASSWORD);
+				WebElement passwordTab = driver.findElement(LocatorRegister.LOCATOR_PASSWORD);
+				passwordTab.sendKeys(Keys.TAB);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_CONFIRMPASS);
+			}
+			if (BasicData.ROLL_C.equals(Roll)) {
+				click(LocatorRegister.LOCATOR_CONSTRUCTORA);
+				type(BasicData.BUSINESS_NAME_C, LocatorRegister.LOCATOR_NAME);
+				type(BasicData.IDENTIFICATION_NIT, LocatorRegister.LOCATOR_IDENTIFICATION);
+				type(BasicData.DV, LocatorRegister.LOCATOR_DV);
+				type(BasicData.EMAIL_BUSINESS_C, LocatorRegister.LOCATOR_EMAIL);
+				WebElement emailTab = driver.findElement(LocatorRegister.LOCATOR_EMAIL);
+				emailTab.sendKeys(Keys.TAB);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_PASSWORD);
+				WebElement passwordTab = driver.findElement(LocatorRegister.LOCATOR_PASSWORD);
+				passwordTab.sendKeys(Keys.TAB);
+				type(BasicData.PASSWORD, LocatorRegister.LOCATOR_CONFIRMPASS);
 			}
 			WebDriverWait ewait = new WebDriverWait(driver, Duration.ofSeconds(30));
-			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator_reCapchat));
-			ewait.until(ExpectedConditions.elementToBeClickable(locator_captcha)).click();
+			ewait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(LocatorRegister.LOCATOR_RE_CAPCHAT));
+			ewait.until(ExpectedConditions.elementToBeClickable(LocatorRegister.LOCATOR_CAPTCHA)).click();
 			driver.switchTo().defaultContent();
 			Thread.sleep(3000);
-			if(roll.equals("Persona")) {
-				click(locator_ButtonRegisterPerson);
-			}else {
-				click(locator_ButtonRegister);
+			if (BasicData.ROLL_P.equals(Roll)) {
+				click(LocatorRegister.LOCATOR_BUTTONREGISTER_PERSON);
+			} else {
+				click(LocatorRegister.LOCATOR_BUTTON_REGISTER);
 			}
-		}catch (NoSuchElementException e) {
-			System.out.println("Error: "+e);
-		}catch(TimeoutException e) {
-			System.out.println("Error: "+e);
-		}catch(ElementClickInterceptedException e) {
-			System.out.println("Error: "+e);
-		}catch (Exception e) {
-			System.out.println("Error: "+e);
+		} catch (NoSuchElementException e) {
+			System.out.println("Error: " + e);
+		} catch (TimeoutException e) {
+			System.out.println("Error: " + e);
+		} catch (ElementClickInterceptedException e) {
+			System.out.println("Error: " + e);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
 	}
 
