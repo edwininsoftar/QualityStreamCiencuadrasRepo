@@ -78,17 +78,18 @@ public class RequestAppraisalPage extends BasicWrap {
 			if(BasicData.ESTATE_STATUS_N.equals(StateStatus)) {
 				click(LocatorRequestAppraisal.LOCATOR_ESTATE_STATUS);
 				click(LocatorRequestAppraisal.LOCATOR_NEW);
+				if(BasicData.STATE_OF_THE_PROPERTY_O.equals(StateOfTheProperty)) {
+					click(LocatorRequestAppraisal.LOCATOR_BUILDING_UNDER_CONSTRUCTION);
+				}
+				if(BasicData.STATE_OF_THE_PROPERTY_T.equals(StateOfTheProperty)) {
+					click(LocatorRequestAppraisal.LOCATOR_FINISHED_PROPERTY);
+				}
 			}
 			if(BasicData.ESTATE_STATUS_U.equals(StateStatus)) {
 				click(LocatorRequestAppraisal.LOCATOR_ESTATE_STATUS);
 				click(LocatorRequestAppraisal.LOCATOR_USED);
 			}
-			if(BasicData.STATE_OF_THE_PROPERTY_O.equals(StateOfTheProperty)) {
-				click(LocatorRequestAppraisal.LOCATOR_BUILDING_UNDER_CONSTRUCTION);
-			}
-			if(BasicData.STATE_OF_THE_PROPERTY_T.equals(StateOfTheProperty)) {
-				click(LocatorRequestAppraisal.LOCATOR_FINISHED_PROPERTY);
-			}
+			
 			if(BasicData.PARKING_MORE != 0) {
 				for(int i=0;i<BasicData.PARKING_MORE;i++) {
 					click(LocatorRequestAppraisal.LOCATOR_PARKING);
