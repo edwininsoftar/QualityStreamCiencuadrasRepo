@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class BuyPlanConstructora_Test {
 	
 	private WebDriver driver;
@@ -24,11 +26,11 @@ public class BuyPlanConstructora_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		createPurchasePageConstructora.buys();
-		createPurchasePageConstructora.paymentSelection();
-		createPurchasePageConstructora.finalPaymentForm();
-		createPurchasePageConstructora.payFinish();
-		createPurchasePageConstructora.purchaseDetail();
+		createPurchasePageConstructora.buys(BasicData.TYPE_PLAN_PS, BasicData.PROYECT_NUMBER_6);
+		//createPurchasePageConstructora.paymentSelection(BasicData.ROUTE_1, BasicData.PHOTO_TAKING_1, BasicData.PHOTO_UPLOAD_1, BasicData.FEATURED_1, BasicData.PROMOTED_1, BasicData.ONLINE_1);
+		//createPurchasePageConstructora.finalPaymentForm(BasicData.EMAIL_DIAN_SI, BasicData.REGIME_TYPE_S, BasicData.RETENTION_AGENT_NO, BasicData.IVA_WITH_HOLDING_S, BasicData.ICA_WITH_HOLDING_N, BasicData.FISCAL_RESPONSIBILITY_AU);
+		//createPurchasePageConstructora.payFinish(BasicData.DISCOUNT_CODE_NOT);
+		//createPurchasePageConstructora.purchaseDetail(BasicData.PAYMENT_TYPE_D, BasicData.TYPE_DOCUMENT_CC, BasicData.TYPE_PERSON_PN, BasicData.TYPE_BANK_BANCOLOMBIA);
 	}
 
 }
