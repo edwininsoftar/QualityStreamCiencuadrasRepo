@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class BuyPlanPersona_Test {
 
 	private WebDriver driver;
@@ -24,11 +26,11 @@ public class BuyPlanPersona_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		createPropertyPage.buys();
-		createPropertyPage.purchaseForm(); 
-		createPropertyPage.load();
-		createPropertyPage.payFinish();
-		createPropertyPage.purchaseDetail();
+		createPropertyPage.buys(BasicData.POPST_TYPE_T, BasicData.PLAN_TYPE_E);
+		createPropertyPage.purchaseForm(BasicData.PROPERTY_TYPE_A, BasicData.TRANSACTION_TYPE_A, BasicData.MANAGEMENT_N, BasicData.STRATUM_3, BasicData.CONTACTME_W); 
+		createPropertyPage.load(BasicData.PLAN_TYPE_E);
+		createPropertyPage.payFinish(BasicData.DISCOUNT_CODE_NOT);
+		createPropertyPage.purchaseDetail(BasicData.PAYMENT_TYPE_D, BasicData.DUES);
 	}
 
 }

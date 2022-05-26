@@ -2,12 +2,9 @@ package buy.plan.rolPersona;
 
 import java.io.File;
 
-import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularCssContainingText;
-
+import base.BasicData;
 import base.BasicWrap;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,190 +17,49 @@ import io.netty.handler.timeout.TimeoutException;
 
 public class BuyPlanPagePersona extends BasicWrap {
 
-	// Flujo Persona
-	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
-	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
-	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
-	By locator_public = ByAngularCssContainingText
-			.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/a[2]/span[2]");
-	By locator_person = By.name("persona");
-	By locator_publicTu = By.xpath("/html/body/app-root/app-products-profile/section/div/div[3]/div/div/div[2]/a");
-	// Acompaï¿½amiento
-	By locator_postYour = By.xpath(
-			"/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[1]/div[4]");
-	By locator_realEstate = By.xpath(
-			"/html/body/app-root/app-publication-options/div/mat-horizontal-stepper/div[2]/div[1]/app-options-content/div/div[2]/section/article[2]");
-	// Elige tu plan
-	By locator_standart = By.xpath(
-			"//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[1]/div/button");
-	By locator_premium = By.xpath(
-			"//*[@id=\"cdk-step-content-0-1\"]/app-publication-plans/div/div/div/div/div[2]/owl-carousel/owl-carousel-child/div[1]/div/div[2]/div/button");
-	By locator_cityPremium = By.cssSelector(
-			"div[class=\"mat-form-field-infix\"]>input[id=\"ciudad\"][ng-reflect-placeholder=\"Escribe y selecciona Ej: Bogot\"]");
-	By locator_buttonConfirmPremium = By.xpath("//*[@id=\"mat-dialog-0\"]/app-check-coverage/div/div[2]/div/button");
-	By locator_buttonContinuePremium = By
-			.xpath("//*[@id=\"mat-dialog-1\"]/app-confirmed-coverage/div/div[2]/div/button");
-	// publica
-	By locator_propertyType = By.id("propertyTypeId");
-	By locator_house = By.id("mat-option-4");
-	By locator_office = By.id("mat-option-10");
-	By locator_apartament = By.id("mat-option-3");
-	By locator_rent = By.id("mat-button-toggle-2");
-	By locator_sale = By.id("mat-button-toggle-1-button");
-	By locator_value = By.xpath("//*[@id=\"leasingFee\"]");
-	By locator_managementNo = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[1]");
-	By locator_managementSi = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[2]");
-	By locator_managementValue = By.xpath("//*[@id=\"administrationValue\"]");
-	By locator_saleValue = By.id("sellingPrice");
-	By locator_yearsOfAntiguaty = By.xpath("//*[@id=\"antiquity\"]");
-	By locator_propertydescription = By.cssSelector("textarea[_ngcontent-c7]");
-	// Arriendo
-	By locator_stratumOne = By.id("mat-button-toggle-4-button");
-	By locator_stratumTow = By.id("mat-button-toggle-5-button");
-	By locator_stratumThree = By.id("mat-button-toggle-6-button");
-	By locator_stratumFour = By.id("mat-button-toggle-7-button");
-	By locator_stratumFive = By.id("mat-button-toggle-8-button");
-	By locator_stratumSix = By.id("mat-button-toggle-9-button");
-	// Venta
-	By locator_stratumOneV = By.id("mat-button-toggle-14-button");
-	By locator_stratumTwoV = By.id("mat-button-toggle-15-button");
-	By locator_stratumThreeV = By.id("mat-button-toggle-16-button");
-	By locator_stratumFourV = By.id("mat-button-toggle-17-button");
-	By locator_stratumFiveV = By.id("mat-button-toggle-18-button");
-	By locator_stratumSixV = By.id("mat-button-toggle-19-button");
-	By locator_squareMeter = By.xpath("//*[@id=\"builtArea\"]");
-	By locator_room = By.name("numBedRooms");
-	By locator_NToilets = By.name("numBathrooms");
-	By locator_NParking = By.name("numParking");
-	By locator_city = By.name("ciudad");
-	By locator_neighborhood = By.xpath("//*[@id=\"barrio\"]");
-	By locator_direction = By.xpath("//*[@id=\"address\"]");
-	By locator_addaddress = By.xpath("//*[@id=\"addressComplement\"]");
-	By locator_propertyLocation = By.xpath("//*[@id=\"dirCheckAddress\"]/label/div");
-	By locator_NWhatsapp = By.xpath("//*[@id=\"cellphone\"]");
-	By locator_contactMeWhatsapp = By.xpath("//*[@id=\"celularCheckWhatsapp\"]/label/div");
-	By locator_contactMeCall = By.xpath("//*[@id=\"checkLlamada\"]/label/div");
-	By locator_identification = By.id("identification");
-	By locator_continue = By.cssSelector(
-			"div[class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default ng-star-inserted\"]");
-	// Imagenes del inmueble
-	By locator_img = By.id("ngx-input-file-0");
-	By locator_continueTow = By.cssSelector(
-			"div[_ngcontent-c7][class=\"pass-buttons desktop-btn\"]>div[class=\"pass-buttons-styles\"]>button[class=\"btn btn-default\"]");
-	By locator_datePremium = By.xpath("//*[@id=\"dateVisit\"]");
-	By locator_28 = By.xpath("//*[@id=\"mat-datepicker-0\"]/div/mat-month-view/table/tbody/tr[5]/td[5]/div");
-	By locator_timePremium = By.xpath("//*[@id=\"timeVisit\"]/div/div[1]");
-	By locator_9am = By.xpath("//*[@id=\"mat-option-28\"]/span");
-	// Pago y descuento ciencuadras
-	By locator_bond = By.cssSelector("input[formcontrolname=\"discount\"]");
-	By locator_aplic = By.xpath(
-			"/html/body/app-root/app-products-checkout/car-summary/div[1]/section/div/div[2]/div[2]/app-coupon/div/form/div/button/span");
-	By locator_buttonPayfinish = By.xpath("//*[@id=\"payment-data\"]/div/div/button");
-	// Datos de pago cliente
-	By locator_cookies = ByAngular.buttonText("Aceptar");
-	// datos tarjeta debito
-	By locator_debitCard = By.xpath("//*[@id=\"mat-radio-3\"]");
-	By locator_paymentD = By.cssSelector(
-			"div[id=\"cdk-accordion-child-1\"]>div[class=\"mat-expansion-panel-body ng-tns-c157-6\"]>div[class=\"ng-tns-c157-6\"]>div[class=\"ng-star-inserted\"]>button[id=\"pagar-gateway-btn\"]");
-	// datos tarjeta credito
-	By locator_creditCard = By.xpath(
-			"/html/body/app-root/app-payment/app-payment-request/div/div[2]/div[1]/div/div/app-owner-data/app-add-data/div/gateway-paymentez/div/mat-radio-group/mat-accordion/div/mat-expansion-panel[1]/mat-expansion-panel-header/span/mat-panel-description/div/div[1]/mat-radio-button/label/div[2]");
-	By locator_paymentC = By.id("pagar-gateway-btn");
-	// formulario de pago paimentez
-	By locator_iframe = By.xpath("//*[@id=\"modalBoxContentPaymentezCheckout\"]");
-	By locator_holderName = By.xpath("/html/body/form/div[2]/div[3]/input");
-	By locator_cardNumber = By.name("card-number");
-	By locator_monthCard = By.xpath("/html/body/form/div[2]/div[5]/div/div[1]/input[1]");
-	By locator_cvv = By.xpath("/html/body/form/div[2]/div[6]/div/input");
-	By locator_dues = By.xpath("//*[@id=\"my-card\"]/div[7]/select");
-	By locator_buttonFormCheckout = By.xpath("//*[@id=\"checkout-form\"]/div[4]/div[2]/button");
-
-	String username = "personaciencuadras45@yopmail.com";
-	String password = "Ciencuadras21*";
-	// Acompaï¿½amiento
-	String popstType = "Tu";// Tu, Inmobiliaria
-	// Elige tu plan
-	String planType = "Estandar"; // Estandar, Premium
-	String cityPremium = "Bogotï¿½";// Ingrese la ciudad si el tipo de plan que seleciono es premium
-	// formulario publica
-	String propertyType = "Apartamento"; // Apartamento
-	String transactionType = "Arriendo";// Arriendo, Venta
-	String value = "800000";// ingrese el valor renta del inmueble
-	String management = "No"; // ingrese si incluye administraciï¿½n - No,Si
-	String managementValue = "100000"; // Valor obligatorio si management = No
-	String saleValue = "150000000";// ingrese el valor del inmuuebleen venta
-	String yearsOfAntiguaty = "3";// Ingree aï¿½os de antiguedad
-	String propertyDescription = "Closed cosina integral zona de labado";// ingrese descripciï¿½n del inmueble
-	String stratum = "3";// ingrese el estarto de 1 a 6
-	String squareMeter = "52"; // Ingrese los metros cuadrados del inmueble
-	String room = "3 ";// ingrese el numero de abitaciones
-	String Ntoilets = "2"; // Ingrese el numero de baï¿½os del inmueble
-	String NParking = "2"; // Ingrese numero de parqueaderos
-	String city = "Bogotï¿½ (Cundinamarca)"; // Ingrese la ciudad del inmueble
-	String neighborhood = "Prado Veraniego Norte - Suba - Bogotï¿½  (Cundinamarca)"; // Ingrese el barrio del inmueble
-	String direction = "Calle 128C Bis # 52-53"; // Ingrese la direcciï¿½n del inmueble
-	String addaddress = "Piso 2"; // Complemento de direcciï¿½n
-	String Nwhatsapp = "3202589674"; // Ingrese numero de whatsapp
-	String contactMe = "Whatsapp"; // Whatsapp, Llamada
-	String identification = "1057596841";// Ingrese numero de identificaciï¿½n
-	// Descuento y pago ciencuadras
-	String discountCode = "";// codigo de descuento
-	// Dastos cliente pago
-	String paymentType = "Debito";// Debito, Credito
-	String typeDocument = "CC";// CC, CE, CP, NIT, TI, SSE
-	String typePerson = "PN";// PN, PJ
-	String typeBank = "BANCOLOMBIA";// BANCOLOMBIA, BANCO CAJA SOCIAL
-	String holderName = "Juan Daniel Rodriguez Lopes"; // ingrese el numero del titular de la tarjeta
-	String cardNumber = "4575623182290326"; // Ingrese el numero de la tarjeta
-	String monthCard = "1225";// Ingrese el mes de la tarjeta
-	String yearCard = "25";// Ingrese el aï¿½o de la tarjeta
-	String cvv = "123";// Ingrese el codigo cvv de la tarjeta
-	String dues = "5"; // Ingrese el numero de cuotas campo obligatorio si el tipo de tarjeta de
-						// credito
-
 	public BuyPlanPagePersona(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
 
-	// Esta funcion es la encargada del login hasta el proceso de selecciï¿½n del
-	// tipo de plan
-	public void buys() throws InterruptedException {
+	// Esta funcion es la encargada del login hasta el proceso de selección del tipo de plan
+	public void buys(String Popst, String PlanType) throws InterruptedException {
 		try {
+			Thread.sleep(2000);
+			click(LocatorBuyPlanPersona.LOCATOR_X);
+			Thread.sleep(2000);
+			click(LocatorBuyPlanPersona.LOCATOR_INTO);
+			type(BasicData.USER_NAME_P, LocatorBuyPlanPersona.LOCATOR_USERNAME);
+			type(BasicData.PASSWORD_P,LocatorBuyPlanPersona.LOCATOR_PASSWORD);
+			click(LocatorBuyPlanPersona.LOCATOR_LOGIN);
 			Thread.sleep(8000);
-			click(locator_into);
-			type(username, locator_username);
-			type(password, locator_password);
-			click(locator_login);
-			Thread.sleep(8000);
-			click(locator_public);
-			click(locator_person);
+			click(LocatorBuyPlanPersona.LOCATOR_PUBLIC);
+			click(LocatorBuyPlanPersona.LOCATOR_PERSON);
 			Thread.sleep(5000);
-			click(locator_publicTu);
-			if (popstType.equals("Tu")) {
+			click(LocatorBuyPlanPersona.LOCATOR_PUBLIC_TU);
+			if (BasicData.POPST_TYPE_T.equals(Popst)) {
 				Thread.sleep(10000);
-				click(locator_postYour);
-				if (planType.equals("Estandar")) {
-					click(locator_standart);
+				click(LocatorBuyPlanPersona.LOCATOR_POST_YOUR);
+				if (BasicData.PLAN_TYPE_E.equals(PlanType)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STANDART);
 				}
-				if (planType.equals("Premium")) {
-					click(locator_premium);
+				if (BasicData.PLAN_TYPE_P.equals(PlanType)) {
+					click(LocatorBuyPlanPersona.LOCATOR_PREMIUM);
 					Thread.sleep(5000);
-					type(cityPremium, locator_cityPremium);
+					type(BasicData.CITY_PREMIUM, LocatorBuyPlanPersona.LOCATOR_CITY_PREMIUM);
 					Thread.sleep(5000);
-					WebElement cp = driver.findElement(locator_cityPremium);
+					WebElement cp = driver.findElement(LocatorBuyPlanPersona.LOCATOR_CITY_PREMIUM);
 					cp.sendKeys(Keys.DOWN);
 					cp.sendKeys(Keys.ENTER);
 					Thread.sleep(5000);
-					click(locator_buttonConfirmPremium);
+					click(LocatorBuyPlanPersona.LOCATOR_BUTTON_CONFIR_PREMIUM);
 					Thread.sleep(3000);
-					click(locator_buttonContinuePremium);
+					click(LocatorBuyPlanPersona.LOCATOR_BUTTON_CONTINUE_PREMIUM);
 				}
 			}
-			if (popstType.equals("Inmobiliaria")) {
+			if (BasicData.POPST_TYPE_I.equals(Popst)) {
 				Thread.sleep(8000);
-				click(locator_realEstate);
+				click(LocatorBuyPlanPersona.LOCATOR_REAL_ESTATE);
 			}
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
@@ -216,110 +72,109 @@ public class BuyPlanPagePersona extends BasicWrap {
 		}
 	}
 
-	// Esta funcion es la encargada de diligenciar el formulario informaciï¿½n del
-	// inmueble
-	public void purchaseForm() throws InterruptedException {
+	// Esta funcion es la encargada de diligenciar el formulario información del inmueble
+	public void purchaseForm(String PropertyType, String TransactionType, String Management, String Stratum, String ContactMe) throws InterruptedException {
 		try {
 			Thread.sleep(8000);
-			click(locator_propertyType);
+			click(LocatorBuyPlanPersona.LOCATOR_PROPERTY_TYPE);
 			Thread.sleep(3000);
-			if (propertyType.equals("Apartamento")) {
-				click(locator_apartament);
+			if (BasicData.PROPERTY_TYPE_A.equals(PropertyType)) {
+				click(LocatorBuyPlanPersona.LOCATOR_APARTAMENT);
 			}
-			if (transactionType.equals("Arriendo")) {
-				click(locator_rent);
-				type(value, locator_value);
-				if (management.equals("Si")) {
+			if (BasicData.TRANSACTION_TYPE_A.equals(TransactionType)) {
+				click(LocatorBuyPlanPersona.LOCATOR_RENT);
+				type(BasicData.VALUE, LocatorBuyPlanPersona.LOCATOR_VALUE);
+				if (BasicData.MANAGEMENT_S.equals(Management)) {
 					Actions action = new Actions(driver);
-					WebElement source = driver.findElement(locator_managementNo);
-					WebElement target = driver.findElement(locator_managementSi);
+					WebElement source = driver.findElement(LocatorBuyPlanPersona.LOCATOR_MANAGEMENT_NO);
+					WebElement target = driver.findElement(LocatorBuyPlanPersona.LOCATOR_MANAGEMENT_SI);
 					action.dragAndDrop(source, target);
 					action.dragAndDropBy(source, 0, 0);
 					action.moveToElement(source).moveToElement(target).perform();
 					action.release();
 				}
-				if (management.equals("No")) {
-					type(managementValue, locator_managementValue);
+				if (BasicData.MANAGEMENT_N.equals(Management)) {
+					type(BasicData.MANAGEMENT_VALUE, LocatorBuyPlanPersona.LOCATOR_MANAGEMENT_VALUE);
 				}
 			}
-			if (transactionType.equals("Venta")) {
-				click(locator_sale);
-				type(saleValue, locator_saleValue);
-				type(managementValue, locator_managementValue);
+			if (BasicData.TRANSACTION_TYPE_V.equals(TransactionType)) {
+				click(LocatorBuyPlanPersona.LOCATOR_SALE);
+				type(BasicData.SALE_VALUE, LocatorBuyPlanPersona.LOCATOR_SALE_VALUE);
+				type(BasicData.MANAGEMENT_VALUE, LocatorBuyPlanPersona.LOCATOR_MANAGEMENT_VALUE);
 			}
-			type(yearsOfAntiguaty, locator_yearsOfAntiguaty);
-			type(propertyDescription, locator_propertydescription);
-			if (transactionType.equals("Arriendo")) {
-				if (stratum.equals("1")) {
-					click(locator_stratumOne);
+			type(BasicData.YEARS_OF_ANTIQUITY, LocatorBuyPlanPersona.LOCATOR_YEARS_OF_ANTIQUITY);
+			type(BasicData.PROPERTY_DESCRIPTION, LocatorBuyPlanPersona.LOCATOR_PROPERTY_DESCRIPTION);
+			if (BasicData.TRANSACTION_TYPE_A.equals(TransactionType)) {
+				if (BasicData.STRATUM_1.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_ONE);
 				}
-				if (stratum.equals("2")) {
-					click(locator_stratumTow);
+				if (BasicData.STRATUM_2.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_TWO);
 				}
-				if (stratum.equals("3")) {
-					click(locator_stratumThree);
+				if (BasicData.STRATUM_3.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_THREE);
 				}
-				if (stratum.equals("4")) {
-					click(locator_stratumFour);
+				if (BasicData.STRATUM_4.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_FOUR);
 				}
-				if (stratum.equals("5")) {
-					click(locator_stratumFive);
+				if (BasicData.STRATUM_5.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_FIVE);
 				}
-				if (stratum.equals("6")) {
-					click(locator_stratumSix);
-				}
-			}
-			if (transactionType.equals("Venta")) {
-				if (stratum.equals("1")) {
-					click(locator_stratumOneV);
-				}
-				if (stratum.equals("2")) {
-					click(locator_stratumTwoV);
-				}
-				if (stratum.equals("3")) {
-					click(locator_stratumThreeV);
-				}
-				if (stratum.equals("4")) {
-					click(locator_stratumFourV);
-				}
-				if (stratum.equals("5")) {
-					click(locator_stratumFiveV);
-				}
-				if (stratum.equals("6")) {
-					click(locator_stratumSixV);
+				if (BasicData.STRATUM_6.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_SIX);
 				}
 			}
-			type(squareMeter, locator_squareMeter);
-			WebElement roomClear = driver.findElement(locator_room);
+			if (BasicData.TRANSACTION_TYPE_V.equals(TransactionType)) {
+				if (BasicData.STRATUM_1.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_ONE_V);
+				}
+				if (BasicData.STRATUM_2.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_TWO_V);
+				}
+				if (BasicData.STRATUM_3.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_THREE_V);
+				}
+				if (BasicData.STRATUM_4.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_FOUR_V);
+				}
+				if (BasicData.STRATUM_5.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_FIVE_V);
+				}
+				if (BasicData.STRATUM_6.equals(Stratum)) {
+					click(LocatorBuyPlanPersona.LOCATOR_STRATUM_SIX_V);
+				}
+			}
+			type(BasicData.SQUARE_METER, LocatorBuyPlanPersona.LOCATOR_SQUARE_METER);
+			WebElement roomClear = driver.findElement(LocatorBuyPlanPersona.LOCATOR_ROOM);
 			roomClear.clear();
-			type(room, locator_room);
-			WebElement toiletsClear = driver.findElement(locator_NToilets);
+			type(BasicData.ROOM, LocatorBuyPlanPersona.LOCATOR_ROOM);
+			WebElement toiletsClear = driver.findElement(LocatorBuyPlanPersona.LOCATOR_N_TOILETS);
 			toiletsClear.clear();
-			type(Ntoilets, locator_NToilets);
-			WebElement parkingClear = driver.findElement(locator_NParking);
+			type(BasicData.N_TOILETS, LocatorBuyPlanPersona.LOCATOR_N_TOILETS);
+			WebElement parkingClear = driver.findElement(LocatorBuyPlanPersona.LOCATOR_N_PARKING);
 			parkingClear.clear();
-			type(NParking, locator_NParking);
-			WebElement citytab = driver.findElement(locator_city);
+			type(BasicData.N_PARKING, LocatorBuyPlanPersona.LOCATOR_N_PARKING);
+			WebElement citytab = driver.findElement(LocatorBuyPlanPersona.LOCATOR_CITY);
 			citytab.sendKeys(Keys.TAB);
-			type(city, locator_city);
+			type(BasicData.CITY, LocatorBuyPlanPersona.LOCATOR_CITY);
 			Thread.sleep(4000);
-			type(neighborhood, locator_neighborhood);
-			WebElement neighborhoodTab = driver.findElement(locator_neighborhood);
+			type(BasicData.NEIGHBORHOOD, LocatorBuyPlanPersona.LOCATOR_NEIGHBORHOOD);
+			WebElement neighborhoodTab = driver.findElement(LocatorBuyPlanPersona.LOCATOR_NEIGHBORHOOD);
 			Thread.sleep(4000);
 			neighborhoodTab.sendKeys(Keys.TAB);
 			Thread.sleep(4000);
-			type(direction, locator_direction);
-			type(addaddress, locator_addaddress);
-			click(locator_propertyLocation);
-			type(Nwhatsapp, locator_NWhatsapp);
-			if (contactMe.equals("Whatsapp")) {
-				click(locator_contactMeWhatsapp);
+			type(BasicData.DIRECTION, LocatorBuyPlanPersona.LOCATOR_DIRECTION);
+			type(BasicData.ADD_ADDRESS, LocatorBuyPlanPersona.LOCATOR_ADD_ADDRESS);
+			click(LocatorBuyPlanPersona.LOCATOR_PROPERTY_LOCATION);
+			type(BasicData.N_WHATSAPP, LocatorBuyPlanPersona.LOCATOR_N_WHATSAPP);
+			if (BasicData.CONTACTME_W.equals(ContactMe)) {
+				click(LocatorBuyPlanPersona.LOCATOR_CONTACT_ME_WHATSAPP);
 			}
-			if (contactMe.equals("Llamada")) {
-				click(locator_contactMeCall);
+			if (BasicData.CONTACTME_LL.equals(ContactMe)) {
+				click(LocatorBuyPlanPersona.LOCATOR_CONTACT_ME_CALL);
 			}
 			Thread.sleep(2000);
-			click(locator_continue);
+			click(LocatorBuyPlanPersona.LOCATOR_CONTINUE);
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
@@ -332,7 +187,7 @@ public class BuyPlanPagePersona extends BasicWrap {
 	}
 
 	// Esta funcion es la encargada de cargar la imagenes del inmueble
-	public void load() throws InterruptedException {
+	public void load(String PlanType) throws InterruptedException {
 		try {
 			File file1 = new File("./src/test/resources/img/portada.png");
 			File file2 = new File("./src/test/resources/img/arriendo.png");
@@ -341,23 +196,23 @@ public class BuyPlanPagePersona extends BasicWrap {
 			String phat2 = file2.getAbsolutePath();
 			String phat3 = file3.getAbsolutePath();
 
-			driver.findElement(locator_img).sendKeys(phat1);
+			driver.findElement(LocatorBuyPlanPersona.LOCATOR_IMG).sendKeys(phat1);
 			Thread.sleep(5000);
-			driver.findElement(locator_img).sendKeys(phat2);
+			driver.findElement(LocatorBuyPlanPersona.LOCATOR_IMG).sendKeys(phat2);
 			Thread.sleep(5000);
-			driver.findElement(locator_img).sendKeys(phat3);
+			driver.findElement(LocatorBuyPlanPersona.LOCATOR_IMG).sendKeys(phat3);
 			Thread.sleep(5000);
-			if (planType.equals("Premium")) {
+			if (BasicData.PLAN_TYPE_P.equals(PlanType)) {
 				Thread.sleep(3000);
-				click(locator_datePremium);
+				click(LocatorBuyPlanPersona.LOCATOR_DATE_PREMIUM);
 				Thread.sleep(3000);
-				click(locator_28);
-				click(locator_timePremium);
+				click(LocatorBuyPlanPersona.LOCATOR_28);
+				click(LocatorBuyPlanPersona.LOCATOR_TIME_PREMIUM);
 				Thread.sleep(3000);
-				click(locator_9am);
+				click(LocatorBuyPlanPersona.LOCATOR_9AM);
 			}
 			Thread.sleep(3000);
-			click(locator_continueTow);
+			click(LocatorBuyPlanPersona.LOCATOR_CONTINUE_TWO);
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
@@ -370,14 +225,14 @@ public class BuyPlanPagePersona extends BasicWrap {
 	}
 
 	// Esta funcion es la encargada de proceso de pago y codigo de descuento
-	public void payFinish() {
+	public void payFinish(String DiscountCode) {
 		try {
 			Thread.sleep(20000);
-			if (discountCode != "") {
-				type(discountCode, locator_bond);
-				click(locator_aplic);
+			if (DiscountCode != "") {
+				type(DiscountCode, LocatorBuyPlanPersona.LOCATOR_BOUND);
+				click(LocatorBuyPlanPersona.LOCATOR_APLIC);
 			}
-			click(locator_buttonPayfinish);
+			click(LocatorBuyPlanPersona.LOCATOR_BUTTON_PAY_FINISH);
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);
 		} catch (TimeoutException e) {
@@ -389,39 +244,38 @@ public class BuyPlanPagePersona extends BasicWrap {
 		}
 	}
 
-	// Esta funcion es la encargada de diligenciar los datos bancarios del cliente y
-	// finalizar la compra
-	public void purchaseDetail() {
+	// Esta funcion es la encargada de diligenciar los datos bancarios del cliente y finalizar la compra
+	public void purchaseDetail(String PaymentType,String Dues) {
 		try {
 			Thread.sleep(8000);
-			click(locator_cookies);
+			click(LocatorBuyPlanPersona.LOCATOR_COOKIES);
 			Thread.sleep(3000);
-			if (paymentType.equals("Debito")) {
-				click(locator_debitCard);
+			if (BasicData.PAYMENT_TYPE_D.equals(PaymentType)) {
+				click(LocatorBuyPlanPersona.LOCATOR_DEBIT_CARD);
 				Thread.sleep(5000);
-				click(locator_paymentD);
+				click(LocatorBuyPlanPersona.LOCATOR_PAYMENT_D);
 				Thread.sleep(5000);
-				driver.switchTo().frame(driver.findElement(locator_iframe));
-				type(holderName, locator_holderName);
-				type(cardNumber, locator_cardNumber);
-				type(monthCard, locator_monthCard);
-				type(cvv, locator_cvv);
-				click(locator_buttonFormCheckout);
+				driver.switchTo().frame(driver.findElement(LocatorBuyPlanPersona.LOCATOR_IFRAME));
+				type(BasicData.HOLDER_NAME, LocatorBuyPlanPersona.LOCATOR_HOLDER_NAME);
+				type(BasicData.CARD_NUMBER, LocatorBuyPlanPersona.LOCATOR_CARD_NUMBER);
+				type(BasicData.MONTH_CARD, LocatorBuyPlanPersona.LOCATOR_MONTH_CARD);
+				type(BasicData.CVV, LocatorBuyPlanPersona.LOCATOR_CVV);
+				click(LocatorBuyPlanPersona.LOCATOR_BUTTON_FORM_CHECKOUT);
 			}
-			if (paymentType.equals("Credito")) {
-				click(locator_creditCard);
+			if (BasicData.PAYMENT_TYPE_C.equals(PaymentType)) {
+				click(LocatorBuyPlanPersona.LOCATOR_CREDIT_CARD);
 				Thread.sleep(5000);
-				click(locator_paymentC);
+				click(LocatorBuyPlanPersona.LOCATOR_PAYMENT_C);
 				Thread.sleep(5000);
-				driver.switchTo().frame(driver.findElement(locator_iframe));
-				type(holderName, locator_holderName);
-				type(cardNumber, locator_cardNumber);
-				type(monthCard, locator_monthCard);
-				type(cvv, locator_cvv);
-				WebElement ddl = driver.findElement(locator_dues);
+				driver.switchTo().frame(driver.findElement(LocatorBuyPlanPersona.LOCATOR_IFRAME));
+				type(BasicData.HOLDER_NAME,LocatorBuyPlanPersona.LOCATOR_HOLDER_NAME);
+				type(BasicData.CARD_NUMBER, LocatorBuyPlanPersona.LOCATOR_CARD_NUMBER);
+				type(BasicData.MONTH_CARD, LocatorBuyPlanPersona.LOCATOR_MONTH_CARD);
+				type(BasicData.CVV, LocatorBuyPlanPersona.LOCATOR_CVV);
+				WebElement ddl = driver.findElement(LocatorBuyPlanPersona.LOCATOR_DUES);
 				Select sel = new Select(ddl);
-				sel.selectByVisibleText(dues);
-				click(locator_buttonFormCheckout);
+				sel.selectByVisibleText(Dues);
+				click(LocatorBuyPlanPersona.LOCATOR_BUTTON_FORM_CHECKOUT);
 			}
 		} catch (NoSuchElementException e) {
 			System.out.println("Error: " + e);

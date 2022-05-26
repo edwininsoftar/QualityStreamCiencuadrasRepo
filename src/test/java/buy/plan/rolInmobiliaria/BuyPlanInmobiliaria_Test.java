@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class BuyPlanInmobiliaria_Test {
 	
 	private WebDriver driver;
@@ -25,11 +27,11 @@ public class BuyPlanInmobiliaria_Test {
 	@Test
 	public void test() throws InterruptedException {
 		createPurchasePageInmobiliaria.buys();
-		createPurchasePageInmobiliaria.formMonths();
-		createPurchasePageInmobiliaria.paymentSelection();
-		createPurchasePageInmobiliaria.billingData();
-		createPurchasePageInmobiliaria.payFinish();
-		createPurchasePageInmobiliaria.purchaseDetail();
+		createPurchasePageInmobiliaria.formMonths(BasicData.PLAN_P_BASE, BasicData.MONTHS_PLAN_M3);
+		createPurchasePageInmobiliaria.paymentSelection(BasicData.ROUTE_1, BasicData.PHOTO_TAKING_1, BasicData.PHOTO_UPLOAD_1, BasicData.FEATURED_1, BasicData.PROMOTED_1, BasicData.ONLINE_1);
+		createPurchasePageInmobiliaria.billingData(BasicData.EMAIL_DIAN_NO, BasicData.REGIME_TYPE_S, BasicData.RETENTION_AGENT_NO, BasicData.ICA_WITH_HOLDING_N, BasicData.IVA_WITH_HOLDING_S, BasicData.FISCAL_RESPONSIBILITY_A);
+		createPurchasePageInmobiliaria.payFinish(BasicData.DISCOUNT_CODE_NOT);
+		createPurchasePageInmobiliaria.purchaseDetail(BasicData.PAYMENT_TYPE_D, BasicData.TYPE_DOCUMENT_CC, BasicData.TYPE_BANK_BANCOLOMBIA);
 	}
 
 }
