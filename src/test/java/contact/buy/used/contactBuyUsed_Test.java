@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class contactBuyUsed_Test {
 	
 	private WebDriver driver;
@@ -23,7 +25,7 @@ public class contactBuyUsed_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		ContactBuyUsedPage.contactBuyUsed();
+		ContactBuyUsedPage.contactBuyUsed(BasicData.RESULTS_CONTACT_C, BasicData.CONTACT_1, BasicData.LETTER_1);
 		ContactBuyUsedPage.formContact();
 		ContactBuyUsedPage.userRealEstate();
 	}
