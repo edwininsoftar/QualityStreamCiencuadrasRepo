@@ -36,7 +36,7 @@ public class LocatorBuyPlanPersona {
 	public static final By LOCATOR_MANAGEMENT_SI = By.xpath("//*[@id=\"form_elem\"]/label/div/div/div[2]");
 	public static final By LOCATOR_MANAGEMENT_VALUE = By.xpath("//*[@id=\"administrationValue\"]");
 	public static final By LOCATOR_SALE_VALUE = By.id("sellingPrice");
-	public static final By LOCATOR_YEARS_OF_ANTIQUITY = By.xpath("//*[@id=\"antiquity\"]");
+	public static final By LOCATOR_YEARS_OF_ANTIQUITY = By.id("antiquity");
 	public static final By LOCATOR_PROPERTY_DESCRIPTION = By.cssSelector("textarea[_ngcontent-c7]");
 	// Arriendo
 	public static final By LOCATOR_STRATUM_ONE = By.id("mat-button-toggle-4-button");

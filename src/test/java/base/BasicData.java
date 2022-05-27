@@ -106,7 +106,7 @@ public class BasicData {
 	public static final String CITY_PREMIUM = "Bogotá";// ciudad si el tipo de plan que seleciono es premium
 	public static final String PROPERTY_TYPE_A = "Apartamento"; // Apartamento
 	public static final String TRANSACTION_TYPE_A = "Arriendo";// Arriendo
-	public static final String TRANSACTION_TYPE_V = "Arriendo";// Venta
+	public static final String TRANSACTION_TYPE_V = "Venta";// Venta
 	public static final String VALUE = "800000";// valor renta del inmueble
 	public static final String MANAGEMENT_S = "Si"; // si incluye administración
 	public static final String MANAGEMENT_N = "No"; // si No incluye administración

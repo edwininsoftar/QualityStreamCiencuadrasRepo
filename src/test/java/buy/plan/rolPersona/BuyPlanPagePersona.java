@@ -258,7 +258,7 @@ public class BuyPlanPagePersona extends BasicWrap {
 				driver.switchTo().frame(driver.findElement(LocatorBuyPlanPersona.LOCATOR_IFRAME));
 				type(BasicData.HOLDER_NAME, LocatorBuyPlanPersona.LOCATOR_HOLDER_NAME);
 				type(BasicData.CARD_NUMBER, LocatorBuyPlanPersona.LOCATOR_CARD_NUMBER);
-				type(BasicData.MONTH_CARD, LocatorBuyPlanPersona.LOCATOR_MONTH_CARD);
+				type(BasicData.MONTH_AND_YEAR_CARD, LocatorBuyPlanPersona.LOCATOR_MONTH_CARD);
 				type(BasicData.CVV, LocatorBuyPlanPersona.LOCATOR_CVV);
 				click(LocatorBuyPlanPersona.LOCATOR_BUTTON_FORM_CHECKOUT);
 			}
