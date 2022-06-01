@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import base.BasicData;
+
 public class CreatePropertyAgente_Test {
 	
 	private WebDriver driver;
@@ -25,8 +27,8 @@ public class CreatePropertyAgente_Test {
 	@Test
 	public void test() {
 		CreatePropertyAgentePage.login();
-		CreatePropertyAgentePage.propertyPublication();
-		CreatePropertyAgentePage.basicInformation();
+		CreatePropertyAgentePage.propertyPublication(BasicData.AVCLL_CR, BasicData.LETTER_A, BasicData.BIS, BasicData.CARDINAL_POINT_S, BasicData.COMPLEMENT_A, BasicData.BUTTON_ADDRESS_N);
+		CreatePropertyAgentePage.basicInformation(BasicData.TYPE_PARKING_1_N, BasicData.TYPE_PARKIKNG_2_N, BasicData.TYPE_PARKING_3_S, BasicData.TYPE_PARKING_4_N, BasicData.TYPE_PARKING_5_S, BasicData.COMPLEMENT_A, BasicData.TRANSACTION_TYPE_A, BasicData.STRATUM_2, BasicData.BUTTON_ADMINISTRATION_N, BasicData.BUTTON_BRAND_NEW_N);
 		CreatePropertyAgentePage.load();
 		CreatePropertyAgentePage.validation();
 	}
