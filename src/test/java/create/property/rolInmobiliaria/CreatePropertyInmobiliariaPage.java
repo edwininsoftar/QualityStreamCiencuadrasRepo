@@ -2,168 +2,17 @@ package create.property.rolInmobiliaria;
 
 import java.io.File;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import base.BasicData;
 import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
 
 public class CreatePropertyInmobiliariaPage extends BasicWrap{
-	
-	// Flujo crear rol inmobiliaria 
-	By locator_into = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
-	By locator_username = By.xpath("//*[@id=\"mat-input-3\"]");
-	By locator_password = By.cssSelector("input[formcontrolname=\"password\"]");
-	By locator_login = By.cssSelector("span[class=\"ng-star-inserted\"]");
-	By locator_user = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]");
-	By locator_publishedProperty = By.linkText("Inmuebles publicados");
-	By locator_createProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[2]/a[1]");
-	//Publicación de un inmueble
-	By locator_registration = By.id("inmueble-matricula_inmobiliaria");
-	By locator_openButton = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/button");
-	By locator_department = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[1]/div/div[1]/div/div/input");
-	By locator_openButton2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[2]/div/div[1]/button");
-	By locator_city = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[2]/div/div[1]/div/div/input");
-	By locator_openButton3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[3]/div/div[1]/button");
-	By locator_location = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[3]/div/div[1]/div/div/input");
-	By locator_openButton4 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[4]/div/div[1]/button");
-	By locator_neighborhood = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[3]/div[4]/div/div[1]/div/div/input");
-	By locator_openButton5 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/button");
-	By locator_carrera = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/div/ul/li[10]/a/span[1]");
-	By locator_calle = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[1]/div/div/ul/li[5]/a/span[1]");
-	By locator_avcll2 = By.id("dir2");
-	By locator_a = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/div/ul/li[2]/a/span[1]");
-	By locator_b = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/div/ul/li[3]/a/span[1]");
-	By locator_openButton6 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[3]/div/button");
-	By locator_bis = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/div/ul/li[2]/a/span[1]");  
-	By locator_este = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/div/ul/li[3]/a/span[1]");
-	By locator_openButton7 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[4]/div/button");
-	By locator_a2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/div/ul/li[2]/a/span[1]");
-	By locator_b2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/div/ul/li[3]/a/span[1]");
-	By locator_openButton8 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[5]/div/button");
-	By locator_sur = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/div/ul/li[2]/a/span[1]");
-	By locator_norte = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/div/ul/li[4]/a/span[1]");
-	By locator_openButton9 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[6]/div/button");
-	By locator_number = By.id("dir7");
-	By locator_a3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/div/ul/li[2]/a/span[1]");
-	By locator_b3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/div/ul/li[3]/a/span[1]");
-	By locator_openButton10 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[9]/div/button");
-	By locator_number2 = By.id("dir9");
-	By locator_sur2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/div/ul/li[2]/a/span[1]");
-	By locator_norte2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/div/ul/li[4]/a/span[1]");
-	By locator_openButton11 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[11]/div/button");
-	By locator_apartment = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/div/ul/li[2]/a/span[1]");
-	By locator_house = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/div/ul/li[5]/a/span[1]");
-	By locator_openButton12 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[14]/div/button");
-	By locator_textComplement = By.id("dir12");
-	By locator_apartment2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/div/ul/li[2]/a/span[1]");
-	By locator_house2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/div/ul/li[5]/a/span[1]");
-	By locator_openButton13 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[4]/div[16]/div/button");
-	By locator_textComplement2 = By.id("dir14");
-	By loator_buttonAddress = By.id("ocultar_direccion");
-	By locator_nickname = By.id("inmueble-apodo");
-	//Caracteristicas información basica
-	By locator_apartment3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[4]/a/span[1]");
-	By locator_house3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/div/ul/li[5]/a/span[1]");
-	By locator_openButton14 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[1]/div/div[1]/button");
-	By locator_sale = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[2]/a/span[1]");
-	By locator_rent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[3]/a/span[1]");
-	By locator_saleOrent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/div/ul/li[4]/a/span[1]");
-	By locator_openButton15 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[2]/div/div[1]/button");
-	//Arriendo
-	By locator_stratum2 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/div/ul/li[2]/a/span[1]");
-	By locator_stratum3 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/div/ul/li[3]/a/span[1]");
-	By locator_openButton16 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[5]/div/div[1]/button");
-	By locator_area = By.id("inmueble-area_construida");
-	By locator_lotArea = By.id("inmueble-area_lote");
-	By locator_room = By.id("inmueble-num_habitaciones");
-	By locator_bath = By.id("inmueble-num_banos");
-	By locator_parking = By.id("inmueble-num_parqueaderos");
-	By locator_independent = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[1]/a/span[1]");
-	By locator_servitude = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[2]/a/span[1]");
-	By locator_covered = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[3]/a/span[1]");
-	By locator_discovered = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[4]/a/span[1]");
-	By locator_communal = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/div/ul/li[5]/a/span[1]");
-	By locator_openButton17 = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[8]/div[12]/div/div[1]/button");
-	By locator_valueRent = By.id("inmueble-canon_arrendamiento");
-	By locator_buttonAdministration = By.id("incluye_administracion");
-	By locator_managementValue = By.id("inmueble-valor_administracion");
-	By locator_code = By.id("inmueble-codigo");
-	By locator_buttonBrandNew = By.id("para_estrenar");
-	By locator_antiquity = By.id("inmueble-antiguedad");
-	By locator_floor = By.id("inmueble-num_piso");
-	By locator_additionalInformation = By.id("inmueble-info_adicional");
-	By locator_buttonSave = By.id("btn-publicar");
-	By locator_buttonAccept = By.id("botonMisPublicaciones");
-	//Venta 
-	By locator_valueSale = By.id("inmueble-precio_venta");
-	//Imagenes del inmueble
-	By locator_img = By.id("fotos");
-	By locator_coverPhoto = By.name("fotoPortada");
-	By locator_accept = By.xpath("/html/body/div[17]/div[2]/div/div/div/div/div/div/div/div[4]/button");
-	By locator_uploadFile = By.xpath("/html/body/div[3]/div[1]/form/div/div[3]/div/div[1]/div[11]/div[4]/div[5]/div[4]/div[2]/a");
-	//Comprobación 
-	By locator_codeProperty = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[1]/div[2]/p[1]/span/strong");
-	By locator_textCode = By.id("inmueblesearch-codigo");
-	By locator_searh = By.xpath("/html/body/div[3]/div/section/section/div/div[1]/div[6]/div[2]/a");
-	By locator_endlink = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article[1]/div/div[4]/div/header/div[1]/h4/a");
-	By locator_endRoom = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[1]/p");
-	By locator_endBath = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[2]/p");
-	By locator_endM2 = By.xpath("/html/body/div[3]/div/section/section/div/div[2]/div/article/div/div[4]/div/div[2]/div/div[4]/p");
-	
-	// Flujo crear rol inmobiliaria 
-	String username = "inmobiliariaciencuadras1@yopmail.com";
-	String password = "100Cuadras%";
-	//Publicación de un inmueble
-	String registration = "45859674";// Ingrese la matricula inmobiliaria 
-	String department = "Boyacá";// ingrese el departamento
-	String city = "Sogamoso";//Ingrese la ciudad
-	String location = "Sogamoso";//Ingrese la localidad
-	String neighborhood = "UPTC";//Ingrese el barrio 
-	String avcll = "Calle";//ingrese Carrera o Calle
-	String avcll2 = "14";
-	String letter = "B";//Ingrese la letra A o B
-	String bisEste = "Bis"; //Ingrese Bis o Este
-	String letter2 = "A";//Ingrese la letra
-	String cardinalPoint = "Sur";//Ingrese el punto cardinal Sur o Norte
-	String number = "18";
-	String letter3 = "A"; //Ingrese la letra A o B
-	String number2 = "20";
-	String cardinalPoint2 = "Norte";//Ingrese el punto cardinal Sur o Norte
-	String complement = "Casa"; //Ingrese Casa o Apartamento
-	String textComplement = "segundo piso";
-	String complement2 = "Casa";//Ingrese Casa o Apartamento
-	String textComplement2 = "piso2";
-	String buttonAddress = "Si";// Ingresi Si o No si decea que la direccion sea visible 
-	String nickname = "San calletano";
-	//Caracteristicas información basica
-	String property = "Casa";//Ingrese Casa y Apartamento
-	String transactionType = "Arriendo";//ingrese Arriendo, Venta o Arriendo y Venta
-	String stratum = "2";//Ingrese el estrato 2 o 3
-	String area = "50";//Ingrese el valor del area en metros cuadrados
-	String lotArea = "60";//Ingrese el valor del area en metros cuadrados
-	String room = "3";//Ingrese el numero de habitaciones
-	String bath = "2";//Ingrese e numero de baños
-	String parking = "1";//Ingrese el numero de parqueaderos
-	String typeParking1 = "No";//Ingrese Si, si es Independiente 
-	String typeParking2 = "Si";//Ingrese Si, si es Servidumbre
-	String typeParking3 = "No";//Ingrese Si, si es Cubierto
-	String typeParking4 = "Si";//Ingrese Si, si es Descubierto
-	String typeParking5 = "No";//Ingrese Si, si es Comunal
-	String valueRent = "800000";//Ingrese el valor del canos de arrendamiento 
-	String valueSale = "130000000";//Ingrese el valor del inmueble
-	String buttonAdministration = "Si";//Ingrese Si o No
-	String managementValue = "100000";//Ingrese el valor de la administración 
-	String code = "32";//Ingrese el codigo
-	String buttonBrandNew = "No";//Ingrese Si o No
-	String antiquity = "3";//Ingrese los años de antiguedad
-	String floor = "1";//Ingrese el piso 
-	String additionalInformation = "amoblado colores frescos";//Ingrese formación adicional
-	
 	
 	public CreatePropertyInmobiliariaPage(WebDriver driver) {
 		super(driver);
@@ -173,15 +22,15 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 	public void login() throws InterruptedException {
 		try {
 			Thread.sleep(8000);
-			click(locator_into);
-			type(username, locator_username);
-			type(password, locator_password);
-			click(locator_login);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_INTO);
+			type(BasicData.USERNAME_I, LocatorCreatePropertyInmobiliaria.LOCATOR_USERNAME);
+			type(BasicData.PASSWORD_I, LocatorCreatePropertyInmobiliaria.LOCATOR_PASSWORD);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_LOGIN);
 			Thread.sleep(8000);
-			click(locator_user);
-			click(locator_publishedProperty);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_USER);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_PUBLISHED_PROPERTY);
 			Thread.sleep(5000);
-			click(locator_createProperty);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_CREATE_PROPERTY);
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
@@ -193,137 +42,137 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 		}
 	}
 	
-	public void propertyPublication() {
+	public void propertyPublication(String Avcll, String Letter, String CardinalPoint, String letter2, String CardinalPoint2, String Letter3, String CardinalPoint3, String Complement, String BAddress) {
 		try {
-			type(registration, locator_registration);
+			type(BasicData.REGISTRATION, LocatorCreatePropertyInmobiliaria.LOCATOR_REGISTRATION);
 			Thread.sleep(2000);
-			click(locator_openButton);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON);
 			Thread.sleep(2000);
-			type(department, locator_department);
-			WebElement dp = driver.findElement(locator_department);
+			type(BasicData.DEPARTMENT, LocatorCreatePropertyInmobiliaria.LOCATOR_DEPARTMENT);
+			WebElement dp = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_DEPARTMENT);
 			dp.sendKeys(Keys.DOWN);	
 			dp.sendKeys(Keys.ENTER);	
 			Thread.sleep(2000);
-			click(locator_openButton2);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_2);
 			Thread.sleep(2000);
-			type(city, locator_city);
-			WebElement ci = driver.findElement(locator_city);
+			type(BasicData.CITY, LocatorCreatePropertyInmobiliaria.LOCATOR_CITY);
+			WebElement ci = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_CITY);
 			ci.sendKeys(Keys.DOWN);
 			ci.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
-			click(locator_openButton3);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_3);
 			Thread.sleep(2000);
-			type(location, locator_location);
-			WebElement lc = driver.findElement(locator_location);
+			type(BasicData.LOCATION, LocatorCreatePropertyInmobiliaria.LOCATOR_LOCATION);
+			WebElement lc = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_LOCATION);
 			lc.sendKeys(Keys.DOWN);
 			lc.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
-			click(locator_openButton4);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_4);
 			Thread.sleep(2000);
-			type(neighborhood, locator_neighborhood);
-			WebElement br = driver.findElement(locator_neighborhood);
+			type(BasicData.NEIGHBORHOOD, LocatorCreatePropertyInmobiliaria.LOCATOR_NEIGHBORHOOD);
+			WebElement br = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_NEIGHBORHOOD);
 			br.sendKeys(Keys.DOWN);
 			br.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
-			click(locator_openButton5);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_5);
 			Thread.sleep(2000);
-			if(avcll.equals("Carrera")) {
-				click(locator_carrera);
+			if(BasicData.AVCLL_CR.equals(Avcll)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_CARRERA);
 			}
-			if(avcll.equals("Calle")) {
-				click(locator_calle);
+			if(BasicData.AVCLL_CLL.equals(Avcll)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_CALLE);
 			}
 			Thread.sleep(2000);
-			type(avcll2, locator_avcll2);
+			type(BasicData.AVCLL_2, LocatorCreatePropertyInmobiliaria.LOCATOR_AVCLL_2);
 			Thread.sleep(2000);
-			if(letter.equals("A")) {
-				click(locator_openButton6);
+			if(BasicData.LETTER_A.equals(Letter)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_6);
 				Thread.sleep(2000);
-				click(locator_openButton6);
-				click(locator_a);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_6);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_A);
 			}
-			if(letter.equals("B")) {
-				click(locator_openButton6);
+			if(BasicData.LETTER_B.equals(Letter)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_6);
 				Thread.sleep(2000);
-				click(locator_openButton6);
-				click(locator_b);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_6);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_B);
 			}
 			Thread.sleep(2000);
-			if(bisEste.equals("Bis")) {
-				click(locator_openButton7);
-				click(locator_bis);
+			if(BasicData.BIS.equals(CardinalPoint)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_7);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_BIS);
 			}
-			if(bisEste.equals("Este")) {
-				click(locator_openButton7);
-				click(locator_este);
-			}
-			Thread.sleep(2000);
-			if(letter2.equals("A")) {
-				click(locator_openButton8);
-				click(locator_a2);
-			}
-			if(letter2.equals("B")) {
-				click(locator_openButton8);
-				click(locator_b2);
+			if(BasicData.ESTE.equals(CardinalPoint)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_7);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_ESTE);
 			}
 			Thread.sleep(2000);
-			if(cardinalPoint.equals("Sur")) {
-				click(locator_openButton9);
-				click(locator_sur);
+			if(BasicData.LETTER_A.equals(letter2)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_8);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_A2);
 			}
-			if(cardinalPoint.equals("Norte")) {
-				click(locator_openButton9);
-				click(locator_norte);
-			}
-			Thread.sleep(2000);
-			type(number, locator_number);
-			Thread.sleep(2000);
-			if(letter3.equals("A")) {
-				click(locator_openButton10);
-				click(locator_a3);
-			}
-			if(letter3.equals("B")) {
-				click(locator_openButton10);
-				click(locator_b3);
+			if(BasicData.LETTER_B.equals(letter2)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_8);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_B2);
 			}
 			Thread.sleep(2000);
-			type(number2, locator_number2);
-			Thread.sleep(2000);
-			if(cardinalPoint2.equals("Sur")) {
-				click(locator_openButton11);
-				click(locator_sur2);
+			if(BasicData.CARDINAL_POINT_S.equals(CardinalPoint2)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_9);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_SUR);
 			}
-			if(cardinalPoint2.equals("Norte")) {
-				click(locator_openButton11);
-				click(locator_norte2);
+			if(BasicData.CARDINAL_POINT_N.equals(CardinalPoint2)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_9);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_NORTE);
+			}
+			Thread.sleep(2000);
+			type(BasicData.NUMBER, LocatorCreatePropertyInmobiliaria.LOCATOR_NUMBER);
+			Thread.sleep(2000);
+			if(BasicData.LETTER_A.equals(Letter3)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_10);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_A3);
+			}
+			if(BasicData.LETTER_B.equals(Letter3)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_10);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_B3);
+			}
+			Thread.sleep(2000);
+			type(BasicData.NUMBER_2, LocatorCreatePropertyInmobiliaria.LOCATOR_NUMBER_2);
+			Thread.sleep(2000);
+			if(BasicData.CARDINAL_POINT_S.equals(CardinalPoint3)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_11);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_SUR_2);
+			}
+			if(BasicData.CARDINAL_POINT_N.equals(CardinalPoint3)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_11);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_NORTE_2);
 			}	
 			Thread.sleep(2000);
-			if(complement.equals("Apartamento")) {
-				click(locator_openButton12);
-				click(locator_apartment);
+			if(BasicData.COMPLEMENT_A.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_12);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_APARTMENT);
 			}
-			if(complement.equals("Casa")) {
-				click(locator_openButton12);
-				click(locator_house);
-			}
-			Thread.sleep(2000);
-			type(textComplement, locator_textComplement);
-			Thread.sleep(2000);
-			if(complement2.equals("Apartamento")) {
-				click(locator_openButton13);
-				click(locator_apartment2);
-			}
-			if(complement2.equals("Casa")) {
-				click(locator_openButton13);
-				click(locator_house2);
+			if(BasicData.COMPLEMENT_C.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_12);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_HOUSE);
 			}
 			Thread.sleep(2000);
-			type(textComplement2, locator_textComplement2);
+			type(BasicData.TEXT_COMPLEMENT, LocatorCreatePropertyInmobiliaria.LOCATOR_TEXT_COMPLEMENT);
 			Thread.sleep(2000);
-			if(buttonAddress.equals("Si")) {
-				click(loator_buttonAddress);
+			if(BasicData.COMPLEMENT_A.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_13);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_APARTMENT_2);
 			}
-			type(nickname, locator_nickname);
+			if(BasicData.COMPLEMENT_C.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_13);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_HOUSE_2);
+			}
+			Thread.sleep(2000);
+			type(BasicData.TEXT_COMPLEMENT_2, LocatorCreatePropertyInmobiliaria.LOCATOR_TEXT_COMPLEMENT_2);
+			Thread.sleep(2000);
+			if(BasicData.BUTTON_ADDRESS_S.equals(BAddress)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_ADDRESS);
+			}
+			type(BasicData.NICK_NAME, LocatorCreatePropertyInmobiliaria.LOCATOR_NICKNAME);
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
@@ -335,107 +184,107 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 		}
 	}
 	
-	public void basicInformation() {
+	public void basicInformation(String Complement, String TransactionType, String Stratum, String TypeParking1, String TypeParking2, String TypeParking3, String TypeParking4, String TypeParking5, String Administration, String BrandNew) {
 		try {
 			Thread.sleep(2000);
-			if(property.equals("Apartamento")) {
-				click(locator_openButton14);
-				click(locator_apartment3);
+			if(BasicData.COMPLEMENT_A.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_14);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_APARTMENT_3);
 			}
-			if(property.equals("Casa")) {
-				click(locator_openButton14);
-				click(locator_house3);
+			if(BasicData.COMPLEMENT_C.equals(Complement)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_14);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_HOUSE_3);
 			}
 			Thread.sleep(2000);
-			if(transactionType.equals("Arriendo")) {
-				click(locator_openButton15);
-				click(locator_rent); 
+			if(BasicData.TRANSACTION_TYPE_A.equals(TransactionType)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_15);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_RENT); 
 			}
-			if(transactionType.equals("Venta")) {
-				click(locator_openButton15);
-				click(locator_sale);
+			if(BasicData.TRANSACTION_TYPE_V.equals(TransactionType)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_15);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_SALE);
 				Thread.sleep(2000);
-				type(valueSale, locator_valueSale);
+				type(BasicData.VALUE_SALE, LocatorCreatePropertyInmobiliaria.LOCATOR_VALUE_SALE);
 			}
-			if(transactionType.equals("Arriendo y Venta")) {
-				click(locator_openButton15);
-				click(locator_saleOrent);
+			if(BasicData.TRANSACTION_TYPE_AV.equals(TransactionType)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_15);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_SALE_ORENT);
 				Thread.sleep(2000);
-				type(valueSale, locator_valueSale);
+				type(BasicData.VALUE_SALE, LocatorCreatePropertyInmobiliaria.LOCATOR_VALUE_SALE);
 			}
 			Thread.sleep(2000);
-			if(stratum.equals("2")) {
-				click(locator_openButton16);
-				click(locator_stratum2);
+			if(BasicData.STRATUM_2.equals(Stratum)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_16);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_STRATUM_2);
 			}
-			if(stratum.equals("3")) {
-				click(locator_openButton16);
-				click(locator_stratum3);
+			if(BasicData.STRATUM_3.equals(Stratum)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_16);
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_STRATUM_3);
 			}
 			Thread.sleep(2000);
-			type(area, locator_area);
+			type(BasicData.AREA, LocatorCreatePropertyInmobiliaria.LOCATOR_AREA);
 			Thread.sleep(2000);
-			type(lotArea, locator_lotArea);
+			type(BasicData.LOT_AREA, LocatorCreatePropertyInmobiliaria.LOCATOR_LOT_AREA);
 			Thread.sleep(2000);
-			type(room, locator_room);
+			type(BasicData.ROOM, LocatorCreatePropertyInmobiliaria.LOCATOR_ROOM);
 			Thread.sleep(2000);
-			type(bath, locator_bath);
+			type(BasicData.BATH, LocatorCreatePropertyInmobiliaria.LOCATOR_BATH);
 			Thread.sleep(2000);
-			type(parking, locator_parking);
+			type(BasicData.PARKING, LocatorCreatePropertyInmobiliaria.LOCATOR_PARKING);
 			Thread.sleep(2000);
-			click(locator_openButton17);
-			if(typeParking1.equals("Si")) {
-				click(locator_independent);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_17);
+			if(BasicData.TYPE_PARKING_1_S.equals(TypeParking1)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_INDEPENDENT);
 			}
-			if(typeParking2.equals("Si")) {
-				click(locator_servitude);
+			if(BasicData.TYPE_PARKIKNG_2_S.equals(TypeParking2)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_SERVITUDE);
 			}
-			if(typeParking3.equals("Si")) {
-				click(locator_covered);
+			if(BasicData.TYPE_PARKING_3_S.equals(TypeParking3)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_COVERED);
 			}
-			if(typeParking4.equals("Si")) {
-				click(locator_discovered);
+			if(BasicData.TYPE_PARKING_4_S.equals(TypeParking4)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_DISCOVERED);
 			}
-			if(typeParking5.equals("Si")) {
-				click(locator_communal);
+			if(BasicData.TYPE_PARKING_5_S.equals(TypeParking5)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_COMMUNAL);
 			}
-			click(locator_openButton17);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_OPEN_BUTTON_17);
 			Thread.sleep(2000);
-			if(transactionType.equals("Arriendo") || transactionType.equals("Arriendo y Venta")) {
+			if(BasicData.TRANSACTION_TYPE_A.equals(TransactionType) || BasicData.TRANSACTION_TYPE_AV.equals(TransactionType)) {
 				Thread.sleep(3000);
-				type(valueRent, locator_valueRent);
+				type(BasicData.VALUE_RENT, LocatorCreatePropertyInmobiliaria.LOCATOR_VALUE_RENT);
 				Thread.sleep(2000);
-				if(buttonAdministration.equals("Si")) {
-					click(locator_buttonAdministration);
+				if(BasicData.BUTTON_ADMINISTRATION_S.equals(Administration)) {
+					click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_ADMINSTRATION);
 				}
-				if(buttonAdministration.equals("No")) {
+				if(BasicData.BUTTON_ADMINISTRATION_N.equals(Administration)) {
 					Thread.sleep(2000);
-					type(managementValue, locator_managementValue);
+					type(BasicData.MANAGEMENT_VALUE, LocatorCreatePropertyInmobiliaria.LOCATOR_MANAGEMENT_VALUE);
 				}
 			}else {
 				Thread.sleep(2000);
-				type(managementValue, locator_managementValue);
+				type(BasicData.MANAGEMENT_VALUE, LocatorCreatePropertyInmobiliaria.LOCATOR_MANAGEMENT_VALUE);
 			}	
 			Thread.sleep(2000);
-			type(code, locator_code);
+			type(BasicData.CODE, LocatorCreatePropertyInmobiliaria.LOCATOR_CODE);
 			Thread.sleep(2000);
-			if(buttonBrandNew.equals("Si")) {
-				click(locator_buttonBrandNew);
+			if(BasicData.BUTTON_BRAND_NEW_S.equals(BrandNew)) {
+				click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_BRAND_NEW);
 			}
-			if(buttonBrandNew.equals("No")) {
+			if(BasicData.BUTTON_BRAND_NEW_N.equals(BrandNew)) {
 				Thread.sleep(2000);
-				type(antiquity, locator_antiquity);
+				type(BasicData.ANTIQUITY, LocatorCreatePropertyInmobiliaria.LOCATOR_ANTIQUITY);
 			}
 			Thread.sleep(2000);
-			type(floor, locator_floor);
+			type(BasicData.FLOOR, LocatorCreatePropertyInmobiliaria.LOCATOR_FLOOR);
 			Thread.sleep(2000);
-			type(additionalInformation, locator_additionalInformation);
+			type(BasicData.ADDITIONAL_INFORMATION, LocatorCreatePropertyInmobiliaria.LOCATOR_ADDITIONAL_INFORMATION);
 			Thread.sleep(3000);
-			click(locator_buttonSave);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_SAVE);
 			Thread.sleep(2000);
-			click(locator_buttonSave);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_SAVE);
 			Thread.sleep(5000); 
-			click(locator_buttonAccept);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_ACCEPT);
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
@@ -456,21 +305,21 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			String phat2 = file2.getAbsolutePath();
 			String phat3 = file3.getAbsolutePath();
 			
-			driver.findElement(locator_img).sendKeys(phat1);
+			driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_IMG).sendKeys(phat1);
 			Thread.sleep(5000);
-			driver.findElement(locator_img).sendKeys(phat2);
+			driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_IMG).sendKeys(phat2);
 			Thread.sleep(5000);
-			driver.findElement(locator_img).sendKeys(phat3);
+			driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_IMG).sendKeys(phat3);
 			Thread.sleep(5000);
-			click(locator_uploadFile);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_UPLOAD_FILE);
 			Thread.sleep(5000);
 			driver.navigate().refresh();
 			Thread.sleep(3000);
-			click(locator_coverPhoto);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_COVER_PHOTO);
 			Thread.sleep(2000);
-			click(locator_buttonSave);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_SAVE);
 			Thread.sleep(8000);
-			click(locator_buttonAccept);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_BUTTON_ACCEPT);
 		}catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
@@ -485,28 +334,28 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 	public void validation() {
 		try {
 			Thread.sleep(8000);
-			String textCode = driver.findElement(locator_codeProperty).getText();
-			type(textCode, locator_textCode);
+			String textCode = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_CODE_PROPERTY).getText();
+			type(textCode, LocatorCreatePropertyInmobiliaria.LOCATOR_TEXT_CODE);
 			Thread.sleep(3000);
-			click(locator_searh);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_SEARH);
 			Thread.sleep(5000);
-			String endroom = driver.findElement(locator_endRoom).getText();
+			String endroom = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_END_ROOM).getText();
 			String sEndroom = endroom.substring(0,1);
-			if(room.equals(sEndroom)) {
+			if(BasicData.ROOM.equals(sEndroom)) {
 				System.out.println("El número de habitaciones concuerda con las ingresadas: "+sEndroom);
 			}else {
 				System.out.println("El número de habitaciones consultados no concuerda con los ingresados");
 			}
-			String endBath = driver.findElement(locator_endBath).getText();
+			String endBath = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_END_BATH).getText();
 			String sEndBath = endBath.substring(0,1);
-			if(bath.equals(sEndBath)) {
+			if(BasicData.BATH.equals(sEndBath)) {
 				System.out.println("El número de Baños concuerda con los ingresados: "+sEndBath);
 			}else {
 				System.out.println("El número de baños consultados no concuerda con los ingresados");
 			}
-			String endM2 = driver.findElement(locator_endM2).getText();
+			String endM2 = driver.findElement(LocatorCreatePropertyInmobiliaria.LOCATOR_END_M2).getText();
 			String sEndM2 = endM2.substring(0,2);
-			if(area.equals(sEndM2)) {
+			if(BasicData.AREA.equals(sEndM2)) {
 				System.out.println("El area concuerda con el area ingresados: "+sEndM2);
 			}else {
 				System.out.println("El area consultada no concuerda con la ingresada");

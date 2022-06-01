@@ -2,7 +2,7 @@ package base;
 
 public class BasicData {
 
-	//Flujo crear rol Agente
+	//Flujo Agente
 	public static final String USERNAME_A = "agenteciencuadras1@yopmail.com";
 	public static final String PASSWORD_A = "@Contraseña112";
 	public static final String REGISTRATION = "45859674";// matricula inmobiliaria
@@ -59,5 +59,95 @@ public class BasicData {
 	public static final String ANTIQUITY = "3";// Ingrese los años de antiguedad
 	public static final String FLOOR = "1";// piso uno
 	public static final String ADDITIONAL_INFORMATION = "amoblado colores frescos";// Ingrese formación adicional
+	
+	//Flujo Constructora
+	public static final String USERNAME_C = "qa.constructorahogar21@yopmail.com";//usuario constructora qa.constructorahogar21@yopmail.com //ciencuadrasconstructora12@yopmail.com
+	public static final	String PASSWORD_C = "LeonO1O1*"; // contraseña
+	public static final String NAME_PROJECT = "Oasis"; // nombre del proyecto
+	public static final String STAGE_P = "Sobre Plano"; //etapa del proyecto Sobre Plano
+	public static final String STAGE_S = "seleccione"; //etapa del proyecto "seleccione
+	public static final String STAGE_C = "Construcion"; //etapa del proyecto Construcion
+	public static final String STAGE_E = "Entrega Inmediata"; //etapa del proyecto Entrega Inmediata
+	public static final String PROJECT_PHASE_V = "Venta";// Venta,
+	public static final String PROJECT_PHASE_P = "PreVenta";//PreVenta
+	public static final String PROJECT_PHASE_O = "Oferta Terminada";// Oferta Terminada
+	public static final String PROJECT_PHASE_L = "Lanzamiento";//Lanzamiento
+	public static final String STRATUM_1 = "1";//Estrato 1
+	public static final String STRATUM_4 = "4";//Estrato 4
+	public static final String STRATUM_5 = "5";//Estrato 5 
+	public static final String STRATUM_6 = "6";//Estrato 6 
+	public static final String DEPARTMENT_C = "Cundinamarca";// departamento
+	public static final String CITY_C = "Tabio";// ciudad
+	public static final String LOCATION_C = "Tabio";// volor de la localidad que decea segun las opciones
+	public static final String NEIGHBORHOOD_C = "El Alcaparro";// barrio 
+	public static final String DIRECTION_S = "Si";//Dirección Si
+	public static final String DIRECTION_N = "No";//Dirección No
+	public static final String DATE = "02052022";// fecha 
+	public static final String CONDITION_A = "Activo";// Activo 
+	public static final String CONDITION_I = "Inactivo";// Inactivo 
+	public static final String CONDITION_D = "Duplicado";// Duplicado 
+	public static final String PAY_P = "Pago";// Pago
+	public static final String PAY_G = "Gratis";// Gratis
+	public static final String DIRECTION_COMPLIT = "Calle 12 # 10-5";
+	public static final String TYPE_PROPERTY = "Apartamento";// Tipo de inmueble
+	public static final String NAME_TYPE_PROPERTY = "Duplex";// Nombre del tipo de apartamento
+	public static final String PRICE = "130000000";// precio 
+	public static final String NUMBER_ROOM = "3";// Numero de habitaciones
+	public static final String NUMBER_BATH = "2";// Numero de baños
+	public static final String NUMBER_PARKING = "1";// Numero de parqueaderos
+	public static final String SWIMNIG_S = "Si";//Si cuenta con piscina
+	public static final String SWIMNIG_N = "No";//si No cuenta con piscina
+	public static final String FLOOR_T = "Baldosa";// tipo de piso
+	public static final String VALUE_MANAGEMENT = "100000";// precio de la administración 
+	public static final String TV_CIRCUIT_N = "No";//No cuenta con circuito cerrado de tv
+	public static final String TV_CIRCUIT_S = "Si";//Si cuenta con circuito cerrado de tv
+	public static final String SERVICE_ROOM_N = "No";// No cuenta con habitación de servicio
+	public static final String SERVICE_ROOM_S = "Si";// Si cuenta con habitación de servicio
+	public static final String SERVICE_BATH_N = "No";// No cuenta con baño de servicio
+	public static final String SERVICE_BATH_S = "Si";// Si cuenta con baño de servicio
+	public static final String LAUNDRY_AREA_N = "No";// No cuenta con zona de lavanderia 
+	public static final String LAUNDRY_AREA_S = "Si";// Si cuenta con zona de lavanderia 
+	public static final String FIREPLACE_N = "No";// No cuenta con chimenea
+	public static final String FIREPLACE_S = "Si";// Si cuenta con chimenea
+	public static final String ALLOWS_PETS_S = "Si";// Si permite mascotas
+	public static final String ALLOWS_PETS_N = "No";// No permite mascotas
+	public static final String TYPE_STOVE = "Gas";// tipo de estufa 
+	public static final String TYPE_HEATER = "Gas";// tipo de calentador 
+	public static final String AIR_CONDITIONING_N = "No";// No cuenta con aire acondicionado
+	public static final String AIR_CONDITIONING_S = "Si";// Si cuenta con aire acondicionado
+	public static final String TERRACE_AREA_N = "No";// No cuenta con terraza
+	public static final String TERRACE_AREA_S = "Si";// Si cuenta con terraza
+	public static final String NUMBER_TERRACE = "0";// numero de terrazas en caso de que tenga
+	public static final String NUMBER_TERRACE_1 = "1";// numero de terrazas en caso de que tenga
+	public static final String BUILT_AREA = "60";//Ingrese el area del inmueble
+	public static final String TOTAL_AREA = "70";//Ingrese el area total del inmueble
+	public static final String NUMBER_BALCONY = "0";// numero de valcones
+	public static final String NUMBER_BALCONY_1 = "1";// numero de valcones
+	public static final String NUMBER_DEPOSITS = "0";// numero de depositos 
+	public static final String NUMBER_DEPOSITS_1 = "1";// numero de depositos 
+	public static final String DELIVER_DATE = "13122023";// fecha de entrega
+	public static final String SOLD_OUT_N = "No";// No se encuentra vendido
+	public static final String SOLD_OUT_S = "Si";// Si se encuentra vendido
+	public static final String TYPE_PARKING = "Comunal";// tipo de parqueadero
+	public static final String UNITS_AVAILABLE = "10";// unidades disponibles
+	public static final String KILN_S = "Si";// Si cuenta con horno
+	public static final String KILN_N = "No";// No cuenta con horno
+	public static final String EXTRACTOR_N = "No";// No cuenta con extractor
+	public static final String EXTRACTOR_S = "Si";// Si cuenta con extractor
+	public static final String DISHWASHER_S = "Si";// Si cuenta con lavaplatos
+	public static final String DISHWASHER_N = "No";// No cuenta con lavaplatos
+	public static final String NAME_ROOM = "sala 1";//nombre de la sala
+	public static final String ROOM_ADDRESS = "calle 12 # 5-05"; //direccion de la sala
+	public static final String CALL_CONTACT_NUMBER = "6013457689";//Numero para contacto por llamada
+	public static final String EMAIL_ROOM = "sala1@gmail.com";//Email sala
+	public static final String WHATSAPP_CONTACT_NUMBER = "3124567890";//Numero para contacto por whatsapp
+	public static final String SELLER = "luis carlos"; //Vendedor
+	public static final String STAGE_1 = "En construccion";//Nombre etapa
+	public static final String OPENIG_DATE = "12062022";//Fecha apertura
+	public static final String CLOSING_DATE = "07122022";//Fecha cierre
+	
+	// Flujo inmobiliaria 
+	public static final String USERNAME_I = "inmobiliariaciencuadras1@yopmail.com";
+	public static final String PASSWORD_I = "100Cuadras%";
 
 }
