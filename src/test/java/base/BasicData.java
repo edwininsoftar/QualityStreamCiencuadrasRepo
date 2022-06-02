@@ -149,5 +149,56 @@ public class BasicData {
 	// Flujo inmobiliaria 
 	public static final String USERNAME_I = "inmobiliariaciencuadras1@yopmail.com";
 	public static final String PASSWORD_I = "100Cuadras%";
+	
+	//Flucjo persona
+	public static final String USERNAME_P = "personaciencuadras45@yopmail.com";
+	public static final String PASSWORD_P = "Ciencuadras21*";
+	public static final String CHOOSE_POST_T = "Publica Tu";// Publica Tu
+	public static final String CHOOSE_POST_I = "Con Imbobiliaria";// Publica Con Imbobiliaria
+	public static final String PLAN_TYPE_E = "Estandar"; // Estandar
+	public static final String PLAN_TYPE_P = "Premium"; //  Premium
+	public static final String CITY_PREMIUM = "Bogotá";// ciudad si el tipo de plan que seleciono es premium
+	public static final String PROPERTY_TYPE_A = "Apartamento"; // Apartamento
+	public static final String PROPERTY_TYPE_C = "Casa"; //Casa
+	public static final String TRANSACCTION_TYPE_A = "Arriendo";// Arriendo
+	public static final String TRANSACCTION_TYPE_V = "Venta";//  Venta
+	public static final String VALUE = "800000";// valor renta del inmueble
+	public static final String MANAGEMENT_S  = "Si"; // si incluye administración
+	public static final String MANAGEMENT_N  = "No"; // No incluye administración
+	public static final String SALE_VALUE = "150000000";// el valor del inmuuebleen venta
+	public static final String YEARS_OF_ANTIQUITY = "3";// años de antiguedad
+	public static final String PROPERTY_DESCRIPTION = "Closed cosina integral zona de labado";// descripión del inmueble
+	public static final String SQUARE_METER = "52"; // metros cuadrados del inmueble
+	public static final String N_TOILETS = "2"; // numero de baños del inmueble
+	public static final String N_PARKING = "2"; // numero de parqueaderos
+	public static final String CITY_P = "Bogotá (Cundinamarca)"; // Ingrese la ciudad del inmueble
+	public static final String NEIGHBORHOOD_P = "Prado Veraniego Norte - Suba - Bogotá  (Cundinamarca)"; // barrio del inmueble
+	public static final String DIRECTION_P = "Calle 128C Bis # 52-53"; // direccion del inmueble
+	public static final String N_WHATSAPP = "3202589674"; // numero de whatsapp
+	public static final String CONTACT_ME_W = "Whatsapp"; // Whatsapp
+	public static final String CONTACT_ME_LL = "Llamada"; // Llamada
+	public static final String IDENTIFICATION = "1057596841";// numero de identificacion	
+	public static final String DATE_P = "28/07/2022";// la fecha si el plan elegido es premium
+	public static final String DISCOUNT_CODE_NOT = "";// codigo de descuento
+	public static final String DISCOUNT_CODE = "123456";// codigo de descuento
+	public static final String PAYMENT_TYPE_D = "Debito";// Debito
+	public static final String PAYMENT_TYPE_C = "Credito";// Credito
+	public static final String PAYMENT_TYPE_P = "PSE";// PSE
+	public static final String TYPE_DOCUMENT_CC = "CC";// CC
+	public static final String TYPE_DOCUMENT_CE = "CE";// CE
+	public static final String TYPE_DOCUMENT_CP = "CP";// CP
+	public static final String TYPE_DOCUMENT_NIT = "NIT";// NIT
+	public static final String TYPE_DOCUMENT_TI = "TI";// TI
+	public static final String TYPE_DOCUMENT_SSE = "SSE";// SSE
+	public static final String TYPE_PERSON_PN  = "PN";// PN, 
+	public static final String TYPE_PERSON_PJ = "PJ";// PJ
+	public static final String TYPE_BANK_COLOMBIA = "BANCOLOMBIA";//BANCOLOMBIA
+	public static final String TYPE_BANK_CAJA_SOCIAL = "BANCO CAJA SOCIAL";// BANCO CAJA SOCIAL
+	public static final String HOLDER_NAME = "Juan Daniel Rodriguez Lopes"; // numero del titular de la tarjeta
+	public static final String CARD_NUMBER = "4575623182290326"; // numero de la tarjeta 
+	public static final String MONTH_CARD = "1225";// el mes de la tarjeta 
+	public static final String YEAR_CARD = "25";// el año de la tarjeta 
+	public static final String CVV = "123";// codigo cvv de la tarjeta
+	public static final String DUES = "5"; // numero de cuotas campo obligatorio si el tipo de tarjeta de credito
 
 }
