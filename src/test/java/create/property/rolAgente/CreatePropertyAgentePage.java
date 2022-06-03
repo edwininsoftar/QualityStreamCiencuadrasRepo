@@ -21,7 +21,9 @@ public class CreatePropertyAgentePage extends BasicWrap{
 	
 	public void login() {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCreatePropertyAgente.LOCATOR_X);
+			Thread.sleep(2000);
 			click(LocatorCreatePropertyAgente.LOCATOR_INTO);
 			type(BasicData.USERNAME_A, LocatorCreatePropertyAgente.LOCATOR_USERNAME);
 			type(BasicData.PASSWORD_A, LocatorCreatePropertyAgente.LOCATOR_PASSWORD);

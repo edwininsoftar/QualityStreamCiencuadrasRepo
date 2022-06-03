@@ -8,6 +8,7 @@ import com.paulhammant.ngwebdriver.ByAngularOptions;
 public class LocatorCreatePropertyPersona {
 	
 	//Flucjo crear persona
+	public static final By LOCATOR_X = By.xpath("//*[@id=\"mat-dialog-0\"]/app-register-code/div/div/button");
 	public static final By LOCATOR_INTO = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
 	public static final By LOCATOR_USER_NAME = By.xpath("//*[@id=\"mat-input-3\"]");
 	public static final By LOCATOR_PASSWORD = By.cssSelector("input[formcontrolname=\"password\"]");

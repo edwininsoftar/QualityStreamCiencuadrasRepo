@@ -22,7 +22,9 @@ public class CreateProjectPageConstructora extends BasicWrap{
 	
 	public void logIn() {
 		try{
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCreateProjectConstructora.LOCATOR_X);
+			Thread.sleep(2000);
 			click(LocatorCreateProjectConstructora.LOCATOR_INTO);
 			type(BasicData.USERNAME_C, LocatorCreateProjectConstructora.LOCATOR_USERNAME);
 			type(BasicData.PASSWORD_C, LocatorCreateProjectConstructora.LOCATOR_PASSWORD);

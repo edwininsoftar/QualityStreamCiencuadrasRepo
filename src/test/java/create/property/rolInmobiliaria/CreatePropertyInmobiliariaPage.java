@@ -21,7 +21,9 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 	
 	public void login() throws InterruptedException {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCreatePropertyInmobiliaria.LOCATOR_X);
+			Thread.sleep(2000);
 			click(LocatorCreatePropertyInmobiliaria.LOCATOR_INTO);
 			type(BasicData.USERNAME_I, LocatorCreatePropertyInmobiliaria.LOCATOR_USERNAME);
 			type(BasicData.PASSWORD_I, LocatorCreatePropertyInmobiliaria.LOCATOR_PASSWORD);
@@ -223,8 +225,6 @@ public class CreatePropertyInmobiliariaPage extends BasicWrap{
 			}
 			Thread.sleep(2000);
 			type(BasicData.AREA, LocatorCreatePropertyInmobiliaria.LOCATOR_AREA);
-			Thread.sleep(2000);
-			type(BasicData.LOT_AREA, LocatorCreatePropertyInmobiliaria.LOCATOR_LOT_AREA);
 			Thread.sleep(2000);
 			type(BasicData.ROOM, LocatorCreatePropertyInmobiliaria.LOCATOR_ROOM);
 			Thread.sleep(2000);

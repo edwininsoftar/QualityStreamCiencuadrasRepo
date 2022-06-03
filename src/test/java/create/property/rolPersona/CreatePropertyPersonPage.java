@@ -22,9 +22,11 @@ public class CreatePropertyPersonPage extends BasicWrap{
 	
 	public void login() {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
+			click(LocatorCreatePropertyPersona.LOCATOR_X);
 			click(LocatorCreatePropertyPersona.LOCATOR_INTO);
-			type(BasicData.USERNAME_P, LocatorCreatePropertyPersona.LOCATOR_USER);
+			Thread.sleep(2000);
+			type(BasicData.USERNAME_P, LocatorCreatePropertyPersona.LOCATOR_USER_NAME);
 			type(BasicData.PASSWORD_P, LocatorCreatePropertyPersona.LOCATOR_PASSWORD);
 			click(LocatorCreatePropertyPersona.LOCATOR_LOGIN);
 			Thread.sleep(8000);

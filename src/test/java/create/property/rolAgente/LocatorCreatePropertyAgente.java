@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class LocatorCreatePropertyAgente {
 
 	// Flujo crear rol Agente
+	public static final By LOCATOR_X = By.xpath("//*[@id=\"mat-dialog-0\"]/app-register-code/div/div/button");
 	public static final By LOCATOR_INTO  = By.xpath("//*[@id=\"headerHome\"]/lib-cc-header/header/nav[2]/button[1]/a");
 	public static final By LOCATOR_USERNAME = By.xpath("//*[@id=\"mat-input-3\"]");
 	public static final By LOCATOR_PASSWORD = By.cssSelector("input[formcontrolname=\"password\"]");
