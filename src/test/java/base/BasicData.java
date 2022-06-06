@@ -53,7 +53,7 @@ public class BasicData {
 	public static final String BUTTON_ADMINISTRATION_S = "Si";// Administración Si
 	public static final String BUTTON_ADMINISTRATION_N = "No";// Administración No
 	public static final String MANAGEMENT_VALUE = "100000";// valor de la administración
-	public static final String CODE = "33";// Ingrese el codigo
+	public static final String CODE = "36";// Ingrese el codigo
 	public static final String BUTTON_BRAND_NEW_N = "No";// No
 	public static final String BUTTON_BRAND_NEW_S = "Si";// Si 
 	public static final String ANTIQUITY = "3";// Ingrese los años de antiguedad
@@ -82,7 +82,7 @@ public class BasicData {
 	public static final String NEIGHBORHOOD_C = "El Alcaparro";// barrio 
 	public static final String DIRECTION_S = "Si";//Dirección Si
 	public static final String DIRECTION_N = "No";//Dirección No
-	public static final String DATE = "05062022";// fecha 
+	public static final String DATE = "05072022";// fecha 
 	public static final String CONDITION_A = "Activo";// Activo 
 	public static final String CONDITION_I = "Inactivo";// Inactivo 
 	public static final String CONDITION_D = "Duplicado";// Duplicado 
