@@ -12,7 +12,7 @@ public class BasicData {
 	public static final String BUSINESS_NAME_A = "RAZON SOCIAL AGENTE";// Nombre
 	public static final String BUSINESS_NAME_I = "RAZON ZOCIAL INMOBILIARIA";//razon social
 	public static final String BUSINESS_NAME_C = "RAZON ZOCIAL CONSTRUCTORA";//razon social
-	public static final String EMAIL_NAME_P = "loginpersona3@yopmail.com";//persona  
+	public static final String EMAIL_NAME_P = "loginpersona4@yopmail.com";//persona  
 	public static final String EMAIL_NAME_A = "loginagente3@yopmail.com";//Agente	
 	public static final String EMAIL_BUSINESS_I = "logininmobiliaria2@yopmail.com";//Inmobiliaria
 	public static final String EMAIL_BUSINESS_C = "logininconstructora2@yopmail.com";//Constructora

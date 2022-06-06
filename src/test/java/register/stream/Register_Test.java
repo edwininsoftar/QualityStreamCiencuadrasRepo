@@ -26,7 +26,7 @@ public class Register_Test {
 
 	@Test
 	public void test() throws InterruptedException {
-		registerPage.registerRoll(BasicData.ROLL_P,BasicData.TYPE_DOCUMENT_CC);
+		registerPage.registerRoll(BasicData.ROLL_A,BasicData.TYPE_DOCUMENT_CC);
 	}
 
 }
