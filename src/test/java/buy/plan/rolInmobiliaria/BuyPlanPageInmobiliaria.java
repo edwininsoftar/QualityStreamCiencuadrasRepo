@@ -136,50 +136,57 @@ public class BuyPlanPageInmobiliaria extends BasicWrap{
 		}
 	}
 	
-	public void billingData(String EmailDian, String RegimeType, String RetentionAgent, String Ica, String Iva, String FiscalResponsability) {
+	public void billingData(String TypeDocument, String EmailDian, String RegimeType, String RetentionAgent, String Ica, String Iva, String FiscalResponsability) {
 		try {
 			Thread.sleep(8000);
-			WebElement NitClear = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_NIT_NUMBER); 
-			NitClear.clear();
-			type(BasicData.NIT, LocatorBuyPlanInmobiliaria.LOCATOR_NIT_NUMBER);
-			Thread.sleep(3000); 
-			WebElement dvClear =driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_DV);
-			dvClear.clear(); 
-			type(BasicData.DV, LocatorBuyPlanInmobiliaria.LOCATOR_DV);
-			Thread.sleep(3000); 
-			WebElement cityClear = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_CITY);
-			cityClear.clear(); 
+			click(LocatorBuyPlanInmobiliaria.LOCATOR_TYPE_DOCUMENT);
+			if(BasicData.TYPE_DOCUMENT_CC.equals(TypeDocument)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_TYPE_DOCUMENT_CC);
+			}
+			if(BasicData.TYPE_DOCUMENT_CE.equals(TypeDocument)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_TYPE_DOCUMENT_CE);
+			}
+			if(BasicData.TYPE_DOCUMENT_TI.equals(TypeDocument)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_TYPE_DOCUMENT_TI);
+			}
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_TYPE_DOCUMENT_NIT);
+				type(BasicData.NIT, LocatorBuyPlanInmobiliaria.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.DV, LocatorBuyPlanInmobiliaria.LOCATOR_DV);
+				type(BasicData.BUSINESS_NAME, LocatorBuyPlanInmobiliaria.LOCATOR_NAME);
+			}else {
+				type(BasicData.NUMBER_DOCUMENT, LocatorBuyPlanInmobiliaria.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.LAST_NAME, LocatorBuyPlanInmobiliaria.LOCATOR_LAST_NAME);
+				type(BasicData.NAME, LocatorBuyPlanInmobiliaria.LOCATOR_NAME);
+			}
+			Thread.sleep(3000);
+			type(BasicData.CELL, LocatorBuyPlanInmobiliaria.LOCATOR_PHONE);
+			Thread.sleep(3000);
 			type(BasicData.CITY, LocatorBuyPlanInmobiliaria.LOCATOR_CITY);
 			Thread.sleep(3000); WebElement
 			City = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_CITY); 
 			City.sendKeys(Keys.DOWN);
 			City.sendKeys(Keys.ENTER);
-			City.sendKeys(Keys.TAB); 
 			Thread.sleep(3000);
-			WebElement addressClear = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_ADDRESS);
-			addressClear.clear(); 
 			type(BasicData.ADDRESS, LocatorBuyPlanInmobiliaria.LOCATOR_ADDRESS); 
 			Thread.sleep(3000);
+			type(BasicData.EMAIL, LocatorBuyPlanInmobiliaria.LOCATOR_EMAIL);
+			Thread.sleep(3000);
 			type(BasicData.EMAIL, LocatorBuyPlanInmobiliaria.LOCATOR_CONFIRM_EMAIL);
-			Thread.sleep(3000);
-			WebElement cellClear = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE);
-			cellClear.clear();
-			type(BasicData.CELL, LocatorBuyPlanInmobiliaria.LOCATOR_PHONE);
-			Thread.sleep(3000);
 			if (BasicData.EMAIL_DIAN_NO.equals(EmailDian)) {
 				click(LocatorBuyPlanInmobiliaria.LOCATOR_EMAIL_DIAN);
 				type(BasicData.BILLING_MAIL, LocatorBuyPlanInmobiliaria.LOCATOR_BILLIN_MAIL);
 			}
 			Thread.sleep(3000);
 			click(LocatorBuyPlanInmobiliaria.LOCATOR_REGIMEN_TYPE);
-			if (BasicData.REGIME_TYPE_C.equals(RegimeType)) {
-				click(LocatorBuyPlanInmobiliaria.LOCATOR_COMUN);
+			if (BasicData.REGIME_TYPE_R.equals(RegimeType)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_RESPONSIBLE_IVA);
 			}
-			if (BasicData.REGIME_TYPE_S.equals(RegimeType)) {
-				click(LocatorBuyPlanInmobiliaria.LOCATOR_SIMPLIFICADO);
+			if (BasicData.REGIME_TYPE_N.equals(RegimeType)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_NOT_RESPONSIBLE_IVA);
 			}
-			if (BasicData.REGIME_TYPE_E.equals(RegimeType)) {
-				click(LocatorBuyPlanInmobiliaria.LOCATOR_ESPECIAL);
+			if (BasicData.REGIME_TYPE_RST.equals(RegimeType)) {
+				click(LocatorBuyPlanInmobiliaria.LOCATOR_RST);
 			}
 			Thread.sleep(3000);
 			click(LocatorBuyPlanInmobiliaria.LOCATOR_INCOME_RETAINER);
@@ -203,28 +210,18 @@ public class BuyPlanPageInmobiliaria extends BasicWrap{
 			click(LocatorBuyPlanInmobiliaria.LOCATOR_FISCAL_RESPONSABILITY);
 			if(BasicData.FISCAL_RESPONSIBILITY_R.equals(FiscalResponsability)) {
 				 click(LocatorBuyPlanInmobiliaria.LOCATOR_SIMPLE_REGIMEN); 
-				 WebElement rs = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE); 
-				 rs.sendKeys(Keys.ESCAPE);
 			}
 		    if(BasicData.FISCAL_RESPONSIBILITY_A.equals(FiscalResponsability)) {
 				 click(LocatorBuyPlanInmobiliaria.LOCATOR_WITH_HOLDING_AGENT);
-				 WebElement rs = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE);
-				 rs.sendKeys(Keys.ESCAPE);
 			}
 			if(BasicData.FISCAL_RESPONSIBILITY_G.equals(FiscalResponsability)) {
 				 click(LocatorBuyPlanInmobiliaria.LOCATOR_GREAT_CONTRIBUTOR); 
-				 WebElement rs = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE); 
-				 rs.sendKeys(Keys.ESCAPE); 
 			}
 			if(BasicData.FISCAL_RESPONSIBILITY_AU.equals(FiscalResponsability)) {
 				click(LocatorBuyPlanInmobiliaria.LOCATOR_SELF_RETAINING);
-				WebElement rs = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE); 
-				rs.sendKeys(Keys.ESCAPE); 
 			}
 		    if(BasicData.FISCAL_RESPONSIBILITY_N.equals(FiscalResponsability)) {
 		    	click(LocatorBuyPlanInmobiliaria.LOCATOR_NOT_RESPONSIBLE); 
-		    	WebElement rs = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_PHONE); 
-		    	rs.sendKeys(Keys.ESCAPE); 
             }
 			Thread.sleep(3000);
 			click(LocatorBuyPlanInmobiliaria.LOCATOR_BUTTON_PAY_TWO);
@@ -271,7 +268,7 @@ public class BuyPlanPageInmobiliaria extends BasicWrap{
 				driver.switchTo().frame(driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_IFRAME));
 				type(BasicData.HOLDER_NAME, LocatorBuyPlanInmobiliaria.LOCATOR_HOLDER_NAME);
 				type(BasicData.CARD_NUMBER, LocatorBuyPlanInmobiliaria.LOCATOR_CARD_NUMBER);
-				type(BasicData.MONTH_CARD, LocatorBuyPlanInmobiliaria.LOCATOR_MONTH_CARD);
+				type(BasicData.MONTH_AND_YEAR_CARD, LocatorBuyPlanInmobiliaria.LOCATOR_MONTH_CARD);
 				type(BasicData.CVV, LocatorBuyPlanInmobiliaria.LOCATOR_CVV);
 				click(LocatorBuyPlanInmobiliaria.LOCATOR_BUTTON_FORM_CHECKOUT);
 			}
@@ -283,7 +280,7 @@ public class BuyPlanPageInmobiliaria extends BasicWrap{
 				driver.switchTo().frame(driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_IFRAME));
 				type(BasicData.HOLDER_NAME, LocatorBuyPlanInmobiliaria.LOCATOR_HOLDER_NAME);
 				type(BasicData.CARD_NUMBER, LocatorBuyPlanInmobiliaria.LOCATOR_CARD_NUMBER);
-				type(BasicData.MONTH_CARD, LocatorBuyPlanInmobiliaria.LOCATOR_MONTH_CARD);
+				type(BasicData.MONTH_AND_YEAR_CARD, LocatorBuyPlanInmobiliaria.LOCATOR_MONTH_CARD);
 				type(BasicData.CVV, LocatorBuyPlanInmobiliaria.LOCATOR_CVV);
 				WebElement ddl = driver.findElement(LocatorBuyPlanInmobiliaria.LOCATOR_DUES);
 				Select sel = new Select(ddl);

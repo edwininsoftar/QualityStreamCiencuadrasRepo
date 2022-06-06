@@ -112,96 +112,92 @@ public class BuyPlanPageConstructora extends BasicWrap {
 		}
 	}
 
-	public void finalPaymentForm(String EmailDian, String RegimeType, String RetentionAgent, String Iva, String Ica, String FiscalResponsibility) {
+	public void finalPaymentForm(String TypeDocument,String EmailDian, String RegimeType, String RetentionAgent, String Iva, String Ica, String FiscalResponsibility) {
 		try {
-			Thread.sleep(5000);
-			WebElement NitClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_NIT);
-			NitClear.clear();
-			type(BasicData.NIT, LocatorBuyPlanConstructora.LOCATOR_NIT);
+			Thread.sleep(8000);
+			click(LocatorBuyPlanConstructora.LOCATOR_TYPE_DOCUMENT);
+			if(BasicData.TYPE_DOCUMENT_CC.equals(TypeDocument)) {
+				click(LocatorBuyPlanConstructora.LOCATOR_TYPE_DOCUMENT_CC);
+			}
+			if(BasicData.TYPE_DOCUMENT_CE.equals(TypeDocument)) {
+				click(LocatorBuyPlanConstructora.LOCATOR_TYPE_DOCUMENT_CE);
+			}
+			if(BasicData.TYPE_DOCUMENT_TI.equals(TypeDocument)){
+				click(LocatorBuyPlanConstructora.LOCATOR_TYPE_DOCUMENT_TI);
+			}
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+				click(LocatorBuyPlanConstructora.LOCATOR_TYPE_DOCUMENT_NIT);
+				type(BasicData.NIT, LocatorBuyPlanConstructora.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.DV, LocatorBuyPlanConstructora.LOCATOR_DV);
+				type(BasicData.BUSINESS_NAME, LocatorBuyPlanConstructora.LOCATOR_NAME);
+			}else {
+				type(BasicData.NUMBER_DOCUMENT, LocatorBuyPlanConstructora.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.NAME, LocatorBuyPlanConstructora.LOCATOR_NAME);
+				type(BasicData.LAST_NAME, LocatorBuyPlanConstructora.LOCATOR_LAST_NAME);
+			}
+			type(BasicData.CELL, LocatorBuyPlanConstructora.LOCATOR_PHONE);
 			Thread.sleep(3000);
-			WebElement dvClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_DV);
-			dvClear.clear();
-			type(BasicData.DV, LocatorBuyPlanConstructora.LOCATOR_DV);
-			Thread.sleep(3000);
-			WebElement cityClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CITY);
-			cityClear.clear();
 			type(BasicData.CITY, LocatorBuyPlanConstructora.LOCATOR_CITY);
 			Thread.sleep(3000);
 			WebElement City = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CITY);
 			City.sendKeys(Keys.DOWN);
 			City.sendKeys(Keys.ENTER);
-			City.sendKeys(Keys.TAB);
 			Thread.sleep(3000);
-			WebElement addressClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_ADDRESS);
-			addressClear.clear();
 			type(BasicData.ADDRESS, LocatorBuyPlanConstructora.LOCATOR_ADDRESS);
 			Thread.sleep(3000);
-			WebElement emailClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_EMAIL);
-			emailClear.clear();
 			type(BasicData.EMAIL, LocatorBuyPlanConstructora.LOCATOR_EMAIL);
 			Thread.sleep(3000);
 			type(BasicData.EMAIL, LocatorBuyPlanConstructora.LOCATOR_CONFIRM_EMAIL);
 			Thread.sleep(3000);
-			WebElement cellClear = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-			cellClear.clear();
-			type(BasicData.CELL, LocatorBuyPlanConstructora.LOCATOR_CELL);
-			if (BasicData.EMAIL_DIAN_NO.equals(EmailDian)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_EMAIL_DIAN);
-				type(BasicData.BILLING_MAIL, LocatorBuyPlanConstructora.LOCATOR_BILLING_MAIL);
-			}
-			click(LocatorBuyPlanConstructora.LOCATOR_REGIME_TYPE);
-			if (BasicData.REGIME_TYPE_C.equals(RegimeType)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_COMUN);
-			}
-			if (BasicData.REGIME_TYPE_S.equals(RegimeType)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_SIMPLIFICADO);
-			}
-			if (BasicData.REGIME_TYPE_E.equals(RegimeType)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_ESPECIAL);
-			}
-			Thread.sleep(3000);
-			click(LocatorBuyPlanConstructora.LOCATOR_RETENTION_AGENT);
-			if (BasicData.RETENTION_AGENT_NO.equals(RetentionAgent)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_NO);
-			}
-			if (BasicData.RETENTION_AGENT_4.equals(RetentionAgent)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_4);
-			}
-			if (BasicData.RETENTION_AGENT_11.equals(RetentionAgent)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_11);
-			}
-			Thread.sleep(3000);
-			if (BasicData.ICA_WITH_HOLDING_S.equals(Ica)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_ICA_WITH_HOLDING);
-			}
-			if (BasicData.IVA_WITH_HOLDING_S.equals(Iva)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_IVA_WITH_HOLDING);
-			}
-			click(LocatorBuyPlanConstructora.LOCATOR_FISCAL_RESPONSIBILITY);
-			if (BasicData.FISCAL_RESPONSIBILITY_R.equals(FiscalResponsibility)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_REGIMEN_SIMPLE);
-				WebElement rs = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if (BasicData.FISCAL_RESPONSIBILITY_A.equals(FiscalResponsibility)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_AGENTE_RETENEDOR);
-				WebElement rs = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if (BasicData.FISCAL_RESPONSIBILITY_G.equals(FiscalResponsibility)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_GRAN_CONTRIBUYENTE);
-				WebElement rs = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if (BasicData.FISCAL_RESPONSIBILITY_AU.equals(FiscalResponsibility)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_AUTORETENEDOR);
-				WebElement rs = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-				rs.sendKeys(Keys.ESCAPE);
-			}
-			if (BasicData.FISCAL_RESPONSIBILITY_N.equals(FiscalResponsibility)) {
-				click(LocatorBuyPlanConstructora.LOCATOR_NO_RESPONSABLE);
-				WebElement rs = driver.findElement(LocatorBuyPlanConstructora.LOCATOR_CELL);
-				rs.sendKeys(Keys.ESCAPE);
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+				if (BasicData.EMAIL_DIAN_NO.equals(EmailDian)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_EMAIL_DIAN);
+					type(BasicData.BILLING_MAIL, LocatorBuyPlanConstructora.LOCATOR_BILLING_MAIL);
+				}
+				click(LocatorBuyPlanConstructora.LOCATOR_REGIME_TYPE);
+				if (BasicData.REGIME_TYPE_R.equals(RegimeType)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_RESPONSIBLE_IVA);
+				}
+				if (BasicData.REGIME_TYPE_N.equals(RegimeType)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_NOT_RESPONSIBLE);
+				}
+				if (BasicData.REGIME_TYPE_RST.equals(RegimeType)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_RST);
+				}
+				Thread.sleep(3000);
+				click(LocatorBuyPlanConstructora.LOCATOR_RETENTION_AGENT);
+				if (BasicData.RETENTION_AGENT_NO.equals(RetentionAgent)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_NO);
+				}
+				if (BasicData.RETENTION_AGENT_4.equals(RetentionAgent)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_4);
+				}
+				if (BasicData.RETENTION_AGENT_11.equals(RetentionAgent)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_11);
+				}
+				click(LocatorBuyPlanConstructora.LOCATOR_FISCAL_RESPONSIBILITY);
+				if (BasicData.FISCAL_RESPONSIBILITY_R.equals(FiscalResponsibility)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_REGIMEN_SIMPLE);
+				}
+				if (BasicData.FISCAL_RESPONSIBILITY_A.equals(FiscalResponsibility)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_AGENTE_RETENEDOR);
+				}
+				if (BasicData.FISCAL_RESPONSIBILITY_G.equals(FiscalResponsibility)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_GRAN_CONTRIBUYENTE);
+				}
+				if (BasicData.FISCAL_RESPONSIBILITY_AU.equals(FiscalResponsibility)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_AUTORETENEDOR);
+				}
+				if (BasicData.FISCAL_RESPONSIBILITY_N.equals(FiscalResponsibility)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_NO_RESPONSABLE);
+				}
+				Thread.sleep(3000);
+				if (BasicData.ICA_WITH_HOLDING_S.equals(Ica)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_ICA_WITH_HOLDING);
+				}
+				if (BasicData.IVA_WITH_HOLDING_S.equals(Iva)) {
+					click(LocatorBuyPlanConstructora.LOCATOR_IVA_WITH_HOLDING);
+				}
 			}
 			Thread.sleep(3000);
 			click(LocatorBuyPlanConstructora.LOCATOR_BUTTON_PAY_TOW);

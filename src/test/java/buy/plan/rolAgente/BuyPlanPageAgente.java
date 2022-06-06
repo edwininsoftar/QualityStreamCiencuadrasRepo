@@ -1,6 +1,7 @@
 package buy.plan.rolAgente;
 
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -104,6 +105,105 @@ public class BuyPlanPageAgente extends BasicWrap{
 			Thread.sleep(3000);
 			click(LocatorBuyPlanAgente.LOCATOR_BUTTON_PAY);
 		}catch (NoSuchElementException e) {
+			System.out.println("Error: "+e);
+		}catch(TimeoutException e) {
+			System.out.println("Error: "+e);
+		}catch(ElementClickInterceptedException e) {
+			System.out.println("Error: "+e);
+		}catch (Exception e) {
+			System.out.println("Error: "+e);
+		}
+	}
+	
+	public void finalPaymentForm(String TypeDocument, String EmailDian, String RegimeType, String RetentionAgent, String FiscalResponsability, String Ica, String Iva) {
+		try {
+			Thread.sleep(5000);
+			click(LocatorBuyPlanAgente.LOCATOR_TYPE_DOCUMENT);
+			Thread.sleep(2000);
+			if(BasicData.TYPE_DOCUMENT_CC.equals(TypeDocument)) {
+				click(LocatorBuyPlanAgente.LOCATOR_TYPE_DOCUMENT_CC);
+			}
+			if(BasicData.TYPE_DOCUMENT_CE.equals(TypeDocument)) {
+				click(LocatorBuyPlanAgente.LOCATOR_TYPE_DOCUMENT_CE);
+			}
+			if(BasicData.TYPE_DOCUMENT_TI.equals(TypeDocument)) {
+				click(LocatorBuyPlanAgente.LOCATOR_TYPE_DOCUMENT_TI);
+			}
+			Thread.sleep(2000);
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+				click(LocatorBuyPlanAgente.LOCATOR_TYPE_DOCUMENT_NIT);
+				type(BasicData.NIT, LocatorBuyPlanAgente.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.DV, LocatorBuyPlanAgente.LOCATOR_DV);
+				type(BasicData.BUSINESS_NAME, LocatorBuyPlanAgente.LOCATOR_NAME);
+			}else {
+				type(BasicData.NUMBER_DOCUMENT, LocatorBuyPlanAgente.LOCATOR_NUMBER_DOCUMENT);
+				type(BasicData.NAME, LocatorBuyPlanAgente.LOCATOR_NAME);
+				type(BasicData.LAST_NAME, LocatorBuyPlanAgente.LOCATOR_LAST_NAME);
+			}
+			type(BasicData.CELL, LocatorBuyPlanAgente.LOCATOR_PHONE);
+			type(BasicData.CITY, LocatorBuyPlanAgente.LOCATOR_CITY);
+			Thread.sleep(3000);
+			WebElement city = driver.findElement(LocatorBuyPlanAgente.LOCATOR_CITY);
+			city.sendKeys(Keys.DOWN);
+			city.sendKeys(Keys.ENTER);
+			type(BasicData.ADDRESS, LocatorBuyPlanAgente.LOCATOR_ADDRESS);
+			type(BasicData.USERNAME_A, LocatorBuyPlanAgente.LOCATOR_USER_EMAIL);
+			type(BasicData.USERNAME_A, LocatorBuyPlanAgente.LOCATOR_EMAIL_CONFIRM);
+			if(BasicData.TYPE_DOCUMENT_NIT.equals(TypeDocument)) {
+				if(BasicData.EMAIL_DIAN_NO.equals(EmailDian)) {
+					click(LocatorBuyPlanAgente.LOCATOR_DIAN_NO);
+					type(BasicData.BILLING_MAIL, LocatorBuyPlanAgente.LOCATOR_EMAIL_DIAN);
+				}
+				click(LocatorBuyPlanAgente.LOCATOR_TYPE_REGIME);
+				Thread.sleep(2000);
+				if(BasicData.REGIME_TYPE_R.equals(RegimeType)) {
+					click(LocatorBuyPlanAgente.LOCATOR_IVA);
+				}
+				if(BasicData.REGIME_TYPE_N.equals(RegimeType)) {
+					click(LocatorBuyPlanAgente.LOCATOR_NO_IVA);
+				}
+				if(BasicData.REGIME_TYPE_RST.equals(RegimeType)) {
+					click(LocatorBuyPlanAgente.LOCATOR_RST);
+				}
+				click(LocatorBuyPlanAgente.LOCATOR_RETENTION_AGENT);
+				Thread.sleep(2000);
+				if(BasicData.RETENTION_AGENT_NO.equals(RetentionAgent)) {
+					click(LocatorBuyPlanAgente.LOCATOR_RETENTION_NO);
+				}
+				if(BasicData.RETENTION_AGENT_4.equals(RetentionAgent)) {
+					click(LocatorBuyPlanAgente.LOCATOR_RETENTION_4);
+				}
+				if(BasicData.RETENTION_AGENT_11.equals(RetentionAgent)) {
+					click(LocatorBuyPlanAgente.LOCATOR_RETENTION_11);
+				}
+				click(LocatorBuyPlanAgente.LOCATOR_FISCAL_RESPONSABILITY);
+				Thread.sleep(2000);
+				if(BasicData.FISCAL_RESPONSIBILITY_R.equals(FiscalResponsability)) {
+					click(LocatorBuyPlanAgente.LOCATOR_SIMPLE_REGIME);
+				}
+				if(BasicData.FISCAL_RESPONSIBILITY_A.equals(FiscalResponsability)) {
+					click(LocatorBuyPlanAgente.LOCATOR_AGENT_RETENTION_IVA);
+				}
+				if(BasicData.FISCAL_RESPONSIBILITY_G.equals(FiscalResponsability)) {
+					click(LocatorBuyPlanAgente.LOCATOR_GREAT_CONTRIBUTOR);
+				}
+				if(BasicData.FISCAL_RESPONSIBILITY_AU.equals(FiscalResponsability)) {
+					click(LocatorBuyPlanAgente.LOCATOR_SELF_RESTRAINT);
+				}
+				if(BasicData.FISCAL_RESPONSIBILITY_N.equals(FiscalResponsability)) {
+					click(LocatorBuyPlanAgente.LOCATOR_NOT_RESPONSIBLE);
+				}
+				Thread.sleep(2000);
+				if(BasicData.ICA_WITH_HOLDING_S.equals(Ica)) {
+					click(LocatorBuyPlanAgente.LOCATOR_ICA_SI);
+				}
+				if(BasicData.IVA_WITH_HOLDING_S.equals(Iva)) {
+					click(LocatorBuyPlanAgente.LOCATOR_IVA_SI);
+				}
+			}
+			Thread.sleep(2000);
+			click(LocatorBuyPlanAgente.LOCATOR_BUTTON_PAY_TWO);
+		} catch (NoSuchElementException e) {
 			System.out.println("Error: "+e);
 		}catch(TimeoutException e) {
 			System.out.println("Error: "+e);

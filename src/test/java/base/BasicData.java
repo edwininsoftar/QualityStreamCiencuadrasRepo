@@ -3,7 +3,7 @@ package base;
 public class BasicData {
 
 	// FLujo Agente
-	public static final String USERNAME_A = "agenteciencuadras19@yopmail.com";// agenteciencuadras19@yopmail.com
+	public static final String USERNAME_A = "agenteciencuadras21@yopmail.com";// agenteciencuadras19@yopmail.com
 	public static final String PASSWORD_A = "@Contraseña112";
 	public static final String PLAN_XS = "PlanXS";// PlanXS
 	public static final String PLAN_S = "PlanS";// PlanS
@@ -24,6 +24,13 @@ public class BasicData {
 	public static final int PROMOTED = 0;
 	public static final int ONLINE_1 = 1;
 	public static final int ONLINE = 0;
+	public static final String NAME = "Alejandro";
+	public static final String LAST_NAME = "Gusman";
+	public static final String NUMBER_DOCUMENT = "1057584962";
+	public static final String BUSINESS_NAME = "PRUEBA SAS";
+	public static final String REGIME_TYPE_R = "Responsable";// Comun
+	public static final String REGIME_TYPE_N = "No Responsable";// Simplificado
+	public static final String REGIME_TYPE_RST = "Regimen Simple";// Especial
 	public static final String DISCOUNT_CODE_NOT = "";// codigo de descuento vacio
 	public static final String DISCOUNT_CODE = "12365";// codigo de descuento
 	public static final String PAYMENT_TYPE_D = "Debito";// Debito
@@ -48,7 +55,7 @@ public class BasicData {
 	public static final String DUES = "5"; // numero de cuotas
 
 	// Flujo Constructora
-	public static final String USERNAME_C = "constructoraciencuadras20@yopmail.com";// constructoraciencuadras19@yopmail.com,constructoraciencuadras20@yopmail.com
+	public static final String USERNAME_C = "constructoraciencuadras21@yopmail.com";// constructoraciencuadras19@yopmail.com,constructoraciencuadras20@yopmail.com
 	public static final String PASSWORD_C = "100Cuadras%";
 	public static final String TYPE_PLAN_PS = "PlanesSemestrales";// PlanesSemestrales
 	public static final String TYPE_PLAN_PA = "PlanesAnuales";// PlanesAnuales
