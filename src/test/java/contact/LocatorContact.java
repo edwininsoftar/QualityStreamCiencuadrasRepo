@@ -28,13 +28,14 @@ public class LocatorContact {
 	public static final By LOCATOR_TO_INVEST = By.cssSelector("mat-option[ng-reflect-value=\"Para Invertir\"]");
 	public static final By LOCATOR_TO_LIVE = By.cssSelector("mat-option[ng-reflect-value=\"Para Vivir\"]");
 	public static final By LOCATOR_PLAN_TO_BUY = By.cssSelector("mat-select[formcontrolname=\"expectedTimePurchase\"]");
-	public static final By LOCATOR_THREE_MONTHS = By.cssSelector("mat-option[ng-reflect-value=\"En 3 meses\"]");
-	public static final By LOCATOR_SIX_MONTHS = By.cssSelector("mat-option[ng-reflect-value=\\\"En 6 meses\\\"]\"");
-	public static final By LOCATOR_NINE_MONTHS = By.cssSelector("mat-option[ng-reflect-value=\\\"En 9 meses\\\"]\"");
+	public static final By LOCATOR_THREE_MONTHS = By.xpath("/html/body/div[2]/div[4]/div/div/div/mat-option[1]/span");
+	public static final By LOCATOR_SIX_MONTHS = By.xpath("/html/body/div[2]/div[4]/div/div/div/mat-option[2]/span");
+	public static final By LOCATOR_NINE_MONTHS = By.xpath("/html/body/div[2]/div[4]/div/div/div/mat-option[3]/span");
 	public static final By LOCATOR_RE_CAPCHAT = By.xpath("//iframe[starts-with(@name, 'a-') and starts-with(@src, 'https://www.google.com/recaptcha')]");
 	public static final By LOCATOR_CAPTCHA = By.cssSelector("div[class=\"recaptcha-checkbox-border\"]");
 	public static final By LOCATOR_BUTTON_SEND = By.xpath("//*[@id=\"contactSalesForm\"]/div[7]/button[1]");
 	public static final By LOCATOR_X_TOW = By.xpath("//*[@id=\"detail-contact-sales\"]/button/span/span");
+	public static final By LOCATOR_X_THREE = By.xpath("/html/body/div[2]/div[4]/div/mat-dialog-container/app-message-sended/div/div[1]/button/span/span");
 	// Localizadores para validar que si se envio el contactar como usuario
 	// Constructora
 	public static final By LOCATOR_ENTER_BUTTON = By.linkText("INGRESAR");

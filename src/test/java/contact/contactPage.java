@@ -102,6 +102,8 @@ public class contactPage extends BasicWrap {
 			driver.switchTo().defaultContent();
 			Thread.sleep(8000);
 			click(LocatorContact.LOCATOR_BUTTON_SEND);
+			Thread.sleep(5000);
+			click(LocatorContact.LOCATOR_X_THREE);
 			Thread.sleep(8000);
 			click(LocatorContact.LOCATOR_X_TOW);
 
