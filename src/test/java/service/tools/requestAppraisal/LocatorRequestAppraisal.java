@@ -31,13 +31,13 @@ public class LocatorRequestAppraisal {
 	public static final By LOCATOR_BUILDING_UNDER_CONSTRUCTION = By.xpath("//*[@id=\"mat-radio-2\"]/label/span[1]/span[1]");
 	public static final By LOCATOR_FINISHED_PROPERTY = By.xpath("//*[@id=\"mat-radio-3\"]/label/span[1]/span[1]");
 	public static final By LOCATOR_PARKING = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-appraisal-register/div/div[1]/form/div[2]/div[1]/div[1]/div/button[2]");
-	public static final By LOCATOR_PARKING_COMMUNAL = By.xpath("//*[@id=\"mat-radio-5\"]");
-	public static final By LOCATOR_PARKING_PRIVATE = By.xpath("//*[@id=\"mat-radio-6\"]");
-	public static final By LOCATOR_PARKING_EXCLUSIVE = By.xpath("//*[@id=\"mat-radio-7\"]");
+	public static final By LOCATOR_PARKING_COMMUNAL = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[1]/div[2]/mat-radio-group/mat-radio-button[1]/label/span[1]/span[1]");
+	public static final By LOCATOR_PARKING_PRIVATE = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[1]/div[2]/mat-radio-group/mat-radio-button[2]/label/span[1]/span[1]");
+	public static final By LOCATOR_PARKING_EXCLUSIVE = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[1]/div[2]/mat-radio-group/mat-radio-button[3]/label/span[1]/span[1]");
 	public static final By LOCATOR_DEPOSIT = By.xpath("//*[@id=\"cdk-step-content-0-1\"]/app-appraisal-register/div/div[1]/form/div[2]/div[2]/div[1]/div/button[2]");
-	public static final By LOCATOR_DEPOSIT_COMMUNAL = By.xpath("//*[@id=\"mat-radio-9\"]/label/span[1]/span[2]");
-	public static final By LOCATOR_DEPOSIT_PRIVATE = By.xpath("//*[@id=\"mat-radio-10\"]/label/span[1]/span[2]");
-	public static final By LOCATOR_DEPOSIT_EXCLUSIVE = By.xpath("//*[@id=\"mat-radio-11\"]");
+	public static final By LOCATOR_DEPOSIT_COMMUNAL = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[2]/div[2]/mat-radio-group/mat-radio-button[1]/label/span[1]/span[1]");
+	public static final By LOCATOR_DEPOSIT_PRIVATE = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[2]/div[2]/mat-radio-group/mat-radio-button[2]/label/span[1]/span[1]");
+	public static final By LOCATOR_DEPOSIT_EXCLUSIVE = By.xpath("/html/body/app-root/app-appraisal-coverage/section[2]/app-stepper/mat-horizontal-stepper/div[2]/div[2]/app-appraisal-register/div/div[1]/form/div[2]/div[2]/div[2]/mat-radio-group/mat-radio-button[3]/label/span[1]/span[1]");
 	public static final By LOCATOR_BUTTON_CONTINUE = ByAngular.buttonText("Continuar");
 	// Formulario de facturación
 	public static final By LOCATOR_EMAIL = By.id("mat-input-9");

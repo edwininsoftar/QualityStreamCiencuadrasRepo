@@ -2,7 +2,7 @@ package base;
 
 public class BasicData {
 	
-	//Constant Calsulate Price
+	//Constant calcula precio
 	public static final String CITY = "Bogotá";//ciudad
 	public static final String ADDRESS = "Calle 184 # 20-51";//dirección
 	public static final String ADDRESS_ADD = "Segundo piso";//complemento de dirección

@@ -2,16 +2,11 @@ package service.tools.requestAppraisal;
 
 import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.ByAngularBinding;
-import com.paulhammant.ngwebdriver.ByAngularOptions;
-
 import base.BasicData;
 import base.BasicWrap;
 import io.netty.handler.timeout.TimeoutException;
@@ -109,7 +104,7 @@ public class RequestAppraisalPage extends BasicWrap {
 				for(int i=0;i<BasicData.DEPOSIT;i++) {
 					click(LocatorRequestAppraisal.LOCATOR_DEPOSIT);
 				}
-				Thread.sleep(8000);
+				Thread.sleep(5000);
 				if(BasicData.TYPE_DEPOSIT_C.equals(TypeDeposit)) {
 					click(LocatorRequestAppraisal.LOCATOR_DEPOSIT_COMMUNAL);
 				}
