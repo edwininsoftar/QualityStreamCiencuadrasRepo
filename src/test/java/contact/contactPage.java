@@ -125,7 +125,7 @@ public class contactPage extends BasicWrap {
 			type(BasicData.USER, LocatorContact.LOCATOR_USER);
 			type(BasicData.PASSWORD, LocatorContact.LOCATOR_PASSWORD);
 			click(LocatorContact.LOCATOR_LOGIN);
-			Thread.sleep(8000);
+			Thread.sleep(10000);
 			click(LocatorContact.LOCATOR_MENU);
 			click(LocatorContact.LOCATOR_MY_REPORTS);
 			Thread.sleep(8000);

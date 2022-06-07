@@ -42,7 +42,7 @@ public class LocatorContact {
 	public static final By LOCATOR_USER = By.cssSelector("input[formcontrolname=\"username\"]");
 	public static final By LOCATOR_PASSWORD = By.cssSelector("input[formcontrolname=\"password\"]");
 	public static final By LOCATOR_LOGIN = By.xpath("/html/body/app-root/div/app-login/div/lib-cc-login/div/div/div[3]/form/button/span");
-	public static final By LOCATOR_MENU = By.cssSelector("div[class=\"circle-name\"]");
+	public static final By LOCATOR_MENU = By.cssSelector("button[data-toggle=\"dropdown\"]");
 	public static final By LOCATOR_MY_REPORTS = By.linkText("Mis Reportes");
 	public static final By LOCATOR_START_DATE = By.id("fechaDesde");
 	public static final By LOCATOR_END_DATE = By.id("fechaHasta");
